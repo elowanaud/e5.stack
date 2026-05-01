@@ -1,0 +1,44 @@
+{
+	// BiomeJs Settings
+	"editor.defaultFormatter": "biomejs.biome",
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.biome": "explicit",
+		"source.organizeImports.biome": "explicit"
+	},
+
+	// Tailwindcss Settings
+	"editor.quickSuggestions": {
+		"other": "on",
+		"comments": "off",
+		"strings": "on"
+	},
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+	"tailwindCSS.classFunctions": ["cn", "cva", "clsx", "className", "classNames"],
+
+	"files.watcherExclude": {
+		"**/routeTree.gen.ts": true,
+		"**/.adonisjs/**": true,
+		"apps/api/database/schema.ts": true,
+		"**/i18n/build/**": true
+	},
+	"search.exclude": {
+		"**/routeTree.gen.ts": true,
+		"**/.adonisjs/**": true,
+		"apps/api/database/schema.ts": true,
+		"**/i18n/build/**": true
+	},
+	"files.readonlyInclude": {
+		"**/routeTree.gen.ts": true,
+		"**/.adonisjs/**": true,
+		"apps/api/database/schema.ts": true,
+		"**/i18n/build/**": true
+	},
+
+	// i18n-ally Settings
+	"i18n-ally.enabledFrameworks": ["react-i18next"],
+	"i18n-ally.localesPaths": ["apps/web/src/libs/i18n/build"],
+	"i18n-ally.displayLanguage": "fr"
+}

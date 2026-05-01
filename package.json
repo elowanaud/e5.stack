@@ -1,0 +1,16 @@
+{
+	"name": "e5.kit",
+	"author": "@elowanaud",
+	"scripts": {
+		"code-quality": "biome check",
+		"code-quality:fix": "biome check --fix"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.13",
+		"turbo": "^2.9.7"
+	},
+	"packageManager": "pnpm@10.33.2",
+	"engines": {
+		"node": "24"
+	}
+}
