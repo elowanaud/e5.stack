@@ -1,0 +1,18 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.4.13/schema.json",
+	"root": false,
+	"extends": "//",
+	"files": {
+		"includes": ["**", "!build", "!.adonisjs", "!database/schema.ts"]
+	},
+	"linter": {
+		"domains": {
+			"test": "recommended"
+		},
+		"rules": {
+			"style": {
+				"useImportType": "off"
+			}
+		}
+	}
+}
