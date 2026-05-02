@@ -3,7 +3,8 @@
 	"author": "elowanaud",
 	"type": "module",
 	"exports": {
-		"./tokens": "./src/tokens.ts"
+		"./tokens": "./src/tokens.ts",
+		"./tailwind": "./src/tailwind.css"
 	},
 	"scripts": {
 		"build": "pnpm generate:tailwind",
