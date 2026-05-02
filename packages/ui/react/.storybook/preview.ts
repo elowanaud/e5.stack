@@ -20,8 +20,8 @@ const preview: Preview = {
 		}),
 		withThemeByClassName({
 			themes: {
-				light: "bg-neutral-1",
-				dark: "bg-neutral-1",
+				light: "bg-neutral-2",
+				dark: "bg-neutral-2",
 			},
 			defaultTheme: "light",
 		}),
