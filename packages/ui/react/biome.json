@@ -1,0 +1,27 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.4.14/schema.json",
+	"root": false,
+	"extends": "//",
+	"linter": {
+		"domains": {
+			"react": "recommended",
+			"tailwind": "recommended"
+		},
+		"rules": {
+			"nursery": {
+				"useSortedClasses": {
+					"level": "warn",
+					"fix": "safe",
+					"options": {
+						"functions": ["cn", "cva", "classNames", "clsx"]
+					}
+				}
+			}
+		}
+	},
+	"css": {
+		"parser": {
+			"tailwindDirectives": true
+		}
+	}
+}

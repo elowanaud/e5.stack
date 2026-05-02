@@ -1,0 +1,24 @@
+{
+	"compilerOptions": {
+		/* Base Options */
+		"target": "es2022",
+		"lib": ["ES2022", "DOM", "DOM.Iterable"],
+		"module": "esnext",
+		"jsx": "react-jsx",
+		"skipLibCheck": true,
+		"moduleDetection": "force",
+		"verbatimModuleSyntax": true,
+
+		/* Bundler mode */
+		"moduleResolution": "bundler",
+		"noEmit": true,
+
+		/* Linting */
+		"strict": true,
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
+		"noFallthroughCasesInSwitch": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true
+	}
+}
