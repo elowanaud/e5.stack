@@ -21,19 +21,19 @@
 	"files.watcherExclude": {
 		"**/routeTree.gen.ts": true,
 		"**/.adonisjs/**": true,
-		"apps/api/database/schema.ts": true,
+		"**/database/schema.ts": true,
 		"**/i18n/build/**": true
 	},
 	"search.exclude": {
 		"**/routeTree.gen.ts": true,
 		"**/.adonisjs/**": true,
-		"apps/api/database/schema.ts": true,
+		"**/database/schema.ts": true,
 		"**/i18n/build/**": true
 	},
 	"files.readonlyInclude": {
 		"**/routeTree.gen.ts": true,
 		"**/.adonisjs/**": true,
-		"apps/api/database/schema.ts": true,
+		"**/database/schema.ts": true,
 		"**/i18n/build/**": true
 	},
 
