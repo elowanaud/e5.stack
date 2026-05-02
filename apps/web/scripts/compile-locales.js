@@ -1,5 +1,3 @@
-// biome-ignore-all lint/suspicious/noConsole: Dev tools
-
 import { globSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import merge from "deepmerge-json";

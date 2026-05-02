@@ -1,4 +1,4 @@
-import { readFileSync, renameSync, unlinkSync, writeFileSync } from "node:fs";
+import { writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { colors, fonts } from "../src/tokens.ts";
@@ -13,26 +13,7 @@ function main() {
 		validateTokens();
 
 		const nextCss = buildCss();
-		let currentCss = null;
-
-		try {
-			currentCss = readFileSync(OUTPUT_PATH, "utf-8");
-		} catch (_error) {
-			currentCss = null;
-		}
-
-		if (currentCss !== nextCss) {
-			const tmpPath = `${OUTPUT_PATH}.tmp`;
-			writeFileSync(tmpPath, nextCss, "utf-8");
-			try {
-				renameSync(tmpPath, OUTPUT_PATH);
-			} catch (error) {
-				try {
-					unlinkSync(tmpPath);
-				} catch (_unlinkError) {}
-				throw error;
-			}
-		}
+		writeFileSync(OUTPUT_PATH, nextCss, "utf-8");
 
 		console.timeEnd(" \x1b[32m✓\x1b[0m Generated tailwind.css in ");
 	} catch (error) {
@@ -53,10 +34,10 @@ function validateTokens() {
 		}
 	}
 
-	for (const [familyName, family] of Object.entries(colors)) {
-		for (const [shadeName, shade] of Object.entries(family)) {
-			if (!shade || typeof shade.light !== "string" || typeof shade.dark !== "string") {
-				fail(`Invalid color token ${familyName}-${shadeName}: expected light and dark strings`);
+	for (const [color, variants] of Object.entries(colors)) {
+		for (const [variant, themes] of Object.entries(variants)) {
+			if (!themes || typeof themes.light !== "string" || typeof themes.dark !== "string") {
+				fail(`Invalid color token ${color}-${variant}: expected light and dark strings`);
 			}
 		}
 	}
