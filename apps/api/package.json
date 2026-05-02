@@ -2,6 +2,10 @@
 	"name": "@workspace/api",
 	"author": "elowanaud",
 	"type": "module",
+	"exports": {
+		"./registry": "./.adonisjs/client/registry/index.ts",
+		"./data": "./.adonisjs/client/data.d.ts"
+	},
 	"scripts": {
 		"start": "node bin/server.js",
 		"build": "node ace build",
@@ -19,6 +23,8 @@
 	"dependencies": {
 		"@adonisjs/core": "^7.3.1",
 		"@adonisjs/lucid": "^22.4.2",
+		"@tuyau/core": "^1.2.2",
+		"@tuyau/superjson": "^1.0.0",
 		"@vinejs/vine": "^4.4.0",
 		"luxon": "^3.7.2",
 		"pg": "^8.20.0",
