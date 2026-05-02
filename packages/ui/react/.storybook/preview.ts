@@ -1,10 +1,11 @@
-import { withThemeByDataAttribute } from "@storybook/addon-themes";
+import { withThemeByClassName, withThemeByDataAttribute } from "@storybook/addon-themes";
 import type { Preview } from "@storybook/react-vite";
 import "../src/globals.css";
 
 const preview: Preview = {
 	parameters: {
 		layout: "centered",
+		backgrounds: { disable: true },
 		actions: { argTypesRegex: "^on.*" },
 	},
 	tags: ["autodocs"],
@@ -16,6 +17,13 @@ const preview: Preview = {
 			},
 			defaultTheme: "light",
 			attributeName: "data-theme",
+		}),
+		withThemeByClassName({
+			themes: {
+				light: "bg-neutral-1",
+				dark: "bg-neutral-1",
+			},
+			defaultTheme: "light",
 		}),
 	],
 };

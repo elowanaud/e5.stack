@@ -57,6 +57,9 @@ function buildCss() {
 		lines.push(`\t--font-${fontName}: ${fontValue};`);
 	}
 
+	lines.push("");
+	lines.push("\t--color-*: initial;");
+
 	for (const [color, variants] of Object.entries(colors)) {
 		lines.push("");
 		for (const variant of Object.keys(variants)) {
