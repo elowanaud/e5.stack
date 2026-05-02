@@ -9,6 +9,15 @@ export default await Env.create(new URL("../../", import.meta.url), {
 	HOST: Env.schema.string({ format: "host" }),
 	LOG_LEVEL: Env.schema.string(),
 
+	// Cookie Config
+	COOKIE_DOMAIN: Env.schema.string.optionalWhen(process.env.NODE_ENV !== "production"),
+
+	// Session Config
+	SESSION_DRIVER: Env.schema.enum(["cookie", "memory"] as const),
+
+	// CORS Config
+	CORS_AUTHORIZED_ORIGINS: Env.schema.string.optionalWhen(process.env.NODE_ENV !== "production"),
+
 	// Database Config
 	DB_HOST: Env.schema.string({ format: "host" }),
 	DB_PORT: Env.schema.number(),

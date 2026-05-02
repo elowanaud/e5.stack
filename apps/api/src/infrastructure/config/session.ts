@@ -1,0 +1,24 @@
+import app from "@adonisjs/core/services/app";
+import { defineConfig, stores } from "@adonisjs/session";
+import env from "#infrastructure/env";
+
+const sessionConfig = defineConfig({
+	enabled: true,
+	cookieName: "adonis-session",
+	clearWithBrowser: false,
+	age: "7days",
+
+	cookie: {
+		path: "/",
+		httpOnly: true,
+		secure: app.inProduction,
+		sameSite: "lax",
+	},
+
+	store: env.get("SESSION_DRIVER"),
+	stores: {
+		cookie: stores.cookie(),
+	},
+});
+
+export default sessionConfig;
