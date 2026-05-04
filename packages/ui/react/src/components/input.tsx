@@ -1,6 +1,6 @@
 import { Input as InputPrimitive } from "@base-ui/react/input";
 import { cn } from "@workspace/ui-react/utils";
-import { type CSSProperties, type ReactNode, useRef } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { useElementSize } from "../hooks/use-element-size";
 
 type InputProps = InputPrimitive.Props & {
@@ -11,10 +11,8 @@ type InputProps = InputPrimitive.Props & {
 function Input(props: InputProps) {
 	const { className, leftSlot, rightSlot, ...rest } = props;
 
-	const leftSlotRef = useRef<HTMLElement>(null);
-	const leftSlotSize = useElementSize(leftSlotRef);
-	const rightSlotRef = useRef<HTMLElement>(null);
-	const rightSlotSize = useElementSize(rightSlotRef);
+	const { ref: leftSlotRef, size: leftSlotSize } = useElementSize();
+	const { ref: rightSlotRef, size: rightSlotSize } = useElementSize();
 
 	const defaultClassName = cn(
 		// Default
