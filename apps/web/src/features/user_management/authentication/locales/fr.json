@@ -1,0 +1,24 @@
+{
+	"features.user_management.authentication.components.login-form": {
+		"field": {
+			"email": {
+				"label": "Adresse e-mail"
+			},
+			"password": {
+				"label": "Mot de passe"
+			}
+		},
+		"action": {
+			"login": "Se connecter"
+		}
+	},
+
+	"features.user_management.authentication.hooks.use-login-mutation": {
+		"error": {
+			"E_NETWORK": "Une erreur réseau est survenue. Veuillez réessayer.",
+			"E_INVALID_CREDENTIALS": "Identifiants invalides. Veuillez vérifier votre adresse e-mail et votre mot de passe.",
+			"E_GUEST_ONLY": "Vous êtes déjà connecté. Veuillez vous déconnecter avant de vous connecter avec un compte.",
+			"E_UNEXPECTED": "Une erreur inattendue est survenue. Veuillez réessayer."
+		}
+	}
+}

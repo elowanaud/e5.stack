@@ -3,8 +3,9 @@ interface Fonts {
 }
 
 export const fonts: Fonts = {
-	sans: '"ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
-	serif: '"ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"',
+	sans: '"Inter", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+	serif:
+		'"Libre Caslon Display", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"',
 	mono: '"ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"',
 };
 
@@ -19,32 +20,32 @@ interface Colors {
 
 export const colors: Colors = {
 	neutral: {
-		1: { light: "#fcfcfd", dark: "#111113" },
-		2: { light: "#f9f9fb", dark: "#18191b" },
-		3: { light: "#f0f0f3", dark: "#212225" },
-		4: { light: "#e8e8ec", dark: "#272a2d" },
-		5: { light: "#e0e1e6", dark: "#2e3135" },
-		6: { light: "#d9d9e0", dark: "#363a3f" },
-		7: { light: "#cdced6", dark: "#43484e" },
-		8: { light: "#b9bbc6", dark: "#5a6169" },
-		9: { light: "#8b8d98", dark: "#696e77" },
-		10: { light: "#80838d", dark: "#777b84" },
-		11: { light: "#60646c", dark: "#b0b4ba" },
-		12: { light: "#1c2024", dark: "#edeef0" },
+		1: { light: "#fdfcfd", dark: "#121113" },
+		2: { light: "#faf9fb", dark: "#1a191b" },
+		3: { light: "#f2eff3", dark: "#232225" },
+		4: { light: "#eae7ec", dark: "#2b292d" },
+		5: { light: "#e3dfe6", dark: "#323035" },
+		6: { light: "#dbd8e0", dark: "#3c393f" },
+		7: { light: "#d0cdd7", dark: "#49474e" },
+		8: { light: "#bcbac7", dark: "#625f69" },
+		9: { light: "#8e8c99", dark: "#6f6d78" },
+		10: { light: "#84828e", dark: "#7c7a85" },
+		11: { light: "#65636d", dark: "#b5b2bc" },
+		12: { light: "#211f26", dark: "#eeeef0" },
 	},
 	primary: {
-		1: { light: "#fdfdfe", dark: "#11131f" },
-		2: { light: "#f7f9ff", dark: "#141726" },
-		3: { light: "#edf2fe", dark: "#182449" },
-		4: { light: "#e1e9ff", dark: "#1d2e62" },
-		5: { light: "#d2deff", dark: "#253974" },
-		6: { light: "#c1d0ff", dark: "#304384" },
-		7: { light: "#abbdf9", dark: "#3a4f97" },
-		8: { light: "#8da4ef", dark: "#435db1" },
-		9: { light: "#3e63dd", dark: "#3e63dd" },
-		10: { light: "#3358d4", dark: "#5472e4" },
-		11: { light: "#3a5bc7", dark: "#9eb1ff" },
-		12: { light: "#1f2d5c", dark: "#d6e1ff" },
+		1: { light: "#fdfcfe", dark: "#14121f" },
+		2: { light: "#faf8ff", dark: "#1b1525" },
+		3: { light: "#f4f0fe", dark: "#291f43" },
+		4: { light: "#ebe4ff", dark: "#33255b" },
+		5: { light: "#e1d9ff", dark: "#3c2e69" },
+		6: { light: "#d4cafe", dark: "#473876" },
+		7: { light: "#c2b5f5", dark: "#56468b" },
+		8: { light: "#aa99ec", dark: "#6958ad" },
+		9: { light: "#6e56cf", dark: "#6e56cf" },
+		10: { light: "#654dc4", dark: "#7d66d9" },
+		11: { light: "#6550b9", dark: "#baa7ff" },
+		12: { light: "#2f265f", dark: "#e2ddfe" },
 	},
 	info: {
 		1: { light: "#fbfdff", dark: "#0d1520" },

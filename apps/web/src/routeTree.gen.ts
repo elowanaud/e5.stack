@@ -9,50 +9,123 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as PageRouteImport } from './routes/page'
+import { Route as privateLayoutRouteImport } from './routes/(private)/layout'
+import { Route as guestauthLayoutRouteImport } from './routes/(guest)/(auth)/layout'
+import { Route as privatehomePageRouteImport } from './routes/(private)/(home)/page'
+import { Route as guestauthLoginPageRouteImport } from './routes/(guest)/(auth)/login/page'
 
-const PageRoute = PageRouteImport.update({
-  id: '/',
-  path: '/',
+const privateLayoutRoute = privateLayoutRouteImport.update({
+  id: '/(private)',
   getParentRoute: () => rootRouteImport,
+} as any)
+const guestauthLayoutRoute = guestauthLayoutRouteImport.update({
+  id: '/(guest)/(auth)',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const privatehomePageRoute = privatehomePageRouteImport.update({
+  id: '/(home)/',
+  path: '/',
+  getParentRoute: () => privateLayoutRoute,
+} as any)
+const guestauthLoginPageRoute = guestauthLoginPageRouteImport.update({
+  id: '/login/',
+  path: '/login/',
+  getParentRoute: () => guestauthLayoutRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof PageRoute
+  '/': typeof privatehomePageRoute
+  '/login/': typeof guestauthLoginPageRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof PageRoute
+  '/': typeof privatehomePageRoute
+  '/login': typeof guestauthLoginPageRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof PageRoute
+  '/(private)': typeof privateLayoutRouteWithChildren
+  '/(guest)/(auth)': typeof guestauthLayoutRouteWithChildren
+  '/(private)/(home)/': typeof privatehomePageRoute
+  '/(guest)/(auth)/login/': typeof guestauthLoginPageRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/login/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/login'
+  id:
+    | '__root__'
+    | '/(private)'
+    | '/(guest)/(auth)'
+    | '/(private)/(home)/'
+    | '/(guest)/(auth)/login/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  PageRoute: typeof PageRoute
+  privateLayoutRoute: typeof privateLayoutRouteWithChildren
+  guestauthLayoutRoute: typeof guestauthLayoutRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/(private)': {
+      id: '/(private)'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof privateLayoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(guest)/(auth)': {
+      id: '/(guest)/(auth)'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof guestauthLayoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(private)/(home)/': {
+      id: '/(private)/(home)/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof PageRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof privatehomePageRouteImport
+      parentRoute: typeof privateLayoutRoute
+    }
+    '/(guest)/(auth)/login/': {
+      id: '/(guest)/(auth)/login/'
+      path: '/login'
+      fullPath: '/login/'
+      preLoaderRoute: typeof guestauthLoginPageRouteImport
+      parentRoute: typeof guestauthLayoutRoute
     }
   }
 }
 
+interface privateLayoutRouteChildren {
+  privatehomePageRoute: typeof privatehomePageRoute
+}
+
+const privateLayoutRouteChildren: privateLayoutRouteChildren = {
+  privatehomePageRoute: privatehomePageRoute,
+}
+
+const privateLayoutRouteWithChildren = privateLayoutRoute._addFileChildren(
+  privateLayoutRouteChildren,
+)
+
+interface guestauthLayoutRouteChildren {
+  guestauthLoginPageRoute: typeof guestauthLoginPageRoute
+}
+
+const guestauthLayoutRouteChildren: guestauthLayoutRouteChildren = {
+  guestauthLoginPageRoute: guestauthLoginPageRoute,
+}
+
+const guestauthLayoutRouteWithChildren = guestauthLayoutRoute._addFileChildren(
+  guestauthLayoutRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
-  PageRoute: PageRoute,
+  privateLayoutRoute: privateLayoutRouteWithChildren,
+  guestauthLayoutRoute: guestauthLayoutRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

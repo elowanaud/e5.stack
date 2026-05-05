@@ -1,0 +1,5 @@
+{
+	"routes.(guest).(auth).login": {
+		"title": "Connexion"
+	}
+}
