@@ -1,1 +1,4 @@
 @import "tailwindcss";
+@import "@workspace/ui-theme/tailwind";
+
+@source "../../node_modules/@workspace/ui-react";

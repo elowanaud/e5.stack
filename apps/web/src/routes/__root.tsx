@@ -28,7 +28,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 			<head>
 				<HeadContent />
 			</head>
-			<body className="antialiased">
+			<body className="bg-neutral-2 antialiased">
 				<Providers>{children}</Providers>
 				<Scripts />
 			</body>
