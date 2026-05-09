@@ -1,6 +1,6 @@
 import { Toggle as TogglePrimitive } from "@base-ui/react/toggle";
 import { useState } from "react";
-import { EyeIcon, EyeSlashIcon } from "../../icons";
+import { EyeIcon, EyeOffIcon } from "../../icons";
 import { Button } from "../button";
 import { Input, type InputProps } from "../input";
 
@@ -43,7 +43,7 @@ export function PasswordInputRoot(props: PasswordInputRootProps) {
 
 				return (
 					<Button variant="ghost" size="icon-sm" {...props}>
-						<EyeSlashIcon />
+						<EyeOffIcon />
 					</Button>
 				);
 			}}

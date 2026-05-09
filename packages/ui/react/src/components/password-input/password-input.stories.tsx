@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { MagnifyingGlassCircleIcon } from "../../icons";
+import { SearchIcon } from "../../icons";
 import { PasswordInput } from "./index";
 
 const meta: Meta<typeof PasswordInput> = {
@@ -41,7 +41,7 @@ const meta: Meta<typeof PasswordInput> = {
 			control: "select",
 			options: ["Search"],
 			mapping: {
-				Search: <MagnifyingGlassCircleIcon className="mx-1 size-4 text-neutral-11" />,
+				Search: <SearchIcon className="mx-1 size-4 text-neutral-11" />,
 			},
 			table: {
 				type: {
