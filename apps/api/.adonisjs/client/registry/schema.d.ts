@@ -11,12 +11,12 @@ export interface Registry {
     methods: ["POST"]
     pattern: '/auth/login'
     types: {
-      body: ExtractBody<InferInput<(typeof import('#domains/user_management/authentication/controllers/login_with_credentials.controller').default)['payloadSchema']>>
+      body: ExtractBody<InferInput<(typeof import('#src/features/user_management/authentication/controllers/login_with_credentials.controller').default)['payloadSchema']>>
       paramsTuple: []
       params: {}
-      query: ExtractQuery<InferInput<(typeof import('#domains/user_management/authentication/controllers/login_with_credentials.controller').default)['payloadSchema']>>
-      response: ExtractResponse<Awaited<ReturnType<import('#domains/user_management/authentication/controllers/login_with_credentials.controller').default['handle']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#domains/user_management/authentication/controllers/login_with_credentials.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
+      query: ExtractQuery<InferInput<(typeof import('#src/features/user_management/authentication/controllers/login_with_credentials.controller').default)['payloadSchema']>>
+      response: ExtractResponse<Awaited<ReturnType<import('#src/features/user_management/authentication/controllers/login_with_credentials.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/user_management/authentication/controllers/login_with_credentials.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
   'auth.logout': {
@@ -27,8 +27,8 @@ export interface Registry {
       paramsTuple: []
       params: {}
       query: {}
-      response: ExtractResponse<Awaited<ReturnType<import('#domains/user_management/authentication/controllers/logout.controller').default['handle']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#domains/user_management/authentication/controllers/logout.controller').default['handle']>>>
+      response: ExtractResponse<Awaited<ReturnType<import('#src/features/user_management/authentication/controllers/logout.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/user_management/authentication/controllers/logout.controller').default['handle']>>>
     }
   }
   'profile.view': {
@@ -39,8 +39,8 @@ export interface Registry {
       paramsTuple: []
       params: {}
       query: {}
-      response: ExtractResponse<Awaited<ReturnType<import('#domains/user_management/profile/controllers/view.controller').default['handle']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#domains/user_management/profile/controllers/view.controller').default['handle']>>>
+      response: ExtractResponse<Awaited<ReturnType<import('#src/features/user_management/profile/controllers/view.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/user_management/profile/controllers/view.controller').default['handle']>>>
     }
   }
 }

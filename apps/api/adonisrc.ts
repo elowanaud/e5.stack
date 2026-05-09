@@ -4,12 +4,15 @@ import { generateRegistry } from "@tuyau/core/hooks";
 
 export default defineConfig({
 	directories: {
-		config: "src/infrastructure/config",
-		migrations: "src/infrastructure/database/migrations",
-		factories: "src/infrastructure/database/factories",
-		seeders: "src/infrastructure/database/seeders",
-		models: "src/application/models",
-		commands: "commands",
+		httpControllers: "src/controllers",
+		models: "src/models",
+		services: "src/services",
+		exceptions: "src/exceptions",
+		mails: "src/mails",
+		middleware: "src/middleware",
+		validators: "src/validators",
+		views: "src/views",
+		policies: "src/policies",
 	},
 
 	experimental: {},
@@ -34,10 +37,7 @@ export default defineConfig({
 		() => import("@adonisjs/auth/auth_provider"),
 	],
 
-	preloads: [
-		() => import("#infrastructure/http/routes"),
-		() => import("#infrastructure/http/kernel"),
-	],
+	preloads: [() => import("#start/routes"), () => import("#start/kernel")],
 
 	tests: {
 		suites: [
@@ -65,20 +65,20 @@ export default defineConfig({
 			indexEntities({
 				controllers: {
 					enabled: true,
-					source: "src/domains",
-					importAlias: "#domains",
+					source: "src",
+					importAlias: "#src",
 					glob: ["**/*.controller.{ts,js}"],
 				},
 				events: {
 					enabled: true,
-					source: "src/domains",
-					importAlias: "#domains",
+					source: "src",
+					importAlias: "#src",
 					glob: ["**/*.event.{ts,js}"],
 				},
 				listeners: {
 					enabled: true,
-					source: "src/domains",
-					importAlias: "#domains",
+					source: "src",
+					importAlias: "#src",
 					glob: ["**/*.listener.{ts,js}"],
 				},
 				transformers: {

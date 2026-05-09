@@ -36,14 +36,14 @@ const IMPORTER = (filePath: string) => {
 new Ignitor(APP_ROOT, { importer: IMPORTER })
 	.tap((app) => {
 		app.booting(async () => {
-			await import("#infrastructure/env");
+			await import("#start/env");
 		});
 		app.listen("SIGTERM", () => app.terminate());
 		app.listenIf(app.managedByPm2, "SIGINT", () => app.terminate());
 	})
 	.testRunner()
 	.configure(async (app) => {
-		const { runnerHooks, ...config } = await import("../src/infrastructure/bootstrap.ts");
+		const { runnerHooks, ...config } = await import("../tests/bootstrap.ts");
 
 		processCLIArgs(process.argv.splice(2));
 		configure({

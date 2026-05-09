@@ -4,13 +4,15 @@
  */
 
 export const controllers = {
-  userManagement: {
-    authentication: {
-      LoginWithCredentials: () => import('#domains/user_management/authentication/controllers/login_with_credentials.controller'),
-      Logout: () => import('#domains/user_management/authentication/controllers/logout.controller'),
-    },
-    profile: {
-      View: () => import('#domains/user_management/profile/controllers/view.controller'),
+  features: {
+    userManagement: {
+      authentication: {
+        LoginWithCredentials: () => import('#src/features/user_management/authentication/controllers/login_with_credentials.controller'),
+        Logout: () => import('#src/features/user_management/authentication/controllers/logout.controller'),
+      },
+      profile: {
+        View: () => import('#src/features/user_management/profile/controllers/view.controller'),
+      },
     },
   },
 }

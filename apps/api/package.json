@@ -15,10 +15,18 @@
 		"docker-compose": "docker compose up"
 	},
 	"imports": {
-		"#infrastructure/*": "./src/infrastructure/*.js",
-		"#application/*": "./src/application/*.js",
-		"#domains/*": "./src/domains/*.js",
-		"#generated/*": "./.adonisjs/server/*.js"
+		"#config/*": "./config/*.js",
+		"#controllers/*": "./src/controllers/*.js",
+		"#database/*": "./database/*.js",
+		"#exceptions/*": "./src/exceptions/*.js",
+		"#features/*": "./src/features/*.js",
+		"#generated/*": "./.adonisjs/server/*.js",
+		"#middlewares/*": "./src/middlewares/*.js",
+		"#models/*": "./src/models/*.js",
+		"#services/*": "./src/services/*.js",
+		"#src/*": "./src/*.js",
+		"#start/*": "./start/*.js",
+		"#tests/*": "./tests/*.js"
 	},
 	"dependencies": {
 		"@adonisjs/auth": "10.1.0",
