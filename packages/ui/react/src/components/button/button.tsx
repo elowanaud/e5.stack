@@ -71,10 +71,7 @@ const buttonVariants = tv({
 	},
 });
 
-export type ButtonRootProps = Omit<ButtonPrimitive.Props, "className"> &
-	VariantProps<typeof buttonVariants> & {
-		className?: string;
-	};
+export type ButtonRootProps = ButtonPrimitive.Props & VariantProps<typeof buttonVariants>;
 
 export function ButtonRoot(props: ButtonRootProps) {
 	const { className, variant, size, type = "button", ...rest } = props;
@@ -82,7 +79,7 @@ export function ButtonRoot(props: ButtonRootProps) {
 	return (
 		<ButtonPrimitive
 			type={type}
-			className={buttonVariants({ variant, size, className })}
+			className={buttonVariants({ variant, size, className: className?.toString() })}
 			{...rest}
 		/>
 	);
