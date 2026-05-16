@@ -43,4 +43,28 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/user_management/profile/controllers/view.controller').default['handle']>>>
     }
   }
+  'auth.forgot_password': {
+    methods: ["POST"]
+    pattern: '/auth/forgot-password'
+    types: {
+      body: ExtractBody<InferInput<(typeof import('#src/features/user_management/password/controllers/forgot_password.controller').default)['payloadSchema']>>
+      paramsTuple: []
+      params: {}
+      query: ExtractQuery<InferInput<(typeof import('#src/features/user_management/password/controllers/forgot_password.controller').default)['payloadSchema']>>
+      response: ExtractResponse<Awaited<ReturnType<import('#src/features/user_management/password/controllers/forgot_password.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/user_management/password/controllers/forgot_password.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
+    }
+  }
+  'auth.reset_password': {
+    methods: ["POST"]
+    pattern: '/auth/reset-password'
+    types: {
+      body: ExtractBody<InferInput<(typeof import('#src/features/user_management/password/controllers/reset_password.controller').default)['payloadSchema']>>
+      paramsTuple: []
+      params: {}
+      query: ExtractQuery<InferInput<(typeof import('#src/features/user_management/password/controllers/reset_password.controller').default)['payloadSchema']>>
+      response: ExtractResponse<Awaited<ReturnType<import('#src/features/user_management/password/controllers/reset_password.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/user_management/password/controllers/reset_password.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
+    }
+  }
 }

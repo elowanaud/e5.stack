@@ -1,0 +1,31 @@
+type: http_request
+model: http_request
+id: rq_FLTaYMnNBC
+createdAt: 2026-05-16T05:00:39.144296
+updatedAt: 2026-05-16T05:01:35.948302
+workspaceId: wk_bpdV78RkSs
+folderId: fl_e65UGoDWan
+authentication: {}
+authenticationType: null
+body:
+  form:
+  - enabled: true
+    id: 0S6hstGYMZ
+    name: email
+    value: ${[ UID_CREDENTIAL ]}
+  - enabled: true
+    id: jhZmzyvXdr
+    name: ''
+    value: ''
+bodyType: multipart/form-data
+description: ''
+headers:
+- enabled: true
+  name: Content-Type
+  value: multipart/form-data
+  id: 2IjFHcGDdb
+method: POST
+name: Forgot Password
+sortPriority: -1778907639143.0
+url: ${[ BASE_URL ]}/auth/forgot-password
+urlParameters: []

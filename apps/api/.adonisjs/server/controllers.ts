@@ -13,6 +13,10 @@ export const controllers = {
       profile: {
         View: () => import('#src/features/user_management/profile/controllers/view.controller'),
       },
+      password: {
+        ForgotPassword: () => import('#src/features/user_management/password/controllers/forgot_password.controller'),
+        ResetPassword: () => import('#src/features/user_management/password/controllers/reset_password.controller'),
+      },
     },
   },
 }

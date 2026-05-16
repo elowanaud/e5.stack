@@ -13,13 +13,6 @@ const dbConfig = defineConfig({
 				password: env.get("DB_PASSWORD"),
 				database: env.get("DB_DATABASE"),
 			},
-			migrations: {
-				naturalSort: true,
-				paths: ["src/infrastructure/database/migrations"],
-			},
-			schemaGeneration: {
-				outputPath: "src/infrastructure/database/schema.ts",
-			},
 		},
 	},
 });

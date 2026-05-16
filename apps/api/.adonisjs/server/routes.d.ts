@@ -7,9 +7,13 @@ export type ScannedRoutes = {
     'auth.login_with_credentials': { paramsTuple?: []; params?: {} }
     'auth.logout': { paramsTuple?: []; params?: {} }
     'profile.view': { paramsTuple?: []; params?: {} }
+    'auth.forgot_password': { paramsTuple?: []; params?: {} }
+    'auth.reset_password': { paramsTuple?: []; params?: {} }
   }
   POST: {
     'auth.login_with_credentials': { paramsTuple?: []; params?: {} }
+    'auth.forgot_password': { paramsTuple?: []; params?: {} }
+    'auth.reset_password': { paramsTuple?: []; params?: {} }
   }
   DELETE: {
     'auth.logout': { paramsTuple?: []; params?: {} }

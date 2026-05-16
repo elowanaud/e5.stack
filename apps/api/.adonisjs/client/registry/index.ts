@@ -24,6 +24,18 @@ const routes = {
     tokens: [{"old":"/profile","type":0,"val":"profile","end":""}],
     types: placeholder as Registry['profile.view']['types'],
   },
+  'auth.forgot_password': {
+    methods: ["POST"],
+    pattern: '/auth/forgot-password',
+    tokens: [{"old":"/auth/forgot-password","type":0,"val":"auth","end":""},{"old":"/auth/forgot-password","type":0,"val":"forgot-password","end":""}],
+    types: placeholder as Registry['auth.forgot_password']['types'],
+  },
+  'auth.reset_password': {
+    methods: ["POST"],
+    pattern: '/auth/reset-password',
+    tokens: [{"old":"/auth/reset-password","type":0,"val":"auth","end":""},{"old":"/auth/reset-password","type":0,"val":"reset-password","end":""}],
+    types: placeholder as Registry['auth.reset_password']['types'],
+  },
 } as const satisfies Record<string, AdonisEndpoint>
 
 export { routes }

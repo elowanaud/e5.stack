@@ -1,4 +1,5 @@
 import { Env } from "@adonisjs/core/env";
+import app from "@adonisjs/core/services/app";
 
 export default await Env.create(new URL("../", import.meta.url), {
 	// Server Config
@@ -8,6 +9,9 @@ export default await Env.create(new URL("../", import.meta.url), {
 	APP_URL: Env.schema.string({ format: "url", tld: false }),
 	HOST: Env.schema.string({ format: "host" }),
 	LOG_LEVEL: Env.schema.string(),
+
+	// Frontend Config
+	FRONTEND_URL: Env.schema.string({ format: "url", tld: app.inProduction }),
 
 	// Cookie Config
 	COOKIE_DOMAIN: Env.schema.string.optionalWhen(process.env.NODE_ENV !== "production"),
