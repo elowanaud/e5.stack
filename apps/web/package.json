@@ -30,7 +30,7 @@
 		"react": "19.2.5",
 		"react-dom": "19.2.5",
 		"react-i18next": "^17.0.6",
-		"zod": "4.4.2"
+		"zod": "4.4.3"
 	},
 	"devDependencies": {
 		"@rolldown/plugin-babel": "0.2.3",
