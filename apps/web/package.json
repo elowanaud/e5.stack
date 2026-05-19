@@ -3,6 +3,7 @@
 	"author": "elowanaud",
 	"type": "module",
 	"scripts": {
+		"postinstall": "pnpm run i18n:build",
 		"build": "vite build",
 		"preview": "vite preview",
 		"dev": "concurrently --prefix none \"vite dev --port 3000\" \"pnpm:i18n:dev\"",
