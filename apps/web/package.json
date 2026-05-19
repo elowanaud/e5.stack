@@ -39,7 +39,7 @@
 		"@tanstack/react-devtools": "0.10.5",
 		"@tanstack/react-form-devtools": "0.2.22",
 		"@tanstack/react-query-devtools": "5.100.8",
-		"@tanstack/react-router-devtools": "1.166.13",
+		"@tanstack/react-router-devtools": "1.167.0",
 		"@types/node": "24",
 		"@types/react": "19.2.14",
 		"@types/react-dom": "19.2.3",
