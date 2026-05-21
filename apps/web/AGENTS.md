@@ -14,6 +14,7 @@ TanStack Start React app with file routes, React Query, Tuyau API client, TanSta
 | API client | `src/libs/tuyau.ts` | Uses `@workspace/api/registry`, SuperJSON, credentials include. |
 | Forms | `src/libs/form.ts`, `src/components/form/*` | App fields registered once, reused by features. |
 | Login flow | `src/features/user_management/authentication/**` | Hooks own mutations, redirects, error mapping, form setup. |
+| Password recovery | `src/routes/(guest)/(auth)/forgot-password/page.tsx`, `src/routes/(guest)/(auth)/reset-password/page.tsx` | Forgot/reset password pages using feature form hooks. |
 | i18n | `scripts/compile-locales.js`, `src/**/locales/fr.json`, `src/libs/i18n/config.ts` | Source locales compile to `src/libs/i18n/build/fr.json`. |
 | Providers | `src/providers/*`, `src/routes/__root.tsx` | Theme provider plus TanStack devtools. |
 | App shell | `src/components/app/sidebar/*` | Authenticated menu/theme/logout UI. |
@@ -62,5 +63,6 @@ pnpm --filter @workspace/web i18n:dev
 ## NOTES
 
 - `dev` runs Vite on port 3000 plus the locale watcher.
+- `postinstall` generates i18n output automatically.
 - `biome.json` excludes `.tanstack`, `routeTree.gen.ts`, `.output`, and generated locale JSON.
 - Root document imports globals and i18n config before rendering providers.

@@ -2,7 +2,7 @@
 
 ## OVERVIEW
 
-Login/logout frontend feature built with TanStack Form, Tuyau mutations, React Query cache updates, and colocated French translations.
+Login/logout and password-recovery frontend feature built with TanStack Form, Tuyau mutations, React Query cache updates, and colocated French translations.
 
 ## WHERE TO LOOK
 
@@ -12,6 +12,10 @@ Login/logout frontend feature built with TanStack Form, Tuyau mutations, React Q
 | Form setup | `hooks/use-login-form.ts` | Builds `useAppForm` defaults and submit handler. |
 | Login mutation | `hooks/use-login-mutation.ts` | Calls `api.auth.loginWithCredentials`. |
 | Logout mutation | `hooks/use-logout-mutation.ts` | Calls `api.auth.logout`; used by sidebar. |
+| Forgot password UI | `components/forgot-password-form.tsx` | Uses `useForgotPasswordForm`. |
+| Forgot password mutation | `hooks/use-forgot-password-mutation.ts` | Calls `api.auth.password.forgot`. |
+| Reset password UI | `components/reset-password-form.tsx` | Uses `useResetPasswordForm`. |
+| Reset password mutation | `hooks/use-reset-password-mutation.ts` | Calls `api.auth.password.reset`. |
 | Translations | `locales/fr.json` | Error copy for auth hooks. |
 | Login route | `../../../routes/(guest)/(auth)/login/page.tsx` | Validates `redirectTo` search. |
 

@@ -24,7 +24,7 @@ src/components/button/
 └── index.ts
 ```
 
-Same shape applies to avatar, field, input, menu, password-input, sidebar, skeleton, spinner.
+Same shape applies to avatar, field, input, menu, password-input, sidebar, skeleton, spinner, toast.
 
 ## CONVENTIONS
 

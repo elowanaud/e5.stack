@@ -2,7 +2,7 @@
 
 ## OVERVIEW
 
-Frontend user-management domain. Current concrete feature: authentication.
+Frontend user-management domain. Current concrete features: authentication (login/logout) and password recovery (forgot/reset).
 
 ## WHERE TO LOOK
 

@@ -61,5 +61,5 @@ pnpm --filter @workspace/api docker-compose
 ## NOTES
 
 - `dev` is wired in Turbo with `docker-compose` sidecar.
-- Docker runtime runs migrations before `bin/server.js`.
+- Docker runtime runs migrations in `ENTRYPOINT` before `bin/server.js`.
 - `@workspace/api/registry` exports `.adonisjs/client/registry/index.ts` for the web app.

@@ -1,7 +1,7 @@
 # PROJECT KNOWLEDGE BASE
 
-**Generated:** 2026-05-19
-**Commit:** 05b250d
+**Generated:** 2026-05-21
+**Commit:** 1599838
 **Branch:** main
 
 ## OVERVIEW
@@ -35,7 +35,9 @@ e5.stack/
 | Web forms | `apps/web/src/libs/form.ts`, `apps/web/src/components/form/*` | TanStack Form components registered centrally. |
 | Web translations | `apps/web/scripts/compile-locales.js`, `apps/web/src/**/locales/fr.json` | Build output is generated under `src/libs/i18n/build`. |
 | React UI components | `packages/ui/react/src/components/*` | Folder-per-component with story + barrel. |
+| Toast component | `packages/ui/react/src/components/toast/*` | Newest component; added after initial AGENTS generation. |
 | Theme tokens | `packages/ui/theme/src/tokens.ts` | Source of truth for `tailwind.css`. |
+| Docker / CI | `.github/workflows/ci.yml`, `apps/*/Dockerfile` | CI runs code-quality, typecheck, build; test job is commented out. |
 
 ## CODE MAP
 
@@ -97,3 +99,4 @@ pnpm --filter @workspace/ui-theme generate:tailwind
 - API `dev` depends on the `docker-compose` sidecar task.
 - Current tests are scaffolded for API/Japa; no `*.spec.ts` files were found.
 - LSP TypeScript server was not installed during generation; codemap came from direct reads, rg, and ast-grep.
+- CI test job is present but commented out.
