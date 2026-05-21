@@ -9,7 +9,27 @@
 			}
 		},
 		"action": {
+			"forgot_password": "Mot de passe oublié ?",
 			"login": "Se connecter"
+		}
+	},
+
+	"features.user_management.authentication.components.forgot-password-form": {
+		"field": {
+			"email": {
+				"label": "Adresse e-mail"
+			}
+		},
+		"action": {
+			"send_reset_email": "Envoyer l'e-mail de réinitialisation"
+		}
+	},
+
+	"features.user_management.authentication.hooks.use-forgot-password-form": {
+		"validation": {
+			"email": {
+				"invalid": "L'adresse e-mail n'est pas valide."
+			}
 		}
 	},
 
@@ -26,6 +46,31 @@
 			"E_GUEST_ONLY": {
 				"title": "Vous êtes déjà connecté.",
 				"description": "Veuillez vous déconnecter avant de vous connecter avec un compte."
+			},
+			"E_UNEXPECTED": {
+				"title": "Une erreur inattendue est survenue.",
+				"description": "Veuillez réessayer."
+			}
+		}
+	},
+
+	"features.user_management.authentication.hooks.use-forgot-password-mutation": {
+		"success": {
+			"title": "E-mail de réinitialisation envoyé.",
+			"description": "Si un compte avec cette adresse e-mail existe, vous recevrez un e-mail avec les instructions pour réinitialiser votre mot de passe."
+		},
+		"error": {
+			"E_NETWORK": {
+				"title": "Une erreur réseau est survenue.",
+				"description": "Veuillez vérifier votre connexion internet et réessayer."
+			},
+			"E_GUEST_ONLY": {
+				"title": "Vous êtes déjà connecté.",
+				"description": "Veuillez vous déconnecter avant de vous connecter avec un compte."
+			},
+			"E_VALIDATION": {
+				"title": "Données invalides.",
+				"description": "Veuillez vérifier votre adresse e-mail et réessayer."
 			},
 			"E_UNEXPECTED": {
 				"title": "Une erreur inattendue est survenue.",

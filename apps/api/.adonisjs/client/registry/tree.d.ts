@@ -5,13 +5,15 @@ export interface ApiDefinition {
   auth: {
     loginWithCredentials: typeof routes['auth.login_with_credentials']
     logout: typeof routes['auth.logout']
-    forgot: typeof routes['auth.forgot']
-    reset: typeof routes['auth.reset']
+    password: {
+      forgot: typeof routes['auth.password.forgot']
+      reset: typeof routes['auth.password.reset']
+    }
   }
   profile: {
     view: typeof routes['profile.view']
     update: typeof routes['profile.update']
     delete: typeof routes['profile.delete']
-    updatePassword: typeof routes['profile.updatePassword']
+    password: typeof routes['profile.password']
   }
 }

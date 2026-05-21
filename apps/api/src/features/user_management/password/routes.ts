@@ -9,13 +9,11 @@ router
 	})
 	.use(middleware.guest())
 	.prefix("/auth")
-	.as("auth");
+	.as("auth.password");
 
 router
 	.group(() => {
-		router
-			.put("/password", [controllers.features.userManagement.password.Update])
-			.as("updatePassword");
+		router.put("/password", [controllers.features.userManagement.password.Update]).as("password");
 	})
 	.use(middleware.auth({ guards: ["web"] }))
 	.prefix("/profile")

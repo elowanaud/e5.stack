@@ -9,14 +9,14 @@ export type ScannedRoutes = {
     'profile.view': { paramsTuple?: []; params?: {} }
     'profile.update': { paramsTuple?: []; params?: {} }
     'profile.delete': { paramsTuple?: []; params?: {} }
-    'auth.forgot': { paramsTuple?: []; params?: {} }
-    'auth.reset': { paramsTuple?: []; params?: {} }
-    'profile.updatePassword': { paramsTuple?: []; params?: {} }
+    'auth.password.forgot': { paramsTuple?: []; params?: {} }
+    'auth.password.reset': { paramsTuple?: []; params?: {} }
+    'profile.password': { paramsTuple?: []; params?: {} }
   }
   POST: {
     'auth.login_with_credentials': { paramsTuple?: []; params?: {} }
-    'auth.forgot': { paramsTuple?: []; params?: {} }
-    'auth.reset': { paramsTuple?: []; params?: {} }
+    'auth.password.forgot': { paramsTuple?: []; params?: {} }
+    'auth.password.reset': { paramsTuple?: []; params?: {} }
   }
   DELETE: {
     'auth.logout': { paramsTuple?: []; params?: {} }
@@ -30,7 +30,7 @@ export type ScannedRoutes = {
   }
   PUT: {
     'profile.update': { paramsTuple?: []; params?: {} }
-    'profile.updatePassword': { paramsTuple?: []; params?: {} }
+    'profile.password': { paramsTuple?: []; params?: {} }
   }
 }
 declare module '@adonisjs/core/types/http' {

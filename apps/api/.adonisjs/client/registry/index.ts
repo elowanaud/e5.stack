@@ -36,23 +36,23 @@ const routes = {
     tokens: [{"old":"/profile","type":0,"val":"profile","end":""}],
     types: placeholder as Registry['profile.delete']['types'],
   },
-  'auth.forgot': {
+  'auth.password.forgot': {
     methods: ["POST"],
     pattern: '/auth/forgot-password',
     tokens: [{"old":"/auth/forgot-password","type":0,"val":"auth","end":""},{"old":"/auth/forgot-password","type":0,"val":"forgot-password","end":""}],
-    types: placeholder as Registry['auth.forgot']['types'],
+    types: placeholder as Registry['auth.password.forgot']['types'],
   },
-  'auth.reset': {
+  'auth.password.reset': {
     methods: ["POST"],
     pattern: '/auth/reset-password',
     tokens: [{"old":"/auth/reset-password","type":0,"val":"auth","end":""},{"old":"/auth/reset-password","type":0,"val":"reset-password","end":""}],
-    types: placeholder as Registry['auth.reset']['types'],
+    types: placeholder as Registry['auth.password.reset']['types'],
   },
-  'profile.updatePassword': {
+  'profile.password': {
     methods: ["PUT"],
     pattern: '/profile/password',
     tokens: [{"old":"/profile/password","type":0,"val":"profile","end":""},{"old":"/profile/password","type":0,"val":"password","end":""}],
-    types: placeholder as Registry['profile.updatePassword']['types'],
+    types: placeholder as Registry['profile.password']['types'],
   },
 } as const satisfies Record<string, AdonisEndpoint>
 

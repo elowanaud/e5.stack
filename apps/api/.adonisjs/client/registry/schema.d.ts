@@ -67,7 +67,7 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/user_management/profile/controllers/delete.controller').default['handle']>>>
     }
   }
-  'auth.forgot': {
+  'auth.password.forgot': {
     methods: ["POST"]
     pattern: '/auth/forgot-password'
     types: {
@@ -79,7 +79,7 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/user_management/password/controllers/forgot.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
-  'auth.reset': {
+  'auth.password.reset': {
     methods: ["POST"]
     pattern: '/auth/reset-password'
     types: {
@@ -91,7 +91,7 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/user_management/password/controllers/reset.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
-  'profile.updatePassword': {
+  'profile.password': {
     methods: ["PUT"]
     pattern: '/profile/password'
     types: {
