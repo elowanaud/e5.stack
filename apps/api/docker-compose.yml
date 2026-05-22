@@ -1,6 +1,6 @@
 name: "e5.stack/api"
 services:
-  database:
+  postgresql:
     image: postgres:15-alpine
     environment:
       - POSTGRES_USER=${DB_USER}
@@ -9,7 +9,16 @@ services:
     ports:
         - ${DB_PORT}:5432
     volumes:
-      - database:/var/lib/postgresql/data
+      - postgresql:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - ${REDIS_PORT}:6379
+    environment:
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+    volumes:
+      - redis:/data
 
   mailtrap:
     image: rnwood/smtp4dev:latest
@@ -18,4 +27,5 @@ services:
       - ${SMTP_PORT}:25 # SMTP
 
 volumes:
-  database:
+  postgresql:
+  redis:
