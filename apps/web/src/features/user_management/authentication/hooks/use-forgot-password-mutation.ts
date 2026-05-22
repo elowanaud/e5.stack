@@ -34,6 +34,10 @@ export function useForgotPasswordMutation() {
 						t("error.E_GUEST_ONLY.title"),
 						{ description: t("error.E_GUEST_ONLY.description") },
 					],
+					E_TOO_MANY_REQUESTS: [
+						t("error.E_TOO_MANY_REQUESTS.title"),
+						{ description: t("error.E_TOO_MANY_REQUESTS.description") },
+					],
 					E_UNEXPECTED: [
 						t("error.E_UNEXPECTED.title"),
 						{ description: t("error.E_UNEXPECTED.description") },

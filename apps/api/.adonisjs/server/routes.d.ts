@@ -4,23 +4,14 @@ type ParamValue = string | number | bigint | boolean
 
 export type ScannedRoutes = {
   ALL: {
-    'auth.login_with_credentials': { paramsTuple?: []; params?: {} }
-    'auth.logout': { paramsTuple?: []; params?: {} }
     'profile.view': { paramsTuple?: []; params?: {} }
     'profile.update': { paramsTuple?: []; params?: {} }
     'profile.delete': { paramsTuple?: []; params?: {} }
+    'auth.login_with_credentials': { paramsTuple?: []; params?: {} }
+    'auth.logout': { paramsTuple?: []; params?: {} }
     'auth.password.forgot': { paramsTuple?: []; params?: {} }
     'auth.password.reset': { paramsTuple?: []; params?: {} }
     'profile.password': { paramsTuple?: []; params?: {} }
-  }
-  POST: {
-    'auth.login_with_credentials': { paramsTuple?: []; params?: {} }
-    'auth.password.forgot': { paramsTuple?: []; params?: {} }
-    'auth.password.reset': { paramsTuple?: []; params?: {} }
-  }
-  DELETE: {
-    'auth.logout': { paramsTuple?: []; params?: {} }
-    'profile.delete': { paramsTuple?: []; params?: {} }
   }
   GET: {
     'profile.view': { paramsTuple?: []; params?: {} }
@@ -31,6 +22,15 @@ export type ScannedRoutes = {
   PUT: {
     'profile.update': { paramsTuple?: []; params?: {} }
     'profile.password': { paramsTuple?: []; params?: {} }
+  }
+  DELETE: {
+    'profile.delete': { paramsTuple?: []; params?: {} }
+    'auth.logout': { paramsTuple?: []; params?: {} }
+  }
+  POST: {
+    'auth.login_with_credentials': { paramsTuple?: []; params?: {} }
+    'auth.password.forgot': { paramsTuple?: []; params?: {} }
+    'auth.password.reset': { paramsTuple?: []; params?: {} }
   }
 }
 declare module '@adonisjs/core/types/http' {

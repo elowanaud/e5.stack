@@ -44,4 +44,7 @@ export default await Env.create(new URL("../", import.meta.url), {
 	REDIS_HOST: Env.schema.string({ format: "host" }),
 	REDIS_PORT: Env.schema.number(),
 	REDIS_PASSWORD: Env.schema.string.optional(),
+
+	// Limiter Config
+	LIMITER_STORE: Env.schema.enum(["redis", "memory"] as const),
 });

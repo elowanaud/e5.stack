@@ -45,6 +45,10 @@ export function useLoginMutation(
 						t("error.E_INVALID_CREDENTIALS.title"),
 						{ description: t("error.E_INVALID_CREDENTIALS.description") },
 					],
+					E_TOO_MANY_REQUESTS: [
+						t("error.E_TOO_MANY_REQUESTS.title"),
+						{ description: t("error.E_TOO_MANY_REQUESTS.description") },
+					],
 					E_UNEXPECTED: [
 						t("error.E_UNEXPECTED.title"),
 						{ description: t("error.E_UNEXPECTED.description") },

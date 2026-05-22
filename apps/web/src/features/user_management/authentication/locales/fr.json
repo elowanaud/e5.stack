@@ -75,6 +75,10 @@
 				"title": "Vous êtes déjà connecté.",
 				"description": "Veuillez vous déconnecter avant de vous connecter avec un compte."
 			},
+			"E_TOO_MANY_REQUESTS": {
+				"title": "Trop de tentatives de connexion.",
+				"description": "Veuillez attendre quelques minutes avant de réessayer."
+			},
 			"E_UNEXPECTED": {
 				"title": "Une erreur inattendue est survenue.",
 				"description": "Veuillez réessayer."
@@ -95,6 +99,10 @@
 			"E_GUEST_ONLY": {
 				"title": "Vous êtes déjà connecté.",
 				"description": "Veuillez vous déconnecter avant de vous connecter avec un compte."
+			},
+			"E_TOO_MANY_REQUESTS": {
+				"title": "Trop de tentatives de réinitialisation.",
+				"description": "Veuillez attendre quelques minutes avant de réessayer."
 			},
 			"E_VALIDATION": {
 				"title": "Données invalides.",
@@ -128,6 +136,10 @@
 			"E_INVALID_TOKEN": {
 				"title": "Token de réinitialisation invalide ou expiré.",
 				"description": "Le lien de réinitialisation que vous avez utilisé est invalide ou a expiré. Veuillez demander un nouveau lien de réinitialisation."
+			},
+			"E_TOO_MANY_REQUESTS": {
+				"title": "Trop de tentatives de réinitialisation.",
+				"description": "Veuillez attendre quelques minutes avant de réessayer."
 			},
 			"E_UNEXPECTED": {
 				"title": "Une erreur inattendue est survenue.",
