@@ -4,7 +4,7 @@ import { tv, type VariantProps } from "tailwind-variants";
 const buttonVariants = tv({
 	base: [
 		// Default
-		"inline-flex cursor-pointer select-none items-center justify-center gap-2 font-medium outline-none transition",
+		"inline-flex shrink-0 cursor-pointer select-none items-center justify-center gap-2 font-medium outline-none transition",
 		// Disabled
 		"data-disabled:cursor-not-allowed",
 	],

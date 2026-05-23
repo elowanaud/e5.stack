@@ -16,7 +16,7 @@
 	"files.associations": {
 		"*.css": "tailwindcss"
 	},
-	"tailwindCSS.classFunctions": ["tv"],
+	"tailwindCSS.classFunctions": ["tv", "cn"],
 
 	"files.watcherExclude": {
 		"**/routeTree.gen.ts": true,
