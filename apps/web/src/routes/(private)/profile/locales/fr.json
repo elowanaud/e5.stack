@@ -1,0 +1,10 @@
+{
+	"routes.(private).profile.layout": {
+		"title": "Mon Profil",
+		"tabs": {
+			"profile": "Informations personnelles",
+			"security": "Sécurité",
+			"privacy": "Données personnelles"
+		}
+	}
+}

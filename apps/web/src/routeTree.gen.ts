@@ -10,8 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as privateLayoutRouteImport } from './routes/(private)/layout'
+import { Route as privateProfileLayoutRouteImport } from './routes/(private)/profile/layout'
 import { Route as guestauthLayoutRouteImport } from './routes/(guest)/(auth)/layout'
+import { Route as privateProfilePageRouteImport } from './routes/(private)/profile/page'
 import { Route as privatehomePageRouteImport } from './routes/(private)/(home)/page'
+import { Route as privateProfileSecurityPageRouteImport } from './routes/(private)/profile/security/page'
+import { Route as privateProfilePrivacyPageRouteImport } from './routes/(private)/profile/privacy/page'
 import { Route as guestauthResetPasswordPageRouteImport } from './routes/(guest)/(auth)/reset-password/page'
 import { Route as guestauthLoginPageRouteImport } from './routes/(guest)/(auth)/login/page'
 import { Route as guestauthForgotPasswordPageRouteImport } from './routes/(guest)/(auth)/forgot-password/page'
@@ -20,15 +24,37 @@ const privateLayoutRoute = privateLayoutRouteImport.update({
   id: '/(private)',
   getParentRoute: () => rootRouteImport,
 } as any)
+const privateProfileLayoutRoute = privateProfileLayoutRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => privateLayoutRoute,
+} as any)
 const guestauthLayoutRoute = guestauthLayoutRouteImport.update({
   id: '/(guest)/(auth)',
   getParentRoute: () => rootRouteImport,
+} as any)
+const privateProfilePageRoute = privateProfilePageRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => privateProfileLayoutRoute,
 } as any)
 const privatehomePageRoute = privatehomePageRouteImport.update({
   id: '/(home)/',
   path: '/',
   getParentRoute: () => privateLayoutRoute,
 } as any)
+const privateProfileSecurityPageRoute =
+  privateProfileSecurityPageRouteImport.update({
+    id: '/security/',
+    path: '/security/',
+    getParentRoute: () => privateProfileLayoutRoute,
+  } as any)
+const privateProfilePrivacyPageRoute =
+  privateProfilePrivacyPageRouteImport.update({
+    id: '/privacy/',
+    path: '/privacy/',
+    getParentRoute: () => privateProfileLayoutRoute,
+  } as any)
 const guestauthResetPasswordPageRoute =
   guestauthResetPasswordPageRouteImport.update({
     id: '/reset-password/',
@@ -48,39 +74,69 @@ const guestauthForgotPasswordPageRoute =
   } as any)
 
 export interface FileRoutesByFullPath {
+  '/profile': typeof privateProfileLayoutRouteWithChildren
   '/': typeof privatehomePageRoute
+  '/profile/': typeof privateProfilePageRoute
   '/forgot-password/': typeof guestauthForgotPasswordPageRoute
   '/login/': typeof guestauthLoginPageRoute
   '/reset-password/': typeof guestauthResetPasswordPageRoute
+  '/profile/privacy/': typeof privateProfilePrivacyPageRoute
+  '/profile/security/': typeof privateProfileSecurityPageRoute
 }
 export interface FileRoutesByTo {
   '/': typeof privatehomePageRoute
+  '/profile': typeof privateProfilePageRoute
   '/forgot-password': typeof guestauthForgotPasswordPageRoute
   '/login': typeof guestauthLoginPageRoute
   '/reset-password': typeof guestauthResetPasswordPageRoute
+  '/profile/privacy': typeof privateProfilePrivacyPageRoute
+  '/profile/security': typeof privateProfileSecurityPageRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/(private)': typeof privateLayoutRouteWithChildren
   '/(guest)/(auth)': typeof guestauthLayoutRouteWithChildren
+  '/(private)/profile': typeof privateProfileLayoutRouteWithChildren
   '/(private)/(home)/': typeof privatehomePageRoute
+  '/(private)/profile/': typeof privateProfilePageRoute
   '/(guest)/(auth)/forgot-password/': typeof guestauthForgotPasswordPageRoute
   '/(guest)/(auth)/login/': typeof guestauthLoginPageRoute
   '/(guest)/(auth)/reset-password/': typeof guestauthResetPasswordPageRoute
+  '/(private)/profile/privacy/': typeof privateProfilePrivacyPageRoute
+  '/(private)/profile/security/': typeof privateProfileSecurityPageRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/forgot-password/' | '/login/' | '/reset-password/'
+  fullPaths:
+    | '/profile'
+    | '/'
+    | '/profile/'
+    | '/forgot-password/'
+    | '/login/'
+    | '/reset-password/'
+    | '/profile/privacy/'
+    | '/profile/security/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/forgot-password' | '/login' | '/reset-password'
+  to:
+    | '/'
+    | '/profile'
+    | '/forgot-password'
+    | '/login'
+    | '/reset-password'
+    | '/profile/privacy'
+    | '/profile/security'
   id:
     | '__root__'
     | '/(private)'
     | '/(guest)/(auth)'
+    | '/(private)/profile'
     | '/(private)/(home)/'
+    | '/(private)/profile/'
     | '/(guest)/(auth)/forgot-password/'
     | '/(guest)/(auth)/login/'
     | '/(guest)/(auth)/reset-password/'
+    | '/(private)/profile/privacy/'
+    | '/(private)/profile/security/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -97,6 +153,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof privateLayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/(private)/profile': {
+      id: '/(private)/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof privateProfileLayoutRouteImport
+      parentRoute: typeof privateLayoutRoute
+    }
     '/(guest)/(auth)': {
       id: '/(guest)/(auth)'
       path: ''
@@ -104,12 +167,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof guestauthLayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/(private)/profile/': {
+      id: '/(private)/profile/'
+      path: '/'
+      fullPath: '/profile/'
+      preLoaderRoute: typeof privateProfilePageRouteImport
+      parentRoute: typeof privateProfileLayoutRoute
+    }
     '/(private)/(home)/': {
       id: '/(private)/(home)/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof privatehomePageRouteImport
       parentRoute: typeof privateLayoutRoute
+    }
+    '/(private)/profile/security/': {
+      id: '/(private)/profile/security/'
+      path: '/security'
+      fullPath: '/profile/security/'
+      preLoaderRoute: typeof privateProfileSecurityPageRouteImport
+      parentRoute: typeof privateProfileLayoutRoute
+    }
+    '/(private)/profile/privacy/': {
+      id: '/(private)/profile/privacy/'
+      path: '/privacy'
+      fullPath: '/profile/privacy/'
+      preLoaderRoute: typeof privateProfilePrivacyPageRouteImport
+      parentRoute: typeof privateProfileLayoutRoute
     }
     '/(guest)/(auth)/reset-password/': {
       id: '/(guest)/(auth)/reset-password/'
@@ -135,11 +219,28 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface privateProfileLayoutRouteChildren {
+  privateProfilePageRoute: typeof privateProfilePageRoute
+  privateProfilePrivacyPageRoute: typeof privateProfilePrivacyPageRoute
+  privateProfileSecurityPageRoute: typeof privateProfileSecurityPageRoute
+}
+
+const privateProfileLayoutRouteChildren: privateProfileLayoutRouteChildren = {
+  privateProfilePageRoute: privateProfilePageRoute,
+  privateProfilePrivacyPageRoute: privateProfilePrivacyPageRoute,
+  privateProfileSecurityPageRoute: privateProfileSecurityPageRoute,
+}
+
+const privateProfileLayoutRouteWithChildren =
+  privateProfileLayoutRoute._addFileChildren(privateProfileLayoutRouteChildren)
+
 interface privateLayoutRouteChildren {
+  privateProfileLayoutRoute: typeof privateProfileLayoutRouteWithChildren
   privatehomePageRoute: typeof privatehomePageRoute
 }
 
 const privateLayoutRouteChildren: privateLayoutRouteChildren = {
+  privateProfileLayoutRoute: privateProfileLayoutRouteWithChildren,
   privatehomePageRoute: privatehomePageRoute,
 }
 

@@ -1,6 +1,7 @@
 {
 	"components.app.sidebar.user-menu": {
 		"action": {
+			"profile": "Profil",
 			"theme": {
 				"label": "Thème",
 				"light": "Clair",

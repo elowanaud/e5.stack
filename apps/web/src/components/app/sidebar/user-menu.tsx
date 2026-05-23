@@ -1,4 +1,5 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
+import { Link } from "@tanstack/react-router";
 import { Avatar } from "@workspace/ui-react/components/avatar";
 import { Menu } from "@workspace/ui-react/components/menu";
 import { Spinner } from "@workspace/ui-react/components/spinner";
@@ -9,6 +10,7 @@ import {
 	MoonIcon,
 	PaletteIcon,
 	SunIcon,
+	UserIcon,
 } from "@workspace/ui-react/icons";
 import { useTheme } from "next-themes";
 import { useTranslation } from "react-i18next";
@@ -39,6 +41,10 @@ export function SidebarUserMenu() {
 			</Menu.Trigger>
 
 			<Menu.Content align="end" side="right">
+				<Menu.Item nativeButton={false} render={<Link to="/profile" />}>
+					<UserIcon />
+					{t("action.profile")}
+				</Menu.Item>
 				<Menu.Submenu>
 					<Menu.SubmenuTrigger>
 						<PaletteIcon /> {t("action.theme.label")}
