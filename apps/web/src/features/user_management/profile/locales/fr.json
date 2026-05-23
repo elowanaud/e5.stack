@@ -1,4 +1,19 @@
 {
+	"features.user_management.profile.components.delete-section": {
+		"title": "Supprimer mon compte",
+		"description": "Cette action est irréversible. Toutes vos données seront définitivement supprimées.",
+		"button": "Supprimer mon compte"
+	},
+
+	"features.user_management.profile.components.delete-confirmation-dialog": {
+		"title": "Confirmer la suppression",
+		"description": "Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.",
+		"action": {
+			"cancel": "Annuler",
+			"delete": "Supprimer"
+		}
+	},
+
 	"features.user_management.profile.hooks.use-update-mutation": {
 		"success": {
 			"title": "Profil mis à jour",

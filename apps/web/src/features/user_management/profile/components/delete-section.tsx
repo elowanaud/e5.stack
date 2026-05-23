@@ -1,0 +1,20 @@
+import { Button } from "@workspace/ui-react/components/button";
+import { useTranslation } from "react-i18next";
+import { DeleteProfileConfirmationDialog } from "./delete-confirmation-dialog";
+
+export function DeleteProfileSection() {
+	const { t } = useTranslation("features.user_management.profile.components.delete-section");
+
+	return (
+		<div className="flex items-center justify-between">
+			<div className="grid gap-1">
+				<h2 className="font-semibold text-neutral-12 text-sm">{t("title")}</h2>
+				<p className="text-neutral-11 text-xs">{t("description")}</p>
+			</div>
+
+			<DeleteProfileConfirmationDialog
+				trigger={<Button variant="destructive">{t("button")}</Button>}
+			/>
+		</div>
+	);
+}

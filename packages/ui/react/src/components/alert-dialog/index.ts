@@ -7,6 +7,8 @@ import {
 	AlertDialogTrigger,
 } from "./alert-dialog";
 
+export { AlertDialog as AlertDialogPrimitive } from "@base-ui/react/alert-dialog";
+
 export const AlertDialog = Object.assign(AlertDialogRoot, {
 	Trigger: AlertDialogTrigger,
 	Content: AlertDialogContent,
