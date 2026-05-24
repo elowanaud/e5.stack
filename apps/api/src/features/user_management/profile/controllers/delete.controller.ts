@@ -1,11 +1,12 @@
-import { HttpContext } from "@adonisjs/core/http";
+import { inject } from "@adonisjs/core";
+import ProfileService from "#features/user_management/profile/services/profile.service";
 
+@inject()
 export default class DeleteProfileController {
-	async handle({ auth }: HttpContext) {
-		const user = auth.user!;
+	constructor(protected profileService: ProfileService) {}
 
-		await user.delete();
-		await auth.use("web").logout();
+	async handle() {
+		await this.profileService.delete();
 
 		return null;
 	}

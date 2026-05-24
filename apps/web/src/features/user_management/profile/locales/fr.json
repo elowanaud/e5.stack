@@ -65,7 +65,7 @@
 	"features.user_management.profile.hooks.use-delete-mutation": {
 		"success": {
 			"title": "Profil supprimé",
-			"description": "Votre profil a été supprimé avec succès."
+			"description": "Votre profil a été supprimé avec succès. Un e-mail de confirmation vous sera envoyé."
 		},
 		"error": {
 			"E_NETWORK": {

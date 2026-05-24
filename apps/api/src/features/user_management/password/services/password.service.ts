@@ -1,4 +1,5 @@
 import { inject } from "@adonisjs/core";
+import { HttpContext } from "@adonisjs/core/http";
 import { DateTime } from "luxon";
 import InvalidCredentialsException from "#features/user_management/authentication/exceptions/invalid_credentials.exception";
 import InvalidTokenException from "#features/user_management/password/exceptions/invalid_token.exception";
@@ -11,10 +12,15 @@ import env from "#start/env";
 
 @inject()
 export default class PasswordService {
-	constructor(protected userTokenService: UserTokenService) {}
+	constructor(
+		protected ctx: HttpContext,
+		protected userTokenService: UserTokenService,
+	) {}
 
 	async update(params: UpdateDTO["params"]) {
-		const { user, currentPassword, newPassword } = params;
+		const { currentPassword, newPassword } = params;
+
+		const user = this.ctx.auth.user!;
 
 		if (!(await user.verifyPassword(currentPassword))) {
 			throw new InvalidCredentialsException();
@@ -25,6 +31,7 @@ export default class PasswordService {
 			user,
 			loginUrl: new URL("/login", env.get("FRONTEND_URL")),
 		});
+		await this.ctx.auth.use("web").logout();
 	}
 
 	async forgot(email: string) {
@@ -67,7 +74,6 @@ export default class PasswordService {
 
 type UpdateDTO = {
 	params: {
-		user: User;
 		currentPassword: string;
 		newPassword: string;
 	};

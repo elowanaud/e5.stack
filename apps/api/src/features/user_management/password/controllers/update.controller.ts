@@ -8,20 +8,15 @@ import { UserPasswordValidator } from "#validators/user.validator";
 export default class UpdatePasswordController {
 	constructor(protected passwordService: PasswordService) {}
 
-	async handle({ request, auth }: HttpContext) {
-		const currentUser = auth.user!;
-
+	async handle({ request }: HttpContext) {
 		const { currentPassword, newPassword } = await request.validateUsing(
 			UpdatePasswordController.payloadSchema,
 		);
 
 		await this.passwordService.update({
-			user: currentUser,
 			currentPassword,
 			newPassword,
 		});
-
-		await auth.use("web").logout();
 
 		return null;
 	}
