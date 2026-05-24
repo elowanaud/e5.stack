@@ -14,6 +14,29 @@
 		}
 	},
 
+	"features.user_management.profile.components.update-form": {
+		"title": "Informations générales",
+		"description": "Mettez à jour les informations générales de votre profil.",
+		"fields": {
+			"name": {
+				"label": "Nom"
+			}
+		},
+		"action": {
+			"submit": "Enregistrer"
+		}
+	},
+
+	"features.user_management.profile.hooks.use-update-form": {
+		"validation": {
+			"name": {
+				"required": "Le nom est requis.",
+				"min": "Le nom doit comporter au moins {{min}} caractères.",
+				"max": "Le nom doit comporter au maximum {{max}} caractères."
+			}
+		}
+	},
+
 	"features.user_management.profile.hooks.use-update-mutation": {
 		"success": {
 			"title": "Profil mis à jour",

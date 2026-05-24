@@ -1,9 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Button } from "../button";
 import { Card } from "./index";
 
 const meta: Meta<typeof Card> = {
 	title: "Card",
 	component: Card,
+	subcomponents: {
+		Header: Card.Header,
+		Content: Card.Content,
+		Footer: Card.Footer,
+	},
 	argTypes: {
 		children: {
 			description: "The content of the card.",
@@ -42,13 +48,20 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
 	render: (args) => (
 		<Card className="max-w-sm" {...args}>
-			<div className="space-y-2">
+			<Card.Header>
 				<h3 className="font-semibold text-lg text-neutral-12">Card Title</h3>
+			</Card.Header>
+
+			<Card.Content>
 				<p className="text-neutral-11 text-sm">
 					This card contains richer content with a title and description. It demonstrates how the
 					card can be used as a container for more complex layouts.
 				</p>
-			</div>
+			</Card.Content>
+
+			<Card.Footer>
+				<Button>Action</Button>
+			</Card.Footer>
 		</Card>
 	),
 };

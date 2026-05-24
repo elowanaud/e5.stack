@@ -7,8 +7,8 @@ export function DeleteProfileSection() {
 
 	return (
 		<div className="flex items-center justify-between">
-			<div className="grid gap-1">
-				<h2 className="font-semibold text-neutral-12 text-sm">{t("title")}</h2>
+			<div className="grid gap-0.5">
+				<h3 className="font-semibold text-neutral-12 text-sm">{t("title")}</h3>
 				<p className="text-neutral-11 text-xs">{t("description")}</p>
 			</div>
 
