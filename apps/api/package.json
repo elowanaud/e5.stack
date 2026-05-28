@@ -25,6 +25,8 @@
 		"#validators/*": "./src/validators/*.js",
 		"#middlewares/*": "./src/middlewares/*.js",
 		"#models/*": "./src/models/*.js",
+		"#presenters/*": "./src/presenters/*.js",
+		"#hooks/*": "./hooks/*.js",
 		"#services/*": "./src/services/*.js",
 		"#src/*": "./src/*.js",
 		"#start/*": "./start/*.js",

@@ -14,16 +14,4 @@ const authFinder = withAuthFinder(() => hash.use("scrypt"), {
 export default class User extends compose(UserSchema, authFinder) {
 	@hasMany(() => UserToken)
 	declare tokens: HasMany<typeof UserToken>;
-
-	toJSON() {
-		return {
-			id: this.id,
-
-			name: this.name,
-			email: this.email,
-
-			createdAt: this.createdAt.toJSDate(),
-			updatedAt: this.updatedAt.toJSDate(),
-		};
-	}
 }

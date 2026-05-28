@@ -100,6 +100,7 @@ export default defineConfig({
 				},
 			}),
 			generateRegistry(),
+			() => import("#hooks/generate_data_type.hook"),
 		],
 	},
 });
