@@ -1,5 +1,6 @@
 import { Tabs as TabsPrimitive } from "@base-ui/react/tabs";
 import { cn } from "tailwind-variants";
+import { ScrollArea } from "../scroll-area";
 
 export type TabsRootProps = TabsPrimitive.Root.Props;
 
@@ -13,13 +14,12 @@ export function TabsList(props: TabsListProps) {
 	const { children, className, ...rest } = props;
 
 	return (
-		<TabsPrimitive.List
-			className={cn("relative flex items-center gap-2 border-neutral-7 border-b", className)}
-			{...rest}
-		>
-			{children}
-			<TabsPrimitive.Indicator className="absolute bottom-0 h-0.5 w-(--active-tab-width) translate-x-(--active-tab-left) bg-primary-9 transition-all" />
-		</TabsPrimitive.List>
+		<ScrollArea variant="gradient" className="border-neutral-7 border-b">
+			<TabsPrimitive.List className={cn("relative flex items-center gap-2", className)} {...rest}>
+				{children}
+				<TabsPrimitive.Indicator className="absolute bottom-0 h-0.5 w-(--active-tab-width) translate-x-(--active-tab-left) bg-primary-9 transition-all" />
+			</TabsPrimitive.List>
+		</ScrollArea>
 	);
 }
 

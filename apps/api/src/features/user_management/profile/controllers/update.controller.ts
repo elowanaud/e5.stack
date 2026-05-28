@@ -1,8 +1,10 @@
+import { inject } from "@adonisjs/core";
 import { HttpContext } from "@adonisjs/core/http";
 import vine from "@vinejs/vine";
 import UserPresenter from "#presenters/user.presenter";
 import { UpdateUserSchema } from "#validators/user.validator";
 
+@inject()
 export default class UpdateProfileController {
 	constructor(protected userPresenter: UserPresenter) {}
 

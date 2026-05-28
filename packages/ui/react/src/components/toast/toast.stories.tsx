@@ -4,6 +4,13 @@ import { ToastProvider, toast } from "./index";
 
 const meta: Meta<typeof ToastProvider> = {
 	title: "Toast",
+	parameters: {
+		docs: {
+			description: {
+				component: "https://sonner.emilkowal.ski/getting-started",
+			},
+		},
+	},
 	component: ToastProvider,
 	argTypes: {
 		position: {
