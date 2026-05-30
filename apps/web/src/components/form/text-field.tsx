@@ -7,7 +7,10 @@ type TextFieldProps = {
 	description?: string;
 	required?: boolean;
 	disabled?: boolean;
-	inputProps?: Omit<InputProps, "id" | "name" | "value" | "onChange" | "onBlur" | "aria-invalid">;
+	inputProps?: Omit<
+		InputProps,
+		"id" | "name" | "value" | "onChange" | "onBlur" | "aria-invalid" | "disabled"
+	>;
 };
 
 export function TextField(props: TextFieldProps) {

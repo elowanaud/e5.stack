@@ -12,7 +12,7 @@ type PasswordFieldProps = {
 	disabled?: boolean;
 	inputProps?: Omit<
 		PasswordInputProps,
-		"id" | "name" | "value" | "onChange" | "onBlur" | "aria-invalid"
+		"id" | "name" | "value" | "onChange" | "onBlur" | "aria-invalid" | "disabled"
 	>;
 };
 

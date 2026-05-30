@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Input } from "../input";
 import { PasswordInput } from "../password-input";
+import { Switch } from "../switch";
 import { Field } from "./index";
 
 const meta: Meta<typeof Field> = {
@@ -63,6 +64,20 @@ export const PasswordField: Story = {
 			<PasswordInput />
 			<Field.Description>Must be at least 8 characters</Field.Description>
 			<Field.Error>Password is too short</Field.Error>
+		</Field>
+	),
+};
+
+export const SwitchField: Story = {
+	render: (args) => (
+		<Field className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1" {...args}>
+			<Switch className="col-start-1" />
+
+			<Field.Label className="col-start-2">Enable notifications</Field.Label>
+			<Field.Description className="col-start-2">
+				Receive updates about new features and offers
+			</Field.Description>
+			<Field.Error className="col-start-2">You must enable notifications to proceed</Field.Error>
 		</Field>
 	),
 };
