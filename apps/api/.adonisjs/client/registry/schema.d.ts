@@ -7,9 +7,9 @@ import type { InferInput, SimpleError } from '@vinejs/vine/types'
 export type ParamValue = string | number | bigint | boolean
 
 export interface Registry {
-  'profile.view': {
+  'user_management.profile.view': {
     methods: ["GET","HEAD"]
-    pattern: '/profile'
+    pattern: '/user_management/profile'
     types: {
       body: {}
       paramsTuple: []
@@ -19,9 +19,9 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/user_management/profile/controllers/view.controller').default['handle']>>>
     }
   }
-  'profile.update': {
+  'user_management.profile.update': {
     methods: ["PUT"]
-    pattern: '/profile'
+    pattern: '/user_management/profile'
     types: {
       body: ExtractBody<InferInput<(typeof import('#src/features/user_management/profile/controllers/update.controller').default)['payloadSchema']>>
       paramsTuple: []
@@ -31,9 +31,9 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/user_management/profile/controllers/update.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
-  'profile.delete': {
+  'user_management.profile.delete': {
     methods: ["DELETE"]
-    pattern: '/profile'
+    pattern: '/user_management/profile'
     types: {
       body: {}
       paramsTuple: []
@@ -43,21 +43,21 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/user_management/profile/controllers/delete.controller').default['handle']>>>
     }
   }
-  'auth.login_with_credentials': {
+  'user_management.authentication.login': {
     methods: ["POST"]
-    pattern: '/auth/login'
+    pattern: '/user_management/authentication/login'
     types: {
-      body: ExtractBody<InferInput<(typeof import('#src/features/user_management/authentication/controllers/login_with_credentials.controller').default)['payloadSchema']>>
+      body: ExtractBody<InferInput<(typeof import('#src/features/user_management/authentication/controllers/login.controller').default)['payloadSchema']>>
       paramsTuple: []
       params: {}
-      query: ExtractQuery<InferInput<(typeof import('#src/features/user_management/authentication/controllers/login_with_credentials.controller').default)['payloadSchema']>>
-      response: ExtractResponse<Awaited<ReturnType<import('#src/features/user_management/authentication/controllers/login_with_credentials.controller').default['handle']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/user_management/authentication/controllers/login_with_credentials.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
+      query: ExtractQuery<InferInput<(typeof import('#src/features/user_management/authentication/controllers/login.controller').default)['payloadSchema']>>
+      response: ExtractResponse<Awaited<ReturnType<import('#src/features/user_management/authentication/controllers/login.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/user_management/authentication/controllers/login.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
-  'auth.logout': {
+  'user_management.authentication.logout': {
     methods: ["DELETE"]
-    pattern: '/auth/logout'
+    pattern: '/user_management/authentication/logout'
     types: {
       body: {}
       paramsTuple: []
@@ -67,9 +67,9 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/user_management/authentication/controllers/logout.controller').default['handle']>>>
     }
   }
-  'auth.password.forgot': {
+  'user_management.password.forgot': {
     methods: ["POST"]
-    pattern: '/auth/forgot-password'
+    pattern: '/user_management/password/forgot'
     types: {
       body: ExtractBody<InferInput<(typeof import('#src/features/user_management/password/controllers/forgot.controller').default)['payloadSchema']>>
       paramsTuple: []
@@ -79,9 +79,9 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/user_management/password/controllers/forgot.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
-  'auth.password.reset': {
+  'user_management.password.reset': {
     methods: ["POST"]
-    pattern: '/auth/reset-password'
+    pattern: '/user_management/password/reset'
     types: {
       body: ExtractBody<InferInput<(typeof import('#src/features/user_management/password/controllers/reset.controller').default)['payloadSchema']>>
       paramsTuple: []
@@ -91,9 +91,9 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/user_management/password/controllers/reset.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
-  'profile.password': {
+  'user_management.password.update': {
     methods: ["PUT"]
-    pattern: '/profile/password'
+    pattern: '/user_management/password'
     types: {
       body: ExtractBody<InferInput<(typeof import('#src/features/user_management/password/controllers/update.controller').default)['payloadSchema']>>
       paramsTuple: []

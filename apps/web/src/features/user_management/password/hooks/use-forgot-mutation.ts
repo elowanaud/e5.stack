@@ -11,7 +11,7 @@ export function useForgotPasswordMutation() {
 	const navigate = useNavigate();
 
 	return useMutation(
-		api.auth.password.forgot.mutationOptions({
+		api.userManagement.password.forgot.mutationOptions({
 			onSuccess: () => {
 				toast.success(t("success.title"), {
 					description: t("success.description"),

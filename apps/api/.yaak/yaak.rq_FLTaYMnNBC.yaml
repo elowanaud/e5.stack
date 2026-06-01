@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_FLTaYMnNBC
 createdAt: 2026-05-16T05:00:39.144296
-updatedAt: 2026-05-18T13:32:28.628132
+updatedAt: 2026-06-01T18:34:27.264386
 workspaceId: wk_bpdV78RkSs
 folderId: fl_e65UGoDWan
 authentication: {}
@@ -26,6 +26,21 @@ headers:
   id: 2IjFHcGDdb
 method: POST
 name: Forgot
-sortPriority: -1778907639143.0
-url: ${[ BASE_URL ]}/auth/forgot-password
+sortPriority: 0.0
+url: ${[ BASE_URL ]}/user_management/password/forgot
 urlParameters: []
+settingSendCookies:
+  enabled: false
+  value: true
+settingStoreCookies:
+  enabled: false
+  value: true
+settingValidateCertificates:
+  enabled: false
+  value: true
+settingFollowRedirects:
+  enabled: false
+  value: true
+settingRequestTimeout:
+  enabled: false
+  value: 0

@@ -10,13 +10,13 @@ export function useUpdateProfileMutation() {
 	const queryClient = useQueryClient();
 
 	return useMutation(
-		api.profile.update.mutationOptions({
+		api.userManagement.profile.update.mutationOptions({
 			onSuccess: () => {
 				toast.success(t("success.title"), {
 					description: t("success.description"),
 				});
 				queryClient.invalidateQueries({
-					queryKey: api.profile.view.pathKey(),
+					queryKey: api.userManagement.profile.view.pathKey(),
 				});
 			},
 			onError: (error) => {

@@ -20,10 +20,10 @@ export function useLoginMutation(
 	const navigate = useNavigate();
 
 	return useMutation(
-		api.auth.loginWithCredentials.mutationOptions({
+		api.userManagement.authentication.login.mutationOptions({
 			onSuccess: () => {
 				queryClient.removeQueries({
-					queryKey: api.profile.view.pathKey(),
+					queryKey: api.userManagement.profile.view.pathKey(),
 				});
 				navigate({ to: options?.redirectTo ?? "/" });
 			},

@@ -7,7 +7,7 @@ export const controllers = {
   features: {
     userManagement: {
       authentication: {
-        LoginWithCredentials: () => import('#src/features/user_management/authentication/controllers/login_with_credentials.controller'),
+        Login: () => import('#src/features/user_management/authentication/controllers/login.controller'),
         Logout: () => import('#src/features/user_management/authentication/controllers/logout.controller'),
       },
       password: {

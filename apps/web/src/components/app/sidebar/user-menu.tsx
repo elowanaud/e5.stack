@@ -20,7 +20,7 @@ import { api } from "#/libs/tuyau";
 export function SidebarUserMenu() {
 	const { t } = useTranslation("components.app.sidebar.user-menu");
 
-	const { data: currentUser } = useSuspenseQuery(api.profile.view.queryOptions());
+	const { data: currentUser } = useSuspenseQuery(api.userManagement.profile.view.queryOptions());
 	const { setTheme, theme } = useTheme();
 
 	const { mutate: logout, isPending: isLoggingOut } = useLogoutMutation();

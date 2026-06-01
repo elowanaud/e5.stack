@@ -12,13 +12,13 @@ export function useUpdatePasswordMutation() {
 	const navigate = useNavigate();
 
 	return useMutation(
-		api.profile.password.mutationOptions({
+		api.userManagement.password.update.mutationOptions({
 			onSuccess: () => {
 				toast.success(t("success.title"), {
 					description: t("success.description"),
 				});
 				queryClient.removeQueries({
-					queryKey: api.profile.view.pathKey(),
+					queryKey: api.userManagement.profile.view.pathKey(),
 				});
 				navigate({ to: "/login" });
 			},

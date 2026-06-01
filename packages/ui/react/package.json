@@ -14,14 +14,14 @@
 	},
 	"peerDependencies": {
 		"@workspace/ui-theme": "workspace:*",
-		"react": "^19",
-		"react-dom": "^19",
-		"tailwindcss": "^4"
+		"react": "19",
+		"react-dom": "19",
+		"tailwindcss": "4"
 	},
 	"dependencies": {
 		"@base-ui/react": "1.5.0",
 		"lucide-react": "1.16.0",
-		"sonner": "^2.0.7",
+		"sonner": "2.0.7",
 		"tailwind-variants": "3.2.2"
 	},
 	"devDependencies": {

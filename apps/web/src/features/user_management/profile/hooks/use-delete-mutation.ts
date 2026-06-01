@@ -12,13 +12,13 @@ export function useDeleteProfileMutation() {
 	const navigate = useNavigate();
 
 	return useMutation(
-		api.profile.delete.mutationOptions({
+		api.userManagement.profile.delete.mutationOptions({
 			onSuccess: () => {
 				toast.success(t("success.title"), {
 					description: t("success.description"),
 				});
 				queryClient.removeQueries({
-					queryKey: api.profile.view.pathKey(),
+					queryKey: api.userManagement.profile.view.pathKey(),
 				});
 				navigate({ to: "/login" });
 			},

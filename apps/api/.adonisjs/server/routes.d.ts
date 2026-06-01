@@ -4,33 +4,33 @@ type ParamValue = string | number | bigint | boolean
 
 export type ScannedRoutes = {
   ALL: {
-    'profile.view': { paramsTuple?: []; params?: {} }
-    'profile.update': { paramsTuple?: []; params?: {} }
-    'profile.delete': { paramsTuple?: []; params?: {} }
-    'auth.login_with_credentials': { paramsTuple?: []; params?: {} }
-    'auth.logout': { paramsTuple?: []; params?: {} }
-    'auth.password.forgot': { paramsTuple?: []; params?: {} }
-    'auth.password.reset': { paramsTuple?: []; params?: {} }
-    'profile.password': { paramsTuple?: []; params?: {} }
+    'user_management.profile.view': { paramsTuple?: []; params?: {} }
+    'user_management.profile.update': { paramsTuple?: []; params?: {} }
+    'user_management.profile.delete': { paramsTuple?: []; params?: {} }
+    'user_management.authentication.login': { paramsTuple?: []; params?: {} }
+    'user_management.authentication.logout': { paramsTuple?: []; params?: {} }
+    'user_management.password.forgot': { paramsTuple?: []; params?: {} }
+    'user_management.password.reset': { paramsTuple?: []; params?: {} }
+    'user_management.password.update': { paramsTuple?: []; params?: {} }
   }
   GET: {
-    'profile.view': { paramsTuple?: []; params?: {} }
+    'user_management.profile.view': { paramsTuple?: []; params?: {} }
   }
   HEAD: {
-    'profile.view': { paramsTuple?: []; params?: {} }
+    'user_management.profile.view': { paramsTuple?: []; params?: {} }
   }
   PUT: {
-    'profile.update': { paramsTuple?: []; params?: {} }
-    'profile.password': { paramsTuple?: []; params?: {} }
+    'user_management.profile.update': { paramsTuple?: []; params?: {} }
+    'user_management.password.update': { paramsTuple?: []; params?: {} }
   }
   DELETE: {
-    'profile.delete': { paramsTuple?: []; params?: {} }
-    'auth.logout': { paramsTuple?: []; params?: {} }
+    'user_management.profile.delete': { paramsTuple?: []; params?: {} }
+    'user_management.authentication.logout': { paramsTuple?: []; params?: {} }
   }
   POST: {
-    'auth.login_with_credentials': { paramsTuple?: []; params?: {} }
-    'auth.password.forgot': { paramsTuple?: []; params?: {} }
-    'auth.password.reset': { paramsTuple?: []; params?: {} }
+    'user_management.authentication.login': { paramsTuple?: []; params?: {} }
+    'user_management.password.forgot': { paramsTuple?: []; params?: {} }
+    'user_management.password.reset': { paramsTuple?: []; params?: {} }
   }
 }
 declare module '@adonisjs/core/types/http' {

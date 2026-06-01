@@ -1,5 +1,6 @@
 import stringHelpers from "@adonisjs/core/helpers/string";
 import { DateTime } from "luxon";
+import InvalidTokenException from "#exceptions/invalid_token.exception";
 import User from "#models/user";
 import UserToken, { UserTokenType } from "#models/user_token";
 
@@ -32,10 +33,10 @@ export default class UserTokenService {
 			.first();
 
 		if (!record) {
-			return { valid: false } as const;
+			throw new InvalidTokenException();
 		}
 
-		return { valid: true, user: record.user } as const;
+		return record.user;
 	}
 
 	async revoke(params: RevokeDTOs["params"]) {

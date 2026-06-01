@@ -11,7 +11,7 @@ export function useResetPasswordMutation() {
 	const navigate = useNavigate();
 
 	return useMutation(
-		api.auth.password.reset.mutationOptions({
+		api.userManagement.password.reset.mutationOptions({
 			onSuccess: () => {
 				toast.success(t("success.title"), {
 					description: t("success.description"),

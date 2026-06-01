@@ -2,7 +2,6 @@ import { inject } from "@adonisjs/core";
 import { HttpContext } from "@adonisjs/core/http";
 import { DateTime } from "luxon";
 import InvalidCredentialsException from "#features/user_management/authentication/exceptions/invalid_credentials.exception";
-import InvalidTokenException from "#features/user_management/password/exceptions/invalid_token.exception";
 import SendPasswordChangedNotification from "#features/user_management/password/jobs/send_password_changed_notification.job";
 import SendResetPasswordInstruction from "#features/user_management/password/jobs/send_reset_password_instruction.job";
 import User from "#models/user";
@@ -52,12 +51,10 @@ export default class PasswordService {
 	async reset(params: ResetPasswordDTO["params"]) {
 		const { token, newPassword } = params;
 
-		const { valid, user } = await this.userTokenService.verify({
+		const user = await this.userTokenService.verify({
 			token,
 			type: UserTokenType.RESET_PASSWORD,
 		});
-
-		if (!valid) throw new InvalidTokenException();
 
 		await user.merge({ password: newPassword }).save();
 		await this.userTokenService.revoke({

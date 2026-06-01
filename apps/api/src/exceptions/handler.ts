@@ -2,9 +2,9 @@ import { errors as authErrors } from "@adonisjs/auth";
 import { ExceptionHandler, HttpContext } from "@adonisjs/core/http";
 import app from "@adonisjs/core/services/app";
 import { errors as limiterErrors } from "@adonisjs/limiter";
-import TooManyRequestsException from "#exceptions/too_many_requests_exception";
+import TooManyRequestsException from "#exceptions/too_many_requests.exception";
+import UnauthenticatedException from "#exceptions/unauthenticated.exception";
 import InvalidCredentialsException from "#features/user_management/authentication/exceptions/invalid_credentials.exception";
-import UnauthenticatedException from "#features/user_management/authentication/exceptions/unauthenticated.exception";
 
 export default class HttpExceptionHandler extends ExceptionHandler {
 	/**

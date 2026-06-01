@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_t7G2ZBMvgn
 createdAt: 2026-05-02T13:28:28.871515
-updatedAt: 2026-05-02T13:30:26.524134
+updatedAt: 2026-06-01T18:34:40.019567
 workspaceId: wk_bpdV78RkSs
 folderId: fl_DVi2Fan6si
 authentication: {}
@@ -29,7 +29,22 @@ headers:
   value: multipart/form-data
   id: Itz8swHnJV
 method: POST
-name: Login With Credentials
-sortPriority: -1777728466606.0
-url: ${[ BASE_URL ]}/auth/login
+name: Login
+sortPriority: 0.0
+url: ${[ BASE_URL ]}/user_management/authentication/login
 urlParameters: []
+settingSendCookies:
+  enabled: false
+  value: true
+settingStoreCookies:
+  enabled: false
+  value: true
+settingValidateCertificates:
+  enabled: false
+  value: true
+settingFollowRedirects:
+  enabled: false
+  value: true
+settingRequestTimeout:
+  enabled: false
+  value: 0

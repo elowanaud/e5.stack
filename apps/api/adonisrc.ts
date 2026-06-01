@@ -9,7 +9,7 @@ export default defineConfig({
 		services: "src/services",
 		exceptions: "src/exceptions",
 		mails: "src/mails",
-		middleware: "src/middleware",
+		middleware: "src/middlewares",
 		validators: "src/validators",
 		views: "src/views",
 		policies: "src/policies",
@@ -23,6 +23,7 @@ export default defineConfig({
 		() => import("@adonisjs/session/commands"),
 		() => import("@adonisjs/mail/commands"),
 		() => import("@adonisjs/queue/commands"),
+		() => import("@adonisjs/bouncer/commands"),
 	],
 
 	providers: [
@@ -42,6 +43,7 @@ export default defineConfig({
 		() => import("@adonisjs/redis/redis_provider"),
 		() => import("@adonisjs/limiter/limiter_provider"),
 		() => import("@adonisjs/queue/queue_provider"),
+		() => import("@adonisjs/bouncer/bouncer_provider"),
 	],
 
 	preloads: [

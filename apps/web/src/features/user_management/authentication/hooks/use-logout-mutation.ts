@@ -11,10 +11,10 @@ export function useLogoutMutation() {
 	const navigate = useNavigate();
 
 	return useMutation(
-		api.auth.logout.mutationOptions({
+		api.userManagement.authentication.logout.mutationOptions({
 			onSuccess: () => {
 				queryClient.removeQueries({
-					queryKey: api.profile.view.pathKey(),
+					queryKey: api.userManagement.profile.view.pathKey(),
 				});
 				navigate({ to: "/login" });
 			},

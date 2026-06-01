@@ -13,11 +13,12 @@ router.use([
 	() => import("@adonisjs/session/session_middleware"),
 	() => import("@adonisjs/core/bodyparser_middleware"),
 	() => import("@adonisjs/auth/initialize_auth_middleware"),
-	() => import("#features/user_management/authentication/middleware/silent_auth_middleware"),
+	() => import("#middlewares/silent_auth_middleware"),
 	() => import("@tuyau/superjson/superjson_middleware"),
+	() => import("#middlewares/initialize_bouncer_middleware"),
 ]);
 
 export const middleware = router.named({
-	auth: () => import("#features/user_management/authentication/middleware/auth_middleware"),
-	guest: () => import("#features/user_management/authentication/middleware/guest_middleware"),
+	auth: () => import("#middlewares/auth_middleware"),
+	guest: () => import("#middlewares/guest_middleware"),
 });

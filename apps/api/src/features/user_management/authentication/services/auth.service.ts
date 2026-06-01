@@ -6,7 +6,7 @@ import User from "#models/user";
 export default class AuthService {
 	constructor(protected ctx: HttpContext) {}
 
-	async loginWithCredentials(uid: string, password: string) {
+	async login(uid: string, password: string) {
 		const user = await User.verifyCredentials(uid, password);
 		await this.ctx.auth.use("web").login(user);
 
