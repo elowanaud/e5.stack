@@ -1,7 +1,7 @@
 import router from "@adonisjs/core/services/router";
 import { controllers } from "#generated/controllers";
 import { middleware } from "#start/kernel";
-import { throttle } from "#start/limiter";
+import { brutForceLimiter } from "#start/limiter";
 
 router
 	.group(() => {
@@ -11,7 +11,7 @@ router
 				router.post("/reset", [controllers.features.userManagement.password.Reset]);
 			})
 			.use(middleware.guest())
-			.use(throttle);
+			.use(brutForceLimiter);
 
 		router
 			.group(() => {
