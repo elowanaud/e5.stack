@@ -23,7 +23,7 @@ export default hooks.init((_parent, _hooksManager, indexGenerator) => {
 				const importPath = `#presenters/${file}`;
 
 				writer.writeLine(
-					`export type ${variableName} = ReturnType<typeof import("${importPath}").default.prototype.toJSON>;`,
+					`export type ${variableName} = Awaited<ReturnType<typeof import("${importPath}").default.prototype.toJSON>>;`,
 				);
 			}
 

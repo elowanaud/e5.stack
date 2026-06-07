@@ -4,6 +4,7 @@ type ParamValue = string | number | bigint | boolean
 
 export type ScannedRoutes = {
   ALL: {
+    'drive.fs.serve': { paramsTuple: [...ParamValue[]]; params: {'*': ParamValue[]} }
     'user_management.profile.view': { paramsTuple?: []; params?: {} }
     'user_management.profile.update': { paramsTuple?: []; params?: {} }
     'user_management.profile.delete': { paramsTuple?: []; params?: {} }
@@ -14,9 +15,11 @@ export type ScannedRoutes = {
     'user_management.password.update': { paramsTuple?: []; params?: {} }
   }
   GET: {
+    'drive.fs.serve': { paramsTuple: [...ParamValue[]]; params: {'*': ParamValue[]} }
     'user_management.profile.view': { paramsTuple?: []; params?: {} }
   }
   HEAD: {
+    'drive.fs.serve': { paramsTuple: [...ParamValue[]]; params: {'*': ParamValue[]} }
     'user_management.profile.view': { paramsTuple?: []; params?: {} }
   }
   PUT: {

@@ -6,6 +6,9 @@ build/
 .output/
 dist/
 
+# Filesystem storage
+storage/
+
 # Temporary files
 tmp/
 

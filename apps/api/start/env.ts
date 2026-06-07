@@ -50,4 +50,13 @@ export default await Env.create(new URL("../", import.meta.url), {
 
 	// Queue Config
 	QUEUE_DRIVER: Env.schema.enum(["redis", "sync"] as const),
+
+	// Drive Config
+	DRIVE_DRIVER: Env.schema.enum(["fs", "s3"] as const),
+
+	// S3 Config
+	S3_ACCESS_KEY_ID: Env.schema.string.optionalWhen(process.env.DRIVE_DRIVER !== "s3"),
+	S3_SECRET_ACCESS_KEY: Env.schema.string.optionalWhen(process.env.DRIVE_DRIVER !== "s3"),
+	S3_REGION: Env.schema.string.optionalWhen(process.env.DRIVE_DRIVER !== "s3"),
+	S3_BUCKET: Env.schema.string.optionalWhen(process.env.DRIVE_DRIVER !== "s3"),
 });
