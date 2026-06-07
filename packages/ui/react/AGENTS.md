@@ -13,7 +13,7 @@ React 19 UI component package with Base UI wrappers, composite components, Tailw
 | Global CSS | `src/globals.css` | Imports Tailwind and `@workspace/ui-theme/tailwind`. |
 | Icons | `src/icons.ts` | Re-exports `lucide-react`. |
 | Shared hook | `src/hooks/use-element-size.ts` | Used by input slot sizing. |
-| Components | `src/components/*` | Folder-per-component implementation + barrel + story. |
+| Components | `src/components/*`, `src/components/AGENTS.md` | Folder-per-component implementation + barrel + story. |
 
 ## STRUCTURE
 
@@ -55,3 +55,4 @@ pnpm --filter @workspace/ui-react typecheck
 - Biome Tailwind class sorting is configured for `tv`.
 - Storybook docs are the primary manual QA surface for components.
 - `package.json` currently advertises `./providers/*`, but there is no `src/providers` directory.
+- Component-folder rules live in `src/components/AGENTS.md`; keep package-level docs focused on exports/package behavior.

@@ -1,7 +1,7 @@
 # PROJECT KNOWLEDGE BASE
 
-**Generated:** 2026-06-01
-**Commit:** 9e399b1
+**Generated:** 2026-06-07
+**Commit:** e24c544
 **Branch:** main
 
 ## OVERVIEW
@@ -37,7 +37,7 @@ e5.stack/
 | Web password forms | `apps/web/src/features/user_management/password/**` | Forgot/reset guest forms and authenticated security-tab update form. |
 | Web profile | `apps/web/src/features/user_management/profile/**` | Update/delete forms, hooks, mutations, and confirmation dialog. |
 | Web translations | `apps/web/scripts/compile-locales.js`, `apps/web/src/**/locales/fr.json` | Build output is generated under `src/libs/i18n/build`. |
-| React UI components | `packages/ui/react/src/components/*` | Folder-per-component with story + barrel. |
+| React UI components | `packages/ui/react/src/components/*`, `packages/ui/react/src/components/AGENTS.md` | Folder-per-component with story + barrel. |
 | Theme tokens | `packages/ui/theme/src/tokens.ts` | Source of truth for `tailwind.css`. |
 | Docker / CI | `.github/workflows/ci.yml`, `apps/*/Dockerfile` | CI runs code-quality, affected typecheck/build; test job is commented out. |
 
@@ -119,7 +119,7 @@ pnpm --filter @workspace/ui-theme generate:tailwind
 - `@workspace/ui-theme/tailwind.css` is generated from `src/tokens.ts`; run `generate:tailwind` after token edits.
 - `@workspace/ui-react` has no build script; apps consume its source exports directly.
 - Build order: Turbo `^build` ensures API registry and theme CSS are generated before web build.
-- Current tests are scaffolded for API/Japa; no `*.spec.ts` files were found.
-- LSP TypeScript server was not installed during generation; codemap came from direct reads, rg, and ast-grep.
+- API/Japa tests now live beside user-management controllers, policies, jobs, and mails as `*.unit.spec.ts` / `*.e2e.spec.ts`.
+- TypeScript LSP is not installed in this environment; codemap came from direct reads, rg, ast-grep, and Biome LSP status.
 - CI test job is present but commented out.
 - No `Makefile` exists in the repo.

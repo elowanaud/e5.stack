@@ -25,7 +25,7 @@
 
 *AdonisJS API, TanStack Start web app, and shared UI packages connected by Tuyau and pnpm workspaces.*
 
-[Overview](#overview) • [Stack](#stack) • [Getting Started](#getting-started) • [Commands](#commands) • [Architecture](#architecture)
+[Overview](#overview) • [Stack](#stack) • [Getting Started](#getting-started) • [Commands](#commands) • [Testing](#testing) • [Architecture](#architecture)
 
 </div>
 
@@ -65,11 +65,11 @@ e5.stack/
 
 | Area | Technologies |
 | :--- | :--- |
-| **Core** | TypeScript 6.0, Node 24, pnpm 10.33.2, Turborepo 2.9.14 |
-| **API** | AdonisJS 7.3, Lucid, Bouncer, Session Auth, Queue, Mail, Tuyau, Japa |
-| **Web** | React 19.2, TanStack Start, TanStack Router, TanStack Query, TanStack Form, Vite 8 |
-| **UI** | Tailwind CSS v4, Base UI, tailwind-variants, lucide-react, sonner, Storybook 10 |
-| **Tooling** | Biome 2.4, Docker, GitHub Actions |
+| **Core** | TypeScript 6.0.3, Node 24, pnpm 10.33.2, Turborepo 2.9.16 |
+| **API** | AdonisJS 7.3.4, Lucid, Bouncer, Session Auth, Queue, Mail, Tuyau, Japa |
+| **Web** | React 19.2.7, TanStack Start 1.168.20, TanStack Router, TanStack Query, TanStack Form, Vite 8.0.16 |
+| **UI** | Tailwind CSS 4.3.0, Base UI, tailwind-variants, lucide-react, sonner, Storybook 10.4.2 |
+| **Tooling** | Biome 2.4.16, Docker, GitHub Actions |
 
 ## Getting Started
 
@@ -120,6 +120,16 @@ Run root commands from the repository root:
 | `pnpm code-quality` | Runs Biome checks. |
 | `pnpm code-quality:fix` | Runs Biome safe fixes. |
 | `pnpm adonis` | Forwards to the API Ace CLI. |
+
+## Testing
+
+API tests are colocated with user-management feature code and run through Japa:
+
+- `*.unit.spec.ts` covers policies, jobs, and mails.
+- `*.e2e.spec.ts` covers HTTP controllers with the Japa API client.
+- `apps/api/bootstrap.ts` runs database migrations/truncation and starts the HTTP server for e2e suites.
+
+Run all workspace tests with `pnpm test`, or target the API with `pnpm --filter @workspace/api test`. The CI test job is present but currently commented out.
 
 ### Targeted Execution
 
