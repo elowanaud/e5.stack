@@ -11,6 +11,7 @@ const meta: Meta<typeof ScrollArea> = {
 			},
 		},
 	},
+	component: ScrollArea,
 	argTypes: {
 		variant: {
 			description: "The variant of the scroll area.",
@@ -36,7 +37,6 @@ const meta: Meta<typeof ScrollArea> = {
 			},
 		},
 	},
-	component: ScrollArea,
 };
 
 export default meta;
