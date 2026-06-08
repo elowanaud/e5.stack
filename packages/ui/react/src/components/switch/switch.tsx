@@ -35,7 +35,7 @@ export function SwitchRoot(props: SwitchRootProps) {
 			<SwitchPrimitive.Thumb
 				className={cx(
 					// Default
-					"aspect-square h-full rounded-full bg-neutral-1 ring ring-neutral-7 transition",
+					"aspect-square h-full rounded-full bg-neutral-1 ring ring-neutral-7 transition dark:bg-neutral-12",
 					// Hover
 					"group-hover:not-data-disabled:ring-neutral-8",
 					// Checked

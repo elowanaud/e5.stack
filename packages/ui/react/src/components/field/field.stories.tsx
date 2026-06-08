@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Checkbox } from "../checkbox";
 import { Input } from "../input";
 import { PasswordInput } from "../password-input";
 import { Switch } from "../switch";
@@ -78,6 +79,22 @@ export const SwitchField: Story = {
 				Receive updates about new features and offers
 			</Field.Description>
 			<Field.Error className="col-start-2">You must enable notifications to proceed</Field.Error>
+		</Field>
+	),
+};
+
+export const CheckboxField: Story = {
+	render: (args) => (
+		<Field className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1" {...args}>
+			<Checkbox className="col-start-1" />
+
+			<Field.Label className="col-start-2">Accept terms and conditions</Field.Label>
+			<Field.Description className="col-start-2">
+				You must accept our terms and conditions to proceed
+			</Field.Description>
+			<Field.Error className="col-start-2">
+				You must accept the terms and conditions to proceed
+			</Field.Error>
 		</Field>
 	),
 };
