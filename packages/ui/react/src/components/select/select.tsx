@@ -73,7 +73,7 @@ export function SelectDropdown(props: SelectDropdownProps) {
 		children,
 		className,
 		align = "start",
-		sideOffset = 4,
+		sideOffset = 8,
 		collisionPadding = 16,
 		...rest
 	} = props;
@@ -91,7 +91,7 @@ export function SelectDropdown(props: SelectDropdownProps) {
 				<SelectPrimitive.Popup
 					className={cn(
 						// Default
-						"min-w-(--anchor-width) max-w-(--available-width) origin-(--transform-origin) rounded-lg border border-neutral-6 bg-neutral-1 shadow shadow-neutral-5 transition",
+						"grid max-h-[min(24rem,var(--available-height))] min-w-(--anchor-width) max-w-(--available-width) origin-(--transform-origin) grid-rows-1 rounded-lg border border-neutral-6 bg-neutral-1 shadow shadow-neutral-5 outline-none transition",
 						// Starting Animation
 						"data-starting-style:data-[side=inline-end]:-translate-x-1 data-starting-style:data-[side=inline-start]:translate-x-1 data-starting-style:data-[side=left]:translate-x-1 data-starting-style:data-[side=right]:-translate-x-1 data-starting-style:data-[side=bottom]:-translate-y-1 data-starting-style:data-[side=top]:translate-y-1 data-starting-style:scale-95 data-starting-style:opacity-0 data-starting-style:blur-xs",
 						// Ending Animation
@@ -101,9 +101,7 @@ export function SelectDropdown(props: SelectDropdownProps) {
 					)}
 				>
 					<ScrollArea>
-						<SelectPrimitive.List className="max-h-[min(24rem,var(--available-height))] py-1">
-							{children}
-						</SelectPrimitive.List>
+						<SelectPrimitive.List className="py-1 outline-none">{children}</SelectPrimitive.List>
 					</ScrollArea>
 				</SelectPrimitive.Popup>
 			</SelectPrimitive.Positioner>

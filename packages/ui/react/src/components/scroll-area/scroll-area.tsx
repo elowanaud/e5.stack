@@ -3,10 +3,10 @@ import { tv, type VariantProps } from "tailwind-variants";
 
 const ScrollAreaVariant = tv({
 	slots: {
-		root: "h-full w-full overflow-auto",
-		viewport: "h-full w-full overflow-auto",
+		root: "h-full w-full overflow-auto outline-none",
+		viewport: "h-full w-full overflow-auto outline-none",
 		scrollbar:
-			"pointer-events-none m-2 hidden rounded-sm bg-neutral-3 opacity-0 transition-opacity data-hovering:pointer-events-auto data-scrolling:pointer-events-auto data-hovering:opacity-100 data-scrolling:opacity-100",
+			"pointer-events-none m-0.75 hidden rounded-sm opacity-0 transition-opacity data-hovering:pointer-events-auto data-scrolling:pointer-events-auto data-hovering:opacity-100 data-scrolling:opacity-100",
 		thumb: "rounded-sm bg-neutral-9",
 	},
 	variants: {
@@ -48,14 +48,14 @@ export function ScrollAreaRoot(props: ScrollAreaRootProps) {
 				<>
 					<ScrollAreaPrimitive.Scrollbar
 						orientation="vertical"
-						className={scrollbar({ variant, className: "w-1 data-has-overflow-y:block" })}
+						className={scrollbar({ variant, className: "w-0.75 data-has-overflow-y:block" })}
 					>
 						<ScrollAreaPrimitive.Thumb className={thumb({ variant, className: "w-full" })} />
 					</ScrollAreaPrimitive.Scrollbar>
 
 					<ScrollAreaPrimitive.Scrollbar
 						orientation="horizontal"
-						className={scrollbar({ variant, className: "h-1 data-has-overflow-x:block" })}
+						className={scrollbar({ variant, className: "h-0.75 data-has-overflow-x:block" })}
 					>
 						<ScrollAreaPrimitive.Thumb className={thumb({ variant, className: "h-full" })} />
 					</ScrollAreaPrimitive.Scrollbar>

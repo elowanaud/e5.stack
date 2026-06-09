@@ -62,8 +62,10 @@ export const Default: Story = {
 				<Dialog.Trigger render={<Button />}>Open Dialog</Dialog.Trigger>
 				<Dialog.Content className="flex flex-col gap-9 sm:max-w-lg">
 					<div className="grid gap-2">
-						<Dialog.Title className="font-bold text-2xl">Lorem ipsum dolor sit amet.</Dialog.Title>
-						<Dialog.Description className="text-neutral-10 text-sm">
+						<Dialog.Title className="font-bold text-2xl text-neutral-12">
+							Lorem ipsum dolor sit amet.
+						</Dialog.Title>
+						<Dialog.Description className="text-neutral-11 text-sm">
 							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, beatae. Nihil,
 							pariatur! Sequi iste officiis quos omnis perferendis, adipisci eos repudiandae est
 							delectus blanditiis unde enim aut magnam nemo iure!
