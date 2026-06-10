@@ -30,6 +30,14 @@ export function SelectInput(props: SelectInputProps) {
 				"focus-visible:border-primary-8 focus-visible:ring-3 focus-visible:hover:border-primary-8",
 				// Popup open
 				"data-popup-open:border-primary-8 data-popup-open:ring-3 data-popup-open:hover:border-primary-8",
+				// Invalid
+				"data-invalid:border-error-7 data-invalid:ring-error-7",
+				// Invalid Hover
+				"data-invalid:hover:not-data-disabled:border-error-8",
+				// Invalid Focus
+				"data-invalid:focus-visible:border-error-8 data-invalid:hover:border-error-8",
+				// Invalid Popup open
+				"data-invalid:data-popup-open:border-error-8 data-invalid:data-popup-open:hover:border-error-8",
 				// Disabled
 				"data-disabled:cursor-not-allowed data-disabled:opacity-50",
 				// Overwrite
