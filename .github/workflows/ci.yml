@@ -75,7 +75,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres
+        image: postgres:15-alpine
         env:
           POSTGRES_USER: root
           POSTGRES_PASSWORD: root
@@ -84,6 +84,15 @@ jobs:
           - 5433:5432
         options: >-
           --health-cmd pg_isready
+          --health-interval 3s
+          --health-timeout 3s
+          --health-retries 3
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping || exit 1"
           --health-interval 3s
           --health-timeout 3s
           --health-retries 3
