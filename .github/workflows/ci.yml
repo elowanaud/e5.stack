@@ -78,7 +78,7 @@ jobs:
         image: postgres:15-alpine
         env:
           POSTGRES_USER: root
-          POSTGRES_PASSWORD: root
+          POSTGRES_PASSWORD: supersecret
           POSTGRES_DB: app_test
         ports:
           - 5433:5432
@@ -91,6 +91,8 @@ jobs:
         image: redis:7-alpine
         ports:
           - 6379:6379
+        env:
+          REDIS_PASSWORD: supersecret
         options: >-
           --health-cmd "redis-cli ping || exit 1"
           --health-interval 3s
