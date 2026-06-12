@@ -6,7 +6,7 @@ import { ScrollArea } from "../scroll-area";
 export type AutocompleteRootProps<ItemValue> = AutocompletePrimitive.Root.Props<ItemValue>;
 
 export function AutocompleteRoot<ItemValue>(props: AutocompleteRootProps<ItemValue>) {
-	const { autoHighlight = "always", ...rest } = props;
+	const { autoHighlight = true, ...rest } = props;
 
 	// @ts-expect-error - type inference issue with generic component on Base UI end
 	return <AutocompletePrimitive.Root autoHighlight={autoHighlight} {...rest} />;

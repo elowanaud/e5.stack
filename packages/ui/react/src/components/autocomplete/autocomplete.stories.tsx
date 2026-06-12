@@ -85,7 +85,7 @@ const meta: Meta<typeof Autocomplete> = {
 				type: {
 					summary: "boolean | 'always' | undefined",
 				},
-				defaultValue: { summary: "'always'" },
+				defaultValue: { summary: "true" },
 			},
 		},
 		keepHighlight: {
