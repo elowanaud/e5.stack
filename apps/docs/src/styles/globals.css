@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Caslon+Display&display=swap");
+
+@import "tailwindcss";
+@import "@workspace/ui-theme/tailwind";
+@import "fumadocs-ui/style.css";
+
+:root,
+.dark {
+	--color-fd-background: var(--neutral-2);
+	--color-fd-foreground: var(--neutral-12);
+	--color-fd-muted: var(--neutral-3);
+	--color-fd-muted-foreground: var(--neutral-11);
+	--color-fd-popover: var(--neutral-1);
+	--color-fd-popover-foreground: var(--neutral-12);
+	--color-fd-card: var(--neutral-1);
+	--color-fd-card-foreground: var(--neutral-12);
+	--color-fd-border: color-mix(in srgb, var(--neutral-7) 70%, transparent);
+	--color-fd-primary: var(--primary-9);
+	--color-fd-primary-foreground: white;
+	--color-fd-secondary: var(--neutral-4);
+	--color-fd-secondary-foreground: var(--neutral-12);
+	--color-fd-accent: color-mix(in srgb, var(--primary-5) 45%, transparent);
+	--color-fd-accent-foreground: var(--primary-12);
+	--color-fd-ring: var(--primary-8);
+	--color-fd-overlay: color-mix(in srgb, black 32%, transparent);
+}
+
+html {
+	scrollbar-gutter: stable;
+}
+
+html > body[data-scroll-locked] {
+	margin-right: 0;
+	--removed-body-scroll-bar-size: 0px;
+}

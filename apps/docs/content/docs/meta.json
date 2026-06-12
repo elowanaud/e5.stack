@@ -1,0 +1,5 @@
+{
+	"description": "Controle le titre de la section et l'ordre des pages dans la navigation Fumadocs.",
+	"title": "Documentation E5",
+	"pages": ["index", "getting-started", "architecture"]
+}

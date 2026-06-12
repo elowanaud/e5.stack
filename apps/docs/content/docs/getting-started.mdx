@@ -1,0 +1,35 @@
+---
+title: Demarrage
+description: Installer les dependances et lancer les applications du monorepo.
+---
+
+## Prerequis
+
+Le monorepo utilise Node.js 24 et pnpm 10.33.2.
+
+```bash
+pnpm install
+```
+
+## Commandes principales
+
+```bash
+pnpm dev
+pnpm build
+pnpm typecheck
+pnpm code-quality
+```
+
+## Applications
+
+- `apps/api` : API AdonisJS.
+- `apps/web` : application TanStack Start principale.
+- `apps/docs` : documentation publique Fumadocs.
+
+## Lancer la documentation
+
+```bash
+pnpm --filter @workspace/docs dev
+```
+
+La documentation est servie en local sur `http://localhost:3001/docs`.
