@@ -1,99 +1,73 @@
-# API Controller Best Practices
+# API Controller Reference
 
 ## Scope
-- INCLUDE: AdonisJS API controllers that handle one HTTP action per controller class.
-- INCLUDE: request authorization, payload validation, service delegation, response shaping, route access expectations, Tuyau contract impact, and controller-level tests.
-- EXCLUDE: domain business rules, persistence workflows, external side effects, mail or queue behavior, and presenter internals.
-- EXCLUDE: general API architecture, route design outside the controller contract, and service implementation details that should use a different reference.
+- Covers AdonisJS HTTP controllers that expose JSON API actions.
+- Covers request orchestration, Bouncer authorization calls, validation handoff, service delegation, presenter use, response status choices, and controller-level tests.
+- Excludes policy internals, validator schema design, presenter internals, domain service rules, queued jobs, mail content, model design, and storage changes.
+- Use `policy.md`, `validation.md`, or `presenter.md` when the main change belongs to one of those boundaries.
 
 ## Workflow
-- Step 1: Confirm the route middleware contract first so the controller can assume the expected guest or authenticated access boundary.
-- Step 2: Authorize the request before protected work or permission-dependent reads happen.
-- Step 3: Validate only the payload fields the action needs with Vine.
-- Step 4: Delegate business logic, writes, external calls, emails, queue work, and multi-step workflows to a narrow service method.
-- Step 5: Return a well-formatted presenter-shaped response, status-specific response, or intentional `null` for no-content contracts.
+- Step 1: Confirm the route middleware contract so the controller can rely on the intended guest, authenticated, or public boundary.
+- Step 2: Authorize protected access with Bouncer before protected reads, writes, or side effects.
+- Step 3: Validate only the action payload needed for this request, then pass typed data across the service boundary.
+- Step 4: Delegate domain work, persistence, external calls, mail, queue dispatch, and multi-step side effects to a service.
+- Step 5: Return a presenter-shaped JSON value, an explicit status response, or `null` only when the no-content contract is intentional.
 
 ## Required Rules
-- A controller class MUST represent one action only; do not add multiple action methods to the same controller.
-- Controllers MUST stay focused on request orchestration: authorize, validate, delegate, and return.
-- Controllers MUST authorize before any protected write, permission-dependent read, or side effect happens.
-- Controllers MUST validate payload input before passing data into business logic or persistence boundaries.
-- Controllers MUST delegate write work, external calls, mail, queue jobs, and domain decisions to services.
-- Controllers MUST return presenter-shaped responses or `null` only when no-content is the intended contract.
-- Controllers MUST rely on route middleware for guest-only and authenticated-only access decisions.
-- New or changed controller behavior MUST have controller-level Japa tests for the happy path, access failure, validation failure where applicable, response shape, and side-effect boundary.
-- Do not skip checking route and Tuyau impact when changing an action signature, route name, response shape, or access contract.
+- A controller class must represent one HTTP action and expose a single action handler.
+- Controllers must stay thin: authorize, validate, delegate, and return.
+- Controllers must not run protected reads, writes, or side effects before authorization succeeds.
+- Controllers must not pass untrusted request payloads to services or persistence.
+- Controllers must use services for domain decisions, writes, external calls, mail, queue dispatch, and transaction-sized workflows.
+- Controllers must use presenters or stable DTOs for public JSON response shape.
+- Controllers must rely on route middleware for guest-only and authenticated-only access where middleware expresses the route contract.
+- Changed controller behavior must have controller-level tests for success, access failure, validation failure when input is accepted, response shape, and side-effect boundaries.
+- Do not change action signatures, route names, response shapes, or access contracts without checking typed client impact.
 
 ## Key Considerations
-- Authorization: use Bouncer for action-level or resource-level authorization, and keep authorization failures explicit in tests so the access boundary is visible.
-- Validation: use Vine as the request contract, validate only the fields the action needs, and avoid custom parsing inside the controller.
-- Service delegation: let the controller collect input and call a narrow service method; the service owns domain rules, persistence, and side effects.
-- Responses and presenters: use presenters to control public payload shape and avoid exposing raw models or ad hoc objects.
-- Route and Tuyau expectations: keep route names, action signatures, middleware, and response contracts stable because Tuyau turns them into the typed client surface.
-- Testing: controller tests should assert status codes, response shape, delegation boundaries, and that failed authorization or validation prevents side effects.
-- Failure order: access checks should fail before protected work begins, and validation failures should fail before service or persistence calls receive untrusted payload data.
+- Access order matters. Authorization failure should stop the request before protected work begins.
+- Validation order matters. Validation failure should stop the request before services receive untrusted data.
+- Route middleware is part of the controller contract. Don't duplicate middleware responsibilities inside the action unless the action has a distinct resource-level authorization need.
+- A controller may return `null` for intentional no-content responses, but must not hide missing response design behind `null` by default.
+- Typed clients treat controller routes and JSON response shapes as contracts, so shape changes need the same care as public API changes.
+- Side effects belong behind services. A controller may trigger a service method, but it shouldn't know how mail, queue jobs, external calls, or persistence steps are coordinated.
 
 ## Examples
 **Do**
 ```ts
-import type { HttpContext } from '@adonisjs/core/http'
-import { inject } from '@adonisjs/core'
-import vine from "@vinejs/vine";
-import { createPostValidator } from '#features/posts/validators/create_post_validator'
-import { PostPresenter } from '#features/posts/presenters/post_presenter'
-import { PostsService } from '#features/posts/services/posts_service'
+export default class CreateThingController {
+	constructor(
+		private readonly service: ThingService,
+		private readonly presenter: ThingPresenter,
+	) {}
 
-@inject()
-export default class CreatePostController {
-	constructor(private readonly postsService: PostsService) {}
+	async handle({ bouncer, request, response }: HttpContext) {
+		await bouncer.with(CreateThingPolicy).authorize("handle")
+		const payload = await request.validateUsing(CreateThingController.payloadSchema)
+		const thing = await this.service.create(payload)
 
-	async handle({ auth, bouncer, request, response }: HttpContext) {
-		await bouncer.authorize('createPost')
-		const payload = await request.validateUsing(CreatePostController.payloadSchema)
-
-		const post = await this.postsService.create({
-			...payload,
-			userId: auth.user!.id,
-		})
-
-		return response.created(PostPresenter.from(post))
+		return response.created(await this.presenter.toJSON(thing))
 	}
-
-  static payloadSchema = vine.create({
-    ...
-  })
 }
 ```
 
 **Don't**
 ```ts
-import type { HttpContext } from '@adonisjs/core/http'
-import { Post } from '#features/posts/models/post'
-import { Mail } from '@adonisjs/mail'
+export default class ThingsController {
+	async handle({ request, response }: HttpContext) {
+		const thing = await Thing.create(request.all())
+		await Mail.sendLater(messageFor(thing))
 
-export default class PostsController {
-	async store({ request, response }: HttpContext) {
-		const post = await Post.create(request.all())
-		await Mail.sendLater(/* ... */)
-
-		return response.json(post)
-	}
-
-	async update({ request, response }: HttpContext) {
-		const post = await Post.findOrFail(request.param('id'))
-		post.merge(request.all())
-		await post.save()
-
-		return response.json(post)
+		return response.json(thing)
 	}
 }
 ```
 
 ## Anti-Patterns
-- Adding multiple actions to one controller class instead of keeping one controller per action.
-- Mixing authorization, validation, persistence, mail, queue work, and response shaping into one controller block.
-- Calling models, mailers, queues, or external APIs directly from the controller instead of delegating to a service.
-- Returning raw models, `request.all()`, or ad hoc response objects instead of presenter-shaped responses.
-- Hiding guest or authenticated access rules inside the controller when route middleware should express the route contract.
-- Changing route names, action signatures, or response shapes without considering Tuyau client impact.
-- Adding or changing controller behavior without controller-level tests for success, access failure, validation failure, and side-effect boundaries.
+- Grouping several HTTP actions into one controller class.
+- Mixing authorization, validation, persistence, mail, queue dispatch, and response shaping in one method.
+- Querying or mutating protected resources before Bouncer authorizes the action.
+- Passing `request.all()` or raw params into services.
+- Returning raw models or ad hoc objects from controller methods.
+- Sending mail, dispatching jobs, or calling external services directly from controllers.
+- Treating access, validation, and response-shape tests as optional because the service is tested elsewhere.

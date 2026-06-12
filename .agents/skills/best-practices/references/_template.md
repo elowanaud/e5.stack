@@ -1,5 +1,5 @@
 # [Reference Name]
-<!-- Keep this file reusable: replace placeholders, keep the heading order, and avoid topic-specific language. -->
+<!-- Authoring scaffold only: replace placeholders, keep the heading order, and never use this as runtime guidance. -->
 
 ## Scope
 - INCLUDE: [what this reference covers].
