@@ -11,7 +11,7 @@ function Page() {
 
 	return (
 		<>
-			<h1 className="mb-9 font-serif text-4xl text-primary-11 sm:text-5xl">{t("title")}</h1>
+			<h1 className="mb-9 font-serif text-5xl text-primary-11">{t("title")}</h1>
 
 			<ForgotPasswordForm />
 		</>

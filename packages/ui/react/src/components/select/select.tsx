@@ -23,7 +23,7 @@ export function SelectInput(props: SelectInputProps) {
 		<SelectPrimitive.Trigger
 			className={cn(
 				// Default
-				"inline-flex h-9 items-center justify-between gap-2 rounded-lg border border-neutral-7 bg-neutral-1 px-2 outline-none ring-primary-7 transition",
+				"inline-flex h-10 items-center justify-between gap-2 rounded-lg border border-neutral-7 bg-neutral-1 px-2 outline-none ring-primary-7 transition sm:h-9",
 				// Hover
 				"hover:not-disabled:border-neutral-8",
 				// Focus

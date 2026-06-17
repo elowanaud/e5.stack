@@ -55,7 +55,7 @@ export function ComboboxInput(props: ComboboxInputProps) {
 				// Disabled
 				"data-disabled:cursor-not-allowed data-disabled:opacity-50",
 				// Multiple
-				multiple ? "min-h-9 py-1" : "h-9",
+				multiple ? "min-h-10 py-1 sm:min-h-9" : "h-10 sm:h-9",
 				// Overwrite
 				className,
 			)}
@@ -192,7 +192,7 @@ export function ComboboxSearchInput(props: ComboboxSearchInputProps) {
 				size={size}
 				className={cn(
 					// Default
-					"row-span-1 h-9 w-full rounded-t-lg border-neutral-7 border-b bg-neutral-2 px-2 pl-8 text-base text-neutral-12 outline-none sm:text-sm",
+					"row-span-1 h-10 w-full rounded-t-lg border-neutral-7 border-b bg-neutral-2 px-2 pl-8 text-base text-neutral-12 outline-none sm:h-9 sm:text-sm",
 					// Placeholder
 					"placeholder:text-neutral-9",
 					// Overwrite

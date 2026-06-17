@@ -89,7 +89,7 @@ export function AutocompleteItem(props: AutocompleteItemProps) {
 		<AutocompletePrimitive.Item
 			className={cn(
 				// Default
-				"mx-1 flex h-9 items-center rounded-md px-2 text-base text-neutral-12 outline-none sm:text-sm",
+				"mx-1 flex h-10 items-center rounded-md px-2 text-base text-neutral-12 outline-none sm:h-9 sm:text-sm",
 				// Hover
 				"hover:not-data-disabled:bg-neutral-3",
 				// Highlighted
