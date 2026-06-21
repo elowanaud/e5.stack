@@ -1,6 +1,7 @@
 import { Combobox as ComboboxPrimitive } from "@base-ui/react/combobox";
 import { createContext, useContext } from "react";
 import { cn } from "tailwind-variants";
+
 import { CheckIcon, ChevronsUpDownIcon, SearchIcon, XIcon } from "../../icons";
 import { Button } from "../button";
 import { ScrollArea } from "../scroll-area";

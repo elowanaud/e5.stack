@@ -1,6 +1,7 @@
 import { inject } from "@adonisjs/core";
 import { HttpContext } from "@adonisjs/core/http";
 import encryption from "@adonisjs/core/services/encryption";
+
 import InvalidTokenException from "#exceptions/invalid_token.exception";
 import InvalidCredentialsException from "#features/user_management/authentication/exceptions/invalid_credentials.exception";
 import SendPasswordChangedNotification from "#features/user_management/password/jobs/send_password_changed_notification.job";

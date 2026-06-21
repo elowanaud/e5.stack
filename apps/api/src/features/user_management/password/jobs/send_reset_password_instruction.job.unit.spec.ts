@@ -1,5 +1,6 @@
 import mail from "@adonisjs/mail/services/main";
 import { test } from "@japa/runner";
+
 import { UserFactory } from "#database/factories/user.factory";
 import SendResetPasswordInstruction from "#features/user_management/password/jobs/send_reset_password_instruction.job";
 import ResetPasswordInstructionMail from "#features/user_management/password/mails/reset_password_instruction.mail";

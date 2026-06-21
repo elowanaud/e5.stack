@@ -1,6 +1,7 @@
 import { Link, type NotFoundRouteProps } from "@tanstack/react-router";
-import { Button } from "@workspace/ui-react/components/button";
 import { useTranslation } from "react-i18next";
+
+import { Button } from "@workspace/ui-react/components/button";
 
 export function NotFoundPage(_props: NotFoundRouteProps) {
 	const { t } = useTranslation("components.pages.not-found");

@@ -1,6 +1,7 @@
 import { Input as InputPrimitive } from "@base-ui/react/input";
 import type { CSSProperties, ReactNode } from "react";
 import { cn } from "tailwind-variants";
+
 import { useElementSize } from "../../hooks/use-element-size";
 
 export type InputRootProps = InputPrimitive.Props & {

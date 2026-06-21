@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Fragment } from "react/jsx-runtime";
+
 import { Combobox } from "./index";
 
 const OPTIONS = [

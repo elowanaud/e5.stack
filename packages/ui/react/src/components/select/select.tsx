@@ -1,5 +1,6 @@
 import { Select as SelectPrimitive } from "@base-ui/react/select";
 import { cn } from "tailwind-variants";
+
 import { CheckIcon, ChevronsUpDownIcon } from "../../icons";
 import { ScrollArea } from "../scroll-area";
 

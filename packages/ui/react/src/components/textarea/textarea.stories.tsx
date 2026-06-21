@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+
 import { Button } from "@workspace/ui-react/components/button";
+
 import { CopyIcon, FileCodeCornerIcon, SendHorizontalIcon } from "../../icons";
 import { Textarea } from "./index";
 

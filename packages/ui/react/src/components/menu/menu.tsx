@@ -1,5 +1,6 @@
 import { Menu as MenuPrimitive } from "@base-ui/react/menu";
 import { cn, tv, type VariantProps } from "tailwind-variants";
+
 import { CheckIcon, ChevronRightIcon } from "../../icons";
 import { ScrollArea } from "../scroll-area";
 

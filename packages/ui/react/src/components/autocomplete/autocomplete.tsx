@@ -1,5 +1,6 @@
 import { Autocomplete as AutocompletePrimitive } from "@base-ui/react/autocomplete";
 import { cn } from "tailwind-variants";
+
 import { Input, type InputProps } from "../input";
 import { ScrollArea } from "../scroll-area";
 

@@ -1,6 +1,7 @@
 import type { ErrorComponentProps } from "@tanstack/react-router";
-import { Button } from "@workspace/ui-react/components/button";
 import { useTranslation } from "react-i18next";
+
+import { Button } from "@workspace/ui-react/components/button";
 
 export function UnexpectedPage(props: ErrorComponentProps) {
 	const { reset } = props;

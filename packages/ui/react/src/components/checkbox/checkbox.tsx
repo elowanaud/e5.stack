@@ -1,5 +1,6 @@
 import { Checkbox as CheckboxPrimitive } from "@base-ui/react/checkbox";
 import { cn } from "tailwind-variants";
+
 import { CheckIcon, MinusIcon } from "../../icons";
 
 export type CheckboxRootProps = CheckboxPrimitive.Root.Props;

@@ -1,8 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { toast } from "@workspace/ui-react/components/toast";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import z from "zod";
+
+import { toast } from "@workspace/ui-react/components/toast";
+
 import { ResetPasswordForm } from "#/features/user_management/password/components/reset-form";
 
 const searchParamsSchema = z.object({

@@ -1,5 +1,6 @@
 import { Tabs as TabsPrimitive } from "@base-ui/react/tabs";
 import { cn } from "tailwind-variants";
+
 import { ScrollArea } from "../scroll-area";
 
 export type TabsRootProps = TabsPrimitive.Root.Props;
