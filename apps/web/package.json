@@ -36,7 +36,7 @@
 		"@rolldown/plugin-babel": "0.2.3",
 		"@tailwindcss/vite": "4.3.1",
 		"@tanstack/devtools-vite": "0.8.0",
-		"@tanstack/react-devtools": "0.10.5",
+		"@tanstack/react-devtools": "0.10.7",
 		"@tanstack/react-form-devtools": "0.2.29",
 		"@tanstack/react-query-devtools": "5.101.0",
 		"@tanstack/react-router-devtools": "1.167.0",
