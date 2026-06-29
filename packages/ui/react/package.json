@@ -5,7 +5,6 @@
 	"exports": {
 		"./components/*": "./src/components/*/index.ts",
 		"./icons": "./src/icons.ts",
-		"./providers/*": "./src/providers/*.tsx",
 		"./hooks/*": "./src/hooks/*.ts"
 	},
 	"scripts": {
