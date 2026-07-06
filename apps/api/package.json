@@ -53,7 +53,7 @@
 		"@workspace/ui-theme": "workspace:*",
 		"edge.js": "6.5.1",
 		"luxon": "3.7.2",
-		"mjml": "5.3",
+		"mjml": "5.4",
 		"pg": "8.22.0",
 		"reflect-metadata": "0.2.2"
 	},
