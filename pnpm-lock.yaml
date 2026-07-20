@@ -182,7 +182,7 @@ importers:
         version: 17.0.9(i18next@26.3.6(typescript@6.0.3))(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(typescript@6.0.3)
       tailwind-variants:
         specifier: 3.2.2
-        version: 3.2.2(tailwind-merge@3.5.0)(tailwindcss@4.3.2)
+        version: 3.2.2(tailwind-merge@3.5.0)(tailwindcss@4.3.3)
       zod:
         specifier: 4.4.3
         version: 4.4.3
@@ -230,8 +230,8 @@ importers:
         specifier: 3.1.14
         version: 3.1.14
       tailwindcss:
-        specifier: 4.3.2
-        version: 4.3.2
+        specifier: 4.3.3
+        version: 4.3.3
       typescript:
         specifier: 6.0.3
         version: 6.0.3
@@ -261,10 +261,10 @@ importers:
         version: 2.0.7(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       tailwind-variants:
         specifier: 3.2.2
-        version: 3.2.2(tailwind-merge@3.5.0)(tailwindcss@4.3.2)
+        version: 3.2.2(tailwind-merge@3.5.0)(tailwindcss@4.3.3)
       tailwindcss:
         specifier: '4'
-        version: 4.3.2
+        version: 4.3.3
     devDependencies:
       '@rolldown/plugin-babel':
         specifier: 0.2.3
@@ -5289,6 +5289,9 @@ packages:
 
   tailwindcss@4.3.2:
     resolution: {integrity: sha512-WtctNNSH8A9jlMIqxzuYumOHU5uGZyRv0Q5svQl+oEPy5w84YpBxdb7MdqyiSPQge5jTJ6zFQLq0PFygdccSBA==}
+
+  tailwindcss@4.3.3:
+    resolution: {integrity: sha512-gOhV3P7ufE62QDGg1zVaTgCR+EtPv92k2nIhVcVKcLmxT1sUBsQGhnZj175j+MqRt4zLF7ic+sCYjfhxMxj7YQ==}
 
   tapable@2.3.3:
     resolution: {integrity: sha512-uxc/zpqFg6x7C8vOE7lh6Lbda8eEL9zmVm/PLeTPBRhh1xCgdWaQ+J1CUieGpIfm2HdtsUpRv+HshiasBMcc6A==}
@@ -10749,13 +10752,15 @@ snapshots:
   tailwind-merge@3.5.0:
     optional: true
 
-  tailwind-variants@3.2.2(tailwind-merge@3.5.0)(tailwindcss@4.3.2):
+  tailwind-variants@3.2.2(tailwind-merge@3.5.0)(tailwindcss@4.3.3):
     dependencies:
-      tailwindcss: 4.3.2
+      tailwindcss: 4.3.3
     optionalDependencies:
       tailwind-merge: 3.5.0
 
   tailwindcss@4.3.2: {}
+
+  tailwindcss@4.3.3: {}
 
   tapable@2.3.3: {}
 
