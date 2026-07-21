@@ -185,7 +185,7 @@ jobs:
 
   automerge:
     name: "🤖 Automerge Dependabot PR"
-    needs: [build]
+    needs: [build, test]
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
 
