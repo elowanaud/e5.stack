@@ -1,6 +1,7 @@
 {
 	"name": "e5.stack",
 	"author": "elowanaud",
+	"private": true,
 	"scripts": {
 		"build": "turbo build",
 		"dev": "turbo dev",
