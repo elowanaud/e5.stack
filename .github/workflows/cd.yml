@@ -1,4 +1,4 @@
-name: "[Release]"
+name: "[CD]"
 
 on:
   push:
@@ -9,8 +9,8 @@ permissions:
   contents: write
 
 jobs:
-  semantic-release:
-    name: Semantic Release
+  release:
+    name: 📝 Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
