@@ -105,7 +105,16 @@ e5.stack/
    ```
 
 > [!NOTE]
-> Root `pnpm dev` runs Turbo. The API dev task also starts `docker-compose` and the email queue worker; the web dev task runs Vite on port `3000` plus the locale watcher.
+> Root `pnpm dev` runs Turbo with Portless. On its first run, Portless creates and trusts a
+> local certificate authority and may ask for your system password. Development servers are
+> available at:
+>
+> - Web: `https://web.e5.localhost`
+> - API: `https://api.e5.localhost`
+> - UI: `https://ui.e5.localhost`
+>
+> The theme package keeps its direct file-watcher command. The API database, Redis, mail
+> sidecars, and email worker remain available through their dedicated commands.
 
 ## Commands
 
@@ -113,7 +122,7 @@ Run root commands from the repository root:
 
 | Command | Description |
 | :--- | :--- |
-| `pnpm dev` | Starts the Turbo development graph. |
+| `pnpm dev` | Starts the Portless-enabled Turbo development graph. |
 | `pnpm build` | Builds the workspace with dependency ordering. |
 | `pnpm typecheck` | Runs workspace TypeScript checks. |
 | `pnpm test` | Runs Turbo tests across packages; currently API/Japa only. |
@@ -137,21 +146,27 @@ Use pnpm filters when working on one surface:
 
 ```bash
 pnpm --filter @workspace/api dev
+pnpm --filter @workspace/api dev:app
 pnpm --filter @workspace/api worker
 pnpm --filter @workspace/api docker-compose
 pnpm --filter @workspace/api test
 
 pnpm --filter @workspace/web dev
+pnpm --filter @workspace/web dev:app
 pnpm --filter @workspace/web preview
 pnpm --filter @workspace/web i18n:build
 
 pnpm --filter @workspace/ui-react dev
+pnpm --filter @workspace/ui-react dev:app
 pnpm --filter @workspace/ui-react typecheck
 
 pnpm --filter @workspace/ui-theme dev
 pnpm --filter @workspace/ui-theme generate:tailwind
 pnpm --filter @workspace/ui-theme build
 ```
+
+The `dev` commands use Portless and the stable URLs above. Use `dev:app` to run an underlying
+development process directly on its configured port, without the Portless proxy.
 
 ## Architecture
 

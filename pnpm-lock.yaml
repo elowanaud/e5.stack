@@ -11,6 +11,9 @@ importers:
       '@biomejs/biome':
         specifier: 2.5.10
         version: 2.5.10
+      portless:
+        specifier: 0.15.6
+        version: 0.15.6
       turbo:
         specifier: 2.10.12
         version: 2.10.12
@@ -313,6 +316,11 @@ importers:
         version: 6.0.3
 
 packages:
+
+  portless@0.15.6:
+    resolution: {integrity: sha512-uOAwWLF32rmyEGFASzSO0VOaqb/AQxFCCzyZbPGd82UNNOfIEvc09zy92nroNibE5HNfzV4oVB0ObKbPXgkM9A==}
+    engines: {node: '>=24'}
+    hasBin: true
 
   '@adobe/css-tools@4.5.0':
     resolution: {integrity: sha512-6OzddxPio9UiWTCemp4N8cYLV2ZN1ncRnV1cVGtve7dhPOtRkleRyx32GQCYSwDYgaHU3USMm84tNsvKzRCa1Q==}
@@ -5773,6 +5781,8 @@ packages:
     resolution: {integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==}
 
 snapshots:
+
+  portless@0.15.6: {}
 
   '@adobe/css-tools@4.5.0': {}
 

@@ -7,6 +7,9 @@ import { defineConfig } from "vite";
 
 const config = defineConfig({
 	resolve: { tsconfigPaths: true },
+	server: {
+		port: Number(process.env.PORT) ?? undefined,
+	},
 	plugins: [
 		devtools(),
 		tailwindcss(),
