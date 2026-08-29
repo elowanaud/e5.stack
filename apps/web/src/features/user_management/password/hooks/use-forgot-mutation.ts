@@ -8,12 +8,14 @@ import { api } from "#/libs/tuyau";
 import { toastifyTuyauError } from "#/utils/tuyau";
 
 export function useForgotPasswordMutation() {
-	const { t } = useTranslation("features.user_management.password.hooks.use-forgot-mutation");
+	const { t } = useTranslation(
+		"features.web.account_management.password.hooks.use-forgot-mutation",
+	);
 
 	const navigate = useNavigate();
 
 	return useMutation(
-		api.userManagement.password.forgot.mutationOptions({
+		api.accountManagement.password.forgot.mutationOptions({
 			onSuccess: () => {
 				toast.success(t("success.title"), {
 					description: t("success.description"),

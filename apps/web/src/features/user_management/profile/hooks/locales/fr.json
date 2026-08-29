@@ -1,5 +1,5 @@
 {
-	"features.user_management.profile.hooks.use-update-form": {
+	"features.web.account_management.profile.hooks.use-update-form": {
 		"validation": {
 			"name": {
 				"required": "Le nom est requis.",
@@ -9,7 +9,7 @@
 		}
 	},
 
-	"features.user_management.profile.hooks.use-update-mutation": {
+	"features.web.account_management.profile.hooks.use-update-mutation": {
 		"success": {
 			"title": "Profil mis à jour",
 			"description": "Votre profil a été mis à jour avec succès."
@@ -34,7 +34,7 @@
 		}
 	},
 
-	"features.user_management.profile.hooks.use-delete-mutation": {
+	"features.web.account_management.profile.hooks.use-delete-mutation": {
 		"success": {
 			"title": "Profil supprimé",
 			"description": "Votre profil a été supprimé avec succès. Un e-mail de confirmation vous sera envoyé."

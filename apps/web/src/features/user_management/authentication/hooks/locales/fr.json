@@ -1,5 +1,5 @@
 {
-	"features.user_management.authentication.hooks.use-login-mutation": {
+	"features.web.account_management.authentication.hooks.use-login-mutation": {
 		"error": {
 			"E_NETWORK": {
 				"title": "Une erreur réseau est survenue.",
@@ -24,7 +24,7 @@
 		}
 	},
 
-	"features.user_management.authentication.hooks.use-logout-mutation": {
+	"features.web.account_management.authentication.hooks.use-logout-mutation": {
 		"error": {
 			"E_NETWORK": {
 				"title": "Une erreur réseau est survenue.",

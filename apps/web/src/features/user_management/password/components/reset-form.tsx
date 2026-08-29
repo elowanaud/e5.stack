@@ -10,7 +10,7 @@ type ResetPasswordFormProps = UseResetPasswordFormParams;
 export function ResetPasswordForm(props: ResetPasswordFormProps) {
 	const { token, defaultValues } = props;
 
-	const { t } = useTranslation("features.user_management.password.components.reset-form");
+	const { t } = useTranslation("features.web.account_management.password.components.reset-form");
 
 	const form = useResetPasswordForm({ token, defaultValues });
 

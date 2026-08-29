@@ -9,11 +9,11 @@ Guest password recovery (forgot/reset) and authenticated password update feature
 | Task | Location | Notes |
 |------|----------|-------|
 | Forgot password UI | `components/forgot-form.tsx` | Uses `useForgotPasswordForm`; single email field. |
-| Forgot password mutation | `hooks/use-forgot-mutation.ts` | Calls `api.userManagement.password.forgot`; navigates to `/login` on success. |
+| Forgot password mutation | `hooks/use-forgot-mutation.ts` | Calls `api.accountManagement.password.forgot`; navigates to `/login` on success. |
 | Reset password UI | `components/reset-form.tsx` | Uses `useResetPasswordForm`; requires reset token prop. |
-| Reset password mutation | `hooks/use-reset-mutation.ts` | Calls `api.userManagement.password.reset`. |
+| Reset password mutation | `hooks/use-reset-mutation.ts` | Calls `api.accountManagement.password.reset`. |
 | Update password UI | `components/update-form.tsx` | Authenticated; uses `useUpdatePasswordForm`; wrapped in `Card`. |
-| Update password mutation | `hooks/use-update-mutation.ts` | Calls `api.userManagement.password.update`. |
+| Update password mutation | `hooks/use-update-mutation.ts` | Calls `api.accountManagement.password.update`. |
 | Translations | `locales/fr.json` | Copy for all password hooks and components. |
 | Forgot route | `../../../routes/(guest)/(auth)/forgot-password/page.tsx` | Renders `ForgotPasswordForm`. |
 | Reset route | `../../../routes/(guest)/(auth)/reset-password/page.tsx` | Renders `ResetPasswordForm`. |
@@ -30,7 +30,7 @@ Guest password recovery (forgot/reset) and authenticated password update feature
 
 ## ANTI-PATTERNS
 
-- Do not hardcode API paths; use `api.userManagement.password.*.mutationOptions()`.
+- Do not hardcode API paths; use `api.accountManagement.password.*.mutationOptions()`.
 - Do not bypass `useAppForm`; field components are registered centrally.
 - Do not change backend error codes without updating `locales/fr.json` and hook error mappings.
 

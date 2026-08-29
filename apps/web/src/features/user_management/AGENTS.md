@@ -26,7 +26,7 @@ Frontend user-management domain. Current concrete features: authentication (logi
 
 - Do not move route guards into feature components.
 - Do not add domain locales outside `locales/fr.json` unless the compiler is updated.
-- Do not duplicate profile cache keys; use `api.userManagement.profile.view.pathKey()`.
+- Do not duplicate profile cache keys; use `api.accountManagement.profile.view.pathKey()`.
 
 ## NOTES
 

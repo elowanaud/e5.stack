@@ -11,7 +11,7 @@ Authenticated app sidebar composition for the current user menu, theme switching
 | Sidebar shell | `index.tsx` | Wraps `@workspace/ui-react/components/sidebar`. |
 | User menu | `user-menu.tsx` | Current user query, theme submenu, profile link, logout action. |
 | Logout hook | `../../../features/user_management/authentication/hooks/use-logout-mutation.ts` | Clears profile query cache and redirects to `/login`. |
-| Profile query | `../../../libs/tuyau.ts` | Uses `api.userManagement.profile.view.queryOptions()`. |
+| Profile query | `../../../libs/tuyau.ts` | Uses `api.accountManagement.profile.view.queryOptions()`. |
 
 ## CONVENTIONS
 

@@ -6,16 +6,18 @@ import { api } from "#/libs/tuyau";
 import { toastifyTuyauError } from "#/utils/tuyau";
 
 export function useLogoutMutation() {
-	const { t } = useTranslation("features.user_management.authentication.hooks.use-logout-mutation");
+	const { t } = useTranslation(
+		"features.web.account_management.authentication.hooks.use-logout-mutation",
+	);
 
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
 
 	return useMutation(
-		api.userManagement.authentication.logout.mutationOptions({
+		api.accountManagement.authentication.logout.mutationOptions({
 			onSuccess: () => {
 				queryClient.removeQueries({
-					queryKey: api.userManagement.profile.view.pathKey(),
+					queryKey: api.accountManagement.profile.view.pathKey(),
 				});
 				navigate({ to: "/login" });
 			},

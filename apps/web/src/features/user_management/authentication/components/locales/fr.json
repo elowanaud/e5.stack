@@ -1,5 +1,5 @@
 {
-	"features.user_management.authentication.components.login-form": {
+	"features.web.account_management.authentication.components.login-form": {
 		"field": {
 			"email": {
 				"label": "Adresse e-mail"

@@ -7,18 +7,18 @@ import { api } from "#/libs/tuyau";
 import { toastifyTuyauError } from "#/utils/tuyau";
 
 export function useUpdateProfileMutation() {
-	const { t } = useTranslation("features.user_management.profile.hooks.use-update-mutation");
+	const { t } = useTranslation("features.web.account_management.profile.hooks.use-update-mutation");
 
 	const queryClient = useQueryClient();
 
 	return useMutation(
-		api.userManagement.profile.update.mutationOptions({
+		api.accountManagement.profile.update.mutationOptions({
 			onSuccess: () => {
 				toast.success(t("success.title"), {
 					description: t("success.description"),
 				});
 				queryClient.invalidateQueries({
-					queryKey: api.userManagement.profile.view.pathKey(),
+					queryKey: api.accountManagement.profile.view.pathKey(),
 				});
 			},
 			onError: (error) => {

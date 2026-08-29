@@ -8,19 +8,21 @@ import { api } from "#/libs/tuyau";
 import { toastifyTuyauError } from "#/utils/tuyau";
 
 export function useUpdatePasswordMutation() {
-	const { t } = useTranslation("features.user_management.password.hooks.use-update-mutation");
+	const { t } = useTranslation(
+		"features.web.account_management.password.hooks.use-update-mutation",
+	);
 
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
 
 	return useMutation(
-		api.userManagement.password.update.mutationOptions({
+		api.accountManagement.password.update.mutationOptions({
 			onSuccess: () => {
 				toast.success(t("success.title"), {
 					description: t("success.description"),
 				});
 				queryClient.removeQueries({
-					queryKey: api.userManagement.profile.view.pathKey(),
+					queryKey: api.accountManagement.profile.view.pathKey(),
 				});
 				navigate({ to: "/login" });
 			},

@@ -12,16 +12,18 @@ type UseLoginMutationParams = {
 export function useLoginMutation(params?: UseLoginMutationParams) {
 	const { redirectTo = "/" } = params ?? {};
 
-	const { t } = useTranslation("features.user_management.authentication.hooks.use-login-mutation");
+	const { t } = useTranslation(
+		"features.web.account_management.authentication.hooks.use-login-mutation",
+	);
 
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
 
 	return useMutation(
-		api.userManagement.authentication.login.mutationOptions({
+		api.accountManagement.authentication.login.mutationOptions({
 			onSuccess: () => {
 				queryClient.removeQueries({
-					queryKey: api.userManagement.profile.view.pathKey(),
+					queryKey: api.accountManagement.profile.view.pathKey(),
 				});
 				navigate({ to: redirectTo });
 			},

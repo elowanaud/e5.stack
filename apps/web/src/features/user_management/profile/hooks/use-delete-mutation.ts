@@ -8,19 +8,19 @@ import { api } from "#/libs/tuyau";
 import { toastifyTuyauError } from "#/utils/tuyau";
 
 export function useDeleteProfileMutation() {
-	const { t } = useTranslation("features.user_management.profile.hooks.use-delete-mutation");
+	const { t } = useTranslation("features.web.account_management.profile.hooks.use-delete-mutation");
 
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
 
 	return useMutation(
-		api.userManagement.profile.delete.mutationOptions({
+		api.accountManagement.profile.delete.mutationOptions({
 			onSuccess: () => {
 				toast.success(t("success.title"), {
 					description: t("success.description"),
 				});
 				queryClient.removeQueries({
-					queryKey: api.userManagement.profile.view.pathKey(),
+					queryKey: api.accountManagement.profile.view.pathKey(),
 				});
 				navigate({ to: "/login" });
 			},

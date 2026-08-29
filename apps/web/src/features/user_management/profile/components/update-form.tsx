@@ -12,7 +12,7 @@ type UpdateProfileFormProps = UseUpdateProfileFormParams;
 export function UpdateProfileForm(props: UpdateProfileFormProps) {
 	const { defaultValues } = props;
 
-	const { t } = useTranslation("features.user_management.profile.components.update-form");
+	const { t } = useTranslation("features.web.account_management.profile.components.update-form");
 
 	const form = useUpdateProfileForm({
 		defaultValues,

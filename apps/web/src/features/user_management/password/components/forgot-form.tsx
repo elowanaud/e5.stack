@@ -10,7 +10,7 @@ type ForgotPasswordFormProps = UseForgotPasswordFormParams;
 export function ForgotPasswordForm(props: ForgotPasswordFormProps) {
 	const { defaultValues } = props;
 
-	const { t } = useTranslation("features.user_management.password.components.forgot-form");
+	const { t } = useTranslation("features.web.account_management.password.components.forgot-form");
 
 	const form = useForgotPasswordForm({ defaultValues });
 

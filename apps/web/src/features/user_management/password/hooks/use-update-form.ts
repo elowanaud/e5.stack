@@ -16,7 +16,7 @@ export type UseUpdatePasswordFormParams = {
 export function useUpdatePasswordForm(params?: UseUpdatePasswordFormParams) {
 	const { defaultValues } = params ?? {};
 
-	const { t } = useTranslation("features.user_management.password.hooks.use-update-form");
+	const { t } = useTranslation("features.web.account_management.password.hooks.use-update-form");
 
 	const { mutateAsync: updatePassword } = useUpdatePasswordMutation();
 

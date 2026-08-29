@@ -15,7 +15,9 @@ type LoginFormProps = UseLoginFormParams;
 export function LoginForm(props: LoginFormProps) {
 	const { redirectTo, defaultValues } = props;
 
-	const { t } = useTranslation("features.user_management.authentication.components.login-form");
+	const { t } = useTranslation(
+		"features.web.account_management.authentication.components.login-form",
+	);
 
 	const form = useLoginForm({ defaultValues, redirectTo });
 

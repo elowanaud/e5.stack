@@ -8,12 +8,12 @@ import { api } from "#/libs/tuyau";
 import { toastifyTuyauError } from "#/utils/tuyau";
 
 export function useResetPasswordMutation() {
-	const { t } = useTranslation("features.user_management.password.hooks.use-reset-mutation");
+	const { t } = useTranslation("features.web.account_management.password.hooks.use-reset-mutation");
 
 	const navigate = useNavigate();
 
 	return useMutation(
-		api.userManagement.password.reset.mutationOptions({
+		api.accountManagement.password.reset.mutationOptions({
 			onSuccess: () => {
 				toast.success(t("success.title"), {
 					description: t("success.description"),

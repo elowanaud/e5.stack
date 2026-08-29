@@ -9,10 +9,10 @@ Authenticated profile management feature for updating user name and deleting the
 | Task | Location | Notes |
 |------|----------|-------|
 | Profile update UI | `components/update-form.tsx` | Uses `useUpdateProfileForm`; wraps in `Card`. |
-| Update mutation | `hooks/use-update-mutation.ts` | Calls `api.userManagement.profile.update`; invalidates `api.userManagement.profile.view` cache. |
+| Update mutation | `hooks/use-update-mutation.ts` | Calls `api.accountManagement.profile.update`; invalidates `api.accountManagement.profile.view` cache. |
 | Delete trigger UI | `components/delete-section.tsx` | Section button that opens confirmation dialog. |
 | Delete confirmation | `components/delete-confirmation-dialog.tsx` | Destructive action confirmation dialog. |
-| Delete mutation | `hooks/use-delete-mutation.ts` | Calls `api.userManagement.profile.delete`; removes queries and navigates to `/login`. |
+| Delete mutation | `hooks/use-delete-mutation.ts` | Calls `api.accountManagement.profile.delete`; removes queries and navigates to `/login`. |
 | Translations | `locales/fr.json` | Copy for profile hooks and components. |
 | Profile route | `../../../routes/(private)/profile/page.tsx` | Renders update form. |
 | Privacy route | `../../../routes/(private)/profile/privacy/page.tsx` | Renders delete-account section. |
@@ -21,7 +21,7 @@ Authenticated profile management feature for updating user name and deleting the
 
 - Profile forms live inside authenticated route boundaries only.
 - Profile tabs are owned by `routes/(private)/profile/layout.tsx`.
-- Update mutation invalidates `api.userManagement.profile.view.pathKey()` on success.
+- Update mutation invalidates `api.accountManagement.profile.view.pathKey()` on success.
 - Delete flow uses a two-step confirmation pattern (section button → dialog confirmation).
 - Form validation uses `zod` schemas with `revalidateLogic()`.
 - Mutations use `toastifyTuyauError` for standard error mapping (network, unauthenticated, validation, unexpected).
@@ -29,7 +29,7 @@ Authenticated profile management feature for updating user name and deleting the
 
 ## ANTI-PATTERNS
 
-- Do not hardcode API paths; use `api.userManagement.profile.*.mutationOptions()`.
+- Do not hardcode API paths; use `api.accountManagement.profile.*.mutationOptions()`.
 - Do not bypass `useAppForm`; field components are registered centrally.
 - Do not forget to invalidate or remove profile cache after update/delete.
 

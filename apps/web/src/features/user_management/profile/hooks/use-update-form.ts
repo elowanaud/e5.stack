@@ -14,7 +14,7 @@ export type UseUpdateProfileFormParams = {
 export function useUpdateProfileForm(params?: UseUpdateProfileFormParams) {
 	const { defaultValues } = params ?? {};
 
-	const { t } = useTranslation("features.user_management.profile.hooks.use-update-form");
+	const { t } = useTranslation("features.web.account_management.profile.hooks.use-update-form");
 
 	const { mutateAsync: updateProfile } = useUpdateProfileMutation();
 

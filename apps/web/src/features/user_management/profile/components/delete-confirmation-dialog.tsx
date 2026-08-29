@@ -18,7 +18,7 @@ export function DeleteProfileConfirmationDialog(props: DeleteProfileConfirmation
 	const { trigger } = props;
 
 	const { t } = useTranslation(
-		"features.user_management.profile.components.delete-confirmation-dialog",
+		"features.web.account_management.profile.components.delete-confirmation-dialog",
 	);
 
 	const alertDialogHandler = AlertDialogHeadless.createHandle();

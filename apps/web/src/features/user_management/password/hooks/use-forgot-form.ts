@@ -14,7 +14,7 @@ export type UseForgotPasswordFormParams = {
 export function useForgotPasswordForm(params?: UseForgotPasswordFormParams) {
 	const { defaultValues } = params ?? {};
 
-	const { t } = useTranslation("features.user_management.password.hooks.use-forgot-form");
+	const { t } = useTranslation("features.web.account_management.password.hooks.use-forgot-form");
 
 	const { mutateAsync: forgotPassword } = useForgotPasswordMutation();
 

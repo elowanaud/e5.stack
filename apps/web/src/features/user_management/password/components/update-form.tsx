@@ -12,7 +12,7 @@ type UpdatePasswordFormProps = UseUpdatePasswordFormParams;
 export function UpdatePasswordForm(props: UpdatePasswordFormProps) {
 	const { defaultValues } = props;
 
-	const { t } = useTranslation("features.user_management.password.components.update-form");
+	const { t } = useTranslation("features.web.account_management.password.components.update-form");
 
 	const form = useUpdatePasswordForm({
 		defaultValues,

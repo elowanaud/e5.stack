@@ -9,7 +9,7 @@ export const Route = createFileRoute("/(private)/profile/")({
 });
 
 function Page() {
-	const { data: currentUser } = useSuspenseQuery(api.userManagement.profile.view.queryOptions());
+	const { data: currentUser } = useSuspenseQuery(api.accountManagement.profile.view.queryOptions());
 
 	return <UpdateProfileForm defaultValues={{ name: currentUser.name }} />;
 }

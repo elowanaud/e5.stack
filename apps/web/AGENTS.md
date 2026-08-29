@@ -40,7 +40,7 @@ apps/web/src/
 - Private/guest access is enforced in route `beforeLoad`, not inside page components.
 - Profile settings are route-tabbed: `/profile`, `/profile/security`, `/profile/privacy`.
 - Use `api.*.queryOptions()` / `mutationOptions()` from `src/libs/tuyau.ts`.
-- Clear `api.userManagement.profile.view.pathKey()` cache after login/logout.
+- Clear `api.accountManagement.profile.view.pathKey()` cache after login/logout.
 - Use `useAppForm` from `src/libs/form.ts` for forms so shared field components are available.
 - Translation namespaces mirror feature/component paths.
 - `#/` alias points to `src/*`.

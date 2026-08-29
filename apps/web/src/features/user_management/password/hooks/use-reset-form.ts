@@ -14,7 +14,7 @@ export type UseResetPasswordFormParams = {
 };
 
 export function useResetPasswordForm(params: UseResetPasswordFormParams) {
-	const { t } = useTranslation("features.user_management.password.hooks.use-reset-form");
+	const { t } = useTranslation("features.web.account_management.password.hooks.use-reset-form");
 
 	const { token, defaultValues } = params;
 

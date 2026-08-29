@@ -5,7 +5,7 @@ import { Button } from "@workspace/ui-react/components/button";
 import { DeleteProfileConfirmationDialog } from "#/features/user_management/profile/components/delete-confirmation-dialog";
 
 export function DeleteProfileSection() {
-	const { t } = useTranslation("features.user_management.profile.components.delete-section");
+	const { t } = useTranslation("features.web.account_management.profile.components.delete-section");
 
 	return (
 		<div className="flex items-center justify-between">
