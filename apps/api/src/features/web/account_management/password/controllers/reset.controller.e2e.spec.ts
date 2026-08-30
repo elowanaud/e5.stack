@@ -22,6 +22,7 @@ test.group("Features / Account Management / Password / Controllers / Reset Contr
 		const newPassword = "newpassword";
 		const user = await UserFactory.merge({ password }).create();
 		const token = await otpService.generate({
+			key: `user:${user.id}:reset-password`,
 			type: "alphanumeric",
 			length: 32,
 			expireIn: 60 * 15, // 15 minutes
@@ -48,6 +49,7 @@ test.group("Features / Account Management / Password / Controllers / Reset Contr
 
 		const user = await UserFactory.create();
 		const token = await otpService.generate({
+			key: `user:${user.id}:reset-password`,
 			type: "alphanumeric",
 			length: 32,
 			expireIn: 60 * 15, // 15 minutes
@@ -76,6 +78,7 @@ test.group("Features / Account Management / Password / Controllers / Reset Contr
 
 		const user = await UserFactory.create();
 		const token = await otpService.generate({
+			key: `user:${user.id}:reset-password`,
 			type: "alphanumeric",
 			length: 32,
 			expireIn: 1, // 1 seconds
