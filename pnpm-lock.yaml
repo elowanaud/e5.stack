@@ -34,7 +34,7 @@ importers:
         version: 3.0.0(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@adonisjs/core@7.5.0(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.1.3)(youch@4.1.1))
       '@adonisjs/drive':
         specifier: ^4.0.0
-        version: 4.0.0(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@adonisjs/core@7.5.0(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.1.3)(youch@4.1.1))(@aws-sdk/client-s3@3.1118.0)(@aws-sdk/s3-request-presigner@3.1118.0)(edge.js@6.5.1)
+        version: 4.0.0(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@adonisjs/core@7.5.0(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.1.3)(youch@4.1.1))(@aws-sdk/client-s3@3.1120.0)(@aws-sdk/s3-request-presigner@3.1118.0)(edge.js@6.5.1)
       '@adonisjs/limiter':
         specifier: 3.0.1
         version: 3.0.1(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@adonisjs/core@7.5.0(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.1.3)(youch@4.1.1))(@adonisjs/lucid@22.4.2(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@adonisjs/core@7.5.0(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.1.3)(youch@4.1.1))(@vinejs/vine@4.4.0)(luxon@3.7.2)(pg@8.23.0))(@adonisjs/redis@10.0.1(@adonisjs/core@7.5.0(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.1.3)(youch@4.1.1)))
@@ -54,8 +54,8 @@ importers:
         specifier: 8.1.0
         version: 8.1.0(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@adonisjs/core@7.5.0(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.1.3)(youch@4.1.1))(@adonisjs/lucid@22.4.2(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@adonisjs/core@7.5.0(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.1.3)(youch@4.1.1))(@vinejs/vine@4.4.0)(luxon@3.7.2)(pg@8.23.0))(@adonisjs/redis@10.0.1(@adonisjs/core@7.5.0(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.1.3)(youch@4.1.1)))(@japa/api-client@3.2.1(@japa/assert@4.2.0(@japa/runner@5.3.0))(@japa/runner@5.3.0))(@japa/plugin-adonisjs@5.2.0(@adonisjs/core@7.5.0(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.1.3)(youch@4.1.1))(@japa/api-client@3.2.1(@japa/assert@4.2.0(@japa/runner@5.3.0))(@japa/runner@5.3.0))(@japa/runner@5.3.0))(edge.js@6.5.1)
       '@aws-sdk/client-s3':
-        specifier: ^3.1118.0
-        version: 3.1118.0
+        specifier: ^3.1120.0
+        version: 3.1120.0
       '@aws-sdk/s3-request-presigner':
         specifier: ^3.1118.0
         version: 3.1118.0
@@ -316,11 +316,6 @@ importers:
         version: 6.0.3
 
 packages:
-
-  portless@0.15.6:
-    resolution: {integrity: sha512-uOAwWLF32rmyEGFASzSO0VOaqb/AQxFCCzyZbPGd82UNNOfIEvc09zy92nroNibE5HNfzV4oVB0ObKbPXgkM9A==}
-    engines: {node: '>=24'}
-    hasBin: true
 
   '@adobe/css-tools@4.5.0':
     resolution: {integrity: sha512-6OzddxPio9UiWTCemp4N8cYLV2ZN1ncRnV1cVGtve7dhPOtRkleRyx32GQCYSwDYgaHU3USMm84tNsvKzRCa1Q==}
@@ -719,8 +714,8 @@ packages:
     resolution: {integrity: sha512-Dtu0gr4dnATZAPwEYbpCsG+MpLM7OAliy2gTepEFQwl1vZ6DL3QMH2FveMa3HLvPsOdhJsPRB3KtxVhph9T75A==}
     engines: {node: '>=20.0.0'}
 
-  '@aws-sdk/client-s3@3.1118.0':
-    resolution: {integrity: sha512-nh46pLKeRNFvTOZAJMfYR7kZ/KzhSqzhXVIJSwl4jJ/b2D+KOXL2jeOCryOvGgwpUQo9YNWFUg63cm2qr5MX9g==}
+  '@aws-sdk/client-s3@3.1120.0':
+    resolution: {integrity: sha512-UunWgNl/U8wIlxVRyhUPqlozFkUS88UqXjAH50XfPDXaZeK9P7KVYTAh4KREVrLPQTzPxVSbQGog3gHlc/P6vg==}
     engines: {node: '>=20.0.0'}
 
   '@aws-sdk/core@3.977.9':
@@ -4710,6 +4705,12 @@ packages:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
     engines: {node: '>=4'}
 
+  portless@0.15.6:
+    resolution: {integrity: sha512-uOAwWLF32rmyEGFASzSO0VOaqb/AQxFCCzyZbPGd82UNNOfIEvc09zy92nroNibE5HNfzV4oVB0ObKbPXgkM9A==}
+    engines: {node: '>=24'}
+    os: [darwin, linux, win32]
+    hasBin: true
+
   postcss-calc@10.1.1:
     resolution: {integrity: sha512-NYEsLHh8DgG/PRH2+G9BTuUdtf9ViS+vdoQ0YA5OQdGsfN4ztiwtDWNtBl9EKeqNMFnIu8IKZ0cLxEQ5r5KVMw==}
     engines: {node: ^18.12 || ^20.9 || >=22.0}
@@ -5782,8 +5783,6 @@ packages:
 
 snapshots:
 
-  portless@0.15.6: {}
-
   '@adobe/css-tools@4.5.0': {}
 
   '@adonisjs/ace@14.1.0(youch@4.1.1)':
@@ -5918,13 +5917,13 @@ snapshots:
     optionalDependencies:
       '@adonisjs/assembler': 8.5.0(typescript@6.0.3)
 
-  '@adonisjs/drive@4.0.0(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@adonisjs/core@7.5.0(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.1.3)(youch@4.1.1))(@aws-sdk/client-s3@3.1118.0)(@aws-sdk/s3-request-presigner@3.1118.0)(edge.js@6.5.1)':
+  '@adonisjs/drive@4.0.0(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@adonisjs/core@7.5.0(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.1.3)(youch@4.1.1))(@aws-sdk/client-s3@3.1120.0)(@aws-sdk/s3-request-presigner@3.1118.0)(edge.js@6.5.1)':
     dependencies:
       '@adonisjs/core': 7.5.0(@adonisjs/assembler@8.5.0(typescript@6.0.3))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.1.3)(youch@4.1.1)
-      flydrive: 2.1.0(@aws-sdk/client-s3@3.1118.0)(@aws-sdk/s3-request-presigner@3.1118.0)
+      flydrive: 2.1.0(@aws-sdk/client-s3@3.1120.0)(@aws-sdk/s3-request-presigner@3.1118.0)
     optionalDependencies:
       '@adonisjs/assembler': 8.5.0(typescript@6.0.3)
-      '@aws-sdk/client-s3': 3.1118.0
+      '@aws-sdk/client-s3': 3.1120.0
       '@aws-sdk/s3-request-presigner': 3.1118.0
       edge.js: 6.5.1
 
@@ -6171,7 +6170,7 @@ snapshots:
       '@smithy/types': 4.17.2
       tslib: 2.8.1
 
-  '@aws-sdk/client-s3@3.1118.0':
+  '@aws-sdk/client-s3@3.1120.0':
     dependencies:
       '@aws-sdk/checksums': 3.1000.29
       '@aws-sdk/core': 3.977.9
@@ -8904,14 +8903,14 @@ snapshots:
 
   flattie@1.1.1: {}
 
-  flydrive@2.1.0(@aws-sdk/client-s3@3.1118.0)(@aws-sdk/s3-request-presigner@3.1118.0):
+  flydrive@2.1.0(@aws-sdk/client-s3@3.1120.0)(@aws-sdk/s3-request-presigner@3.1118.0):
     dependencies:
       '@humanwhocodes/retry': 0.4.3
       '@poppinss/utils': 7.0.1
       etag: 1.8.1
       mime-types: 3.0.2
     optionalDependencies:
-      '@aws-sdk/client-s3': 3.1118.0
+      '@aws-sdk/client-s3': 3.1120.0
       '@aws-sdk/s3-request-presigner': 3.1118.0
 
   foreground-child@3.3.1:
@@ -10321,6 +10320,8 @@ snapshots:
       find-up-simple: 1.0.1
 
   pluralize@8.0.0: {}
+
+  portless@0.15.6: {}
 
   postcss-calc@10.1.1(postcss@8.5.26):
     dependencies:
