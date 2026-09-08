@@ -1,5 +1,12 @@
 version: 2
 updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "00:00"
+      
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
@@ -12,6 +19,8 @@ updates:
     groups:
       deps-dev-minor:
         dependency-type: "development"
+        exclude-patterns:
+          - "@biomejs/biome"
         update-types:
           - "minor"
       deps-minor:
@@ -20,6 +29,8 @@ updates:
           - "minor"
       deps-dev-patch:
         dependency-type: "development"
+        exclude-patterns:
+          - "@biomejs/biome"
         update-types:
           - "patch"
       deps-patch:
