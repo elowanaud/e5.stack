@@ -9,6 +9,9 @@
 		"dev": "portless",
 		"dev:app": "concurrently --prefix none \"vite dev\" \"pnpm:i18n:dev\"",
 		"typecheck": "tsc --noEmit",
+		"test": "vitest run",
+		"test:browser": "vitest --browser.headless=false",
+		"test:browser:install": "playwright install chromium",
 		"i18n:build": "node scripts/compile-locales.js",
 		"i18n:dev": "nodemon scripts/compile-locales.js --watch '**/locales/**/*.json' -e json -q"
 	},
@@ -50,12 +53,16 @@
 		"@types/node": "24",
 		"@types/react": "19.2.18",
 		"@types/react-dom": "19.2.7",
+		"@vitest/browser-playwright": "5.0.0",
 		"@vitejs/plugin-react": "6.1.1",
 		"concurrently": "10.0.5",
 		"deepmerge-json": "1.5.0",
 		"nodemon": "3.1.14",
+		"playwright": "1.62.1",
 		"tailwindcss": "4.3.3",
 		"typescript": "6.0.3",
-		"vite": "8.2.2"
+		"vite": "8.2.2",
+		"vitest": "5.0.0",
+		"vitest-browser-react": "2.3.0"
 	}
 }
