@@ -16,7 +16,7 @@
 		"portless": "0.15.6",
 		"turbo": "2.10.12"
 	},
-	"packageManager": "pnpm@10.33.2",
+	"packageManager": "pnpm@10.34.5",
 	"engines": {
 		"node": "24"
 	}
