@@ -5,7 +5,8 @@ Locale bundles need to stay synchronized during both web builds and development 
 ## Special things to note
 
 - The merger is also exposed as a CLI so locale generation can run outside Vite.
-- The existing locale compilation scripts remain available; this change only moves the default web development path to the Vite plugin.
+- The legacy locale compiler and watcher scripts are removed; postinstall now runs the new merger CLI.
+- `dev:app2` remains in `apps/web/package.json` but still references the removed `i18n:dev` script.
 
 ## Change outline
 
@@ -18,15 +19,20 @@ packages/i18next-merger/
 └── src/vite.ts       # runs merges on build and locale file changes
 
 apps/web/
-├── package.json      # depends on the workspace package and simplifies dev startup
-└── vite.config.ts    # configures French locale inputs and generated output
+├── package.json               # uses the merger for postinstall and Vite-only development
+├── scripts/
+│   └── compile-locales.js     # removed legacy compiler
+└── vite.config.ts             # configures French locale inputs and generated output
 ```
 
-Builds and development now share the same merge path.
+Postinstall, builds, and development now share the package merger.
 
 ```diff
- web build or dev server
-   Vite loads i18nextMerger({ locales, glob, outputDir })
+ locale generation
+-  postinstall → compile-locales.js
+-  dev → Vite + separate locale watcher
++  postinstall → i18next-merger CLI
++  build or dev → Vite loads i18nextMerger({ locales, glob, outputDir })
 +    buildStart
 +      merge matching locale files
 +      write one generated JSON bundle per locale
