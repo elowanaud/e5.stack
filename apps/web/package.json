@@ -8,7 +8,6 @@
 		"preview": "vite preview",
 		"dev": "portless",
 		"dev:app": "vite dev",
-		"dev:app2": "concurrently --prefix none \"vite dev\" \"pnpm:i18n:dev\"",
 		"typecheck": "tsc --noEmit",
 		"i18n:merge": "i18next-merger -l fr -g '**/locales/**' -o 'src/libs/i18n/build'"
 	},
