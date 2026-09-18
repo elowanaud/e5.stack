@@ -5,6 +5,8 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact, { reactCompilerPreset } from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
+import i18nextMerger from "@workspace/i18next-merger/vite";
+
 const config = defineConfig({
 	resolve: { tsconfigPaths: true },
 	server: {
@@ -24,6 +26,11 @@ const config = defineConfig({
 		}),
 		viteReact(),
 		babel({ presets: [reactCompilerPreset()] }),
+		i18nextMerger({
+			locales: ["fr"],
+			glob: "**/locales/**",
+			outputDir: "src/libs/i18n/build",
+		}),
 	],
 });
 
