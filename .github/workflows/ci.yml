@@ -6,7 +6,7 @@ concurrency:
   cancel-in-progress: true
 
 env: 
-  BIOME_VERSION: 2.5.10
+  BIOME_VERSION: 2.5.14
   NODE_VERSION: 24
   PNPM_VERSION: 10.34.5
   TURBO_TELEMETRY_DISABLED: 1
