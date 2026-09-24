@@ -60,4 +60,12 @@ export default await Env.create(new URL("../", import.meta.url), {
 	S3_SECRET_ACCESS_KEY: Env.schema.string.optionalWhen(process.env.DRIVE_DRIVER !== "s3"),
 	S3_REGION: Env.schema.string.optionalWhen(process.env.DRIVE_DRIVER !== "s3"),
 	S3_BUCKET: Env.schema.string.optionalWhen(process.env.DRIVE_DRIVER !== "s3"),
+
+	// Sentry Config
+	SENTRY_ENABLED: Env.schema.boolean(),
+	SENTRY_DSN: Env.schema.string.optionalWhen(process.env.SENTRY_ENABLED === "false", {
+		format: "url",
+		tld: true,
+	}),
+	SENTRY_ENV: Env.schema.string.optionalWhen(process.env.SENTRY_ENABLED === "false"),
 });

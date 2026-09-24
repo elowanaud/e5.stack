@@ -1,10 +1,11 @@
 import { errors as authErrors } from "@adonisjs/auth";
+import { errors as bouncerErrors } from "@adonisjs/bouncer";
 import { ExceptionHandler, HttpContext } from "@adonisjs/core/http";
 import app from "@adonisjs/core/services/app";
-import type { HttpError } from "@adonisjs/core/types/http";
 import { errors as limiterErrors } from "@adonisjs/limiter";
+import * as Sentry from "@sentry/node";
 
-import GuestOnlyException from "#exceptions/guest_only.exception";
+import AuthorizationFailureException from "#exceptions/authorization_failure.exception";
 import InvalidCredentialsException from "#exceptions/invalid_credentials.exception";
 import TooManyRequestsException from "#exceptions/too_many_requests.exception";
 import UnauthenticatedException from "#exceptions/unauthenticated.exception";
@@ -21,7 +22,14 @@ export default class HttpExceptionHandler extends ExceptionHandler {
 	 * codes. You might want to enable them in production only, but feel
 	 * free to enable them in development as well.
 	 */
-	protected renderStatusPages = app.inProduction;
+	protected renderStatusPages = false;
+
+	/**
+	 * HTTP status codes that should not be reported.
+	 * These are typically client errors that don't indicate
+	 * problems with your application.
+	 */
+	protected ignoreStatuses = [400, 401, 403, 404, 422];
 
 	/**
 	 * The method is used for handling errors and returning
@@ -40,6 +48,10 @@ export default class HttpExceptionHandler extends ExceptionHandler {
 			throw new TooManyRequestsException();
 		}
 
+		if (error instanceof bouncerErrors.E_AUTHORIZATION_FAILURE) {
+			throw new AuthorizationFailureException();
+		}
+
 		return super.handle(error, ctx);
 	}
 
@@ -50,14 +62,10 @@ export default class HttpExceptionHandler extends ExceptionHandler {
 	 * @note You should not attempt to send a response from this method.
 	 */
 	async report(error: unknown, ctx: HttpContext) {
-		return super.report(error, ctx);
-	}
-
-	protected shouldReport(error: HttpError) {
-		if (error instanceof GuestOnlyException) {
-			return false;
+		if (this.shouldReport(this.toHttpError(error))) {
+			Sentry.captureException(error);
 		}
 
-		return super.shouldReport(error);
+		return super.report(error, ctx);
 	}
 }
