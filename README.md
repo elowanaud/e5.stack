@@ -38,7 +38,7 @@
 ## Features
 
 - **Typed API Client:** Tuyau exposes generated API query and mutation helpers from the Adonis route registry.
-- **Feature-First API:** User-management code is grouped by domain under `apps/backend/src/features/web/account_management`.
+- **Feature-First API:** User-management code is grouped by domain under `apps/backend/src/features/frontend/account_management`.
 - **TanStack Start Web App:** File routes use custom `layout.tsx` and `page.tsx` tokens, plus route groups for guest/private flows.
 - **Profile Settings Flow:** Authenticated profile UI is tabbed across `/profile`, `/profile/security`, and `/profile/privacy`.
 - **Shared UI Packages:** `@workspace/ui-react` provides Storybook-backed components; `@workspace/ui-theme` generates checked-in Tailwind CSS from tokens.
@@ -175,7 +175,7 @@ development process directly on its configured port, without the Portless proxy.
 <summary><strong>API</strong></summary>
 
 - Boot files live in `apps/backend/start`; runtime entries are `bin/server.ts`, `bin/console.ts`, and `bin/test.ts`.
-- Routes are imported from `apps/backend/start/routes.ts`, then declared inside feature modules under `src/features/web/account_management/*/routes.ts`.
+- Routes are imported from `apps/backend/start/routes.ts`, then declared inside feature modules under `src/features/frontend/account_management/*/routes.ts`.
 - Generated Adonis/Tuyau artifacts power controller imports and the `@workspace/backend/registry` client export.
 - Mail side effects run through queue jobs on queue `emails`; local compose services are Postgres, Redis, and smtp4dev.
 
@@ -186,7 +186,7 @@ development process directly on its configured port, without the Portless proxy.
 
 - TanStack Start uses `src/routes` with `layout.tsx` and `page.tsx` route tokens from `vite.config.ts`.
 - `src/router.tsx` wires the QueryClient, generated route tree, and SSR query integration.
-- Frontend features remain under `user_management`; backend routes use `web/account_management`. Route files compose feature components.
+- Frontend features remain under `user_management`; backend routes use `frontend/account_management`. Route files compose feature components.
 - The profile section is route-tabbed: profile update, password security, and privacy/delete account.
 
 </details>

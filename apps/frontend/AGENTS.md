@@ -28,7 +28,7 @@ Scope: existing distinct package boundary; retained in update mode. Reference ce
 ```text
 apps/frontend/src/
 ├── components/          # app, form, pages buckets
-├── features/            # user_management UI; backend uses web/account_management
+├── features/            # user_management UI; backend uses frontend/account_management
 ├── libs/                # form, i18n, Tuyau client
 ├── providers/           # theme/devtools providers
 ├── routes/              # TanStack file routes using layout/page tokens

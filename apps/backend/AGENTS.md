@@ -14,12 +14,12 @@ Scope: existing distinct package boundary; retained in update mode. Reference ce
 | HTTP runtime | `bin/server.ts` | Package `start` uses built `bin/server.js`. |
 | Ace CLI | `bin/console.ts`, `ace.js` | `ace.js` is generated/overwritten. |
 | Tests | `bin/test.ts`, `bootstrap.ts`, `adonisrc.ts`, `.env.test` | Suites: unit and e2e; specs live beside user-management feature code. |
-| Routes | `src/features/web/account_management/*/routes.ts` | Imported by `src/features/web/routes.ts`; `start/routes.ts` loads that surface aggregator. |
+| Routes | `src/features/frontend/account_management/*/routes.ts` | Imported by `src/features/frontend/routes.ts`; `start/routes.ts` loads that surface aggregator. |
 | Controllers | `src/features/**/controllers/*.controller.ts` | Generated registry consumed as `#generated/controllers`. |
 | Auth/session | `config/auth.ts`, `config/session.ts`, `start/kernel.ts` | Custom auth/guest middleware lives in `src/middlewares`. |
 | Models/schema | `src/models/*`, `database/migrations/*`, `database/schema.ts` | `database/schema.ts` is generated. |
 | Validation | `src/validators/user.validator.ts` | Shared by profile/password controllers. |
-| Mail/queue | `config/mail.ts`, `config/queue.ts`, `src/features/web/account_management/*/{jobs,mails}/*` | Mail jobs dispatch on queue `emails`. |
+| Mail/queue | `config/mail.ts`, `config/queue.ts`, `src/features/frontend/account_management/*/{jobs,mails}/*` | Mail jobs dispatch on queue `emails`. |
 | Local services | `docker-compose.yml` | Postgres, Redis, smtp4dev mail UI. |
 
 ## STRUCTURE

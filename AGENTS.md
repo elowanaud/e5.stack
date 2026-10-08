@@ -29,7 +29,7 @@ e5.stack/
 |------|----------|-------|
 | Root commands / package manager | `package.json`, `turbo.json`, `pnpm-workspace.yaml` | Use pnpm, not npm/yarn. |
 | API runtime / CLI | `apps/backend/bin/server.ts`, `apps/backend/bin/console.ts`, `apps/backend/adonisrc.ts` | `ace.js` is generated. |
-| API routes | `apps/backend/start/routes.ts`, `apps/backend/src/features/web/routes.ts` | Explicit imports of `web/account_management` routes; generated controllers. |
+| API routes | `apps/backend/start/routes.ts`, `apps/backend/src/features/frontend/routes.ts` | Explicit imports of `frontend/account_management` routes; generated controllers. |
 | API auth/session/mail/queue | `apps/backend/config/*.ts`, `apps/backend/start/kernel.ts`, `apps/backend/src/exceptions/handler.ts` | JSON-only behavior is middleware-enforced; mail jobs use queue `emails`. |
 | Web routes | `apps/frontend/src/routes/**/{layout,page}.tsx`, `apps/frontend/src/router.tsx` | `routeTree.gen.ts` is generated. |
 | Web API client | `apps/frontend/src/libs/tuyau.ts`, `@workspace/backend/registry` | Registry comes from the API build hooks. |
@@ -82,8 +82,8 @@ e5.stack/
 
 ## UNIQUE STYLES
 
-- Backend features live under `src/features/web/account_management`; frontend UI remains under `src/features/user_management`.
-- Backend route names are `web.account_management.*`; the frontend API client selects `.web` before exposing `api`.
+- Backend features live under `src/features/frontend/account_management`; frontend UI remains under `src/features/user_management`.
+- Backend route names are `frontend.account_management.*`; the frontend API client selects `.frontend` before exposing `api`.
 - Web profile UI is route-tabbed: `/profile`, `/profile/security`, `/profile/privacy`.
 - Theme package checks in generated CSS; edit tokens, then regenerate.
 - Storybook is dev-only for UI React; there is no package build script there.

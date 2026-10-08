@@ -12,53 +12,53 @@ const routes = {
     tokens: [{"old":"/uploads/*","type":0,"val":"uploads","end":""},{"old":"/uploads/*","type":2,"val":"*","end":""}],
     types: placeholder as Registry['drive.fs.serve']['types'],
   },
-  'web.account_management.profile.view': {
+  'frontend.account_management.profile.view': {
     methods: ["GET","HEAD"],
-    pattern: '/web/account-management/profile',
-    tokens: [{"old":"/web/account-management/profile","type":0,"val":"web","end":""},{"old":"/web/account-management/profile","type":0,"val":"account-management","end":""},{"old":"/web/account-management/profile","type":0,"val":"profile","end":""}],
-    types: placeholder as Registry['web.account_management.profile.view']['types'],
+    pattern: '/frontend/account-management/profile',
+    tokens: [{"old":"/frontend/account-management/profile","type":0,"val":"frontend","end":""},{"old":"/frontend/account-management/profile","type":0,"val":"account-management","end":""},{"old":"/frontend/account-management/profile","type":0,"val":"profile","end":""}],
+    types: placeholder as Registry['frontend.account_management.profile.view']['types'],
   },
-  'web.account_management.profile.update': {
+  'frontend.account_management.profile.update': {
     methods: ["PUT"],
-    pattern: '/web/account-management/profile',
-    tokens: [{"old":"/web/account-management/profile","type":0,"val":"web","end":""},{"old":"/web/account-management/profile","type":0,"val":"account-management","end":""},{"old":"/web/account-management/profile","type":0,"val":"profile","end":""}],
-    types: placeholder as Registry['web.account_management.profile.update']['types'],
+    pattern: '/frontend/account-management/profile',
+    tokens: [{"old":"/frontend/account-management/profile","type":0,"val":"frontend","end":""},{"old":"/frontend/account-management/profile","type":0,"val":"account-management","end":""},{"old":"/frontend/account-management/profile","type":0,"val":"profile","end":""}],
+    types: placeholder as Registry['frontend.account_management.profile.update']['types'],
   },
-  'web.account_management.profile.delete': {
+  'frontend.account_management.profile.delete': {
     methods: ["DELETE"],
-    pattern: '/web/account-management/profile',
-    tokens: [{"old":"/web/account-management/profile","type":0,"val":"web","end":""},{"old":"/web/account-management/profile","type":0,"val":"account-management","end":""},{"old":"/web/account-management/profile","type":0,"val":"profile","end":""}],
-    types: placeholder as Registry['web.account_management.profile.delete']['types'],
+    pattern: '/frontend/account-management/profile',
+    tokens: [{"old":"/frontend/account-management/profile","type":0,"val":"frontend","end":""},{"old":"/frontend/account-management/profile","type":0,"val":"account-management","end":""},{"old":"/frontend/account-management/profile","type":0,"val":"profile","end":""}],
+    types: placeholder as Registry['frontend.account_management.profile.delete']['types'],
   },
-  'web.account_management.authentication.login': {
+  'frontend.account_management.authentication.login': {
     methods: ["POST"],
-    pattern: '/web/account-management/authentication/login',
-    tokens: [{"old":"/web/account-management/authentication/login","type":0,"val":"web","end":""},{"old":"/web/account-management/authentication/login","type":0,"val":"account-management","end":""},{"old":"/web/account-management/authentication/login","type":0,"val":"authentication","end":""},{"old":"/web/account-management/authentication/login","type":0,"val":"login","end":""}],
-    types: placeholder as Registry['web.account_management.authentication.login']['types'],
+    pattern: '/frontend/account-management/authentication/login',
+    tokens: [{"old":"/frontend/account-management/authentication/login","type":0,"val":"frontend","end":""},{"old":"/frontend/account-management/authentication/login","type":0,"val":"account-management","end":""},{"old":"/frontend/account-management/authentication/login","type":0,"val":"authentication","end":""},{"old":"/frontend/account-management/authentication/login","type":0,"val":"login","end":""}],
+    types: placeholder as Registry['frontend.account_management.authentication.login']['types'],
   },
-  'web.account_management.authentication.logout': {
+  'frontend.account_management.authentication.logout': {
     methods: ["DELETE"],
-    pattern: '/web/account-management/authentication/logout',
-    tokens: [{"old":"/web/account-management/authentication/logout","type":0,"val":"web","end":""},{"old":"/web/account-management/authentication/logout","type":0,"val":"account-management","end":""},{"old":"/web/account-management/authentication/logout","type":0,"val":"authentication","end":""},{"old":"/web/account-management/authentication/logout","type":0,"val":"logout","end":""}],
-    types: placeholder as Registry['web.account_management.authentication.logout']['types'],
+    pattern: '/frontend/account-management/authentication/logout',
+    tokens: [{"old":"/frontend/account-management/authentication/logout","type":0,"val":"frontend","end":""},{"old":"/frontend/account-management/authentication/logout","type":0,"val":"account-management","end":""},{"old":"/frontend/account-management/authentication/logout","type":0,"val":"authentication","end":""},{"old":"/frontend/account-management/authentication/logout","type":0,"val":"logout","end":""}],
+    types: placeholder as Registry['frontend.account_management.authentication.logout']['types'],
   },
-  'web.account_management.password.forgot': {
+  'frontend.account_management.password.forgot': {
     methods: ["POST"],
-    pattern: '/web/account-management/password/forgot',
-    tokens: [{"old":"/web/account-management/password/forgot","type":0,"val":"web","end":""},{"old":"/web/account-management/password/forgot","type":0,"val":"account-management","end":""},{"old":"/web/account-management/password/forgot","type":0,"val":"password","end":""},{"old":"/web/account-management/password/forgot","type":0,"val":"forgot","end":""}],
-    types: placeholder as Registry['web.account_management.password.forgot']['types'],
+    pattern: '/frontend/account-management/password/forgot',
+    tokens: [{"old":"/frontend/account-management/password/forgot","type":0,"val":"frontend","end":""},{"old":"/frontend/account-management/password/forgot","type":0,"val":"account-management","end":""},{"old":"/frontend/account-management/password/forgot","type":0,"val":"password","end":""},{"old":"/frontend/account-management/password/forgot","type":0,"val":"forgot","end":""}],
+    types: placeholder as Registry['frontend.account_management.password.forgot']['types'],
   },
-  'web.account_management.password.reset': {
+  'frontend.account_management.password.reset': {
     methods: ["POST"],
-    pattern: '/web/account-management/password/reset',
-    tokens: [{"old":"/web/account-management/password/reset","type":0,"val":"web","end":""},{"old":"/web/account-management/password/reset","type":0,"val":"account-management","end":""},{"old":"/web/account-management/password/reset","type":0,"val":"password","end":""},{"old":"/web/account-management/password/reset","type":0,"val":"reset","end":""}],
-    types: placeholder as Registry['web.account_management.password.reset']['types'],
+    pattern: '/frontend/account-management/password/reset',
+    tokens: [{"old":"/frontend/account-management/password/reset","type":0,"val":"frontend","end":""},{"old":"/frontend/account-management/password/reset","type":0,"val":"account-management","end":""},{"old":"/frontend/account-management/password/reset","type":0,"val":"password","end":""},{"old":"/frontend/account-management/password/reset","type":0,"val":"reset","end":""}],
+    types: placeholder as Registry['frontend.account_management.password.reset']['types'],
   },
-  'web.account_management.password.update': {
+  'frontend.account_management.password.update': {
     methods: ["PUT"],
-    pattern: '/web/account-management/password',
-    tokens: [{"old":"/web/account-management/password","type":0,"val":"web","end":""},{"old":"/web/account-management/password","type":0,"val":"account-management","end":""},{"old":"/web/account-management/password","type":0,"val":"password","end":""}],
-    types: placeholder as Registry['web.account_management.password.update']['types'],
+    pattern: '/frontend/account-management/password',
+    tokens: [{"old":"/frontend/account-management/password","type":0,"val":"frontend","end":""},{"old":"/frontend/account-management/password","type":0,"val":"account-management","end":""},{"old":"/frontend/account-management/password","type":0,"val":"password","end":""}],
+    types: placeholder as Registry['frontend.account_management.password.update']['types'],
   },
 } as const satisfies Record<string, AdonisEndpoint>
 

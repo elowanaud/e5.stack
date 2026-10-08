@@ -7,21 +7,21 @@ export interface ApiDefinition {
       serve: typeof routes['drive.fs.serve']
     }
   }
-  web: {
+  frontend: {
     accountManagement: {
       profile: {
-        view: typeof routes['web.account_management.profile.view']
-        update: typeof routes['web.account_management.profile.update']
-        delete: typeof routes['web.account_management.profile.delete']
+        view: typeof routes['frontend.account_management.profile.view']
+        update: typeof routes['frontend.account_management.profile.update']
+        delete: typeof routes['frontend.account_management.profile.delete']
       }
       authentication: {
-        login: typeof routes['web.account_management.authentication.login']
-        logout: typeof routes['web.account_management.authentication.logout']
+        login: typeof routes['frontend.account_management.authentication.login']
+        logout: typeof routes['frontend.account_management.authentication.logout']
       }
       password: {
-        forgot: typeof routes['web.account_management.password.forgot']
-        reset: typeof routes['web.account_management.password.reset']
-        update: typeof routes['web.account_management.password.update']
+        forgot: typeof routes['frontend.account_management.password.forgot']
+        reset: typeof routes['frontend.account_management.password.reset']
+        update: typeof routes['frontend.account_management.password.update']
       }
     }
   }

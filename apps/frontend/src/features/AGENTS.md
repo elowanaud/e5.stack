@@ -2,7 +2,7 @@
 
 ## OVERVIEW
 
-Frontend feature modules. Current frontend domain is `user_management`; the API uses `web/account_management`; route files remain under `src/routes`.
+Frontend feature modules. Current frontend domain is `user_management`; the API uses `frontend/account_management`; route files remain under `src/routes`.
 
 Scope: existing distinct feature workflow; retained in update mode. Reference centrality unmeasured.
 
@@ -33,4 +33,4 @@ Scope: existing distinct feature workflow; retained in update mode. Reference ce
 
 - Current feature code covers authentication, password, and profile flows; route composition lives outside `features`.
 - Add one AGENTS file per domain or concrete feature when new conventions appear.
-- Backend routes use `web.account_management`; the exported frontend client already selects `.web`.
+- Backend routes use `frontend.account_management`; the exported frontend client already selects `.frontend`.

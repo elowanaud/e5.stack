@@ -20,7 +20,7 @@ Scope: existing distinct feature workflow; retained in update mode. Reference ce
 
 ## CONVENTIONS
 
-- Keep the existing frontend folder `user_management`; its backend counterpart is `web/account_management`.
+- Keep the existing frontend folder `user_management`; its backend counterpart is `frontend/account_management`.
 - Keep feature UI reusable from routes; route pages should compose feature components.
 - Keep auth redirects in route layouts or mutation hooks, not presentation components.
 
