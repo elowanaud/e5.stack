@@ -6,7 +6,6 @@ concurrency:
   cancel-in-progress: true
 
 env: 
-  BIOME_VERSION: 2.5.14
   NODE_VERSION: 24
   PNPM_VERSION: 10.34.5
   TURBO_TELEMETRY_DISABLED: 1
@@ -22,8 +21,19 @@ jobs:
           
       - name: Setup Biome
         uses: biomejs/setup-biome@v2
-        with:
-          version: ${{ env.BIOME_VERSION }}
+
+      - name: Migrate Biome configurations
+        run: biome migrate --write
+
+      - name: Commit Biome migrations
+        env:
+          PR_BRANCH: ${{ github.head_ref }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "chore: migrate Biome configurations"
+          git push origin "HEAD:$PR_BRANCH"
 
       - name: Run Biome
         run: biome ci .
@@ -270,4 +280,4 @@ jobs:
         with:
           exclude: "@biomejs/biome"
           target: "minor"
-          
+
