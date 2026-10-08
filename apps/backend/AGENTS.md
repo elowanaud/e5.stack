@@ -13,7 +13,7 @@ Scope: score 8 from file count, subdirectories, code ratio, and local config; di
 | Boot / app wiring | `adonisrc.ts`, `start/routes.ts`, `start/kernel.ts`, `start/view.ts` | `adonisrc.ts` preloads start files and runs registry hooks. |
 | HTTP runtime | `bin/server.ts` | Package `start` uses built `bin/server.js`. |
 | Ace CLI | `bin/console.ts`, `ace.js` | `ace.js` is generated/overwritten. |
-| Tests | `bin/test.ts`, `bootstrap.ts`, `adonisrc.ts`, `.env.test` | Suites: unit and e2e; specs live beside user-management feature code. |
+| Tests | `bin/test.ts`, `tests/bootstrap.ts`, `adonisrc.ts`, `.env.test` | Suites: unit and e2e; specs mirror source features under `tests/features/`, without `frontend`. |
 | Routes | `src/features/frontend/account_management/routes.ts`, `src/features/frontend/account_management/*/routes.ts` | `start/routes.ts` loads `frontend/routes.ts`, then the account aggregator imports concrete modules. |
 | Controllers | `src/features/**/controllers/*.controller.ts` | Generated registry consumed as `#generated/controllers`. |
 | Auth/session | `config/auth.ts`, `config/session.ts`, `start/kernel.ts` | Custom auth/guest middleware lives in `src/middlewares`. |
@@ -34,7 +34,7 @@ apps/backend/
 ├── src/models/          # Lucid models extending generated schemas
 ├── src/presenters/      # API response shaping helpers
 ├── src/services/        # cross-feature services
-└── bootstrap.ts         # Japa plugins, DB setup, HTTP server setup
+└── tests/               # mirrored feature specs and bootstrap.ts for Japa setup
 ```
 
 ## CONVENTIONS
@@ -44,7 +44,7 @@ apps/backend/
 - Injectable services use `@inject()` when they depend on context/services.
 - Feature jobs extend `Job` and put email work on queue `emails`.
 - Custom exceptions extend `Exception`; app handler maps Adonis auth errors to local exceptions.
-- Tests are colocated as `*.unit.spec.ts` and `*.e2e.spec.ts`; e2e suites start the HTTP server via `bootstrap.ts`.
+- Tests live under `tests/features/` as `*.unit.spec.ts` and `*.e2e.spec.ts`, mirroring source features without `frontend`; e2e suites start the HTTP server via `tests/bootstrap.ts`.
 - API-specific Biome allows non-null assertions and value imports used as types.
 
 ## ANTI-PATTERNS

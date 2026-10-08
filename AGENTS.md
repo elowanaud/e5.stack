@@ -122,7 +122,7 @@ pnpm --filter @workspace/i18next-merger test
 - `packages/ui/theme/src/tailwind.css` is generated from `src/tokens.ts`; run `generate:tailwind` after token edits.
 - `@workspace/ui-react` has no build script; apps consume its source exports directly.
 - Build order: Turbo `^build` ensures API registry and theme CSS are generated before web build.
-- API/Japa tests now live beside user-management controllers, policies, jobs, and mails as `*.unit.spec.ts` / `*.e2e.spec.ts`.
+- API/Japa tests live under `apps/backend/tests/features/`, mirroring source features without the `frontend` segment, as `*.unit.spec.ts` / `*.e2e.spec.ts`.
 - Code map retained and spot-checked against source; LSP returned `Method not found`, ast-grep MCP unavailable, and no local binary found. Symbol density and reference centrality unmeasured.
 - Update retained 17 existing guides, including deeper boundaries; new locations scored within depth 3. No new guide met the measured thresholds.
 - Locale-merger tests use package script `test`, outside root Turbo `test:unit` / `test:e2e`.

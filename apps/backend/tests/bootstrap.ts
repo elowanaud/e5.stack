@@ -9,7 +9,7 @@ import { pluginAdonisJS } from "@japa/plugin-adonisjs";
 import type { Config } from "@japa/runner/types";
 
 // biome-ignore lint/style/noRestrictedImports: -
-import type { Registry } from "./.adonisjs/client/registry/schema.d.ts";
+import type { Registry } from "../.adonisjs/client/registry/schema.d.ts";
 
 declare module "@japa/api-client/types" {
 	interface RoutesRegistry extends Registry {}

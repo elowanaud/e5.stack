@@ -133,11 +133,11 @@ Run root commands from the repository root:
 
 ## Testing
 
-API tests are colocated with user-management feature code and run through Japa:
+API tests live in `apps/backend/tests/` and run through Japa. Feature tests mirror the source hierarchy under `tests/features/`, without the `frontend` segment:
 
 - `*.unit.spec.ts` covers policies, jobs, and mails.
 - `*.e2e.spec.ts` covers HTTP controllers with the Japa API client.
-- `apps/backend/bootstrap.ts` runs database migrations/truncation and starts the HTTP server for e2e suites.
+- `apps/backend/tests/bootstrap.ts` runs database migrations/truncation and starts the HTTP server for e2e suites.
 
 Run workspace suites with `pnpm test:unit` and `pnpm test:e2e`, or target the API with `pnpm --filter @workspace/backend test`. CI runs both unit and e2e jobs.
 
