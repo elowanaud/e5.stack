@@ -15,29 +15,12 @@ jobs:
   code-quality:
     name: "💅 Code quality"
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v7
-        with:
-          ref: ${{ github.head_ref }}
           
       - name: Setup Biome
         uses: biomejs/setup-biome@v2
-
-      - name: Migrate Biome configurations
-        run: biome migrate --write
-
-      - name: Commit Biome migrations
-        env:
-          PR_BRANCH: ${{ github.head_ref }}
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "chore: migrate Biome configurations"
-          git push origin "HEAD:$PR_BRANCH"
 
       - name: Run Biome
         run: biome ci .
@@ -284,4 +267,3 @@ jobs:
         with:
           exclude: "@biomejs/biome"
           target: "minor"
-
