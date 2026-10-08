@@ -10,7 +10,7 @@
 		"test:e2e": "turbo test:e2e",
 		"code-quality": "biome check",
 		"code-quality:fix": "biome check --fix",
-		"adonis": "cd apps/api/ && node ace"
+		"adonis": "cd apps/backend/ && node ace"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.5.15",

@@ -13,7 +13,9 @@ components/<name>/
 └── index.ts
 ```
 
-Current components: alert-dialog, avatar, button, card, dialog, field, input, link, menu, password-input, scroll-area, sidebar, skeleton, spinner, switch, tabs, toast.
+Current components include autocomplete, checkbox, combobox, number-input, select, table, textarea, and tooltip in addition to the basic layout, input, menu, and feedback surfaces.
+
+Scope: existing distinct package boundary; retained in update mode. Reference centrality unmeasured.
 
 ## WHERE TO LOOK
 

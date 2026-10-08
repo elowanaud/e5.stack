@@ -132,7 +132,7 @@ jobs:
 
       - name: Setup .env
         run: |
-          cp apps/api/.env.example apps/api/.env
+          cp apps/backend/.env.example apps/backend/.env
           pnpm adonis generate:key
 
       - name: Run Test
@@ -204,7 +204,7 @@ jobs:
 
       - name: Setup .env
         run: |
-          cp apps/api/.env.example apps/api/.env
+          cp apps/backend/.env.example apps/backend/.env
           pnpm adonis generate:key
 
       - name: Run Test

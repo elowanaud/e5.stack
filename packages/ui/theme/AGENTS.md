@@ -4,6 +4,8 @@
 
 Theme token package where `src/tokens.ts` is the editable source of truth and `src/tailwind.css` is generated Tailwind 4 CSS.
 
+Scope: measured score 1; existing token-generation boundary retained in update mode. Symbol density, exports, and reference centrality unmeasured.
+
 ## WHERE TO LOOK
 
 | Task | Location | Notes |
@@ -28,7 +30,7 @@ Theme token package where `src/tokens.ts` is the editable source of truth and `s
 
 - Do not edit `src/tailwind.css` manually.
 - Do not add token values that fail generator validation: fonts must be strings; colors need both `light` and `dark` strings.
-- Do not change export paths without checking `apps/web/src/styles/globals.css`, `packages/ui/react/src/globals.css`, and `apps/api/start/view.ts`.
+- Do not change export paths without checking `apps/frontend/src/styles/globals.css`, `packages/ui/react/src/globals.css`, and `apps/backend/start/view.ts`.
 
 ## COMMANDS
 
@@ -41,6 +43,6 @@ pnpm --filter @workspace/ui-theme typecheck
 
 ## NOTES
 
-- This package has the only >500-line editable source file found: `src/tokens.ts`.
+- `src/tokens.ts` concentrates the font and color scales; regenerate CSS after edits.
 - `build` is just `pnpm generate:tailwind`.
 - Web and Storybook visual output depend on regenerated CSS being current.
