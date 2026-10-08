@@ -4,7 +4,7 @@
 
 TanStack Start app with file routes, React Query, Tuyau API client, TanStack Form wrappers, next-themes, nginx static deployment, and generated French i18n bundle.
 
-Scope: existing distinct package boundary; retained in update mode. Reference centrality unmeasured.
+Scope: measured score 4; existing distinct web package retained in update mode. Symbol density, exports, and reference centrality unmeasured.
 
 ## WHERE TO LOOK
 

@@ -8,7 +8,7 @@ User account domain split into authentication, password, and profile feature mod
 
 ```text
 account_management/
-├── authentication/       # login/logout, auth guards, auth exceptions
+├── authentication/       # login/logout controllers and session service
 ├── password/             # forgot/reset/update password, token mail flow
 └── profile/              # view/update/delete authenticated profile
 ```
@@ -19,6 +19,7 @@ Scope: existing distinct feature workflow; retained in update mode. Reference ce
 
 | Task | Location | Notes |
 |------|----------|-------|
+| Feature registration | `routes.ts` | Explicitly imports authentication, profile, and password routes. |
 | Login/logout | `authentication/` | Session auth service; routes prefix `/frontend/account-management/authentication`. |
 | Password reset/update | `password/` | Uses Redis `OtpService`, queued mail, and `FRONTEND_URL`; routes prefix `/frontend/account-management/password`. |
 | Current user profile | `profile/` | View/update/delete profile; routes prefix `/frontend/account-management/profile`. |
@@ -30,7 +31,7 @@ Scope: existing distinct feature workflow; retained in update mode. Reference ce
 - Route groups use names matching Tuyau client paths: `frontend.account_management.authentication.*`, `frontend.account_management.password.*`, `frontend.account_management.profile.*`.
 - Authenticated routes use `middleware.auth({ guards: ["web"] })` when guard specificity matters.
 - Guest-only auth/password routes use `middleware.guest()`.
-- Keep feature-specific exceptions inside the feature folder.
+- Current auth/password exceptions are shared under `src/exceptions` and imported through `#exceptions/*`.
 - Keep profile deletion mail orchestration in the profile service/job pair.
 
 ## ANTI-PATTERNS

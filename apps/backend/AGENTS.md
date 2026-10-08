@@ -4,7 +4,7 @@
 
 AdonisJS 7 API package with session auth, Lucid models, feature-first user management, queued mail jobs, Tuyau registry generation, and Japa test bootstrap.
 
-Scope: existing distinct package boundary; retained in update mode. Reference centrality unmeasured.
+Scope: score 8 from file count, subdirectories, code ratio, and local config; distinct API package. Symbol density, exports, and reference centrality unmeasured.
 
 ## WHERE TO LOOK
 
@@ -14,7 +14,7 @@ Scope: existing distinct package boundary; retained in update mode. Reference ce
 | HTTP runtime | `bin/server.ts` | Package `start` uses built `bin/server.js`. |
 | Ace CLI | `bin/console.ts`, `ace.js` | `ace.js` is generated/overwritten. |
 | Tests | `bin/test.ts`, `bootstrap.ts`, `adonisrc.ts`, `.env.test` | Suites: unit and e2e; specs live beside user-management feature code. |
-| Routes | `src/features/frontend/account_management/*/routes.ts` | Imported by `src/features/frontend/routes.ts`; `start/routes.ts` loads that surface aggregator. |
+| Routes | `src/features/frontend/account_management/routes.ts`, `src/features/frontend/account_management/*/routes.ts` | `start/routes.ts` loads `frontend/routes.ts`, then the account aggregator imports concrete modules. |
 | Controllers | `src/features/**/controllers/*.controller.ts` | Generated registry consumed as `#generated/controllers`. |
 | Auth/session | `config/auth.ts`, `config/session.ts`, `start/kernel.ts` | Custom auth/guest middleware lives in `src/middlewares`. |
 | Models/schema | `src/models/*`, `database/migrations/*`, `database/schema.ts` | `database/schema.ts` is generated. |

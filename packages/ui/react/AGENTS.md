@@ -4,7 +4,7 @@
 
 React 19 UI component package with Base UI wrappers, composite components, Tailwind 4 tokens, tailwind-variants, lucide icons, sonner toasts, and Storybook docs.
 
-Scope: existing distinct package boundary; retained in update mode. Reference centrality unmeasured.
+Scope: measured score 6; existing UI package boundary retained in update mode. Symbol density, exports, and reference centrality unmeasured.
 
 ## WHERE TO LOOK
 

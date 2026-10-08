@@ -14,7 +14,7 @@ Scope: existing distinct feature workflow; retained in update mode. Reference ce
 | Login controller | `controllers/login.controller.ts` | Validates credentials then delegates to service. |
 | Logout controller | `controllers/logout.controller.ts` | Delegates to service. |
 | Session service | `services/auth.service.ts` | Uses `User.verifyCredentials`, then web-guard `login`/`logout`. |
-| Middleware | `apps/backend/src/middlewares/{auth,guest,silent_auth}_middleware.ts` | Registered in `start/kernel.ts`. |
+| Middleware | `../../../../middlewares/{auth,guest,silent_auth}_middleware.ts` | Registered in `start/kernel.ts`. |
 | Exceptions | `../../../../exceptions/*.ts` | Auth error codes consumed by clients. |
 
 ## CONVENTIONS

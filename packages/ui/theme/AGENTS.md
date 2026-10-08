@@ -4,7 +4,7 @@
 
 Theme token package where `src/tokens.ts` is the editable source of truth and `src/tailwind.css` is generated Tailwind 4 CSS.
 
-Scope: existing distinct package boundary; retained in update mode. Reference centrality unmeasured.
+Scope: measured score 1; existing token-generation boundary retained in update mode. Symbol density, exports, and reference centrality unmeasured.
 
 ## WHERE TO LOOK
 

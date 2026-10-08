@@ -1,8 +1,8 @@
 # PROJECT KNOWLEDGE BASE
 
 **Generated:** 2026-10-08
-**Commit:** 01d31bf
-**Branch:** main
+**Commit:** 60a3b93
+**Branch:** chore/workspace-agent-guidance
 
 ## OVERVIEW
 
@@ -14,9 +14,9 @@ pnpm/Turbo TypeScript monorepo with an AdonisJS API, TanStack Start web app, and
 e5.stack/
 ├── apps/backend/              # AdonisJS API; feature-first user management; Tuyau/Adonis codegen
 ├── apps/frontend/              # TanStack Start app; file routes, Tuyau client, compiled French i18n
-├── packages/i18next-merger/ # CLI and Vite-plugin locale merger
-├── packages/ui/react/     # Storybook-backed React UI package; components/icons/hooks exports
-├── packages/ui/theme/     # token source + generated checked-in Tailwind CSS
+├── packages/i18next-merger/   # CLI and Vite-plugin locale merger
+├── packages/ui/react/         # Storybook-backed React UI package; components/icons/hooks exports
+├── packages/ui/theme/         # token source + generated checked-in Tailwind CSS
 ├── package.json           # root Turbo scripts; pnpm@10.34.5; Node 24
 ├── pnpm-workspace.yaml    # workspace globs: apps/*, packages/**
 ├── turbo.json             # task graph
@@ -29,7 +29,7 @@ e5.stack/
 |------|----------|-------|
 | Root commands / package manager | `package.json`, `turbo.json`, `pnpm-workspace.yaml` | Use pnpm, not npm/yarn. |
 | API runtime / CLI | `apps/backend/bin/server.ts`, `apps/backend/bin/console.ts`, `apps/backend/adonisrc.ts` | `ace.js` is generated. |
-| API routes | `apps/backend/start/routes.ts`, `apps/backend/src/features/frontend/routes.ts` | Explicit imports of `frontend/account_management` routes; generated controllers. |
+| API routes | `apps/backend/start/routes.ts`, `apps/backend/src/features/frontend/{routes.ts,account_management/routes.ts}` | Start -> surface -> domain -> concrete feature routes; generated controllers. |
 | API auth/session/mail/queue | `apps/backend/config/*.ts`, `apps/backend/start/kernel.ts`, `apps/backend/src/exceptions/handler.ts` | JSON-only behavior is middleware-enforced; mail jobs use queue `emails`. |
 | Web routes | `apps/frontend/src/routes/**/{layout,page}.tsx`, `apps/frontend/src/router.tsx` | `routeTree.gen.ts` is generated. |
 | Web API client | `apps/frontend/src/libs/tuyau.ts`, `@workspace/backend/registry` | Registry comes from the API build hooks. |
@@ -111,6 +111,7 @@ pnpm --filter @workspace/frontend dev
 pnpm --filter @workspace/frontend preview
 pnpm --filter @workspace/ui-react dev
 pnpm --filter @workspace/ui-theme generate:tailwind
+pnpm --filter @workspace/i18next-merger test
 ```
 
 ## NOTES
@@ -122,6 +123,8 @@ pnpm --filter @workspace/ui-theme generate:tailwind
 - `@workspace/ui-react` has no build script; apps consume its source exports directly.
 - Build order: Turbo `^build` ensures API registry and theme CSS are generated before web build.
 - API/Japa tests now live beside user-management controllers, policies, jobs, and mails as `*.unit.spec.ts` / `*.e2e.spec.ts`.
-- Code map retained and checked against source; LSP/ast-grep unavailable in this session, reference centrality unmeasured.
+- Code map retained and spot-checked against source; LSP returned `Method not found`, ast-grep MCP unavailable, and no local binary found. Symbol density and reference centrality unmeasured.
+- Update retained 17 existing guides, including deeper boundaries; new locations scored within depth 3. No new guide met the measured thresholds.
+- Locale-merger tests use package script `test`, outside root Turbo `test:unit` / `test:e2e`.
 - Root `adonis` and CI env setup target `apps/backend`; keep infrastructure paths aligned with package renames.
 - No `Makefile` exists in the repo.
