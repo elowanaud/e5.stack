@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          ref: ${{ github.head_ref }}
           
       - name: Setup Biome
         uses: biomejs/setup-biome@v2
