@@ -38,7 +38,7 @@
 ## Features
 
 - **Typed API Client:** Tuyau exposes generated API query and mutation helpers from the Adonis route registry.
-- **Feature-First API:** User-management code is grouped by domain under `apps/api/src/features/user_management`.
+- **Feature-First API:** User-management code is grouped by domain under `apps/backend/src/features/web/account_management`.
 - **TanStack Start Web App:** File routes use custom `layout.tsx` and `page.tsx` tokens, plus route groups for guest/private flows.
 - **Profile Settings Flow:** Authenticated profile UI is tabbed across `/profile`, `/profile/security`, and `/profile/privacy`.
 - **Shared UI Packages:** `@workspace/ui-react` provides Storybook-backed components; `@workspace/ui-theme` generates checked-in Tailwind CSS from tokens.
@@ -49,8 +49,8 @@
 ```text
 e5.stack/
 ├── apps/
-│   ├── api/                 # AdonisJS API, queue worker, Docker Compose sidecars
-│   └── web/                 # TanStack Start app, Tuyau client, French i18n build
+│   ├── backend/                 # AdonisJS API, queue worker, Docker Compose sidecars
+│   └── frontend/                 # TanStack Start app, Tuyau client, French i18n build
 ├── packages/
 │   └── ui/
 │       ├── react/           # @workspace/ui-react, Storybook component package
@@ -94,9 +94,9 @@ e5.stack/
    pnpm install
    ```
 
-   `apps/web` runs `i18n:build` during `postinstall`, generating the French i18n bundle.
+   `apps/frontend` runs `i18n:merge` during `postinstall`, generating the French i18n bundle.
 
-3. Configure the API environment from `apps/api/.env.example`, then start Docker.
+3. Configure the API environment from `apps/backend/.env.example`, then start Docker.
 
 4. Start development:
 
@@ -109,7 +109,7 @@ e5.stack/
 > local certificate authority and may ask for your system password. Development servers are
 > available at:
 >
-> - Web: `https://web.e5.localhost`
+> - Web: `https://frontend.e5.localhost`
 > - API: `https://api.e5.localhost`
 > - UI: `https://ui.e5.localhost`
 >
@@ -125,7 +125,8 @@ Run root commands from the repository root:
 | `pnpm dev` | Starts the Portless-enabled Turbo development graph. |
 | `pnpm build` | Builds the workspace with dependency ordering. |
 | `pnpm typecheck` | Runs workspace TypeScript checks. |
-| `pnpm test` | Runs Turbo tests across packages; currently API/Japa only. |
+| `pnpm test:unit` | Runs workspace unit suites. |
+| `pnpm test:e2e` | Runs workspace end-to-end suites. |
 | `pnpm code-quality` | Runs Biome checks. |
 | `pnpm code-quality:fix` | Runs Biome safe fixes. |
 | `pnpm adonis` | Forwards to the API Ace CLI. |
@@ -136,25 +137,25 @@ API tests are colocated with user-management feature code and run through Japa:
 
 - `*.unit.spec.ts` covers policies, jobs, and mails.
 - `*.e2e.spec.ts` covers HTTP controllers with the Japa API client.
-- `apps/api/bootstrap.ts` runs database migrations/truncation and starts the HTTP server for e2e suites.
+- `apps/backend/bootstrap.ts` runs database migrations/truncation and starts the HTTP server for e2e suites.
 
-Run all workspace tests with `pnpm test`, or target the API with `pnpm --filter @workspace/api test`. The CI test job is present but currently commented out.
+Run workspace suites with `pnpm test:unit` and `pnpm test:e2e`, or target the API with `pnpm --filter @workspace/backend test`. CI runs both unit and e2e jobs.
 
 ### Targeted Execution
 
 Use pnpm filters when working on one surface:
 
 ```bash
-pnpm --filter @workspace/api dev
-pnpm --filter @workspace/api dev:app
-pnpm --filter @workspace/api worker
-pnpm --filter @workspace/api docker-compose
-pnpm --filter @workspace/api test
+pnpm --filter @workspace/backend dev
+pnpm --filter @workspace/backend dev:app
+pnpm --filter @workspace/backend worker
+pnpm --filter @workspace/backend docker-compose
+pnpm --filter @workspace/backend test
 
-pnpm --filter @workspace/web dev
-pnpm --filter @workspace/web dev:app
-pnpm --filter @workspace/web preview
-pnpm --filter @workspace/web i18n:build
+pnpm --filter @workspace/frontend dev
+pnpm --filter @workspace/frontend dev:app
+pnpm --filter @workspace/frontend preview
+pnpm --filter @workspace/frontend i18n:merge
 
 pnpm --filter @workspace/ui-react dev
 pnpm --filter @workspace/ui-react dev:app
@@ -173,9 +174,9 @@ development process directly on its configured port, without the Portless proxy.
 <details>
 <summary><strong>API</strong></summary>
 
-- Boot files live in `apps/api/start`; runtime entries are `bin/server.ts`, `bin/console.ts`, and `bin/test.ts`.
-- Routes are imported from `apps/api/start/routes.ts`, then declared inside feature modules under `src/features/user_management/*/routes.ts`.
-- Generated Adonis/Tuyau artifacts power controller imports and the `@workspace/api/registry` client export.
+- Boot files live in `apps/backend/start`; runtime entries are `bin/server.ts`, `bin/console.ts`, and `bin/test.ts`.
+- Routes are imported from `apps/backend/start/routes.ts`, then declared inside feature modules under `src/features/web/account_management/*/routes.ts`.
+- Generated Adonis/Tuyau artifacts power controller imports and the `@workspace/backend/registry` client export.
 - Mail side effects run through queue jobs on queue `emails`; local compose services are Postgres, Redis, and smtp4dev.
 
 </details>
@@ -185,7 +186,7 @@ development process directly on its configured port, without the Portless proxy.
 
 - TanStack Start uses `src/routes` with `layout.tsx` and `page.tsx` route tokens from `vite.config.ts`.
 - `src/router.tsx` wires the QueryClient, generated route tree, and SSR query integration.
-- Feature folders mirror backend domain names; route files compose feature components.
+- Frontend features remain under `user_management`; backend routes use `web/account_management`. Route files compose feature components.
 - The profile section is route-tabbed: profile update, password security, and privacy/delete account.
 
 </details>
@@ -203,18 +204,18 @@ development process directly on its configured port, without the Portless proxy.
 
 Do not edit generated files manually:
 
-- `apps/api/.adonisjs/**`
-- `apps/api/ace.js`
-- `apps/api/database/schema.ts`
-- `apps/web/src/routeTree.gen.ts`
-- `apps/web/src/libs/i18n/build/**`
+- `apps/backend/.adonisjs/**`
+- `apps/backend/ace.js`
+- `apps/backend/database/schema.ts`
+- `apps/frontend/src/routeTree.gen.ts`
+- `apps/frontend/src/libs/i18n/build/**`
 - `packages/ui/theme/src/tailwind.css`
 
 ## CI & Deployment
 
-GitHub Actions runs on pull requests. The active pipeline runs Biome, affected typecheck, and affected build; the test job exists but is currently commented out.
+GitHub Actions runs on pull requests: Biome, affected typecheck/build, and unit/e2e tests.
 
-The API Docker image prunes/builds the API package, exposes `8080`, then runs migrations before `node apps/api/bin/server.js`. The web Docker image builds with `VITE_API_BASE_URL` and serves `apps/web/dist/client` through nginx on port `80`.
+The API Docker image prunes/builds the API package, exposes `8080`, then runs migrations before `node apps/backend/bin/server.js`. The web Docker image builds with `VITE_API_BASE_URL` and serves `apps/frontend/dist/client` through nginx on port `80`.
 
 ---
 

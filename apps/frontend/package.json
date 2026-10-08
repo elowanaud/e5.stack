@@ -1,0 +1,59 @@
+{
+	"name": "@workspace/frontend",
+	"author": "elowanaud",
+	"type": "module",
+	"scripts": {
+		"postinstall": "pnpm run i18n:merge",
+		"build": "vite build",
+		"preview": "vite preview",
+		"dev": "portless",
+		"dev:app": "vite dev",
+		"typecheck": "tsc --noEmit",
+		"i18n:merge": "i18next-merger -l fr -g '**/locales/**' -o 'src/libs/i18n/build'"
+	},
+	"portless": {
+		"name": "frontend.e5",
+		"script": "dev:app"
+	},
+	"dependencies": {
+		"@sentry/tanstackstart-react": "11.2.0",
+		"@tanstack/react-form": "1.33.5",
+		"@tanstack/react-pacer": "0.24.0",
+		"@tanstack/react-query": "5.104.0",
+		"@tanstack/react-router": "1.170.41",
+		"@tanstack/react-router-ssr-query": "1.167.3",
+		"@tanstack/react-start": "1.168.60",
+		"@tanstack/react-table": "8.21.3",
+		"@tanstack/router-plugin": "1.168.42",
+		"@tuyau/core": "1.2.2",
+		"@tuyau/react-query": "1.1.0",
+		"@tuyau/superjson": "1.0.0",
+		"@workspace/backend": "workspace:*",
+		"@workspace/ui-react": "workspace:*",
+		"@workspace/ui-theme": "workspace:*",
+		"i18next": "26.4.2",
+		"next-themes": "0.4.6",
+		"react": "19.3.0",
+		"react-dom": "19.3.0",
+		"react-i18next": "17.0.15",
+		"tailwind-variants": "3.3.1",
+		"zod": "4.6.5"
+	},
+	"devDependencies": {
+		"@rolldown/plugin-babel": "0.2.4",
+		"@tailwindcss/vite": "4.3.3",
+		"@tanstack/devtools-vite": "0.8.5",
+		"@tanstack/react-devtools": "0.10.13",
+		"@tanstack/react-form-devtools": "0.2.34",
+		"@tanstack/react-query-devtools": "5.104.0",
+		"@tanstack/react-router-devtools": "1.167.2",
+		"@types/node": "24",
+		"@types/react": "19.3.0",
+		"@types/react-dom": "19.3.0",
+		"@vitejs/plugin-react": "6.1.1",
+		"@workspace/i18next-merger": "workspace:*",
+		"tailwindcss": "4.3.3",
+		"typescript": "7.0.2",
+		"vite": "8.3.2"
+	}
+}
