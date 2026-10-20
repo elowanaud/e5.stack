@@ -1,0 +1,22 @@
+{
+	"name": "@workspace/adonis-mail-browser-transport",
+	"private": true,
+	"type": "module",
+	"main": "src/index.ts",
+	"scripts": {
+		"typecheck": "tsc --noEmit"
+	},
+	"peerDependencies": {
+		"@adonisjs/mail": "10",
+		"nodemailer": "9"
+	},
+	"dependencies": {
+		"preview-email": "3.4.1"
+	},
+	"devDependencies": {
+		"@types/node": "24",
+		"@types/nodemailer": "^8.0.1",
+		"@types/preview-email": "3.1.0",
+		"typescript": "7.0.2"
+	}
+}

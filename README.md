@@ -98,6 +98,13 @@ e5.stack/
 
 3. Configure the API environment from `apps/backend/.env.example`, then start Docker.
 
+   To preview emails in your browser instead of sending them via SMTP, set
+   `MAIL_MAILER=browser`. SMTP remains available with `MAIL_MAILER=smtp`.
+   Browser previews open on the machine running the email worker (or the API when
+   `QUEUE_DRIVER=sync`), so use this transport with a local desktop process.
+   It writes previews to the system temporary directory and does not deliver emails
+   to recipients or launch the iOS Simulator.
+
 4. Start development:
 
    ```bash
@@ -141,6 +148,21 @@ API tests live in `apps/backend/tests/` and run through Japa. Feature tests mirr
 
 Run workspace suites with `pnpm test:unit` and `pnpm test:e2e`, or target the API with `pnpm --filter @workspace/backend test`. CI runs both unit and e2e jobs.
 
+### Peer Dependency Validation
+
+`pnpm-workspace.yaml` enables `strictPeerDependencies`, so missing or incompatible
+peer dependencies are errors rather than warnings. CI explicitly re-runs dependency
+resolution to validate peers even when the checked-in lockfile is already up to date:
+
+```bash
+pnpm install --resolution-only --no-frozen-lockfile --ignore-scripts
+```
+
+Resolve incompatible versions instead of disabling strict validation. The existing
+`🔎 Type check` CI job runs this check after the frozen-lockfile installation.
+Configure that job as required in GitHub branch protection to block incompatible
+dependency updates, including Dependabot pull requests.
+
 ### Targeted Execution
 
 Use pnpm filters when working on one surface:
@@ -178,6 +200,7 @@ development process directly on its configured port, without the Portless proxy.
 - Routes are imported from `apps/backend/start/routes.ts`, then declared inside feature modules under `src/features/frontend/account_management/*/routes.ts`.
 - Generated Adonis/Tuyau artifacts power controller imports and the `@workspace/backend/registry` client export.
 - Mail side effects run through queue jobs on queue `emails`; local compose services are Postgres, Redis, and smtp4dev.
+- Keep `@adonisjs/redis` on `10.0.2` while Queue `0.6.2`, Session `8.1.0`, and Limiter `3.0.1` require Redis package major 10. This is the AdonisJS client package version, not the Redis server version.
 
 </details>
 
