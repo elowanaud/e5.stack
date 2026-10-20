@@ -60,6 +60,8 @@ function buildCss() {
 
 	lines.push("");
 	lines.push("\t--color-*: initial;");
+	lines.push("\t--color-black: #000;");
+	lines.push("\t--color-white: #fff;");
 
 	for (const [color, variants] of Object.entries(colors)) {
 		lines.push("");

@@ -23,8 +23,8 @@ export function SwitchRoot(props: SwitchRootProps) {
 		>
 			<SwitchHeadless.Thumb
 				className={cx(
-					"aspect-square h-full rounded-full bg-neutral-1 transition dark:bg-neutral-12",
-					"data-checked:translate-x-3",
+					"aspect-square h-full rounded-full bg-neutral-contrast transition",
+					"data-checked:translate-x-3 data-checked:bg-primary-contrast",
 				)}
 			/>
 		</SwitchHeadless.Root>

@@ -11,7 +11,7 @@ export const fonts: Fonts = {
 
 interface Colors {
 	[key: string]: {
-		[key: number]: {
+		[key: number | string]: {
 			light: string;
 			dark: string;
 		};
@@ -20,32 +20,34 @@ interface Colors {
 
 export const colors: Colors = {
 	neutral: {
-		1: { light: "#fdfcfd", dark: "#121113" },
-		2: { light: "#faf9fb", dark: "#1a191b" },
-		3: { light: "#f2eff3", dark: "#232225" },
-		4: { light: "#eae7ec", dark: "#2b292d" },
-		5: { light: "#e3dfe6", dark: "#323035" },
-		6: { light: "#dbd8e0", dark: "#3c393f" },
-		7: { light: "#d0cdd7", dark: "#49474e" },
-		8: { light: "#bcbac7", dark: "#625f69" },
-		9: { light: "#8e8c99", dark: "#6f6d78" },
-		10: { light: "#84828e", dark: "#7c7a85" },
-		11: { light: "#65636d", dark: "#b5b2bc" },
-		12: { light: "#211f26", dark: "#eeeef0" },
+		1: { light: "#fcfcfc", dark: "#111111" },
+		2: { light: "#f9f9f9", dark: "#191919" },
+		3: { light: "#f0f0f0", dark: "#222222" },
+		4: { light: "#e8e8e8", dark: "#2a2a2a" },
+		5: { light: "#e0e0e0", dark: "#313131" },
+		6: { light: "#d9d9d9", dark: "#3a3a3a" },
+		7: { light: "#cecece", dark: "#484848" },
+		8: { light: "#bbbbbb", dark: "#606060" },
+		9: { light: "#8d8d8d", dark: "#6e6e6e" },
+		10: { light: "#838383", dark: "#7b7b7b" },
+		11: { light: "#646464", dark: "#b4b4b4" },
+		12: { light: "#202020", dark: "#eeeeee" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	primary: {
-		1: { light: "#fdfcfe", dark: "#14121f" },
-		2: { light: "#faf8ff", dark: "#1b1525" },
-		3: { light: "#f4f0fe", dark: "#291f43" },
-		4: { light: "#ebe4ff", dark: "#33255b" },
-		5: { light: "#e1d9ff", dark: "#3c2e69" },
-		6: { light: "#d4cafe", dark: "#473876" },
-		7: { light: "#c2b5f5", dark: "#56468b" },
-		8: { light: "#aa99ec", dark: "#6958ad" },
-		9: { light: "#6e56cf", dark: "#6e56cf" },
-		10: { light: "#654dc4", dark: "#7d66d9" },
-		11: { light: "#6550b9", dark: "#baa7ff" },
-		12: { light: "#2f265f", dark: "#e2ddfe" },
+		1: { light: "#fcfcfd", dark: "#111113" },
+		2: { light: "#f9f9fb", dark: "#19191b" },
+		3: { light: "#eff0f3", dark: "#222325" },
+		4: { light: "#e7e8ec", dark: "#292a2e" },
+		5: { light: "#e0e1e6", dark: "#303136" },
+		6: { light: "#d8d9e0", dark: "#393a40" },
+		7: { light: "#cdced7", dark: "#46484f" },
+		8: { light: "#b9bbc6", dark: "#5f606a" },
+		9: { light: "#000", dark: "#fff" },
+		10: { light: "#2c2d33", dark: "#f5f6f8" },
+		11: { light: "#62636c", dark: "#b2b3bd" },
+		12: { light: "#1e1f24", dark: "#eeeef0" },
+		contrast: { light: "#fff", dark: "#000" },
 	},
 	info: {
 		1: { light: "#fbfdff", dark: "#0d1520" },
@@ -60,6 +62,7 @@ export const colors: Colors = {
 		10: { light: "#0588f0", dark: "#3b9eff" },
 		11: { light: "#0d74ce", dark: "#70b8ff" },
 		12: { light: "#113264", dark: "#c2e6ff" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	success: {
 		1: { light: "#fbfefc", dark: "#0e1512" },
@@ -74,6 +77,7 @@ export const colors: Colors = {
 		10: { light: "#2b9a66", dark: "#33b074" },
 		11: { light: "#218358", dark: "#3dd68c" },
 		12: { light: "#193b2d", dark: "#b1f1cb" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	warning: {
 		1: { light: "#fefdfb", dark: "#16120c" },
@@ -88,6 +92,7 @@ export const colors: Colors = {
 		10: { light: "#ffba18", dark: "#ffd60a" },
 		11: { light: "#ab6400", dark: "#ffca16" },
 		12: { light: "#4f3422", dark: "#ffe7b3" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	error: {
 		1: { light: "#fffcfc", dark: "#191111" },
@@ -102,8 +107,8 @@ export const colors: Colors = {
 		10: { light: "#dc3e42", dark: "#ec5d5e" },
 		11: { light: "#ce2c31", dark: "#ff9592" },
 		12: { light: "#641723", dark: "#ffd1d9" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
-
 	gray: {
 		1: { light: "#fcfcfc", dark: "#111111" },
 		2: { light: "#f9f9f9", dark: "#191919" },
@@ -117,6 +122,7 @@ export const colors: Colors = {
 		10: { light: "#838383", dark: "#7b7b7b" },
 		11: { light: "#646464", dark: "#b4b4b4" },
 		12: { light: "#202020", dark: "#eeeeee" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	mauve: {
 		1: { light: "#fdfcfd", dark: "#121113" },
@@ -131,6 +137,7 @@ export const colors: Colors = {
 		10: { light: "#84828e", dark: "#7c7a85" },
 		11: { light: "#65636d", dark: "#b5b2bc" },
 		12: { light: "#211f26", dark: "#eeeef0" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	slate: {
 		1: { light: "#fcfcfd", dark: "#111113" },
@@ -145,6 +152,7 @@ export const colors: Colors = {
 		10: { light: "#80838d", dark: "#777b84" },
 		11: { light: "#60646c", dark: "#b0b4ba" },
 		12: { light: "#1c2024", dark: "#edeef0" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	sage: {
 		1: { light: "#fbfdfc", dark: "#101211" },
@@ -159,6 +167,7 @@ export const colors: Colors = {
 		10: { light: "#7c8481", dark: "#717d79" },
 		11: { light: "#5f6563", dark: "#adb5b2" },
 		12: { light: "#1a211e", dark: "#eceeed" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	olive: {
 		1: { light: "#fcfdfc", dark: "#111210" },
@@ -173,6 +182,7 @@ export const colors: Colors = {
 		10: { light: "#7f847d", dark: "#767d74" },
 		11: { light: "#60655f", dark: "#afb5ad" },
 		12: { light: "#1d211c", dark: "#eceeec" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	sand: {
 		1: { light: "#fdfdfc", dark: "#111110" },
@@ -187,6 +197,7 @@ export const colors: Colors = {
 		10: { light: "#82827c", dark: "#7c7b74" },
 		11: { light: "#63635e", dark: "#b5b3ad" },
 		12: { light: "#21201c", dark: "#eeeeec" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	tomato: {
 		1: { light: "#fffcfc", dark: "#181111" },
@@ -201,6 +212,7 @@ export const colors: Colors = {
 		10: { light: "#dd4425", dark: "#ec6142" },
 		11: { light: "#d13415", dark: "#ff977d" },
 		12: { light: "#5c271f", dark: "#fbd3cb" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	red: {
 		1: { light: "#fffcfc", dark: "#191111" },
@@ -215,6 +227,7 @@ export const colors: Colors = {
 		10: { light: "#dc3e42", dark: "#ec5d5e" },
 		11: { light: "#ce2c31", dark: "#ff9592" },
 		12: { light: "#641723", dark: "#ffd1d9" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	ruby: {
 		1: { light: "#fffcfd", dark: "#191113" },
@@ -229,6 +242,7 @@ export const colors: Colors = {
 		10: { light: "#dc3b5d", dark: "#ec5a72" },
 		11: { light: "#ca244d", dark: "#ff949d" },
 		12: { light: "#64172b", dark: "#fed2e1" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	crimson: {
 		1: { light: "#fffcfd", dark: "#191114" },
@@ -243,6 +257,7 @@ export const colors: Colors = {
 		10: { light: "#df3478", dark: "#ee518a" },
 		11: { light: "#cb1d63", dark: "#ff92ad" },
 		12: { light: "#621639", dark: "#fdd3e8" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	pink: {
 		1: { light: "#fffcfe", dark: "#191117" },
@@ -257,6 +272,7 @@ export const colors: Colors = {
 		10: { light: "#cf3897", dark: "#de51a8" },
 		11: { light: "#c2298a", dark: "#ff8dcc" },
 		12: { light: "#651249", dark: "#fdd1ea" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	plum: {
 		1: { light: "#fefcff", dark: "#181118" },
@@ -271,6 +287,7 @@ export const colors: Colors = {
 		10: { light: "#a144af", dark: "#b658c4" },
 		11: { light: "#953ea3", dark: "#e796f3" },
 		12: { light: "#53195d", dark: "#f4d4f4" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	purple: {
 		1: { light: "#fefcfe", dark: "#18111b" },
@@ -285,6 +302,7 @@ export const colors: Colors = {
 		10: { light: "#8347b9", dark: "#9a5cd0" },
 		11: { light: "#8145b5", dark: "#d19dff" },
 		12: { light: "#402060", dark: "#ecd9fa" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	violet: {
 		1: { light: "#fdfcfe", dark: "#14121f" },
@@ -299,6 +317,7 @@ export const colors: Colors = {
 		10: { light: "#654dc4", dark: "#7d66d9" },
 		11: { light: "#6550b9", dark: "#baa7ff" },
 		12: { light: "#2f265f", dark: "#e2ddfe" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	iris: {
 		1: { light: "#fdfdff", dark: "#13131e" },
@@ -313,6 +332,7 @@ export const colors: Colors = {
 		10: { light: "#5151cd", dark: "#6e6ade" },
 		11: { light: "#5753c6", dark: "#b1a9ff" },
 		12: { light: "#272962", dark: "#e0dffe" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	indigo: {
 		1: { light: "#fdfdfe", dark: "#11131f" },
@@ -327,6 +347,7 @@ export const colors: Colors = {
 		10: { light: "#3358d4", dark: "#5472e4" },
 		11: { light: "#3a5bc7", dark: "#9eb1ff" },
 		12: { light: "#1f2d5c", dark: "#d6e1ff" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	blue: {
 		1: { light: "#fbfdff", dark: "#0d1520" },
@@ -341,6 +362,7 @@ export const colors: Colors = {
 		10: { light: "#0588f0", dark: "#3b9eff" },
 		11: { light: "#0d74ce", dark: "#70b8ff" },
 		12: { light: "#113264", dark: "#c2e6ff" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	cyan: {
 		1: { light: "#fafdfe", dark: "#0b161a" },
@@ -355,6 +377,7 @@ export const colors: Colors = {
 		10: { light: "#0797b9", dark: "#23afd0" },
 		11: { light: "#107d98", dark: "#4ccce6" },
 		12: { light: "#0d3c48", dark: "#b6ecf7" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	teal: {
 		1: { light: "#fafefd", dark: "#0d1514" },
@@ -369,6 +392,7 @@ export const colors: Colors = {
 		10: { light: "#0d9b8a", dark: "#0eb39e" },
 		11: { light: "#008573", dark: "#0bd8b6" },
 		12: { light: "#0d3d38", dark: "#adf0dd" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	jade: {
 		1: { light: "#fbfefd", dark: "#0d1512" },
@@ -383,6 +407,7 @@ export const colors: Colors = {
 		10: { light: "#26997b", dark: "#27b08b" },
 		11: { light: "#208368", dark: "#1fd8a4" },
 		12: { light: "#1d3b31", dark: "#adf0d4" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	green: {
 		1: { light: "#fbfefc", dark: "#0e1512" },
@@ -397,6 +422,7 @@ export const colors: Colors = {
 		10: { light: "#2b9a66", dark: "#33b074" },
 		11: { light: "#218358", dark: "#3dd68c" },
 		12: { light: "#193b2d", dark: "#b1f1cb" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	grass: {
 		1: { light: "#fbfefb", dark: "#0e1511" },
@@ -411,6 +437,7 @@ export const colors: Colors = {
 		10: { light: "#3e9b4f", dark: "#53b365" },
 		11: { light: "#2a7e3b", dark: "#71d083" },
 		12: { light: "#203c25", dark: "#c2f0c2" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	brown: {
 		1: { light: "#fefdfc", dark: "#12110f" },
@@ -425,6 +452,7 @@ export const colors: Colors = {
 		10: { light: "#a07553", dark: "#b88c67" },
 		11: { light: "#815e46", dark: "#dbb594" },
 		12: { light: "#3e332e", dark: "#f2e1ca" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	bronze: {
 		1: { light: "#fdfcfc", dark: "#141110" },
@@ -439,6 +467,7 @@ export const colors: Colors = {
 		10: { light: "#957468", dark: "#ae8c7e" },
 		11: { light: "#7d5e54", dark: "#d4b3a5" },
 		12: { light: "#43302b", dark: "#ede0d9" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	gold: {
 		1: { light: "#fdfdfc", dark: "#121211" },
@@ -453,6 +482,7 @@ export const colors: Colors = {
 		10: { light: "#8c7a5e", dark: "#a39073" },
 		11: { light: "#71624b", dark: "#cbb99f" },
 		12: { light: "#3b352b", dark: "#e8e2d9" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 	sky: {
 		1: { light: "#f9feff", dark: "#0d141f" },
@@ -467,6 +497,7 @@ export const colors: Colors = {
 		10: { light: "#74daf8", dark: "#a8eeff" },
 		11: { light: "#00749e", dark: "#75c7f0" },
 		12: { light: "#1d3e56", dark: "#c2f3ff" },
+		contrast: { light: "#000", dark: "#000" },
 	},
 	mint: {
 		1: { light: "#f9fefd", dark: "#0e1515" },
@@ -481,6 +512,7 @@ export const colors: Colors = {
 		10: { light: "#7de0cb", dark: "#a8f5e5" },
 		11: { light: "#027864", dark: "#58d5ba" },
 		12: { light: "#16433c", dark: "#c4f5e1" },
+		contrast: { light: "#000", dark: "#000" },
 	},
 	lime: {
 		1: { light: "#fcfdfa", dark: "#11130c" },
@@ -495,6 +527,7 @@ export const colors: Colors = {
 		10: { light: "#b0e64c", dark: "#d4ff70" },
 		11: { light: "#5c7c2f", dark: "#bde56c" },
 		12: { light: "#37401c", dark: "#e3f7ba" },
+		contrast: { light: "#000", dark: "#000" },
 	},
 	yellow: {
 		1: { light: "#fdfdf9", dark: "#14120b" },
@@ -509,6 +542,7 @@ export const colors: Colors = {
 		10: { light: "#ffdc00", dark: "#ffff57" },
 		11: { light: "#9e6c00", dark: "#f5e147" },
 		12: { light: "#473b1f", dark: "#f6eeb4" },
+		contrast: { light: "#000", dark: "#000" },
 	},
 	amber: {
 		1: { light: "#fefdfb", dark: "#16120c" },
@@ -523,6 +557,7 @@ export const colors: Colors = {
 		10: { light: "#ffba18", dark: "#ffd60a" },
 		11: { light: "#ab6400", dark: "#ffca16" },
 		12: { light: "#4f3422", dark: "#ffe7b3" },
+		contrast: { light: "#000", dark: "#000" },
 	},
 	orange: {
 		1: { light: "#fefcfb", dark: "#17120e" },
@@ -537,5 +572,6 @@ export const colors: Colors = {
 		10: { light: "#ef5f00", dark: "#ff801f" },
 		11: { light: "#cc4e00", dark: "#ffa057" },
 		12: { light: "#582d1d", dark: "#ffe0c2" },
+		contrast: { light: "#fff", dark: "#fff" },
 	},
 };

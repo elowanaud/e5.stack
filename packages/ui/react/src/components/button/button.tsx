@@ -17,7 +17,7 @@ const buttonVariants = tv({
 				"data-disabled:opacity-50",
 			],
 			primary: [
-				"bg-primary-9 text-primary-1 ring-primary-7 dark:text-primary-12",
+				"bg-primary-9 text-primary-contrast ring-primary-7",
 				"hover:not-data-disabled:bg-primary-10",
 				"active:not-data-disabled:bg-primary-11!",
 				"data-popup-open:bg-primary-11!",
