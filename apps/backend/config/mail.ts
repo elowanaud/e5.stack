@@ -1,5 +1,7 @@
 import { defineConfig, transports } from "@adonisjs/mail";
 
+import { browserTransport } from "@workspace/adonis-mail-browser-transport";
+
 import env from "#start/env";
 
 const mailConfig = defineConfig({
@@ -11,9 +13,12 @@ const mailConfig = defineConfig({
 	},
 
 	mailers: {
-		smtp: transports.smtp({
-			host: env.get("SMTP_HOST"),
-			port: env.get("SMTP_PORT"),
+		browser: browserTransport({
+			openSimulator: false,
+		}),
+		brevo: transports.brevo({
+			baseUrl: env.get("BREVO_BASE_URL", ""),
+			key: env.get("BREVO_API_KEY", ""),
 		}),
 	},
 });

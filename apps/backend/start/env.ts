@@ -30,15 +30,15 @@ export default await Env.create(new URL("../", import.meta.url), {
 	DB_DATABASE: Env.schema.string(),
 
 	// Mail Config
-	MAIL_MAILER: Env.schema.enum(["smtp"] as const),
+	MAIL_MAILER: Env.schema.enum(["browser", "brevo"] as const),
 	MAIL_FROM_NAME: Env.schema.string(),
 	MAIL_FROM_ADDRESS: Env.schema.string(),
 
-	// SMTP Config
-	SMTP_HOST: Env.schema.string.optionalWhen(process.env.MAILER_DRIVER !== "local", {
-		format: "host",
+	// Brevo Config
+	BREVO_BASE_URL: Env.schema.string.optionalWhen(process.env.MAIL_MAILER !== "brevo", {
+		format: "url",
 	}),
-	SMTP_PORT: Env.schema.number.optionalWhen(process.env.MAILER_DRIVER !== "local"),
+	BREVO_API_KEY: Env.schema.string.optionalWhen(process.env.MAIL_MAILER !== "brevo"),
 
 	// Redis Config
 	REDIS_CONNECTION: Env.schema.enum(["main", "test"] as const),
