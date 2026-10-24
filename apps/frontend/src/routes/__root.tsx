@@ -32,9 +32,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<HeadContent />
 			</head>
 			<body className="relative bg-neutral-2 antialiased">
-				<div className="isolate">
-					<Providers>{children}</Providers>
-				</div>
+				<Providers>
+					<div className="isolate">{children}</div>
+				</Providers>
 
 				<Scripts />
 			</body>
