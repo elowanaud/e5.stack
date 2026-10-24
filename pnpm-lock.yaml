@@ -248,6 +248,233 @@ importers:
         specifier: 8.3.4
         version: 8.3.4(@types/node@24.12.2)(esbuild@0.28.2)(jiti@2.7.0)
 
+  examples/backend:
+    dependencies:
+      '@adonisjs/auth':
+        specifier: 10.1.0
+        version: 10.1.0(18e68aa4b2242e8736b7bb8dce173458)
+      '@adonisjs/bouncer':
+        specifier: 4.0.1
+        version: 4.0.1(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1))(edge.js@6.5.1)
+      '@adonisjs/core':
+        specifier: 7.6.0
+        version: 7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1)
+      '@adonisjs/cors':
+        specifier: 3.0.0
+        version: 3.0.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1))
+      '@adonisjs/drive':
+        specifier: ^4.0.0
+        version: 4.0.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1))(@aws-sdk/client-s3@3.1152.0)(@aws-sdk/s3-request-presigner@3.1152.0)(edge.js@6.5.1)
+      '@adonisjs/limiter':
+        specifier: 3.0.1
+        version: 3.0.1(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1))(@adonisjs/lucid@22.4.2(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1))(@vinejs/vine@4.4.0)(luxon@3.7.2)(pg@8.23.1))(@adonisjs/redis@10.0.2(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1)))
+      '@adonisjs/lucid':
+        specifier: 22.4.2
+        version: 22.4.2(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1))(@vinejs/vine@4.4.0)(luxon@3.7.2)(pg@8.23.1)
+      '@adonisjs/mail':
+        specifier: 10.4.0
+        version: 10.4.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1))(@types/luxon@3.7.6)(@types/node@24.12.2)(dayjs@1.11.23)(edge.js@6.5.1)(luxon@3.7.2)(mjml@5.4.1(relateurl@0.2.7)(svgo@4.1.0)(typescript@7.0.2))
+      '@adonisjs/queue':
+        specifier: 0.6.2
+        version: 0.6.2(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1))(@adonisjs/lucid@22.4.2(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1))(@vinejs/vine@4.4.0)(luxon@3.7.2)(pg@8.23.1))(@adonisjs/redis@10.0.2(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1)))(@opentelemetry/api@1.9.1)(ioredis@5.11.1)(knex@3.2.9(pg@8.23.1))
+      '@adonisjs/redis':
+        specifier: 10.0.2
+        version: 10.0.2(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1))
+      '@adonisjs/session':
+        specifier: 8.1.0
+        version: 8.1.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1))(@adonisjs/lucid@22.4.2(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1))(@vinejs/vine@4.4.0)(luxon@3.7.2)(pg@8.23.1))(@adonisjs/redis@10.0.2(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1)))(@japa/api-client@3.2.1(@japa/assert@4.2.0(@japa/runner@5.4.0))(@japa/runner@5.4.0))(@japa/plugin-adonisjs@5.2.0(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1))(@japa/api-client@3.2.1(@japa/assert@4.2.0(@japa/runner@5.4.0))(@japa/runner@5.4.0))(@japa/runner@5.4.0))(edge.js@6.5.1)
+      '@aws-sdk/client-s3':
+        specifier: 3.1152.0
+        version: 3.1152.0
+      '@aws-sdk/s3-request-presigner':
+        specifier: 3.1152.0
+        version: 3.1152.0
+      '@sentry/node':
+        specifier: 11.8.0
+        version: 11.8.0(@babel/core@7.29.7)
+      '@tuyau/core':
+        specifier: 1.2.2
+        version: 1.2.2(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1))
+      '@tuyau/superjson':
+        specifier: 1.0.0
+        version: 1.0.0(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1))
+      '@vinejs/vine':
+        specifier: 4.4.0
+        version: 4.4.0
+      '@workspace/ui-theme':
+        specifier: workspace:*
+        version: link:../../packages/ui/theme
+      edge.js:
+        specifier: 6.5.1
+        version: 6.5.1
+      luxon:
+        specifier: 3.7.2
+        version: 3.7.2
+      mjml:
+        specifier: 5.4.1
+        version: 5.4.1(relateurl@0.2.7)(svgo@4.1.0)(typescript@7.0.2)
+      pg:
+        specifier: 8.23.1
+        version: 8.23.1
+      reflect-metadata:
+        specifier: 0.2.2
+        version: 0.2.2
+    devDependencies:
+      '@adonisjs/assembler':
+        specifier: 8.5.2
+        version: 8.5.2(typescript@7.0.2)
+      '@adonisjs/tsconfig':
+        specifier: 2.0.0
+        version: 2.0.0
+      '@japa/api-client':
+        specifier: ^3.2.1
+        version: 3.2.1(@japa/assert@4.2.0(@japa/runner@5.4.0))(@japa/runner@5.4.0)
+      '@japa/assert':
+        specifier: 4.2.0
+        version: 4.2.0(@japa/runner@5.4.0)
+      '@japa/plugin-adonisjs':
+        specifier: 5.2.0
+        version: 5.2.0(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1))(@japa/api-client@3.2.1(@japa/assert@4.2.0(@japa/runner@5.4.0))(@japa/runner@5.4.0))(@japa/runner@5.4.0)
+      '@japa/runner':
+        specifier: 5.4.0
+        version: 5.4.0
+      '@poppinss/ts-exec':
+        specifier: 1.5.0
+        version: 1.5.0(@swc/helpers@0.5.23)
+      '@types/luxon':
+        specifier: 3.7.6
+        version: 3.7.6
+      '@types/node':
+        specifier: '24'
+        version: 24.12.2
+      '@workspace/adonis-mail-browser-transport':
+        specifier: workspace:*
+        version: link:../../packages/adonis-mail-browser-transport
+      hot-hook:
+        specifier: 1.0.0
+        version: 1.0.0
+      pino-pretty:
+        specifier: 13.2.0
+        version: 13.2.0
+      typescript:
+        specifier: 7.0.2
+        version: 7.0.2
+
+  examples/frontend:
+    dependencies:
+      '@examples/backend':
+        specifier: workspace:*
+        version: link:../backend
+      '@sentry/tanstackstart-react':
+        specifier: 11.8.0
+        version: 11.8.0(@babel/core@7.29.7)(react@19.3.1)
+      '@tanstack/react-form':
+        specifier: 1.33.5
+        version: 1.33.5(@tanstack/react-start@1.169.2(esbuild@0.28.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(rolldown@1.2.13)(vite@8.3.4(@types/node@24.12.2)(esbuild@0.28.2)(jiti@2.7.0)))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      '@tanstack/react-pacer':
+        specifier: 0.24.1
+        version: 0.24.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      '@tanstack/react-query':
+        specifier: 5.104.3
+        version: 5.104.3(react@19.3.1)
+      '@tanstack/react-router':
+        specifier: 1.170.44
+        version: 1.170.44(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      '@tanstack/react-router-ssr-query':
+        specifier: 1.167.3
+        version: 1.167.3(@tanstack/query-core@5.104.3)(@tanstack/react-query@5.104.3(react@19.3.1))(@tanstack/react-router@1.170.44(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(@tanstack/router-core@1.171.37)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      '@tanstack/react-start':
+        specifier: 1.169.2
+        version: 1.169.2(esbuild@0.28.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(rolldown@1.2.13)(vite@8.3.4(@types/node@24.12.2)(esbuild@0.28.2)(jiti@2.7.0))
+      '@tanstack/react-table':
+        specifier: 8.21.3
+        version: 8.21.3(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      '@tanstack/router-plugin':
+        specifier: 1.168.46
+        version: 1.168.46(@tanstack/react-router@1.170.44(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(esbuild@0.28.2)(rolldown@1.2.13)(vite@8.3.4(@types/node@24.12.2)(esbuild@0.28.2)(jiti@2.7.0))
+      '@tuyau/core':
+        specifier: 1.2.2
+        version: 1.2.2(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1))
+      '@tuyau/react-query':
+        specifier: 1.1.0
+        version: 1.1.0(@tanstack/query-core@5.104.3)(@tanstack/react-query@5.104.3(react@19.3.1))(@tuyau/core@1.2.2(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1)))
+      '@tuyau/superjson':
+        specifier: 1.0.0
+        version: 1.0.0(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1))
+      '@workspace/ui-react':
+        specifier: workspace:*
+        version: link:../../packages/ui/react
+      '@workspace/ui-theme':
+        specifier: workspace:*
+        version: link:../../packages/ui/theme
+      i18next:
+        specifier: 26.4.6
+        version: 26.4.6(typescript@7.0.2)
+      next-themes:
+        specifier: 0.4.6
+        version: 0.4.6(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      react:
+        specifier: 19.3.1
+        version: 19.3.1
+      react-dom:
+        specifier: 19.3.1
+        version: 19.3.1(react@19.3.1)
+      react-i18next:
+        specifier: 17.0.18
+        version: 17.0.18(i18next@26.4.6(typescript@7.0.2))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(typescript@7.0.2)
+      tailwind-variants:
+        specifier: 3.3.1
+        version: 3.3.1(tailwind-merge@3.5.0)(tailwindcss@4.3.3)
+      zod:
+        specifier: 4.6.7
+        version: 4.6.7
+    devDependencies:
+      '@rolldown/plugin-babel':
+        specifier: 0.2.4
+        version: 0.2.4(@babel/core@7.29.7)(@babel/runtime@8.0.7)(rolldown@1.2.13)(vite@8.3.4(@types/node@24.12.2)(esbuild@0.28.2)(jiti@2.7.0))
+      '@tailwindcss/vite':
+        specifier: 4.3.3
+        version: 4.3.3(vite@8.3.4(@types/node@24.12.2)(esbuild@0.28.2)(jiti@2.7.0))
+      '@tanstack/devtools-vite':
+        specifier: 0.8.5
+        version: 0.8.5(@emnapi/core@1.11.0)(@emnapi/runtime@1.11.0)(vite@8.3.4(@types/node@24.12.2)(esbuild@0.28.2)(jiti@2.7.0))
+      '@tanstack/react-devtools':
+        specifier: 0.10.13
+        version: 0.10.13(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(csstype@3.2.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(solid-js@1.9.17)
+      '@tanstack/react-form-devtools':
+        specifier: 0.2.34
+        version: 0.2.34(@types/react@19.3.0)(csstype@3.2.3)(react@19.3.1)(solid-js@1.9.17)
+      '@tanstack/react-query-devtools':
+        specifier: 5.104.3
+        version: 5.104.3(@tanstack/react-query@5.104.3(react@19.3.1))(@types/react@19.3.0)(csstype@3.2.3)(react@19.3.1)
+      '@tanstack/react-router-devtools':
+        specifier: 1.167.2
+        version: 1.167.2(@tanstack/react-router@1.170.44(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(@tanstack/router-core@1.171.37)(csstype@3.2.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      '@types/node':
+        specifier: '24'
+        version: 24.12.2
+      '@types/react':
+        specifier: 19.3.0
+        version: 19.3.0
+      '@types/react-dom':
+        specifier: 19.3.0
+        version: 19.3.0(@types/react@19.3.0)
+      '@vitejs/plugin-react':
+        specifier: 6.1.2
+        version: 6.1.2(@rolldown/plugin-babel@0.2.4(@babel/core@7.29.7)(@babel/runtime@8.0.7)(rolldown@1.2.13)(vite@8.3.4(@types/node@24.12.2)(esbuild@0.28.2)(jiti@2.7.0)))(babel-plugin-react-compiler@1.0.0)(vite@8.3.4(@types/node@24.12.2)(esbuild@0.28.2)(jiti@2.7.0))
+      '@workspace/i18next-merger':
+        specifier: workspace:*
+        version: link:../../packages/i18next-merger
+      tailwindcss:
+        specifier: 4.3.3
+        version: 4.3.3
+      typescript:
+        specifier: 7.0.2
+        version: 7.0.2
+      vite:
+        specifier: 8.3.4
+        version: 8.3.4(@types/node@24.12.2)(esbuild@0.28.2)(jiti@2.7.0)
+
   packages/adonis-mail-browser-transport:
     dependencies:
       '@adonisjs/mail':
@@ -893,10 +1120,6 @@ packages:
 
   '@babel/runtime@7.29.10':
     resolution: {integrity: sha512-NpugTzbKgGrNe45Ui32cN8vCFFMxVtP/9rtfwv0nP5FRDAjvYBxJcLVpYA9mr1jxP6cnIT7x9LUzuDTbWYYNRA==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/runtime@7.29.7':
-    resolution: {integrity: sha512-Nq8OhGWiZIZGV6hLHoyAKLLcJihP/xFeBMGJoUrxTX2psI8dCifzLhZISFb+VWS3wFMRDmCGw5R+dOySCqPLhw==}
     engines: {node: '>=6.9.0'}
 
   '@babel/runtime@8.0.7':
@@ -3214,11 +3437,6 @@ packages:
 
   acorn@7.4.1:
     resolution: {integrity: sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
-
-  acorn@8.18.0:
-    resolution: {integrity: sha512-lGq+9yr1/GuAWaVYIHRjvvySG5/4VfKIvC8EWxStPdcDh/Ka7FG3twP6v4d5BkravUilhIAsG4Qj83t02LWUPQ==}
     engines: {node: '>=0.4.0'}
     hasBin: true
 
@@ -6409,7 +6627,7 @@ snapshots:
   '@adonisjs/bouncer@4.0.1(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1))(edge.js@6.5.1)':
     dependencies:
       '@adonisjs/core': 7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1)
-      '@poppinss/utils': 7.1.1
+      '@poppinss/utils': 7.1.2
     optionalDependencies:
       '@adonisjs/assembler': 8.5.2(typescript@7.0.2)
       edge.js: 6.5.1
@@ -6437,7 +6655,7 @@ snapshots:
       '@poppinss/colors': 4.1.6
       '@poppinss/dumper': 0.7.0
       '@poppinss/macroable': 1.1.2
-      '@poppinss/utils': 7.1.1
+      '@poppinss/utils': 7.1.2
       '@sindresorhus/is': 8.1.0
       '@types/he': 1.2.3
       error-stack-parser-es: 2.0.1
@@ -6559,7 +6777,7 @@ snapshots:
       '@poppinss/hooks': 7.3.1
       '@poppinss/macroable': 1.1.2
       '@poppinss/qs': 6.15.0
-      '@poppinss/utils': 7.1.1
+      '@poppinss/utils': 7.1.2
       deepmerge: 4.3.1
       fast-deep-equal: 3.1.3
       igniculus: 1.5.0
@@ -6648,7 +6866,7 @@ snapshots:
     dependencies:
       '@adonisjs/core': 7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1)
       '@poppinss/macroable': 1.1.2
-      '@poppinss/utils': 7.1.1
+      '@poppinss/utils': 7.1.2
     optionalDependencies:
       '@adonisjs/assembler': 8.5.2(typescript@7.0.2)
       '@adonisjs/lucid': 22.4.2(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@adonisjs/core@7.6.0(@adonisjs/assembler@8.5.2(typescript@7.0.2))(@vinejs/vine@4.4.0)(edge.js@6.5.1)(pino-pretty@13.2.0)(youch@4.1.1))(@vinejs/vine@4.4.0)(luxon@3.7.2)(pg@8.23.1)
@@ -6957,8 +7175,6 @@ snapshots:
       '@babel/types': 7.29.8
 
   '@babel/runtime@7.29.10': {}
-
-  '@babel/runtime@7.29.7': {}
 
   '@babel/runtime@8.0.7': {}
 
@@ -8986,8 +9202,6 @@ snapshots:
 
   acorn@7.4.1: {}
 
-  acorn@8.18.0: {}
-
   acorn@8.19.0: {}
 
   ansi-colors@4.1.3: {}
@@ -9532,7 +9746,7 @@ snapshots:
 
   edge-parser@9.1.1:
     dependencies:
-      acorn: 8.18.0
+      acorn: 8.19.0
       astring: 1.9.0
       edge-error: 4.0.2
       edge-lexer: 6.0.5
@@ -9542,7 +9756,7 @@ snapshots:
     dependencies:
       '@poppinss/inspect': 1.0.1
       '@poppinss/macroable': 1.1.2
-      '@poppinss/utils': 7.1.1
+      '@poppinss/utils': 7.1.2
       edge-error: 4.0.2
       edge-lexer: 6.0.5
       edge-parser: 9.1.1
@@ -10857,7 +11071,7 @@ snapshots:
 
   mjml@5.4.1(relateurl@0.2.7)(svgo@4.1.0)(typescript@7.0.2):
     dependencies:
-      '@babel/runtime': 7.29.7
+      '@babel/runtime': 7.29.10
       mjml-cli: 5.4.1(relateurl@0.2.7)(svgo@4.1.0)(typescript@7.0.2)
       mjml-core: 5.4.1(relateurl@0.2.7)(svgo@4.1.0)(typescript@7.0.2)
       mjml-preset-core: 5.4.1(relateurl@0.2.7)(svgo@4.1.0)(typescript@7.0.2)

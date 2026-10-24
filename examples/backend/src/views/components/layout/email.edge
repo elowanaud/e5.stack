@@ -1,0 +1,44 @@
+@mjml({
+	fonts: {
+		'Inter': 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
+		'Libre Caslon Display': 'https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap'
+	},
+	keepComments: false
+})
+<mjml>
+	<mj-body background-color="{{ colors.neutral[2]["light"] }}">
+		<mj-wrapper  padding="16px" full-width="true">
+			<mj-wrapper background-color="{{ colors.neutral[1]["light"] }}"  border="1px solid {{ colors.neutral[6]["light"] }}" padding="32px">
+					<!-- Header section -->
+					@if($slots.header)
+						<mj-section>
+							<!-- Header content goes here -->
+							{{{ await $slots.header() }}}
+						</mj-section>
+					@endif
+
+					<!-- Content section -->
+					@if($slots.content)
+						<mj-section>
+							<mj-column>
+								<!-- Email content goes here -->
+								{{{ await $slots.content() }}}
+							</mj-column>
+						</mj-section>
+					@endif
+
+					<!-- Footer section -->
+					@if($slots.footer)
+						<mj-section>
+							<mj-column>
+								<mj-divider border-width="1px" border-color="{{ colors.neutral[6]["light"] }}" padding="20px 0 " />
+								<!-- Footer content goes here -->
+								{{{ await $slots.footer() }}}
+							</mj-column>
+						</mj-section>
+					@endif
+			</mj-wrapper>
+		</mj-wrapper>
+	</mj-body>
+</mjml>
+@end
