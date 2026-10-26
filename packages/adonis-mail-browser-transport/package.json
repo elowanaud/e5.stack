@@ -15,7 +15,7 @@
 	},
 	"devDependencies": {
 		"@types/node": "24",
-		"@types/nodemailer": "^8.0.1",
+		"@types/nodemailer": "^8.0.2",
 		"@types/preview-email": "3.1.0",
 		"typescript": "7.0.2"
 	}
