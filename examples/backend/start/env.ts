@@ -68,4 +68,8 @@ export default await Env.create(new URL("../", import.meta.url), {
 		tld: true,
 	}),
 	SENTRY_ENV: Env.schema.string.optionalWhen(process.env.SENTRY_ENABLED === "false"),
+
+	// GitHub OAuth Config
+	GITHUB_CLIENT_ID: Env.schema.string(),
+	GITHUB_CLIENT_SECRET: Env.schema.string(),
 });

@@ -1,1 +1,1 @@
-import "#features/frontend/routes";
+import "#features/routes";

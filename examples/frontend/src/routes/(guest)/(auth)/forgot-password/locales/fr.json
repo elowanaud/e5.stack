@@ -1,5 +1,0 @@
-{
-	"routes.(guest).(auth).forgot-password": {
-		"title": "Mot de passe oublié"
-	}
-}

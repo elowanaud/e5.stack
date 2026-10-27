@@ -45,6 +45,7 @@ export default defineConfig({
 		() => import("@adonisjs/queue/queue_provider"),
 		() => import("@adonisjs/bouncer/bouncer_provider"),
 		() => import("@adonisjs/drive/drive_provider"),
+		() => import("@adonisjs/ally/ally_provider"),
 	],
 
 	preloads: [

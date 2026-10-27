@@ -8,21 +8,16 @@ export interface ApiDefinition {
     }
   }
   frontend: {
-    accountManagement: {
-      profile: {
-        view: typeof routes['frontend.account_management.profile.view']
-        update: typeof routes['frontend.account_management.profile.update']
-        delete: typeof routes['frontend.account_management.profile.delete']
-      }
-      authentication: {
-        login: typeof routes['frontend.account_management.authentication.login']
-        logout: typeof routes['frontend.account_management.authentication.logout']
-      }
-      password: {
-        forgot: typeof routes['frontend.account_management.password.forgot']
-        reset: typeof routes['frontend.account_management.password.reset']
-        update: typeof routes['frontend.account_management.password.update']
-      }
+    auth: {
+      loginWithCredentials: typeof routes['frontend.auth.login_with_credentials']
+      logout: typeof routes['frontend.auth.logout']
+    }
+    oauth: {
+      redirect: typeof routes['frontend.oauth.redirect']
+      callback: typeof routes['frontend.oauth.callback']
+    }
+    profile: {
+      view: typeof routes['frontend.profile.view']
     }
   }
 }

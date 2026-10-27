@@ -1,0 +1,456 @@
+{
+	"yaakVersion": "0.1.0",
+	"yaakSchema": 4,
+	"timestamp": "2026-10-24T12:56:36.867168",
+	"resources": {
+		"workspaces": [
+			{
+				"model": "workspace",
+				"id": "wk_EPvUoXDqMn",
+				"createdAt": "2026-10-24T12:37:02.650696",
+				"updatedAt": "2026-10-24T12:55:49.744120",
+				"authentication": {},
+				"authenticationType": null,
+				"description": "Requêtes de examples/backend : Authentication, OAuth / GitHub et Profile. Variables en UPPERCASE. Renseigner EMAIL/PASSWORD localement ; cookies partagés. Chaque description précise les erreurs HTTP et les codes serveur, dont la sérialisation dépend du mode. Export : examples/backend/yaak.json.",
+				"headers": [
+					{
+						"enabled": true,
+						"name": "Accept",
+						"value": "application/json",
+						"id": null
+					}
+				],
+				"name": "e5.stack · Example Backend",
+				"encryptionKeyChallenge": "eUE0azNuQwHfYfSLCNl+gbjYBBJE+f6LiL25+x9n+YO1f4aD/hvJaAqlgSA4WXpP+4lQi+qwktl8nNbbOEDgFvDXFV4xCYSDgR7rIoT+aCRkZEh+sj+jZCyCt/n2Xuhblt8=",
+				"settingValidateCertificates": true,
+				"settingFollowRedirects": false,
+				"settingRequestTimeout": 0,
+				"settingRequestMessageSize": 67108864,
+				"settingDnsOverrides": [],
+				"settingSendCookies": true,
+				"settingStoreCookies": true,
+				"settingHttpVersion": "auto"
+			}
+		],
+		"environments": [
+			{
+				"model": "environment",
+				"id": "ev_Yioq8t4iRj",
+				"workspaceId": "wk_EPvUoXDqMn",
+				"createdAt": "2026-10-24T12:37:05.677489",
+				"updatedAt": "2026-10-24T12:55:51.900389",
+				"name": "Global Variables",
+				"public": true,
+				"base": true,
+				"parentModel": "workspace",
+				"parentId": null,
+				"variables": [
+					{
+						"enabled": true,
+						"name": "BASE_URL",
+						"value": "${[ secure(value='YENC_eUE0azNuQwFFtqkmv3ncZeSPaHBzq1PS5tdaVl2gsJnxYAegXHaxuKM+0SBE53BqXP0dTO8J2livsoukuXNlJRET0U+G') ]}",
+						"id": "ngXK5dBv5X"
+					},
+					{
+						"enabled": true,
+						"name": "EMAIL",
+						"value": "${[ secure(value='YENC_eUE0azNuQwEkpKSflDnMb0Kt5THKF34k29EK9/NG+gLCq9Zr5KyfwFPlRFiZuJedu7V6dqTqqlhzRRkcih6UxAByE53U') ]}",
+						"id": "x3HDppcutv"
+					},
+					{
+						"enabled": true,
+						"name": "PASSWORD",
+						"value": "",
+						"id": "G46W6rhUwG"
+					},
+					{
+						"enabled": true,
+						"name": "OAUTH_PROVIDER",
+						"value": "${[ secure(value='YENC_eUE0azNuQwGvCo27hH+zxxjtRvfhRdKBqG5/g7Fm402GV4hM4iolvWSb1X/bWDvBRBOx4Rnx') ]}",
+						"id": "GRDKBIRWiv"
+					},
+					{
+						"enabled": true,
+						"name": "OAUTH_CODE",
+						"value": "",
+						"id": "fMyBXDxTyx"
+					},
+					{
+						"enabled": true,
+						"name": "OAUTH_STATE",
+						"value": "",
+						"id": "hMsggZcftM"
+					}
+				],
+				"color": null,
+				"sortPriority": 0.0
+			}
+		],
+		"folders": [
+			{
+				"model": "folder",
+				"id": "fl_F7iTw2SNvA",
+				"createdAt": "2026-10-27T10:59:34.195146",
+				"updatedAt": "2026-10-27T10:59:34.195146",
+				"workspaceId": "wk_EPvUoXDqMn",
+				"name": "Profile",
+				"sortPriority": 2.0
+			},
+			{
+				"model": "folder",
+				"id": "fl_7r5yNo8VUf",
+				"createdAt": "2026-10-24T12:43:54.849706",
+				"updatedAt": "2026-10-24T12:43:54.849706",
+				"workspaceId": "wk_EPvUoXDqMn",
+				"folderId": "fl_dWaXmaEdmi",
+				"authentication": {},
+				"authenticationType": null,
+				"description": "Authentification OAuth GitHub : redirection et callback.",
+				"headers": [],
+				"name": "GitHub",
+				"sortPriority": 0.0,
+				"settingSendCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingStoreCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingValidateCertificates": {
+					"enabled": false,
+					"value": true
+				},
+				"settingFollowRedirects": {
+					"enabled": false,
+					"value": true
+				},
+				"settingRequestTimeout": {
+					"enabled": false,
+					"value": 0
+				},
+				"settingRequestMessageSize": {
+					"enabled": false,
+					"value": 67108864
+				},
+				"settingHttpVersion": {
+					"enabled": false,
+					"value": "auto"
+				}
+			},
+			{
+				"model": "folder",
+				"id": "fl_dWaXmaEdmi",
+				"createdAt": "2026-10-24T12:37:05.514837",
+				"updatedAt": "2026-10-24T12:37:05.514837",
+				"workspaceId": "wk_EPvUoXDqMn",
+				"folderId": null,
+				"authentication": {},
+				"authenticationType": null,
+				"description": "",
+				"headers": [],
+				"name": "OAuth",
+				"sortPriority": 0.0,
+				"settingSendCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingStoreCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingValidateCertificates": {
+					"enabled": false,
+					"value": true
+				},
+				"settingFollowRedirects": {
+					"enabled": false,
+					"value": true
+				},
+				"settingRequestTimeout": {
+					"enabled": false,
+					"value": 0
+				},
+				"settingRequestMessageSize": {
+					"enabled": false,
+					"value": 67108864
+				},
+				"settingHttpVersion": {
+					"enabled": false,
+					"value": "auto"
+				}
+			},
+			{
+				"model": "folder",
+				"id": "fl_AJo477hNfy",
+				"createdAt": "2026-10-24T12:37:05.433137",
+				"updatedAt": "2026-10-24T12:37:05.433138",
+				"workspaceId": "wk_EPvUoXDqMn",
+				"folderId": null,
+				"authentication": {},
+				"authenticationType": null,
+				"description": "",
+				"headers": [],
+				"name": "Authentication",
+				"sortPriority": 0.0,
+				"settingSendCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingStoreCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingValidateCertificates": {
+					"enabled": false,
+					"value": true
+				},
+				"settingFollowRedirects": {
+					"enabled": false,
+					"value": true
+				},
+				"settingRequestTimeout": {
+					"enabled": false,
+					"value": 0
+				},
+				"settingRequestMessageSize": {
+					"enabled": false,
+					"value": 67108864
+				},
+				"settingHttpVersion": {
+					"enabled": false,
+					"value": "auto"
+				}
+			}
+		],
+		"httpRequests": [
+			{
+				"model": "http_request",
+				"id": "rq_DfSniJUwQJ",
+				"createdAt": "2026-10-27T10:59:42.614807",
+				"updatedAt": "2026-10-27T10:59:42.614807",
+				"workspaceId": "wk_EPvUoXDqMn",
+				"folderId": "fl_F7iTw2SNvA",
+				"name": "View profile",
+				"method": "GET",
+				"url": "${[ BASE_URL ]}/profile",
+				"description": "# Profil de l’utilisateur connecté\nGET /profile — requiert le cookie de session frontend obtenu avec **Log in with credentials** ou une connexion OAuth réussie ; pas de bearer token. Réutiliser le même cookie jar. Aucun paramètre ni corps requis. Lecture seule.\n\n## Succès\n200 avec l’objet utilisateur directement, sans enveloppe :\n```json\n{\n  \"id\": 1,\n  \"name\": \"Alice\",\n  \"email\": \"alice@example.com\",\n  \"createdAt\": \"2026-10-27T10:00:00.000Z\",\n  \"updatedAt\": \"2026-10-27T10:00:00.000Z\"\n}\n```\n`id` est un nombre ; `name` et `email` sont des chaînes ; les dates sont sérialisées en chaînes ISO 8601. Aucun mot de passe exposé. Cet exemple correspond au JSON standard sans en-tête `x-superjson` ; `x-superjson: true` change l’enveloppe de transport.\n\n## Erreurs de l’endpoint\n| HTTP | Code | Condition / message |\n| --- | --- | --- |\n| 401 | E_UNAUTHENTICATED | Session absente, expirée ou ne permettant pas d’authentifier l’utilisateur : `You must be authenticated to access this resource.` |\n| 429 | E_TOO_MANY_REQUESTS | Limiteur global par IP : 100 requêtes/minute, blocage de 20 minutes. `Too many requests. Please try again later.` |\n\nLa représentation des erreurs dépend du mode du serveur ; les codes ci-dessus sont les codes applicatifs, pas un schéma JSON garanti.\n"
+			},
+			{
+				"model": "http_request",
+				"id": "rq_akEgukNmGm",
+				"createdAt": "2026-10-24T12:39:00.583286",
+				"updatedAt": "2026-10-24T12:50:27.892060",
+				"workspaceId": "wk_EPvUoXDqMn",
+				"folderId": "fl_7r5yNo8VUf",
+				"authentication": {},
+				"authenticationType": null,
+				"body": {},
+				"bodyType": null,
+				"description": "# Callback OAuth GitHub\nGET /frontend/oauth/:provider/callback — invité uniquement ; OAUTH_PROVIDER=github. L’exemple active `error=access_denied`. Pour une vraie connexion, désactiver `error`, activer `code` et `state`, définir OAUTH_CODE/OAUTH_STATE depuis le flux réel et conserver son cookie d’état original. Succès : 200 avec l’utilisateur et création de sa session.\n\n## Erreurs de l’endpoint\n| HTTP | Code | Condition / réponse |\n| --- | --- | --- |\n| 403 | E_GUEST_ONLY | Session frontend déjà authentifiée : `You must be unauthenticated to access this resource.` |\n| 422 | Aucun ; règle `enum` | `params.provider` différent de `github` : `The selected provider is invalid`, `meta.choices=[\"github\"]`. La validation empêche normalement `E_UNKNOWN_ALLY_PROVIDER`. |\n| 200 | Aucun | `error=access_denied` : {\"error\":\"Access denied\"}. Vérifié avant l’état. |\n| 200 | Aucun | Cookie d’état absent/illisible, state absent ou différent du cookie : {\"error\":\"State mismatch\"}. Vérifié avant les autres erreurs fournisseur. |\n| 200 | Aucun | État valide et `error` fournisseur non vide autre que access_denied : {\"error\":\"<valeur exacte de error>\"}. |\n| 200 | Aucun | État valide, aucun code non vide et aucune erreur fournisseur non vide : {\"error\":\"unknown_error\"}. |\n| 400 | E_OAUTH_MISSING_TOKEN | Réponse d’échange de jeton analysée sans access_token : `Invalid oauth2 response. Missing \"access_token\"`. |\n| 500 par défaut, ou statut propre à l’exception | Variable, pas de code applicatif stable | Échec HTTP/réseau/DNS/TLS/timeout ou réponse invalide lors de l’échange de jeton, lecture du profil ou des emails GitHub. Le statut HTTP de GitHub n’est pas automatiquement celui de la réponse du backend. |",
+				"headers": [],
+				"method": "GET",
+				"name": "GitHub callback",
+				"sortPriority": 3.0,
+				"url": "${[ BASE_URL ]}/frontend/oauth/:provider/callback",
+				"urlParameters": [
+					{
+						"enabled": true,
+						"name": ":provider",
+						"value": "${[ OAUTH_PROVIDER ]}",
+						"id": null
+					},
+					{
+						"enabled": true,
+						"name": "error",
+						"value": "access_denied",
+						"id": null
+					},
+					{
+						"enabled": false,
+						"name": "code",
+						"value": "${[ OAUTH_CODE ]}",
+						"id": null
+					},
+					{
+						"enabled": false,
+						"name": "state",
+						"value": "${[ OAUTH_STATE ]}",
+						"id": null
+					}
+				],
+				"settingSendCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingStoreCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingValidateCertificates": {
+					"enabled": false,
+					"value": true
+				},
+				"settingFollowRedirects": {
+					"enabled": false,
+					"value": true
+				},
+				"settingRequestTimeout": {
+					"enabled": false,
+					"value": 0
+				},
+				"settingHttpVersion": {
+					"enabled": false,
+					"value": "auto"
+				}
+			},
+			{
+				"model": "http_request",
+				"id": "rq_d8pjkSKbCr",
+				"createdAt": "2026-10-24T12:39:00.517885",
+				"updatedAt": "2026-10-24T12:50:18.216476",
+				"workspaceId": "wk_EPvUoXDqMn",
+				"folderId": "fl_7r5yNo8VUf",
+				"authentication": {},
+				"authenticationType": null,
+				"body": {},
+				"bodyType": null,
+				"description": "# Redirection OAuth GitHub\nGET /frontend/oauth/:provider/redirect — invité uniquement ; OAUTH_PROVIDER=github. Succès : 302 avec Location vers GitHub et cookie d’état OAuth. Le suivi des redirections est désactivé. Compléter le flux dans un navigateur avec une configuration GitHub valide. Cette étape construit l’URL sans appeler les API de jeton/profil GitHub.\n\n## Erreurs de l’endpoint\n| HTTP | Code | Condition / message |\n| --- | --- | --- |\n| 403 | E_GUEST_ONLY | Session frontend déjà authentifiée : `You must be unauthenticated to access this resource.` |\n| 422 | Aucun ; règle `enum` | `params.provider` différent de `github` : `The selected provider is invalid`, `meta.choices=[\"github\"]`. La validation empêche normalement `E_UNKNOWN_ALLY_PROVIDER`. |\n\nValidation : {\"errors\":[{\"message\":\"The selected provider is invalid\",\"rule\":\"enum\",\"field\":\"params.provider\",\"meta\":{\"choices\":[\"github\"]}}]}.",
+				"headers": [],
+				"method": "GET",
+				"name": "GitHub authorization redirect",
+				"sortPriority": 2.0,
+				"url": "${[ BASE_URL ]}/frontend/oauth/:provider/redirect",
+				"urlParameters": [
+					{
+						"enabled": true,
+						"name": ":provider",
+						"value": "${[ OAUTH_PROVIDER ]}",
+						"id": null
+					}
+				],
+				"settingSendCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingStoreCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingValidateCertificates": {
+					"enabled": false,
+					"value": true
+				},
+				"settingFollowRedirects": {
+					"enabled": false,
+					"value": true
+				},
+				"settingRequestTimeout": {
+					"enabled": false,
+					"value": 0
+				},
+				"settingHttpVersion": {
+					"enabled": false,
+					"value": "auto"
+				}
+			},
+			{
+				"model": "http_request",
+				"id": "rq_mW7Vq4kpYC",
+				"createdAt": "2026-10-24T12:39:00.451131",
+				"updatedAt": "2026-10-24T12:50:00.225712",
+				"workspaceId": "wk_EPvUoXDqMn",
+				"folderId": "fl_AJo477hNfy",
+				"authentication": {},
+				"authenticationType": null,
+				"body": {},
+				"bodyType": null,
+				"description": "# Déconnexion\nDELETE /frontend/auth/logout — requiert le cookie de session frontend issu de la connexion ; pas de bearer token. Aucun corps requis. Succès : 204 sans corps.\n\n## Erreurs de l’endpoint\n| HTTP | Code | Condition / message |\n| --- | --- | --- |\n| 401 | E_UNAUTHENTICATED | Session absente, expirée ou ne permettant pas d’authentifier l’utilisateur : `You must be authenticated to access this resource.` |\n",
+				"headers": [],
+				"method": "DELETE",
+				"name": "Log out",
+				"sortPriority": 1.0,
+				"url": "${[ BASE_URL ]}/frontend/auth/logout",
+				"urlParameters": [],
+				"settingSendCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingStoreCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingValidateCertificates": {
+					"enabled": false,
+					"value": true
+				},
+				"settingFollowRedirects": {
+					"enabled": false,
+					"value": true
+				},
+				"settingRequestTimeout": {
+					"enabled": false,
+					"value": 0
+				},
+				"settingHttpVersion": {
+					"enabled": false,
+					"value": "auto"
+				}
+			},
+			{
+				"model": "http_request",
+				"id": "rq_aGdZRhvbVt",
+				"createdAt": "2026-10-24T12:39:00.390292",
+				"updatedAt": "2026-10-24T12:50:12.676751",
+				"workspaceId": "wk_EPvUoXDqMn",
+				"folderId": "fl_AJo477hNfy",
+				"authentication": {},
+				"authenticationType": null,
+				"body": {
+					"text": "{\n  \"uid\": \"${[ EMAIL ]}\",\n  \"password\": \"${[ PASSWORD ]}\"\n}"
+				},
+				"bodyType": "application/json",
+				"description": "# Connexion par identifiants\nPOST /frontend/auth/login — invité uniquement. Définir EMAIL et PASSWORD localement ; le champ JSON `uid` correspond à l’email. Succès : 200 avec l’utilisateur ; les cookies de session sont réutilisés pour la déconnexion.\n\n## Erreurs de l’endpoint\n| HTTP | Code | Condition / message |\n| --- | --- | --- |\n| 403 | E_GUEST_ONLY | Session frontend déjà authentifiée : `You must be unauthenticated to access this resource.` |\n| 422 | Aucun ; règle `required` | `uid` et/ou `password` absent, null, vide ou composé d’espaces : `The uid field must be defined` / `The password field must be defined`. |\n| 422 | Aucun ; règle `string` | Champ non textuel : `The uid field must be a string` / `The password field must be a string`. |\n| 400 | E_INVALID_CREDENTIALS | Email inconnu ou mot de passe incorrect : `Invalid credentials provided.` |",
+				"headers": [
+					{
+						"enabled": true,
+						"name": "Content-Type",
+						"value": "application/json",
+						"id": null
+					}
+				],
+				"method": "POST",
+				"name": "Log in with credentials",
+				"sortPriority": 0.0,
+				"url": "${[ BASE_URL ]}/frontend/auth/login",
+				"urlParameters": [],
+				"settingSendCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingStoreCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingValidateCertificates": {
+					"enabled": false,
+					"value": true
+				},
+				"settingFollowRedirects": {
+					"enabled": false,
+					"value": true
+				},
+				"settingRequestTimeout": {
+					"enabled": false,
+					"value": 0
+				},
+				"settingHttpVersion": {
+					"enabled": false,
+					"value": "auto"
+				}
+			}
+		],
+		"grpcRequests": [],
+		"websocketRequests": []
+	}
+}

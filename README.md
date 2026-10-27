@@ -132,6 +132,7 @@ Run root commands from the repository root:
 | `pnpm dev` | Starts the Portless-enabled Turbo development graph. |
 | `pnpm build` | Builds the workspace with dependency ordering. |
 | `pnpm typecheck` | Runs workspace TypeScript checks. |
+| `pnpm test` | Runs all workspace test suites through Turbo. |
 | `pnpm test:unit` | Runs workspace unit suites. |
 | `pnpm test:e2e` | Runs workspace end-to-end suites. |
 | `pnpm code-quality` | Runs Biome checks. |
@@ -146,7 +147,11 @@ API tests live in `apps/backend/tests/` and run through Japa. Feature tests mirr
 - `*.e2e.spec.ts` covers HTTP controllers with the Japa API client.
 - `apps/backend/tests/bootstrap.ts` runs database migrations/truncation and starts the HTTP server for e2e suites.
 
-Run workspace suites with `pnpm test:unit` and `pnpm test:e2e`, or target the API with `pnpm --filter @workspace/backend test`. CI runs both unit and e2e jobs.
+Run all workspace suites with `pnpm test` (`turbo test`), individual suites with `pnpm test:unit` and `pnpm test:e2e`, or target the API with `pnpm --filter @workspace/backend test`. Turbo runs each package's `test` script; the backends use `node ace test` to run every configured suite. CI runs both unit and e2e jobs.
+
+The example API has HTTP coverage for credential login, logout, and the public profile in `examples/backend/tests/features/frontend/`. Requests use `client.visit` with the existing named routes instead of hard-coded URLs and HTTP methods. Run it with `pnpm --filter @examples/backend test:e2e`; PostgreSQL must be available with the `e5_test` database and connection settings from `examples/backend/.env`. The runner migrates and truncates the test database. Every example API test, grouped or ungrouped and in every suite, runs inside a global database transaction that is rolled back after the test. Rate limiting is disabled in the test environment. Protected endpoint tests authenticate real database records with `withGuard("frontend").loginAs(user)`, while session assertions check authentication effects without claiming browser cookie persistence.
+
+Example test scenarios are separate, explicitly named cases without datasets.
 
 ### Peer Dependency Validation
 
@@ -190,6 +195,47 @@ pnpm --filter @workspace/ui-theme build
 
 The `dev` commands use Portless and the stable URLs above. Use `dev:app` to run an underlying
 development process directly on its configured port, without the Portless proxy.
+
+## Example Backend: Yaak
+
+`examples/backend/yaak.json` contains the saved requests for `@examples/backend`,
+grouped into Authentication, OAuth / GitHub, and Profile.
+
+```bash
+yaak import examples/backend/yaak.json
+pnpm --filter @examples/backend dev:app
+```
+
+The `BASE_URL` variable defaults to `http://localhost:3333`. When running
+`pnpm --filter @examples/backend dev` through Portless, set it locally to
+`https://api.examples.localhost` instead. All environment variables use UPPERCASE.
+
+- Set `EMAIL` and `PASSWORD` locally before sending **Log in with credentials**.
+  Authentication uses the shared cookie jar, not a bearer token. An existing
+  account is required; create one with
+  `pnpm --filter @examples/backend exec node ace create:account`.
+- After logging in, send **Profile / View profile** (`GET /profile`) with the same
+  cookie jar. It returns the current user's `id`, `name`, `email`, `createdAt`, and
+  `updatedAt` directly as JSON, without a wrapper or password. No body or parameters
+  are required. Without an authenticated session, it returns HTTP 401.
+- OAuth requests live in **OAuth / GitHub**. Redirect following is disabled so the
+  authorization URL remains visible. Complete authorization in a browser with
+  configured GitHub credentials; successful callbacks need fresh `OAUTH_CODE` and
+  `OAUTH_STATE` values and the original state cookies. The saved callback defaults
+  to an access-denied example; disable `error` and enable `code`/`state` when
+  completing a real flow. `OAUTH_PROVIDER` defaults to `github`.
+- Each endpoint description lists its error conditions, HTTP statuses, and exact
+  application codes where present. OAuth callback errors returned with HTTP 200
+  are documented as such; not every failure has an application code.
+- Nonempty environment values use Yaak's native `secure()` encryption
+  (XChaCha20-Poly1305); empty values contain no data to encrypt. When setting or
+  replacing values, keep encryption enabled and use **Encrypt All Variables**.
+- After importing on another machine, enter the workspace key in Yaak's desktop
+  encryption settings before sending requests. The key is not included in the
+  export; back it up in a password manager and never commit or share it alongside
+  the workspace. See [Yaak's encryption documentation](https://yaak.app/docs/collaboration/secrets-encryption).
+- The export contains no session cookies. Encryption does not erase older
+  plaintext exports, backups, or Git history; protect those separately.
 
 ## Architecture
 

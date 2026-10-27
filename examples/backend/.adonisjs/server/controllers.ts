@@ -6,21 +6,16 @@
 export const controllers = {
   features: {
     frontend: {
-      accountManagement: {
-        authentication: {
-          Login: () => import('#src/features/frontend/account_management/authentication/controllers/login.controller'),
-          Logout: () => import('#src/features/frontend/account_management/authentication/controllers/logout.controller'),
-        },
-        password: {
-          Forgot: () => import('#src/features/frontend/account_management/password/controllers/forgot.controller'),
-          Reset: () => import('#src/features/frontend/account_management/password/controllers/reset.controller'),
-          Update: () => import('#src/features/frontend/account_management/password/controllers/update.controller'),
-        },
-        profile: {
-          Delete: () => import('#src/features/frontend/account_management/profile/controllers/delete.controller'),
-          Update: () => import('#src/features/frontend/account_management/profile/controllers/update.controller'),
-          View: () => import('#src/features/frontend/account_management/profile/controllers/view.controller'),
-        },
+      auth: {
+        LoginWithCredentials: () => import('#src/features/frontend/auth/controllers/login_with_credentials.controller'),
+        Logout: () => import('#src/features/frontend/auth/controllers/logout.controller'),
+      },
+      oauth: {
+        Callback: () => import('#src/features/frontend/oauth/controllers/callback.controller'),
+        Redirect: () => import('#src/features/frontend/oauth/controllers/redirect.controller'),
+      },
+      profile: {
+        View: () => import('#src/features/frontend/profile/controllers/view.controller'),
       },
     },
   },

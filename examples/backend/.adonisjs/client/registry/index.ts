@@ -12,53 +12,35 @@ const routes = {
     tokens: [{"old":"/uploads/*","type":0,"val":"uploads","end":""},{"old":"/uploads/*","type":2,"val":"*","end":""}],
     types: placeholder as Registry['drive.fs.serve']['types'],
   },
-  'frontend.account_management.profile.view': {
+  'frontend.auth.login_with_credentials': {
+    methods: ["POST"],
+    pattern: '/frontend/auth/login',
+    tokens: [{"old":"/frontend/auth/login","type":0,"val":"frontend","end":""},{"old":"/frontend/auth/login","type":0,"val":"auth","end":""},{"old":"/frontend/auth/login","type":0,"val":"login","end":""}],
+    types: placeholder as Registry['frontend.auth.login_with_credentials']['types'],
+  },
+  'frontend.auth.logout': {
+    methods: ["DELETE"],
+    pattern: '/frontend/auth/logout',
+    tokens: [{"old":"/frontend/auth/logout","type":0,"val":"frontend","end":""},{"old":"/frontend/auth/logout","type":0,"val":"auth","end":""},{"old":"/frontend/auth/logout","type":0,"val":"logout","end":""}],
+    types: placeholder as Registry['frontend.auth.logout']['types'],
+  },
+  'frontend.oauth.redirect': {
     methods: ["GET","HEAD"],
-    pattern: '/frontend/account-management/profile',
-    tokens: [{"old":"/frontend/account-management/profile","type":0,"val":"frontend","end":""},{"old":"/frontend/account-management/profile","type":0,"val":"account-management","end":""},{"old":"/frontend/account-management/profile","type":0,"val":"profile","end":""}],
-    types: placeholder as Registry['frontend.account_management.profile.view']['types'],
+    pattern: '/frontend/oauth/:provider/redirect',
+    tokens: [{"old":"/frontend/oauth/:provider/redirect","type":0,"val":"frontend","end":""},{"old":"/frontend/oauth/:provider/redirect","type":0,"val":"oauth","end":""},{"old":"/frontend/oauth/:provider/redirect","type":1,"val":"provider","end":""},{"old":"/frontend/oauth/:provider/redirect","type":0,"val":"redirect","end":""}],
+    types: placeholder as Registry['frontend.oauth.redirect']['types'],
   },
-  'frontend.account_management.profile.update': {
-    methods: ["PUT"],
-    pattern: '/frontend/account-management/profile',
-    tokens: [{"old":"/frontend/account-management/profile","type":0,"val":"frontend","end":""},{"old":"/frontend/account-management/profile","type":0,"val":"account-management","end":""},{"old":"/frontend/account-management/profile","type":0,"val":"profile","end":""}],
-    types: placeholder as Registry['frontend.account_management.profile.update']['types'],
+  'frontend.oauth.callback': {
+    methods: ["GET","HEAD"],
+    pattern: '/frontend/oauth/:provider/callback',
+    tokens: [{"old":"/frontend/oauth/:provider/callback","type":0,"val":"frontend","end":""},{"old":"/frontend/oauth/:provider/callback","type":0,"val":"oauth","end":""},{"old":"/frontend/oauth/:provider/callback","type":1,"val":"provider","end":""},{"old":"/frontend/oauth/:provider/callback","type":0,"val":"callback","end":""}],
+    types: placeholder as Registry['frontend.oauth.callback']['types'],
   },
-  'frontend.account_management.profile.delete': {
-    methods: ["DELETE"],
-    pattern: '/frontend/account-management/profile',
-    tokens: [{"old":"/frontend/account-management/profile","type":0,"val":"frontend","end":""},{"old":"/frontend/account-management/profile","type":0,"val":"account-management","end":""},{"old":"/frontend/account-management/profile","type":0,"val":"profile","end":""}],
-    types: placeholder as Registry['frontend.account_management.profile.delete']['types'],
-  },
-  'frontend.account_management.authentication.login': {
-    methods: ["POST"],
-    pattern: '/frontend/account-management/authentication/login',
-    tokens: [{"old":"/frontend/account-management/authentication/login","type":0,"val":"frontend","end":""},{"old":"/frontend/account-management/authentication/login","type":0,"val":"account-management","end":""},{"old":"/frontend/account-management/authentication/login","type":0,"val":"authentication","end":""},{"old":"/frontend/account-management/authentication/login","type":0,"val":"login","end":""}],
-    types: placeholder as Registry['frontend.account_management.authentication.login']['types'],
-  },
-  'frontend.account_management.authentication.logout': {
-    methods: ["DELETE"],
-    pattern: '/frontend/account-management/authentication/logout',
-    tokens: [{"old":"/frontend/account-management/authentication/logout","type":0,"val":"frontend","end":""},{"old":"/frontend/account-management/authentication/logout","type":0,"val":"account-management","end":""},{"old":"/frontend/account-management/authentication/logout","type":0,"val":"authentication","end":""},{"old":"/frontend/account-management/authentication/logout","type":0,"val":"logout","end":""}],
-    types: placeholder as Registry['frontend.account_management.authentication.logout']['types'],
-  },
-  'frontend.account_management.password.forgot': {
-    methods: ["POST"],
-    pattern: '/frontend/account-management/password/forgot',
-    tokens: [{"old":"/frontend/account-management/password/forgot","type":0,"val":"frontend","end":""},{"old":"/frontend/account-management/password/forgot","type":0,"val":"account-management","end":""},{"old":"/frontend/account-management/password/forgot","type":0,"val":"password","end":""},{"old":"/frontend/account-management/password/forgot","type":0,"val":"forgot","end":""}],
-    types: placeholder as Registry['frontend.account_management.password.forgot']['types'],
-  },
-  'frontend.account_management.password.reset': {
-    methods: ["POST"],
-    pattern: '/frontend/account-management/password/reset',
-    tokens: [{"old":"/frontend/account-management/password/reset","type":0,"val":"frontend","end":""},{"old":"/frontend/account-management/password/reset","type":0,"val":"account-management","end":""},{"old":"/frontend/account-management/password/reset","type":0,"val":"password","end":""},{"old":"/frontend/account-management/password/reset","type":0,"val":"reset","end":""}],
-    types: placeholder as Registry['frontend.account_management.password.reset']['types'],
-  },
-  'frontend.account_management.password.update': {
-    methods: ["PUT"],
-    pattern: '/frontend/account-management/password',
-    tokens: [{"old":"/frontend/account-management/password","type":0,"val":"frontend","end":""},{"old":"/frontend/account-management/password","type":0,"val":"account-management","end":""},{"old":"/frontend/account-management/password","type":0,"val":"password","end":""}],
-    types: placeholder as Registry['frontend.account_management.password.update']['types'],
+  'frontend.profile.view': {
+    methods: ["GET","HEAD"],
+    pattern: '/frontend/profile',
+    tokens: [{"old":"/frontend/profile","type":0,"val":"frontend","end":""},{"old":"/frontend/profile","type":0,"val":"profile","end":""}],
+    types: placeholder as Registry['frontend.profile.view']['types'],
   },
 } as const satisfies Record<string, AdonisEndpoint>
 
