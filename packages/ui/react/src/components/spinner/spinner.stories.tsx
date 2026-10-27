@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Spinner } from "./index";
 
 const meta: Meta<typeof Spinner> = {
-	title: "Spinner",
+	title: "V1/Spinner",
 	component: Spinner,
 	args: {
 		className: "size-6 text-neutral-12",

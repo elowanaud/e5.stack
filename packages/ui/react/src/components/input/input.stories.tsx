@@ -4,7 +4,7 @@ import { SearchIcon } from "../../icons";
 import { Input } from "./index";
 
 const meta: Meta<typeof Input> = {
-	title: "Input",
+	title: "V1/Input",
 	parameters: {
 		docs: {
 			description: {

@@ -4,7 +4,7 @@ import { Button } from "../button";
 import { ToastProvider, toast } from "./index";
 
 const meta: Meta<typeof ToastProvider> = {
-	title: "Toast",
+	title: "V1/Toast",
 	parameters: {
 		docs: {
 			description: {

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Switch } from "./index";
 
 const meta: Meta<typeof Switch> = {
-	title: "Switch",
+	title: "V1/Switch",
 	parameters: {
 		docs: {
 			description: {

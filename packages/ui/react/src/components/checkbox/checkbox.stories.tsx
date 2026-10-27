@@ -11,7 +11,7 @@ const meta: Meta<typeof Checkbox> = {
 	subcomponents: {
 		Group: Checkbox.Group,
 	},
-	title: "Checkbox",
+	title: "V1/Checkbox",
 	parameters: {
 		docs: {
 			description: {

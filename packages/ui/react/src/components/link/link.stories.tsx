@@ -4,7 +4,7 @@ import { Link } from "./index";
 
 const meta: Meta<typeof Link> = {
 	component: Link,
-	title: "Link",
+	title: "V1/Link",
 	argTypes: {
 		children: {
 			description: "The content of the link.",

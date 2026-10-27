@@ -123,6 +123,10 @@ e5.stack/
 > The theme package keeps its direct file-watcher command. The API database, Redis, mail
 > sidecars, and email worker remain available through their dedicated commands.
 
+Storybook is available at the UI URL above. Existing stories are grouped under `V1/`
+in the navigation; future V2 stories should use a `V2/` CSF title prefix. Story files
+remain colocated with their components.
+
 ## Commands
 
 Run root commands from the repository root:

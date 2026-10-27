@@ -7,7 +7,7 @@ const BUTTON_VARIANTS: ButtonProps["variant"][] = ["default", "primary", "ghost"
 const BUTTON_SIZES: ButtonProps["size"][] = ["md", "icon-sm", "icon-md"];
 
 const meta: Meta<typeof Button> = {
-	title: "Button",
+	title: "V1/Button",
 	parameters: {
 		docs: {
 			description: {

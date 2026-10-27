@@ -22,7 +22,7 @@ const GROUPED_OPTIONS = [
 ];
 
 const meta: Meta<typeof Select> = {
-	title: "Select",
+	title: "V1/Select",
 	parameters: {
 		docs: {
 			description: {

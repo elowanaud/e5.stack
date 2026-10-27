@@ -4,7 +4,7 @@ import { SearchIcon } from "../../icons";
 import { PasswordInput } from "./index";
 
 const meta: Meta<typeof PasswordInput> = {
-	title: "Password Input",
+	title: "V1/Password Input",
 	component: PasswordInput,
 	argTypes: {
 		defaultValue: {

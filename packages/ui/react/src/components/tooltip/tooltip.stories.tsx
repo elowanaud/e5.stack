@@ -4,7 +4,7 @@ import { Button } from "../button";
 import { Tooltip } from "./index";
 
 const meta: Meta<typeof Tooltip> = {
-	title: "Tooltip",
+	title: "V1/Tooltip",
 	parameters: {
 		docs: {
 			description: {

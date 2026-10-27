@@ -12,7 +12,7 @@ const meta: Meta<typeof AlertDialog> = {
 		Description: AlertDialog.Description,
 		Close: AlertDialog.Close,
 	},
-	title: "Alert Dialog",
+	title: "V1/Alert Dialog",
 	parameters: {
 		docs: {
 			description: {

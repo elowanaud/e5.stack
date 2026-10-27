@@ -7,7 +7,7 @@ import { Textarea } from "./index";
 
 const meta: Meta<typeof Textarea> = {
 	component: Textarea,
-	title: "Textarea",
+	title: "V1/Textarea",
 	argTypes: {
 		defaultValue: {
 			description: "The initial value of the text area.",

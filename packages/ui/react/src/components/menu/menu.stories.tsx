@@ -5,7 +5,7 @@ import { Button } from "../button";
 import { Menu } from "./index";
 
 const meta: Meta<typeof Menu> = {
-	title: "Menu",
+	title: "V1/Menu",
 	parameters: {
 		docs: {
 			description: {

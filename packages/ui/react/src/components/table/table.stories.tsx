@@ -12,7 +12,7 @@ const meta: Meta<typeof Table> = {
 		Cell: Table.Cell,
 		HeaderCell: Table.HeaderCell,
 	},
-	title: "Table",
+	title: "V1/Table",
 	parameters: {
 		layout: "fullscreen",
 	},

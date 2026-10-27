@@ -31,7 +31,7 @@ const GROUPED_OPTIONS = [
 ];
 
 const meta: Meta<typeof Combobox> = {
-	title: "Combobox",
+	title: "V1/Combobox",
 	parameters: {
 		docs: {
 			description: {

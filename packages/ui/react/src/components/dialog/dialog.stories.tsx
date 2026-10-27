@@ -12,7 +12,7 @@ const meta: Meta<typeof Dialog> = {
 		Description: Dialog.Description,
 		Close: Dialog.Close,
 	},
-	title: "Dialog",
+	title: "V1/Dialog",
 	parameters: {
 		docs: {
 			description: {

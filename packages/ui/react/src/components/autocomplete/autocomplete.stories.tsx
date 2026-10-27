@@ -27,7 +27,7 @@ const OPTIONS = [
 ];
 
 const meta: Meta<typeof Autocomplete> = {
-	title: "Autocomplete",
+	title: "V1/Autocomplete",
 	parameters: {
 		docs: {
 			description: {

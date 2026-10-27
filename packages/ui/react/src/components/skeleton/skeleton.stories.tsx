@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Skeleton } from "./index";
 
 const meta: Meta<typeof Skeleton> = {
-	title: "Skeleton",
+	title: "V1/Skeleton",
 	component: Skeleton,
 };
 

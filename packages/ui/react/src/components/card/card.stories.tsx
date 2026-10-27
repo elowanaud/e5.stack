@@ -4,7 +4,7 @@ import { Button } from "../button";
 import { Card } from "./index";
 
 const meta: Meta<typeof Card> = {
-	title: "Card",
+	title: "V1/Card",
 	component: Card,
 	subcomponents: {
 		Header: Card.Header,

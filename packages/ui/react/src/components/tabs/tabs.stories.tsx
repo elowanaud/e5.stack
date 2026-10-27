@@ -19,7 +19,7 @@ const meta: Meta<typeof Tabs> = {
 		Tab: Tabs.Tab,
 		Panel: Tabs.Panel,
 	},
-	title: "Tabs",
+	title: "V1/Tabs",
 	parameters: {
 		docs: {
 			description: {

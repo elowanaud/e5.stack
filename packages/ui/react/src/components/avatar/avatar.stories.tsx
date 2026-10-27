@@ -5,7 +5,7 @@ import { Avatar, type AvatarProps } from "./index";
 const AVATAR_SIZES: AvatarProps["size"][] = ["sm", "md", "lg"];
 
 const meta: Meta<typeof Avatar> = {
-	title: "Avatar",
+	title: "V1/Avatar",
 	parameters: {
 		description: {
 			component: "https://base-ui.com/react/components/avatar",

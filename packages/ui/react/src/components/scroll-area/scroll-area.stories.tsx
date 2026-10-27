@@ -4,7 +4,7 @@ import { Card } from "../card";
 import { ScrollArea } from "./index";
 
 const meta: Meta<typeof ScrollArea> = {
-	title: "Scroll Area",
+	title: "V1/Scroll Area",
 	parameters: {
 		docs: {
 			description: {

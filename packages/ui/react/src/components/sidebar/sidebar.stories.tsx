@@ -9,7 +9,7 @@ const meta: Meta<typeof Sidebar> = {
 		Body: Sidebar.Body,
 		Footer: Sidebar.Footer,
 	},
-	title: "Sidebar",
+	title: "V1/Sidebar",
 	parameters: {
 		layout: "fullscreen",
 	},
