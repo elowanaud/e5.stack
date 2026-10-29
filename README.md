@@ -23,7 +23,7 @@
 [![Biome](https://img.shields.io/badge/Biome-2.4-60A5FA?style=flat-square&logo=biome&logoColor=white)](#)
 [![CI](https://img.shields.io/github/actions/workflow/status/eloitsme/e5.stack/ci.yml?style=flat-square&label=CI)](.github/workflows/ci.yml)
 
-*AdonisJS API, TanStack Start web app, and shared UI packages connected by Tuyau and pnpm workspaces.*
+_AdonisJS API, TanStack Start web app, and shared UI packages connected by Tuyau and pnpm workspaces._
 
 [Overview](#overview) • [Stack](#stack) • [Getting Started](#getting-started) • [Commands](#commands) • [Testing](#testing) • [Architecture](#architecture)
 
@@ -63,13 +63,13 @@ e5.stack/
 
 ## Stack
 
-| Area | Technologies |
-| :--- | :--- |
-| **Core** | TypeScript 6.0.3, Node 24, pnpm 10.33.2, Turborepo 2.9.16 |
-| **API** | AdonisJS 7.3.4, Lucid, Bouncer, Session Auth, Queue, Mail, Tuyau, Japa |
-| **Web** | React 19.2.7, TanStack Start 1.168.20, TanStack Router, TanStack Query, TanStack Form, Vite 8.0.16 |
-| **UI** | Tailwind CSS 4.3.0, Base UI, tailwind-variants, lucide-react, sonner, Storybook 10.4.2 |
-| **Tooling** | Biome 2.4.16, Docker, GitHub Actions |
+| Area        | Technologies                                                                                       |
+| :---------- | :------------------------------------------------------------------------------------------------- |
+| **Core**    | TypeScript 6.0.3, Node 24, pnpm 10.33.2, Turborepo 2.9.16                                          |
+| **API**     | AdonisJS 7.3.4, Lucid, Bouncer, Session Auth, Queue, Mail, Tuyau, Japa                             |
+| **Web**     | React 19.2.7, TanStack Start 1.168.20, TanStack Router, TanStack Query, TanStack Form, Vite 8.0.16 |
+| **UI**      | Tailwind CSS 4.3.0, Base UI, tailwind-variants, lucide-react, sonner, Storybook 10.4.2             |
+| **Tooling** | Biome 2.4.16, Docker, GitHub Actions                                                               |
 
 ## Getting Started
 
@@ -119,8 +119,8 @@ e5.stack/
 > - Web: `https://frontend.e5.localhost`
 > - API: `https://api.e5.localhost`
 > - UI: `https://ui.e5.localhost`
->
-> The theme package keeps its direct file-watcher command. The API database, Redis, mail
+>     >
+      The theme package keeps its direct file-watcher command. The API database, Redis, mail
 > sidecars, and email worker remain available through their dedicated commands.
 
 Storybook is available at the UI URL above. Existing stories are grouped under `V1/`
@@ -131,17 +131,17 @@ remain colocated with their components.
 
 Run root commands from the repository root:
 
-| Command | Description |
-| :--- | :--- |
-| `pnpm dev` | Starts the Portless-enabled Turbo development graph. |
-| `pnpm build` | Builds the workspace with dependency ordering. |
-| `pnpm typecheck` | Runs workspace TypeScript checks. |
-| `pnpm test` | Runs all workspace test suites through Turbo. |
-| `pnpm test:unit` | Runs workspace unit suites. |
-| `pnpm test:e2e` | Runs workspace end-to-end suites. |
-| `pnpm code-quality` | Runs Biome checks. |
-| `pnpm code-quality:fix` | Runs Biome safe fixes. |
-| `pnpm adonis` | Forwards to the API Ace CLI. |
+| Command                 | Description                                          |
+| :---------------------- | :--------------------------------------------------- |
+| `pnpm dev`              | Starts the Portless-enabled Turbo development graph. |
+| `pnpm build`            | Builds the workspace with dependency ordering.       |
+| `pnpm typecheck`        | Runs workspace TypeScript checks.                    |
+| `pnpm test`             | Runs all workspace test suites through Turbo.        |
+| `pnpm test:unit`        | Runs workspace unit suites.                          |
+| `pnpm test:e2e`         | Runs workspace end-to-end suites.                    |
+| `pnpm code-quality`     | Runs Biome checks.                                   |
+| `pnpm code-quality:fix` | Runs Biome safe fixes.                               |
+| `pnpm adonis`           | Forwards to the API Ace CLI.                         |
 
 ## Testing
 

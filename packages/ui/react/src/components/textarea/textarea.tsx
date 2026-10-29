@@ -46,7 +46,7 @@ export function TextareaRoot(props: TextareaRootProps) {
 			{topSlot && (
 				<span
 					ref={topSlotRef}
-					className="absolute top-px right-px left-px rounded-t-lg bg-neutral-1 p-2"
+					className="bg-neutral-1 absolute top-px right-px left-px rounded-t-lg p-2"
 				>
 					{topSlot}
 				</span>
@@ -54,11 +54,11 @@ export function TextareaRoot(props: TextareaRootProps) {
 			<textarea
 				ref={mergedRef}
 				className={cn(
-					"w-full flex-1 resize-y rounded-lg border border-neutral-7 bg-neutral-1 p-2 text-start text-base text-neutral-12 outline-none ring-primary-7 transition sm:text-sm",
+					"border-neutral-7 bg-neutral-1 text-neutral-12 ring-primary-7 w-full flex-1 resize-y rounded-lg border p-2 text-start text-base transition outline-none sm:text-sm",
 					"placeholder:text-neutral-9",
 					"hover:not-data-disabled:border-neutral-8",
-					"focus-visible:border-primary-8 focus-visible:ring-3 focus-visible:hover:border-primary-8",
-					"data-popup-open:border-primary-8 data-popup-open:ring-3 data-popup-open:hover:border-primary-8",
+					"focus-visible:border-primary-8 focus-visible:hover:border-primary-8 focus-visible:ring-3",
+					"data-popup-open:border-primary-8 data-popup-open:hover:border-primary-8 data-popup-open:ring-3",
 					"data-disabled:cursor-not-allowed",
 					"data-invalid:border-error-7 data-invalid:ring-error-7",
 					"data-invalid:hover:not-data-disabled:border-error-8",
@@ -80,7 +80,7 @@ export function TextareaRoot(props: TextareaRootProps) {
 			{bottomSlot && (
 				<span
 					ref={bottomSlotRef}
-					className="absolute right-px bottom-px left-px rounded-b-lg bg-neutral-1 p-2"
+					className="bg-neutral-1 absolute right-px bottom-px left-px rounded-b-lg p-2"
 				>
 					{bottomSlot}
 				</span>

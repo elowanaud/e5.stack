@@ -35,11 +35,11 @@ export function ComboboxInput(props: ComboboxInputProps) {
 	return (
 		<ComboboxHeadless.InputGroup
 			className={cn(
-				"group relative inline-flex items-center justify-between gap-2 rounded-lg border border-neutral-7 bg-neutral-1 px-2 text-base text-neutral-12 outline-none ring-primary-7 transition sm:text-sm",
+				"group border-neutral-7 bg-neutral-1 text-neutral-12 ring-primary-7 relative inline-flex items-center justify-between gap-2 rounded-lg border px-2 text-base transition outline-none sm:text-sm",
 				"data-placeholder:text-neutral-9",
 				"hover:not-disabled:border-neutral-8",
-				"has-focus-visible:border-primary-8 has-focus-visible:ring-3 has-focus-visible:hover:border-primary-8",
-				"data-popup-open:border-primary-8 data-popup-open:ring-3 data-popup-open:hover:border-primary-8",
+				"has-focus-visible:border-primary-8 has-focus-visible:hover:border-primary-8 has-focus-visible:ring-3",
+				"data-popup-open:border-primary-8 data-popup-open:hover:border-primary-8 data-popup-open:ring-3",
 				"data-invalid:border-error-7 data-invalid:ring-error-7",
 				"data-invalid:hover:not-data-disabled:border-error-8",
 				"data-invalid:focus-visible:border-error-8 data-invalid:hover:border-error-8",
@@ -58,14 +58,14 @@ export function ComboboxInput(props: ComboboxInputProps) {
 				<>
 					{children}
 					<ComboboxHeadless.Clear
-						className="absolute top-1/2 right-1.5 z-10 hidden -translate-y-1/2 bg-neutral-1 group-has-hover:inline-flex data-popup-open:inline-flex data-popup-open:bg-neutral-1"
+						className="bg-neutral-1 data-popup-open:bg-neutral-1 absolute top-1/2 right-1.5 z-10 hidden -translate-y-1/2 group-has-hover:inline-flex data-popup-open:inline-flex"
 						render={<Button size="icon-sm" variant="ghost" />}
 					>
 						<XIcon />
 					</ComboboxHeadless.Clear>
 
 					<ComboboxHeadless.Icon
-						className="size-4 shrink-0 text-neutral-11"
+						className="text-neutral-11 size-4 shrink-0"
 						render={<ChevronsUpDownIcon />}
 					/>
 				</>
@@ -90,7 +90,7 @@ export function ComboboxChip(props: ComboboxChipProps) {
 	return (
 		<ComboboxHeadless.Chip
 			className={cn(
-				"relative z-10 flex items-center gap-1 rounded-sm bg-neutral-3 px-1 text-neutral-12 text-sm",
+				"bg-neutral-3 text-neutral-12 relative z-10 flex items-center gap-1 rounded-sm px-1 text-sm",
 				className,
 			)}
 			{...rest}
@@ -121,7 +121,7 @@ export function ComboboxDropdown(props: ComboboxDropdownProps) {
 	return (
 		<ComboboxHeadless.Portal>
 			<ComboboxHeadless.Positioner
-				className="select-none outline-none"
+				className="outline-none select-none"
 				align={align}
 				sideOffset={sideOffset}
 				collisionPadding={collisionPadding}
@@ -129,9 +129,9 @@ export function ComboboxDropdown(props: ComboboxDropdownProps) {
 			>
 				<ComboboxHeadless.Popup
 					className={cn(
-						"grid max-h-[min(24rem,var(--available-height))] min-w-(--anchor-width) max-w-(--available-width) origin-(--transform-origin) grid-rows-[auto_1fr] rounded-lg border border-neutral-6 bg-neutral-1 shadow shadow-neutral-5 outline-none transition",
-						"data-starting-style:data-[side=inline-end]:-translate-x-1 data-starting-style:data-[side=inline-start]:translate-x-1 data-starting-style:data-[side=left]:translate-x-1 data-starting-style:data-[side=right]:-translate-x-1 data-starting-style:data-[side=bottom]:-translate-y-1 data-starting-style:data-[side=top]:translate-y-1 data-starting-style:scale-95 data-starting-style:opacity-0 data-starting-style:blur-xs",
-						"data-ending-style:data-[side=inline-end]:-translate-x-1 data-ending-style:data-[side=inline-start]:translate-x-1 data-ending-style:data-[side=left]:translate-x-1 data-ending-style:data-[side=right]:-translate-x-1 data-ending-style:data-[side=bottom]:-translate-y-1 data-ending-style:data-[side=top]:translate-y-1 data-ending-style:scale-95 data-ending-style:opacity-0 data-ending-style:blur-xs",
+						"border-neutral-6 bg-neutral-1 shadow-neutral-5 grid max-h-[min(24rem,var(--available-height))] max-w-(--available-width) min-w-(--anchor-width) origin-(--transform-origin) grid-rows-[auto_1fr] rounded-lg border shadow transition outline-none",
+						"data-starting-style:scale-95 data-starting-style:opacity-0 data-starting-style:blur-xs data-starting-style:data-[side=bottom]:-translate-y-1 data-starting-style:data-[side=inline-end]:-translate-x-1 data-starting-style:data-[side=inline-start]:translate-x-1 data-starting-style:data-[side=left]:translate-x-1 data-starting-style:data-[side=right]:-translate-x-1 data-starting-style:data-[side=top]:translate-y-1",
+						"data-ending-style:scale-95 data-ending-style:opacity-0 data-ending-style:blur-xs data-ending-style:data-[side=bottom]:-translate-y-1 data-ending-style:data-[side=inline-end]:-translate-x-1 data-ending-style:data-[side=inline-start]:translate-x-1 data-ending-style:data-[side=left]:translate-x-1 data-ending-style:data-[side=right]:-translate-x-1 data-ending-style:data-[side=top]:translate-y-1",
 						className,
 					)}
 				>
@@ -167,14 +167,14 @@ export function ComboboxSearchInput(props: ComboboxSearchInputProps) {
 			<ComboboxHeadless.Input
 				size={size}
 				className={cn(
-					"row-span-1 h-10 w-full rounded-t-lg border-neutral-7 border-b bg-neutral-2 px-2 pl-8 text-base text-neutral-12 outline-none sm:h-9 sm:text-sm",
+					"border-neutral-7 bg-neutral-2 text-neutral-12 row-span-1 h-10 w-full rounded-t-lg border-b px-2 pl-8 text-base outline-none sm:h-9 sm:text-sm",
 					"placeholder:text-neutral-9",
 					className,
 				)}
 				{...rest}
 			/>
 
-			<SearchIcon className="pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2 text-neutral-11" />
+			<SearchIcon className="text-neutral-11 pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2" />
 		</div>
 	);
 }
@@ -195,7 +195,7 @@ export function ComboboxItem(props: ComboboxItemProps) {
 	return (
 		<ComboboxHeadless.Item
 			className={cn(
-				"mx-1 flex h-9 items-center justify-between gap-2 rounded-md px-2 text-base text-neutral-12 outline-none sm:text-sm",
+				"text-neutral-12 mx-1 flex h-9 items-center justify-between gap-2 rounded-md px-2 text-base outline-none sm:text-sm",
 				"hover:not-data-disabled:bg-neutral-3",
 				"data-highlighted:bg-neutral-3",
 				"data-selected:bg-neutral-3",
@@ -231,7 +231,7 @@ export function ComboboxGroupLabel(props: ComboboxGroupLabelProps) {
 
 	return (
 		<ComboboxHeadless.GroupLabel
-			className={cn("p-2 text-neutral-11 text-xs uppercase", className)}
+			className={cn("text-neutral-11 p-2 text-xs uppercase", className)}
 			{...rest}
 		/>
 	);
@@ -243,6 +243,6 @@ export function ComboboxSeparator(props: ComboboxSeparatorProps) {
 	const { className, ...rest } = props;
 
 	return (
-		<ComboboxHeadless.Separator className={cn("my-1 h-px bg-neutral-6", className)} {...rest} />
+		<ComboboxHeadless.Separator className={cn("bg-neutral-6 my-1 h-px", className)} {...rest} />
 	);
 }

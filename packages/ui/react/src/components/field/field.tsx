@@ -17,9 +17,9 @@ export function FieldLabel(props: FieldLabelProps) {
 	return (
 		<FieldHeadless.Label
 			className={cn(
-				"font-semibold text-neutral-12 text-sm data-invalid:text-error-11",
+				"text-neutral-12 data-invalid:text-error-11 text-sm font-semibold",
 				"data-disabled:opacity-50",
-				required && "after:mr-0.5 after:inline-block after:text-error-11 after:content-['*']",
+				required && "after:text-error-11 after:mr-0.5 after:inline-block after:content-['*']",
 				className,
 			)}
 			{...rest}
@@ -45,7 +45,7 @@ export function FieldError(props: FieldErrorProps) {
 	return (
 		<FieldHeadless.Error
 			match={true}
-			className={cn("font-semibold text-error-11 text-xs", className)}
+			className={cn("text-error-11 text-xs font-semibold", className)}
 			{...rest}
 		/>
 	);

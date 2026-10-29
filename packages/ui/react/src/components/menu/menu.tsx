@@ -30,9 +30,9 @@ export function MenuContent(props: MenuContentProps) {
 			>
 				<MenuHeadless.Popup
 					className={cn(
-						"max-w-(--available-width) origin-(--transform-origin) rounded-lg border border-neutral-6 bg-neutral-1 py-1 shadow shadow-neutral-5 outline-none blur-none transition",
-						"data-starting-style:data-[side=inline-end]:-translate-x-1 data-starting-style:data-[side=inline-start]:translate-x-1 data-starting-style:data-[side=left]:translate-x-1 data-starting-style:data-[side=right]:-translate-x-1 data-starting-style:data-[side=bottom]:-translate-y-1 data-starting-style:data-[side=top]:translate-y-1 data-starting-style:scale-95 data-starting-style:opacity-0 data-starting-style:blur-xs",
-						"data-ending-style:data-[side=inline-end]:-translate-x-1 data-ending-style:data-[side=inline-start]:translate-x-1 data-ending-style:data-[side=left]:translate-x-1 data-ending-style:data-[side=right]:-translate-x-1 data-ending-style:data-[side=bottom]:-translate-y-1 data-ending-style:data-[side=top]:translate-y-1 data-ending-style:scale-95 data-ending-style:opacity-0 data-ending-style:blur-xs",
+						"border-neutral-6 bg-neutral-1 shadow-neutral-5 max-w-(--available-width) origin-(--transform-origin) rounded-lg border py-1 shadow blur-none transition outline-none",
+						"data-starting-style:scale-95 data-starting-style:opacity-0 data-starting-style:blur-xs data-starting-style:data-[side=bottom]:-translate-y-1 data-starting-style:data-[side=inline-end]:-translate-x-1 data-starting-style:data-[side=inline-start]:translate-x-1 data-starting-style:data-[side=left]:translate-x-1 data-starting-style:data-[side=right]:-translate-x-1 data-starting-style:data-[side=top]:translate-y-1",
+						"data-ending-style:scale-95 data-ending-style:opacity-0 data-ending-style:blur-xs data-ending-style:data-[side=bottom]:-translate-y-1 data-ending-style:data-[side=inline-end]:-translate-x-1 data-ending-style:data-[side=inline-start]:translate-x-1 data-ending-style:data-[side=left]:translate-x-1 data-ending-style:data-[side=right]:-translate-x-1 data-ending-style:data-[side=top]:translate-y-1",
 						className,
 					)}
 				>
@@ -59,7 +59,7 @@ export function MenuSubmenuTrigger(props: MenuSubmenuTriggerProps) {
 	return (
 		<MenuHeadless.SubmenuTrigger
 			className={cn(
-				"mx-1 flex cursor-default select-none items-center gap-2 rounded-md px-3 py-1.5 text-neutral-12 text-sm outline-none [&_svg]:size-4",
+				"text-neutral-12 mx-1 flex cursor-default items-center gap-2 rounded-md px-3 py-1.5 text-sm outline-none select-none [&_svg]:size-4",
 				"hover:not-data-disabled:bg-neutral-3",
 				"data-highlighted:not-data-disabled:bg-neutral-3",
 				"data-popup-open:bg-neutral-4",
@@ -89,7 +89,7 @@ export function MenuGroupLabel(props: MenuGroupLabelProps) {
 
 	return (
 		<MenuHeadless.GroupLabel
-			className={cn("mx-1 px-3 py-1 text-neutral-11 text-sm", className)}
+			className={cn("text-neutral-11 mx-1 px-3 py-1 text-sm", className)}
 			{...rest}
 		/>
 	);
@@ -100,12 +100,12 @@ export type MenuSeparatorProps = MenuHeadless.Separator.Props;
 export function MenuSeparator(props: MenuSeparatorProps) {
 	const { className, ...rest } = props;
 
-	return <MenuHeadless.Separator className={cn("my-1.5 h-px bg-neutral-6", className)} {...rest} />;
+	return <MenuHeadless.Separator className={cn("bg-neutral-6 my-1.5 h-px", className)} {...rest} />;
 }
 
 const menuItemVariants = tv({
 	base: [
-		"mx-1 flex cursor-pointer select-none items-center gap-2 rounded-md px-3 py-1.5 text-sm outline-none [&_svg]:size-4",
+		"mx-1 flex cursor-pointer items-center gap-2 rounded-md px-3 py-1.5 text-sm outline-none select-none [&_svg]:size-4",
 		"data-disabled:cursor-not-allowed data-disabled:opacity-50",
 	],
 	variants: {
@@ -150,7 +150,7 @@ export function MenuCheckboxItem(props: MenuCheckboxItemProps) {
 	return (
 		<MenuHeadless.CheckboxItem
 			className={cn(
-				"mx-1 flex cursor-pointer select-none items-center gap-2 rounded-md px-3 py-1.5 text-neutral-12 text-sm outline-none [&_svg]:size-4",
+				"text-neutral-12 mx-1 flex cursor-pointer items-center gap-2 rounded-md px-3 py-1.5 text-sm outline-none select-none [&_svg]:size-4",
 				"hover:not-data-disabled:bg-neutral-3",
 				"data-highlighted:not-data-disabled:bg-neutral-3",
 				"active:not-data-disabled:bg-neutral-4!",
@@ -189,7 +189,7 @@ export function MenuRadioItem(props: MenuRadioItemProps) {
 	return (
 		<MenuHeadless.RadioItem
 			className={cn(
-				"mx-1 flex cursor-pointer select-none items-center gap-2 rounded-md px-3 py-1.5 text-neutral-12 text-sm outline-none [&_svg]:size-4",
+				"text-neutral-12 mx-1 flex cursor-pointer items-center gap-2 rounded-md px-3 py-1.5 text-sm outline-none select-none [&_svg]:size-4",
 				"hover:not-data-disabled:bg-neutral-3",
 				"data-highlighted:not-data-disabled:bg-neutral-3",
 				"active:not-data-disabled:bg-neutral-4!",

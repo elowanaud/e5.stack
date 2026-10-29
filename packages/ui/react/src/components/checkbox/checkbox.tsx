@@ -7,7 +7,7 @@ import { CheckIcon, MinusIcon } from "../../icons";
 const checkboxVariants = tv({
 	slots: {
 		rootVariants: [
-			"relative flex cursor-pointer items-center justify-center border outline-none ring-primary-7 transition",
+			"ring-primary-7 relative flex cursor-pointer items-center justify-center border transition outline-none",
 			"data-unchecked:border-neutral-7 data-unchecked:bg-neutral-1 data-unchecked:text-transparent",
 			"data-unchecked:hover:not-data-disabled:border-neutral-8 data-unchecked:hover:not-data-disabled:bg-neutral-2",
 			"data-checked:border-primary-9 data-checked:bg-primary-9 data-checked:text-primary-contrast",

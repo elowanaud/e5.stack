@@ -6,8 +6,8 @@ const ScrollAreaVariant = tv({
 		root: "h-full w-full overflow-auto outline-none",
 		viewport: "h-full w-full overflow-auto outline-none",
 		scrollbar:
-			"pointer-events-none m-0.75 hidden rounded-sm opacity-0 transition-opacity data-hovering:pointer-events-auto data-scrolling:pointer-events-auto data-hovering:opacity-100 data-scrolling:opacity-100",
-		thumb: "rounded-sm bg-neutral-9",
+			"pointer-events-none m-0.75 hidden rounded-sm opacity-0 transition-opacity data-hovering:pointer-events-auto data-hovering:opacity-100 data-scrolling:pointer-events-auto data-scrolling:opacity-100",
+		thumb: "bg-neutral-9 rounded-sm",
 	},
 	variants: {
 		variant: {

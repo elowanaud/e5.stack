@@ -23,10 +23,10 @@ export function SelectInput(props: SelectInputProps) {
 	return (
 		<SelectHeadless.Trigger
 			className={cn(
-				"inline-flex h-10 items-center justify-between gap-2 rounded-lg border border-neutral-7 bg-neutral-1 px-2 outline-none ring-primary-7 transition sm:h-9",
+				"border-neutral-7 bg-neutral-1 ring-primary-7 inline-flex h-10 items-center justify-between gap-2 rounded-lg border px-2 transition outline-none sm:h-9",
 				"hover:not-disabled:border-neutral-8",
-				"focus-visible:border-primary-8 focus-visible:ring-3 focus-visible:hover:border-primary-8",
-				"data-popup-open:border-primary-8 data-popup-open:ring-3 data-popup-open:hover:border-primary-8",
+				"focus-visible:border-primary-8 focus-visible:hover:border-primary-8 focus-visible:ring-3",
+				"data-popup-open:border-primary-8 data-popup-open:hover:border-primary-8 data-popup-open:ring-3",
 				"data-invalid:border-error-7 data-invalid:ring-error-7",
 				"data-invalid:hover:not-data-disabled:border-error-8",
 				"data-invalid:focus-visible:border-error-8 data-invalid:hover:border-error-8",
@@ -38,7 +38,7 @@ export function SelectInput(props: SelectInputProps) {
 		>
 			{children}
 			<SelectHeadless.Icon
-				className="size-4 shrink-0 text-neutral-11"
+				className="text-neutral-11 size-4 shrink-0"
 				render={<ChevronsUpDownIcon />}
 			/>
 		</SelectHeadless.Trigger>
@@ -53,7 +53,7 @@ export function SelectValue(props: SelectValueProps) {
 	return (
 		<SelectHeadless.Value
 			className={cn(
-				"truncate text-base text-neutral-12 sm:text-sm",
+				"text-neutral-12 truncate text-base sm:text-sm",
 				"data-placeholder:text-neutral-9",
 				className,
 			)}
@@ -77,7 +77,7 @@ export function SelectDropdown(props: SelectDropdownProps) {
 	return (
 		<SelectHeadless.Portal>
 			<SelectHeadless.Positioner
-				className="select-none outline-none"
+				className="outline-none select-none"
 				alignItemWithTrigger={false}
 				align={align}
 				sideOffset={sideOffset}
@@ -86,9 +86,9 @@ export function SelectDropdown(props: SelectDropdownProps) {
 			>
 				<SelectHeadless.Popup
 					className={cn(
-						"grid max-h-[min(24rem,var(--available-height))] min-w-(--anchor-width) max-w-(--available-width) origin-(--transform-origin) grid-rows-1 rounded-lg border border-neutral-6 bg-neutral-1 shadow shadow-neutral-5 outline-none transition",
-						"data-starting-style:data-[side=inline-end]:-translate-x-1 data-starting-style:data-[side=inline-start]:translate-x-1 data-starting-style:data-[side=left]:translate-x-1 data-starting-style:data-[side=right]:-translate-x-1 data-starting-style:data-[side=bottom]:-translate-y-1 data-starting-style:data-[side=top]:translate-y-1 data-starting-style:scale-95 data-starting-style:opacity-0 data-starting-style:blur-xs",
-						"data-ending-style:data-[side=inline-end]:-translate-x-1 data-ending-style:data-[side=inline-start]:translate-x-1 data-ending-style:data-[side=left]:translate-x-1 data-ending-style:data-[side=right]:-translate-x-1 data-ending-style:data-[side=bottom]:-translate-y-1 data-ending-style:data-[side=top]:translate-y-1 data-ending-style:scale-95 data-ending-style:opacity-0 data-ending-style:blur-xs",
+						"border-neutral-6 bg-neutral-1 shadow-neutral-5 grid max-h-[min(24rem,var(--available-height))] max-w-(--available-width) min-w-(--anchor-width) origin-(--transform-origin) grid-rows-1 rounded-lg border shadow transition outline-none",
+						"data-starting-style:scale-95 data-starting-style:opacity-0 data-starting-style:blur-xs data-starting-style:data-[side=bottom]:-translate-y-1 data-starting-style:data-[side=inline-end]:-translate-x-1 data-starting-style:data-[side=inline-start]:translate-x-1 data-starting-style:data-[side=left]:translate-x-1 data-starting-style:data-[side=right]:-translate-x-1 data-starting-style:data-[side=top]:translate-y-1",
+						"data-ending-style:scale-95 data-ending-style:opacity-0 data-ending-style:blur-xs data-ending-style:data-[side=bottom]:-translate-y-1 data-ending-style:data-[side=inline-end]:-translate-x-1 data-ending-style:data-[side=inline-start]:translate-x-1 data-ending-style:data-[side=left]:translate-x-1 data-ending-style:data-[side=right]:-translate-x-1 data-ending-style:data-[side=top]:translate-y-1",
 						className,
 					)}
 				>
@@ -109,7 +109,7 @@ export function SelectOption(props: SelectOptionProps) {
 	return (
 		<SelectHeadless.Item
 			className={cn(
-				"mx-1 flex h-9 items-center justify-between gap-2 rounded-md px-2 text-base text-neutral-12 outline-none sm:text-sm",
+				"text-neutral-12 mx-1 flex h-9 items-center justify-between gap-2 rounded-md px-2 text-base outline-none sm:text-sm",
 				"hover:not-data-disabled:bg-neutral-3",
 				"data-highlighted:bg-neutral-3",
 				"data-selected:bg-neutral-3",
@@ -139,7 +139,7 @@ export function SelectGroupLabel(props: SelectGroupLabelProps) {
 
 	return (
 		<SelectHeadless.GroupLabel
-			className={cn("p-2 text-neutral-11 text-xs uppercase", className)}
+			className={cn("text-neutral-11 p-2 text-xs uppercase", className)}
 			{...rest}
 		/>
 	);
@@ -150,5 +150,5 @@ export type SelectSeparatorProps = SelectHeadless.Separator.Props;
 export function SelectSeparator(props: SelectSeparatorProps) {
 	const { className, ...rest } = props;
 
-	return <SelectHeadless.Separator className={cn("my-1 h-px bg-neutral-6", className)} {...rest} />;
+	return <SelectHeadless.Separator className={cn("bg-neutral-6 my-1 h-px", className)} {...rest} />;
 }

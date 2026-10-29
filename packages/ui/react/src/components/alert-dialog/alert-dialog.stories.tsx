@@ -63,7 +63,7 @@ export const Default: Story = {
 				<AlertDialog.Trigger render={<Button />}>Open Alert Dialog</AlertDialog.Trigger>
 				<AlertDialog.Content className="flex flex-col gap-9 sm:max-w-lg">
 					<div className="grid gap-2">
-						<AlertDialog.Title className="font-bold text-2xl text-neutral-12">
+						<AlertDialog.Title className="text-neutral-12 text-2xl font-bold">
 							Lorem ipsum dolor sit amet.
 						</AlertDialog.Title>
 						<AlertDialog.Description className="text-neutral-11 text-sm">

@@ -36,7 +36,7 @@ const meta: Meta<typeof Textarea> = {
 			mapping: {
 				"File Info": (
 					<div className="flex items-center justify-between">
-						<p className="flex items-center gap-1 text-neutral-11 text-xs">
+						<p className="text-neutral-11 flex items-center gap-1 text-xs">
 							<FileCodeCornerIcon className="size-4" /> Index.tsx
 						</p>
 

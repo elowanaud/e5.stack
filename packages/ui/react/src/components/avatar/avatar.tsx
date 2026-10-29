@@ -2,7 +2,7 @@ import { Avatar as AvatarHeadless } from "@base-ui/react/avatar";
 import { cn, tv, type VariantProps } from "tailwind-variants";
 
 const avatarVariants = tv({
-	base: "inline-flex select-none items-center justify-center overflow-hidden rounded-full bg-neutral-4 text-neutral-12",
+	base: "bg-neutral-4 text-neutral-12 inline-flex items-center justify-center overflow-hidden rounded-full select-none",
 	variants: {
 		size: {
 			sm: "size-6 text-xs",

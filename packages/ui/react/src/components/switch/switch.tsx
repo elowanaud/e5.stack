@@ -9,7 +9,7 @@ export function SwitchRoot(props: SwitchRootProps) {
 	return (
 		<SwitchHeadless.Root
 			className={cn(
-				"group relative flex h-6 w-9 cursor-pointer items-center rounded-full border-2 outline-none ring-primary-7 transition",
+				"group ring-primary-7 relative flex h-6 w-9 cursor-pointer items-center rounded-full border-2 transition outline-none",
 				"data-unchecked:border-neutral-9 data-unchecked:bg-neutral-9",
 				"data-unchecked:hover:not-disabled:border-neutral-10 data-unchecked:hover:not-disabled:bg-neutral-10",
 				"data-checked:border-primary-9 data-checked:bg-primary-9",

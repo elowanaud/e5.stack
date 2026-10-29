@@ -4,7 +4,7 @@ packages:
   - "examples/*"
 
 allowBuilds:
-  '@swc/core': false
+  "@swc/core": false
   esbuild: false
 
 overrides:

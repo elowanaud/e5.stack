@@ -34,7 +34,7 @@ export function AutocompleteDropdown(props: AutocompleteDropdownProps) {
 	return (
 		<AutocompleteHeadless.Portal>
 			<AutocompleteHeadless.Positioner
-				className="select-none outline-none"
+				className="outline-none select-none"
 				align={align}
 				sideOffset={sideOffset}
 				collisionPadding={collisionPadding}
@@ -42,9 +42,9 @@ export function AutocompleteDropdown(props: AutocompleteDropdownProps) {
 			>
 				<AutocompleteHeadless.Popup
 					className={cn(
-						"grid max-h-[min(24rem,var(--available-height))] min-w-(--anchor-width) max-w-(--available-width) origin-(--transform-origin) grid-rows-1 rounded-lg border border-neutral-6 bg-neutral-1 shadow shadow-neutral-5 outline-none transition",
-						"data-starting-style:data-[side=inline-end]:-translate-x-1 data-starting-style:data-[side=inline-start]:translate-x-1 data-starting-style:data-[side=left]:translate-x-1 data-starting-style:data-[side=right]:-translate-x-1 data-starting-style:data-[side=bottom]:-translate-y-1 data-starting-style:data-[side=top]:translate-y-1 data-starting-style:scale-95 data-starting-style:opacity-0 data-starting-style:blur-xs",
-						"data-ending-style:data-[side=inline-end]:-translate-x-1 data-ending-style:data-[side=inline-start]:translate-x-1 data-ending-style:data-[side=left]:translate-x-1 data-ending-style:data-[side=right]:-translate-x-1 data-ending-style:data-[side=bottom]:-translate-y-1 data-ending-style:data-[side=top]:translate-y-1 data-ending-style:scale-95 data-ending-style:opacity-0 data-ending-style:blur-xs",
+						"border-neutral-6 bg-neutral-1 shadow-neutral-5 grid max-h-[min(24rem,var(--available-height))] max-w-(--available-width) min-w-(--anchor-width) origin-(--transform-origin) grid-rows-1 rounded-lg border shadow transition outline-none",
+						"data-starting-style:scale-95 data-starting-style:opacity-0 data-starting-style:blur-xs data-starting-style:data-[side=bottom]:-translate-y-1 data-starting-style:data-[side=inline-end]:-translate-x-1 data-starting-style:data-[side=inline-start]:translate-x-1 data-starting-style:data-[side=left]:translate-x-1 data-starting-style:data-[side=right]:-translate-x-1 data-starting-style:data-[side=top]:translate-y-1",
+						"data-ending-style:scale-95 data-ending-style:opacity-0 data-ending-style:blur-xs data-ending-style:data-[side=bottom]:-translate-y-1 data-ending-style:data-[side=inline-end]:-translate-x-1 data-ending-style:data-[side=inline-start]:translate-x-1 data-ending-style:data-[side=left]:translate-x-1 data-ending-style:data-[side=right]:-translate-x-1 data-ending-style:data-[side=top]:translate-y-1",
 						className,
 					)}
 				>
@@ -78,7 +78,7 @@ export function AutocompleteItem(props: AutocompleteItemProps) {
 	return (
 		<AutocompleteHeadless.Item
 			className={cn(
-				"mx-1 flex h-10 items-center rounded-md px-2 text-base text-neutral-12 outline-none sm:h-9 sm:text-sm",
+				"text-neutral-12 mx-1 flex h-10 items-center rounded-md px-2 text-base outline-none sm:h-9 sm:text-sm",
 				"hover:not-data-disabled:bg-neutral-3",
 				"data-highlighted:bg-neutral-3",
 				"data-selected:bg-neutral-3",
@@ -117,7 +117,7 @@ export function AutocompleteGroupLabel(props: AutocompleteGroupLabelProps) {
 
 	return (
 		<AutocompleteHeadless.GroupLabel
-			className={cn("p-2 text-neutral-11 text-xs uppercase", className)}
+			className={cn("text-neutral-11 p-2 text-xs uppercase", className)}
 			{...rest}
 		/>
 	);
@@ -129,6 +129,6 @@ export function AutocompleteSeparator(props: AutocompleteSeparatorProps) {
 	const { className, ...rest } = props;
 
 	return (
-		<AutocompleteHeadless.Separator className={cn("my-1 h-px bg-neutral-6", className)} {...rest} />
+		<AutocompleteHeadless.Separator className={cn("bg-neutral-6 my-1 h-px", className)} {...rest} />
 	);
 }

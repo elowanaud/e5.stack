@@ -3,13 +3,13 @@ import { tv, type VariantProps } from "tailwind-variants";
 
 const buttonVariants = tv({
 	base: [
-		"inline-flex shrink-0 cursor-pointer select-none items-center justify-center gap-2 font-medium outline-none transition",
+		"inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 font-medium transition outline-none select-none",
 		"data-disabled:cursor-not-allowed",
 	],
 	variants: {
 		variant: {
 			default: [
-				"border border-neutral-7 bg-neutral-1 text-neutral-12 ring-neutral-7",
+				"border-neutral-7 bg-neutral-1 text-neutral-12 ring-neutral-7 border",
 				"hover:not-data-disabled:border-neutral-8 hover:not-data-disabled:bg-neutral-3",
 				"active:not-data-disabled:border-neutral-8! active:not-data-disabled:bg-neutral-4!",
 				"data-popup-open:border-neutral-8! data-popup-open:bg-neutral-4!",
@@ -25,7 +25,7 @@ const buttonVariants = tv({
 				"data-disabled:opacity-50",
 			],
 			ghost: [
-				"bg-transparent text-neutral-12 ring-neutral-7",
+				"text-neutral-12 ring-neutral-7 bg-transparent",
 				"hover:not-data-disabled:bg-neutral-3",
 				"active:not-data-disabled:bg-neutral-4!",
 				"data-popup-open:bg-neutral-4!",

@@ -25,37 +25,35 @@ export function PasswordInputRoot(props: PasswordInputRootProps) {
 		onVisibilityChange?.(visible, event);
 	};
 
-	const Toggler = () => (
-		<ToggleHeadless
-			className="pointer-events-auto"
-			tabIndex={-1}
-			defaultPressed={defaultVisible}
-			pressed={visible}
-			onPressedChange={handleOnVisibilityChange}
-			disabled={disabled}
-			render={(props, state) => {
-				if (state.pressed) {
-					return (
-						<Button variant="ghost" size="icon-sm" {...props}>
-							<EyeIcon />
-						</Button>
-					);
-				}
-
-				return (
-					<Button variant="ghost" size="icon-sm" {...props}>
-						<EyeOffIcon />
-					</Button>
-				);
-			}}
-		/>
-	);
-
 	return (
 		<Input
 			type={hisPasswordVisible ? "text" : "password"}
 			disabled={disabled}
-			rightSlot={<Toggler />}
+			rightSlot={
+				<ToggleHeadless
+					className="pointer-events-auto"
+					tabIndex={-1}
+					defaultPressed={defaultVisible}
+					pressed={visible}
+					onPressedChange={handleOnVisibilityChange}
+					disabled={disabled}
+					render={(props, state) => {
+						if (state.pressed) {
+							return (
+								<Button variant="ghost" size="icon-sm" {...props}>
+									<EyeIcon />
+								</Button>
+							);
+						}
+
+						return (
+							<Button variant="ghost" size="icon-sm" {...props}>
+								<EyeOffIcon />
+							</Button>
+						);
+					}}
+				/>
+			}
 			{...rest}
 		/>
 	);

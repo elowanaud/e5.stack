@@ -42,7 +42,7 @@ const meta: Meta<typeof PasswordInput> = {
 			control: "select",
 			options: ["Search"],
 			mapping: {
-				Search: <SearchIcon className="mx-1 size-4 text-neutral-11" />,
+				Search: <SearchIcon className="text-neutral-11 mx-1 size-4" />,
 			},
 			table: {
 				type: {

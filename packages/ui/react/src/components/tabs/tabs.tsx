@@ -18,7 +18,7 @@ export function TabsList(props: TabsListProps) {
 		<ScrollArea variant="gradient" className="border-neutral-7 border-b">
 			<TabsHeadless.List className={cn("relative flex items-center gap-2", className)} {...rest}>
 				{children}
-				<TabsHeadless.Indicator className="absolute bottom-0 h-0.5 w-(--active-tab-width) translate-x-(--active-tab-left) bg-primary-9 transition-all" />
+				<TabsHeadless.Indicator className="bg-primary-9 absolute bottom-0 h-0.5 w-(--active-tab-width) translate-x-(--active-tab-left) transition-all" />
 			</TabsHeadless.List>
 		</ScrollArea>
 	);
@@ -32,7 +32,7 @@ export function TabsTab(props: TabsTabProps) {
 	return (
 		<TabsHeadless.Tab
 			className={cn(
-				"mb-2 inline-flex h-10 w-fit shrink-0 cursor-pointer select-none items-center justify-center gap-2 rounded-lg px-6 font-medium text-neutral-12 text-sm outline-none transition sm:h-9 [&_svg]:size-4",
+				"text-neutral-12 mb-2 inline-flex h-10 w-fit shrink-0 cursor-pointer items-center justify-center gap-2 rounded-lg px-6 text-sm font-medium transition outline-none select-none sm:h-9 [&_svg]:size-4",
 				"hover:not-data-disabled:bg-neutral-3",
 				"focus-visible:bg-neutral-3!",
 				"data-active:bg-neutral-4",

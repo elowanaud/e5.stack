@@ -14,9 +14,9 @@
 		"adonis": "cd apps/backend/ && node ace"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.5.15",
-		"portless": "0.15.8",
-		"turbo": "2.11.8"
+		"@biomejs/biome": "2.6.4",
+		"portless": "0.15.12",
+		"turbo": "2.11.10"
 	},
 	"packageManager": "pnpm@10.34.5",
 	"engines": {

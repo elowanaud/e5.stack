@@ -16,8 +16,8 @@ export function UnexpectedPage(props: ErrorComponentProps) {
 
 	return (
 		<main className="flex min-h-svh flex-col items-center justify-center p-4 text-center">
-			<h1 className="mb-2 font-serif text-5xl text-primary-11">{t("title")}</h1>
-			<p className="mb-8 text-neutral-11 text-sm">{t("description")}</p>
+			<h1 className="text-primary-11 mb-2 font-serif text-5xl">{t("title")}</h1>
+			<p className="text-neutral-11 mb-8 text-sm">{t("description")}</p>
 			<Button variant="primary" onClick={reset}>
 				{t("retry")}
 			</Button>

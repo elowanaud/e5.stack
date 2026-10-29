@@ -11,7 +11,7 @@ export function CardRoot(props: CardRootProps) {
 		defaultTagName: "div",
 		render,
 		props: mergeProps<"div">(
-			{ className: cn("rounded-xl border border-neutral-6 bg-neutral-1", className) },
+			{ className: cn("border-neutral-6 bg-neutral-1 rounded-xl border", className) },
 			rest,
 		),
 	});
@@ -28,7 +28,7 @@ export function CardHeader(props: CardHeaderProps) {
 		defaultTagName: "header",
 		render,
 		props: mergeProps<"header">(
-			{ className: cn("rounded-t-xl border-neutral-6 border-b bg-neutral-3/50 p-4", className) },
+			{ className: cn("border-neutral-6 bg-neutral-3/50 rounded-t-xl border-b p-4", className) },
 			rest,
 		),
 	});
@@ -59,7 +59,7 @@ export function CardFooter(props: CardFooterProps) {
 		defaultTagName: "footer",
 		render,
 		props: mergeProps<"footer">(
-			{ className: cn("rounded-b-xl border-neutral-6 border-t bg-neutral-3/50 p-4", className) },
+			{ className: cn("border-neutral-6 bg-neutral-3/50 rounded-b-xl border-t p-4", className) },
 			rest,
 		),
 	});

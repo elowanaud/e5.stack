@@ -50,7 +50,7 @@ export const Default: Story = {
 	render: (args) => (
 		<Card className="max-w-sm" {...args}>
 			<Card.Header>
-				<h3 className="font-semibold text-lg text-neutral-12">Card Title</h3>
+				<h3 className="text-neutral-12 text-lg font-semibold">Card Title</h3>
 			</Card.Header>
 
 			<Card.Content>
