@@ -3,4 +3,13 @@
  * DO NOT EDIT manually
  */
 
-export const controllers = {}
+export const controllers = {
+  features: {
+    core: {
+      healthChecks: {
+        Live: () => import('#src/features/core/health_checks/controllers/live.controller'),
+        Ready: () => import('#src/features/core/health_checks/controllers/ready.controller'),
+      },
+    },
+  },
+}

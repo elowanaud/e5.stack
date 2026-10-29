@@ -5,6 +5,12 @@
 
 export const controllers = {
   features: {
+    core: {
+      healthChecks: {
+        Live: () => import('#src/features/core/health_checks/controllers/live.controller'),
+        Ready: () => import('#src/features/core/health_checks/controllers/ready.controller'),
+      },
+    },
     frontend: {
       auth: {
         LoginWithCredentials: () => import('#src/features/frontend/auth/controllers/login_with_credentials.controller'),

@@ -19,4 +19,28 @@ export interface Registry {
       errorResponse: unknown
     }
   }
+  'core.health.live': {
+    methods: ["GET","HEAD"]
+    pattern: '/core/health/live'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#src/features/core/health_checks/controllers/live.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/core/health_checks/controllers/live.controller').default['handle']>>>
+    }
+  }
+  'core.health.ready': {
+    methods: ["GET","HEAD"]
+    pattern: '/core/health/ready'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#src/features/core/health_checks/controllers/ready.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/core/health_checks/controllers/ready.controller').default['handle']>>>
+    }
+  }
 }

@@ -5,6 +5,8 @@ type ParamValue = string | number | bigint | boolean
 export type ScannedRoutes = {
   ALL: {
     'drive.fs.serve': { paramsTuple: [...ParamValue[]]; params: {'*': ParamValue[]} }
+    'core.health.live': { paramsTuple?: []; params?: {} }
+    'core.health.ready': { paramsTuple?: []; params?: {} }
     'frontend.auth.login_with_credentials': { paramsTuple?: []; params?: {} }
     'frontend.auth.logout': { paramsTuple?: []; params?: {} }
     'frontend.oauth.redirect': { paramsTuple: [ParamValue]; params: {'provider': ParamValue} }
@@ -13,12 +15,16 @@ export type ScannedRoutes = {
   }
   GET: {
     'drive.fs.serve': { paramsTuple: [...ParamValue[]]; params: {'*': ParamValue[]} }
+    'core.health.live': { paramsTuple?: []; params?: {} }
+    'core.health.ready': { paramsTuple?: []; params?: {} }
     'frontend.oauth.redirect': { paramsTuple: [ParamValue]; params: {'provider': ParamValue} }
     'frontend.oauth.callback': { paramsTuple: [ParamValue]; params: {'provider': ParamValue} }
     'frontend.profile.view': { paramsTuple?: []; params?: {} }
   }
   HEAD: {
     'drive.fs.serve': { paramsTuple: [...ParamValue[]]; params: {'*': ParamValue[]} }
+    'core.health.live': { paramsTuple?: []; params?: {} }
+    'core.health.ready': { paramsTuple?: []; params?: {} }
     'frontend.oauth.redirect': { paramsTuple: [ParamValue]; params: {'provider': ParamValue} }
     'frontend.oauth.callback': { paramsTuple: [ParamValue]; params: {'provider': ParamValue} }
     'frontend.profile.view': { paramsTuple?: []; params?: {} }

@@ -89,6 +89,48 @@
 		"folders": [
 			{
 				"model": "folder",
+				"id": "fl_u6XrMnqa6d",
+				"createdAt": "2026-10-27T16:52:01.559302",
+				"updatedAt": "2026-10-27T16:52:01.559303",
+				"workspaceId": "wk_EPvUoXDqMn",
+				"folderId": null,
+				"authentication": {},
+				"authenticationType": null,
+				"description": "Sondes de santé publiques du backend : liveness et readiness. Aucun corps ni authentification requis.",
+				"headers": [],
+				"name": "Health Checks",
+				"sortPriority": 3.0,
+				"settingSendCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingStoreCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingValidateCertificates": {
+					"enabled": false,
+					"value": true
+				},
+				"settingFollowRedirects": {
+					"enabled": false,
+					"value": true
+				},
+				"settingRequestTimeout": {
+					"enabled": false,
+					"value": 0
+				},
+				"settingRequestMessageSize": {
+					"enabled": false,
+					"value": 67108864
+				},
+				"settingHttpVersion": {
+					"enabled": false,
+					"value": "auto"
+				}
+			},
+			{
+				"model": "folder",
 				"id": "fl_F7iTw2SNvA",
 				"createdAt": "2026-10-27T10:59:34.195146",
 				"updatedAt": "2026-10-27T10:59:34.195146",
@@ -224,6 +266,92 @@
 			}
 		],
 		"httpRequests": [
+			{
+				"model": "http_request",
+				"id": "rq_Y5CSEWRAhk",
+				"createdAt": "2026-10-27T16:52:08.654617",
+				"updatedAt": "2026-10-27T16:52:08.654617",
+				"workspaceId": "wk_EPvUoXDqMn",
+				"folderId": "fl_u6XrMnqa6d",
+				"authentication": {},
+				"authenticationType": null,
+				"body": {},
+				"bodyType": null,
+				"description": "# Liveness\nGET /core/health/live — public, sans authentification, paramètre ni corps.\n\n## Succès\n200 : le processus répond. Le contrôleur renvoie une valeur null et ne lance pas les checks de readiness. Les middlewares globaux restent exécutés.",
+				"headers": [],
+				"method": "GET",
+				"name": "Liveness",
+				"sortPriority": 0.0,
+				"url": "${[ BASE_URL ]}/core/health/live",
+				"urlParameters": [],
+				"settingSendCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingStoreCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingValidateCertificates": {
+					"enabled": false,
+					"value": true
+				},
+				"settingFollowRedirects": {
+					"enabled": false,
+					"value": true
+				},
+				"settingRequestTimeout": {
+					"enabled": false,
+					"value": 0
+				},
+				"settingHttpVersion": {
+					"enabled": false,
+					"value": "auto"
+				}
+			},
+			{
+				"model": "http_request",
+				"id": "rq_pLNWEikzgc",
+				"createdAt": "2026-10-27T16:52:08.734723",
+				"updatedAt": "2026-10-27T16:52:08.734723",
+				"workspaceId": "wk_EPvUoXDqMn",
+				"folderId": "fl_u6XrMnqa6d",
+				"authentication": {},
+				"authenticationType": null,
+				"body": {},
+				"bodyType": null,
+				"description": "# Readiness\nGET /core/health/ready — public, sans authentification, paramètre ni corps.\n\nVérifie l’espace disque, la mémoire heap, la connexion à la base de données et la connexion Redis.\n\n## Réponses\n- 200 avec le rapport de santé si report.isHealthy est vrai.\n- 503 avec le rapport de santé sinon.\n\nLes middlewares globaux restent exécutés.",
+				"headers": [],
+				"method": "GET",
+				"name": "Readiness",
+				"sortPriority": 1.0,
+				"url": "${[ BASE_URL ]}/core/health/ready",
+				"urlParameters": [],
+				"settingSendCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingStoreCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingValidateCertificates": {
+					"enabled": false,
+					"value": true
+				},
+				"settingFollowRedirects": {
+					"enabled": false,
+					"value": true
+				},
+				"settingRequestTimeout": {
+					"enabled": false,
+					"value": 0
+				},
+				"settingHttpVersion": {
+					"enabled": false,
+					"value": "auto"
+				}
+			},
 			{
 				"model": "http_request",
 				"id": "rq_DfSniJUwQJ",

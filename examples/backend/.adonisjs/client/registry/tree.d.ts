@@ -7,6 +7,12 @@ export interface ApiDefinition {
       serve: typeof routes['drive.fs.serve']
     }
   }
+  core: {
+    health: {
+      live: typeof routes['core.health.live']
+      ready: typeof routes['core.health.ready']
+    }
+  }
   frontend: {
     auth: {
       loginWithCredentials: typeof routes['frontend.auth.login_with_credentials']
