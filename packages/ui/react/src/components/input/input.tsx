@@ -16,21 +16,24 @@ export function InputRoot(props: InputRootProps) {
 	const { ref: rightSlotRef, size: rightSlotSize } = useElementSize();
 
 	return (
-		<div className="relative inline-flex items-center has-[input[data-disabled]]:opacity-50">
+		<div className="relative flex has-[input[data-disabled]]:opacity-50">
 			{leftSlot && (
-				<span ref={leftSlotRef} className="pointer-events-none absolute left-1.5 flex items-center">
+				<span
+					ref={leftSlotRef}
+					className="pointer-events-none absolute top-1/2 left-1 flex -translate-y-1/2 items-center"
+				>
 					{leftSlot}
 				</span>
 			)}
 			<InputHeadless
 				className={cn(
-					"border-neutral-7 bg-neutral-1 text-neutral-12 ring-primary-7 h-10 w-full flex-1 rounded-lg border px-2 text-start text-base transition outline-none sm:h-9 sm:text-sm",
+					"border-neutral-7 bg-neutral-1 text-neutral-12 ring-primary-8 h-9 flex-1 rounded-lg border px-2 text-start text-base outline-none sm:text-sm",
 					"placeholder:text-neutral-9",
 					"hover:not-data-disabled:border-neutral-8",
-					"focus-visible:border-primary-8 focus-visible:hover:border-primary-8 focus-visible:ring-3",
+					"focus-visible:border-primary-8 focus-visible:hover:border-primary-8 focus-visible:ring-2",
 					"data-popup-open:border-primary-8 data-popup-open:hover:border-primary-8 data-popup-open:ring-3",
 					"data-disabled:cursor-not-allowed",
-					"data-invalid:border-error-7 data-invalid:ring-error-7",
+					"data-invalid:border-error-7 data-invalid:ring-error-8",
 					"data-invalid:hover:not-data-disabled:border-error-8",
 					"data-invalid:focus-visible:border-error-8 data-invalid:hover:border-error-8",
 					"data-invalid:data-popup-open:border-error-8 data-invalid:data-popup-open:hover:border-error-8",
@@ -49,7 +52,7 @@ export function InputRoot(props: InputRootProps) {
 			{rightSlot && (
 				<span
 					ref={rightSlotRef}
-					className="pointer-events-none absolute right-1.5 flex items-center"
+					className="pointer-events-none absolute top-1/2 right-1 flex -translate-y-1/2 items-center"
 				>
 					{rightSlot}
 				</span>

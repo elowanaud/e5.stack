@@ -1,0 +1,63 @@
+import { Canvas, Controls, Meta } from "@storybook/addon-docs/blocks";
+import * as InputStories from "./input.stories";
+
+<Meta of={InputStories} />
+
+# Input
+
+Accepts a single-line value, such as a name, search query, or measurement.
+Use `Field` for an accessible label, supporting text, and validation feedback.
+
+## Usage
+
+<div style={{ overflowX: "auto" }}>
+
+```tsx
+import { Field } from "@workspace/ui-react/components/field";
+import { Input } from "@workspace/ui-react/components/input";
+
+<Field className="grid gap-2">
+  <Field.Label>Full name</Field.Label>
+  <Input name="name" autoComplete="name" placeholder="Alex Morgan" />
+</Field>
+```
+
+</div>
+
+<Canvas of={InputStories.Default} />
+
+## Props
+
+Inherits HTML input props such as `type`, `name`, `required`, `autoComplete`, and ARIA attributes.
+`className` styles the input itself; put layout classes on a parent to size or position the whole field.
+
+<div style={{ overflowX: "auto" }}>
+
+<Controls of={InputStories.Default} />
+
+</div>
+
+## Slots
+
+Use `leftSlot` and `rightSlot` for presentation only: icons, units, or prefixes.
+Padding adjusts automatically to fit their content. Do not put buttons or links in slots.
+Mark decorative content `aria-hidden="true"`; include meaningful units or formats in the label,
+such as “Weight (kg)” or “Website (https://….com)”, so they remain available to assistive technology.
+
+<Canvas of={InputStories.Slots} />
+
+## States
+
+Always provide `Field.Label` (or `aria-label` when a visible label is unsuitable).
+A placeholder is a hint, not a label.
+
+<table style={{ width: "100%", display: "table" }}>
+  <thead><tr><th>State</th><th>Use</th></tr></thead>
+  <tbody>
+    <tr><td><code>disabled</code></td><td>Prevent editing and focus; omit the value from form submission. Set on Input or its parent Field.</td></tr>
+    <tr><td><code>readOnly</code></td><td>Prevent editing while keeping the value focusable, selectable, and included in form submission.</td></tr>
+    <tr><td><code>invalid</code> on Field</td><td>Expose an error state and show its explanation with Field.Error.</td></tr>
+  </tbody>
+</table>
+
+<Canvas of={InputStories.States} />
