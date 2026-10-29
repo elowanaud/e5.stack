@@ -119,13 +119,14 @@ e5.stack/
 > - Web: `https://frontend.e5.localhost`
 > - API: `https://api.e5.localhost`
 > - UI: `https://ui.e5.localhost`
->     >
-      The theme package keeps its direct file-watcher command. The API database, Redis, mail
-> sidecars, and email worker remain available through their dedicated commands.
+>     >        The theme package keeps its direct file-watcher command. The API database, Redis, mail
+    sidecars, and email worker remain available through their dedicated commands.
 
 Storybook is available at the UI URL above. Existing stories are grouped under `V1/`
 in the navigation; future V2 stories should use a `V2/` CSF title prefix. Story files
 remain colocated with their components.
+Attached documentation pages appear before component stories and open when selecting a collapsed component group.
+Documentation pages and their Canvas backgrounds follow the light/dark theme selected in the Storybook toolbar.
 
 ## Commands
 

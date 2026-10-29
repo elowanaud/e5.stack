@@ -4,17 +4,10 @@ import { PlusIcon } from "../../icons";
 import { Button, type ButtonProps } from "./index";
 
 const BUTTON_VARIANTS: ButtonProps["variant"][] = ["default", "primary", "ghost", "destructive"];
-const BUTTON_SIZES: ButtonProps["size"][] = ["md", "icon-sm", "icon-md"];
+const BUTTON_SIZES: ButtonProps["size"][] = ["sm", "md", "icon-sm", "icon-md"];
 
 const meta: Meta<typeof Button> = {
-	title: "V1/Button",
-	parameters: {
-		docs: {
-			description: {
-				component: "https://base-ui.com/react/components/button",
-			},
-		},
-	},
+	title: "General/Button",
 	component: Button,
 	argTypes: {
 		type: {
@@ -72,7 +65,7 @@ const meta: Meta<typeof Button> = {
 					summary: "md",
 				},
 				type: {
-					summary: "'md' | 'icon-sm' | 'icon-md'",
+					summary: "'sm' | 'md' | 'icon-sm' | 'icon-md'",
 				},
 			},
 		},
@@ -124,9 +117,35 @@ export const Variants: Story = {
 		children: "Text",
 	},
 	render: (args) => (
-		<div className="flex flex-wrap gap-4">
+		<div className="flex flex-wrap gap-6">
 			{BUTTON_VARIANTS.map((variant) => (
-				<Button key={variant} variant={variant} {...args} />
+				<div key={variant} className="grid gap-2">
+					<span className="text-neutral-11 text-sm">{variant?.toLowerCase()}</span>
+					<Button variant={variant} {...args} />
+				</div>
+			))}
+		</div>
+	),
+};
+
+export const Sizes: Story = {
+	argTypes: {
+		children: {
+			control: false,
+		},
+		size: {
+			control: false,
+		},
+	},
+	render: (args) => (
+		<div className="flex flex-wrap gap-6">
+			{BUTTON_SIZES.map((size) => (
+				<div key={size} className="grid gap-2">
+					<span className="text-neutral-11 text-sm">{size?.toLowerCase()}</span>
+					<Button size={size} {...args}>
+						{size?.includes("icon") ? <PlusIcon /> : "Button"}
+					</Button>
+				</div>
 			))}
 		</div>
 	),

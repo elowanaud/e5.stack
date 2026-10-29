@@ -1,0 +1,58 @@
+import { Canvas, Controls, Meta } from "@storybook/addon-docs/blocks";
+import * as ButtonStories from "./button.stories";
+
+<Meta of={ButtonStories} />
+
+# Button
+
+Triggers an action, such as saving a form, opening a menu, or confirming a deletion.
+Built on the Base UI button, the component uses theme colors in both light and dark modes.
+It renders an HTML `button` element by default.
+
+## Usage
+
+```tsx
+import { Button } from "@workspace/ui-react/components/button";
+
+<Button onClick={handleSave}>
+  Save
+</Button>
+```
+
+<Canvas of={ButtonStories.Default} />
+
+## Props
+
+Change the props below to explore the button in the first example.
+
+<Controls of={ButtonStories.Default} />
+
+## Variants
+
+Choose a variant based on the action’s role in the interface.
+
+<table style={{ width: "100%", display: "table" }}>
+  <thead><tr><th>variant</th><th>Recommended use</th></tr></thead>
+  <tbody>
+    <tr><td><code>default</code></td><td>Secondary action with a neutral background and a border. The default variant.</td></tr>
+    <tr><td><code>primary</code></td><td>Main action within a section or form.</td></tr>
+    <tr><td><code>ghost</code></td><td>Subtle action with no background at rest, for example in a toolbar.</td></tr>
+    <tr><td><code>destructive</code></td><td>Destructive action, such as deletion. Request confirmation when the action is irreversible.</td></tr>
+  </tbody>
+</table>
+
+<Canvas of={ButtonStories.Variants} />
+
+## Sizes and icons
+
+<table style={{ width: "100%", display: "table" }}>
+  <thead><tr><th>size</th><th>Format</th></tr></thead>
+  <tbody>
+    <tr><td><code>sm</code></td><td>Compact button with text.</td></tr>
+    <tr><td><code>md</code></td><td>Button with text, the default size.</td></tr>
+    <tr><td><code>icon-sm</code></td><td>Compact square button for a single icon.</td></tr>
+    <tr><td><code>icon-md</code></td><td>Square button for a single icon.</td></tr>
+  </tbody>
+</table>
+
+<Canvas of={ButtonStories.Sizes} />
