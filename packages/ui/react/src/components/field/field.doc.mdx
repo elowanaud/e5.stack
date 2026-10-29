@@ -1,0 +1,108 @@
+import { Canvas, Controls, Meta } from "@storybook/addon-docs/blocks";
+import * as FieldStories from "./field.stories";
+
+<Meta of={FieldStories} />
+
+# Field
+
+Connects a control to its label, supporting text, and validation feedback.
+The root shares field state; you choose the layout and render the messages.
+
+## Usage
+
+<div style={{ overflowX: "auto" }}>
+
+```tsx
+import { Field } from "@workspace/ui-react/components/field";
+import { Input } from "@workspace/ui-react/components/input";
+
+<Field className="grid gap-2">
+  <Field.Label>Full name</Field.Label>
+  <Input name="name" autoComplete="name" placeholder="Alex Morgan" />
+  <Field.Description>Visible on your profile.</Field.Description>
+</Field>
+```
+
+</div>
+
+<Canvas of={FieldStories.TextField} />
+
+## Props
+
+Change the root props below to explore the first example.
+Put `required` and `autoComplete` on the control. You can set `name` on the root for integrated controls; it takes precedence over the control's own name.
+
+<div style={{ overflowX: "auto" }}>
+
+<Controls of={FieldStories.TextField} />
+
+</div>
+
+## Anatomy
+
+<table style={{ width: "100%", display: "table" }}>
+  <thead><tr><th>Part</th><th>Use</th></tr></thead>
+  <tbody>
+    <tr><td><code>Field</code></td><td>Shares state with integrated controls; adds no layout. Use className for spacing and alignment.</td></tr>
+    <tr><td><code>Field.Label</code></td><td>Associates the label with a Base UI control in the field.</td></tr>
+    <tr><td><code>Field.Description</code></td><td>Provides supporting help associated with an integrated control.</td></tr>
+    <tr><td><code>Field.Error</code></td><td>Displays an error message that you explicitly mount.</td></tr>
+  </tbody>
+</table>
+
+## Required
+
+`Field.Label required` adds an asterisk only. Put `required` on the control to enforce the constraint.
+For example, using the imports above:
+
+<div style={{ overflowX: "auto" }}>
+
+```tsx
+<Field className="grid gap-2">
+  <Field.Label required>Email</Field.Label>
+  <Input name="email" type="email" autoComplete="email" required />
+</Field>
+```
+
+</div>
+
+<Canvas of={FieldStories.Required} />
+
+## Errors and states
+
+`invalid` on the root exposes invalid state to integrated controls; it does not create an error message.
+`Field.Error` always uses `match={true}` internally: mount it only when an error is present.
+Disabling the field does not hide an error that remains rendered.
+
+<div style={{ overflowX: "auto" }}>
+
+```tsx
+<Field invalid className="grid gap-2">
+  <Field.Label>Full name</Field.Label>
+  <Input name="name" autoComplete="name" />
+  <Field.Error>Enter your full name.</Field.Error>
+</Field>
+```
+
+</div>
+
+<Canvas of={FieldStories.States} />
+
+## Composition
+
+`Input`, `PasswordInput`, `Select`, `Combobox`, `Switch`, and `Checkbox` integrate with Field through Base UI.
+Set shared `disabled` and `invalid` state on the root, and arrange the label and control with layout classes.
+For `PasswordInput`, also pass `disabled` explicitly to disable its visibility toggle; root state alone does not disable that button.
+
+Place a checkbox or switch beside its label, with help and errors aligned below the label:
+
+<Canvas of={FieldStories.CheckboxField} />
+
+`Textarea` is a native control without automatic Field integration. Connect `Field.Label htmlFor` to the textarea's `id`;
+assign IDs to the description and any rendered error, and reference them with `aria-describedby` on the textarea.
+Pass `aria-invalid` and `disabled` directly to `Textarea`; root state alone does not configure it.
+Only include the error ID in `aria-describedby` while that error is rendered.
+
+<Canvas of={FieldStories.TextareaField} />
+
+See the individual stories for PasswordInput, Select, Combobox, and Switch compositions.
