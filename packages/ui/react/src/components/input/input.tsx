@@ -27,13 +27,13 @@ export function InputRoot(props: InputRootProps) {
 			)}
 			<InputHeadless
 				className={cn(
-					"border-neutral-7 bg-neutral-1 text-neutral-12 ring-primary-8 h-9 flex-1 rounded-lg border px-2 text-start text-base outline-none sm:text-sm",
+					"border-neutral-7 bg-neutral-1 text-neutral-12 outline-primary-8 h-9 flex-1 rounded-lg border px-2 text-start text-base sm:text-sm",
 					"placeholder:text-neutral-9",
 					"hover:not-data-disabled:border-neutral-8",
-					"focus-visible:border-primary-8 focus-visible:hover:border-primary-8 focus-visible:ring-2",
-					"data-popup-open:border-primary-8 data-popup-open:hover:border-primary-8 data-popup-open:ring-3",
+					"focus-visible:border-primary-8 focus-visible:hover:border-primary-8 focus-visible:outline-2",
+					"data-popup-open:border-primary-8 data-popup-open:hover:border-primary-8 data-popup-open:outline-2",
 					"data-disabled:cursor-not-allowed",
-					"data-invalid:border-error-7 data-invalid:ring-error-8",
+					"data-invalid:border-error-7 data-invalid:outline-error-8",
 					"data-invalid:hover:not-data-disabled:border-error-8",
 					"data-invalid:focus-visible:border-error-8 data-invalid:hover:border-error-8",
 					"data-invalid:data-popup-open:border-error-8 data-invalid:data-popup-open:hover:border-error-8",

@@ -6,7 +6,7 @@ import { middleware } from "#start/kernel";
 router
 	.group(() => {
 		router
-			.post("/login", [controllers.features.frontend.auth.LoginWithCredentials])
+			.post("/login", [controllers.features.frontend.auth.Login])
 			.middleware(middleware.guest({ guards: ["frontend"] }));
 		router
 			.delete("/logout", [controllers.features.frontend.auth.Logout])

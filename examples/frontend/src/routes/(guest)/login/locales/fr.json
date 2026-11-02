@@ -1,0 +1,8 @@
+{
+	"routes.(guest).login": {
+		"title": "Bienvenue sur Lumio",
+		"separator": "ou",
+		"signup": "Nouvel utilisateur? <action>Inscrivez-vous</action>",
+		"legal": "En vous connectant, vous acceptez nos <terms>conditions d'utilisation</terms> et notre <privacy>politique de confidentialité</privacy>."
+	}
+}

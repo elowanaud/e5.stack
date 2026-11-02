@@ -4,21 +4,25 @@ import vine from "@vinejs/vine";
 
 import User from "#models/user";
 import UserPresenter from "#presenters/user.presenter";
+import env from "#start/env";
 
 @inject()
 export default class OAuthCallbackController {
 	constructor(protected userPresenter: UserPresenter) {}
 
-	async handle({ request, ally, auth }: HttpContext) {
+	async handle({ request, response, ally, auth }: HttpContext) {
 		const { params } = await request.validateUsing(
 			vine.create({ params: vine.object({ provider: vine.enum(ally.configuredProviderNames()) }) }),
 		);
 
 		const provider = ally.use(params.provider);
 
-		if (provider.accessDenied()) return { error: "Access denied" };
-		if (provider.stateMisMatch()) return { error: "State mismatch" };
-		if (provider.hasError()) return { error: provider.getError() };
+		if (provider.accessDenied())
+			return response.redirect(`${env.get("FRONTEND_URL")}/login?oauth_state=access_denied`);
+		if (provider.stateMisMatch())
+			return response.redirect(`${env.get("FRONTEND_URL")}/login?oauth_state=state_mismatch`);
+		if (provider.hasError())
+			return response.redirect(`${env.get("FRONTEND_URL")}/login?oauth_state=unexpected_error`);
 
 		const providerUser = await provider.user();
 		const user = await User.firstOrCreate(
@@ -28,6 +32,6 @@ export default class OAuthCallbackController {
 
 		await auth.use("frontend").login(user);
 
-		return this.userPresenter.toJSON(user);
+		return response.redirect(`${env.get("FRONTEND_URL")}/login?oauth_state=success`);
 	}
 }

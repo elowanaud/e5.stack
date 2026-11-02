@@ -15,7 +15,7 @@ export interface ApiDefinition {
   }
   frontend: {
     auth: {
-      loginWithCredentials: typeof routes['frontend.auth.login_with_credentials']
+      login: typeof routes['frontend.auth.login']
       logout: typeof routes['frontend.auth.logout']
     }
     oauth: {

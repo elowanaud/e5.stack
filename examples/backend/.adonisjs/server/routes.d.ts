@@ -7,7 +7,7 @@ export type ScannedRoutes = {
     'drive.fs.serve': { paramsTuple: [...ParamValue[]]; params: {'*': ParamValue[]} }
     'core.health.live': { paramsTuple?: []; params?: {} }
     'core.health.ready': { paramsTuple?: []; params?: {} }
-    'frontend.auth.login_with_credentials': { paramsTuple?: []; params?: {} }
+    'frontend.auth.login': { paramsTuple?: []; params?: {} }
     'frontend.auth.logout': { paramsTuple?: []; params?: {} }
     'frontend.oauth.redirect': { paramsTuple: [ParamValue]; params: {'provider': ParamValue} }
     'frontend.oauth.callback': { paramsTuple: [ParamValue]; params: {'provider': ParamValue} }
@@ -30,7 +30,7 @@ export type ScannedRoutes = {
     'frontend.profile.view': { paramsTuple?: []; params?: {} }
   }
   POST: {
-    'frontend.auth.login_with_credentials': { paramsTuple?: []; params?: {} }
+    'frontend.auth.login': { paramsTuple?: []; params?: {} }
   }
   DELETE: {
     'frontend.auth.logout': { paramsTuple?: []; params?: {} }

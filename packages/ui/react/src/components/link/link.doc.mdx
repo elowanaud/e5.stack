@@ -1,0 +1,54 @@
+import { Canvas, Controls, Meta } from "@storybook/addon-docs/blocks";
+import * as LinkStories from "./link.stories";
+
+<Meta of={LinkStories} />
+
+# Link
+
+Navigates to a page, resource, or section of the current page.
+`Link` is the public export of `LinkRoot` and renders an HTML `a` element by default.
+It uses the theme’s primary color, an underline, and hover and visited styles in both light and dark modes.
+Use `Button` instead for actions such as submitting a form or opening a dialog.
+
+## Usage
+
+```tsx
+import { Link } from "@workspace/ui-react/components/link";
+
+<Link href="/docs">Explore the documentation</Link>
+```
+
+<Canvas of={LinkStories.Default} />
+
+## Props
+
+Inherits HTML anchor props, including `href`, `target`, `rel`, `download`, event handlers, and ARIA attributes.
+`className` styles the anchor itself. There are no built-in size or variant props.
+
+<Controls of={LinkStories.Default} />
+
+## External links
+
+Use `target="_blank"` to open a destination in a new tab and `rel="noopener noreferrer"`
+to prevent access to the opener and omit the referrer. Let readers know when a link opens a new tab.
+
+<Canvas of={LinkStories.External} />
+
+## Composition
+
+Use `render` to replace the default anchor with a React element or a render function.
+The function receives the props to spread onto the rendered element, including its ref and merged styles and handlers.
+The example adds a decorative arrow while preserving the anchor’s native behavior.
+
+<Canvas of={LinkStories.Composition} />
+
+For client-side navigation, supply your router’s link component through `render`.
+It must accept and forward the supplied props and ref to an anchor; configure the destination
+using your router’s API. `Link` does not provide routing by itself.
+
+## Accessibility
+
+- Provide an `href` for navigation and descriptive link text that makes sense in context.
+- Native anchors with an `href` are keyboard-focusable and activate with Enter; preserve this behavior when using `render`.
+- Keep decorative icons hidden from assistive technology with `aria-hidden="true"`.
+- There is no built-in disabled behavior. `aria-disabled` alone does not prevent navigation; render non-interactive text when a destination is unavailable.

@@ -47,17 +47,17 @@ export interface Registry {
       rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#src/features/core/health_checks/controllers/ready.controller').default['handle']>>>
     }
   }
-  'frontend.auth.login_with_credentials': {
+  'frontend.auth.login': {
     methods: ["POST"]
     pattern: '/frontend/auth/login'
     types: {
-      body: ExtractBody<InferInput<(typeof import('#src/features/frontend/auth/controllers/login_with_credentials.controller').default)['payloadSchema']>>
+      body: ExtractBody<InferInput<(typeof import('#src/features/frontend/auth/controllers/login.controller').default)['payloadSchema']>>
       paramsTuple: []
       params: {}
-      query: ExtractQuery<InferInput<(typeof import('#src/features/frontend/auth/controllers/login_with_credentials.controller').default)['payloadSchema']>>
-      response: ExtractResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/login_with_credentials.controller').default['handle']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/login_with_credentials.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
-      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/login_with_credentials.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
+      query: ExtractQuery<InferInput<(typeof import('#src/features/frontend/auth/controllers/login.controller').default)['payloadSchema']>>
+      response: ExtractResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/login.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/login.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/login.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
   'frontend.auth.logout': {

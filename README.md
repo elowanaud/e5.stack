@@ -42,7 +42,7 @@ _AdonisJS API, TanStack Start web app, and shared UI packages connected by Tuyau
 - **TanStack Start Web App:** File routes use custom `layout.tsx` and `page.tsx` tokens, plus route groups for guest/private flows.
 - **Profile Settings Flow:** Authenticated profile UI is tabbed across `/profile`, `/profile/security`, and `/profile/privacy`.
 - **Shared UI Packages:** `@workspace/ui-react` provides Storybook-backed components; `@workspace/ui-theme` generates checked-in Tailwind CSS from tokens.
-- **French i18n Build:** Source `locales/fr.json` files compile into a generated web bundle during install and development.
+- **French i18n Build:** Source `locales/fr.json` files compile into a generated web bundle during install and development. The example frontend includes French login labels and login/logout success and error messages in `examples/frontend/src/features/auth/**/locales/fr.json`, plus OAuth success and error notifications in `examples/frontend/src/features/oauth/providers/locales/fr.json`. Login-page headings, signup copy, and legal links are translated in `examples/frontend/src/routes/(guest)/login/locales/fr.json`.
 
 ## Project Structure
 

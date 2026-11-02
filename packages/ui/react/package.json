@@ -4,8 +4,9 @@
 	"type": "module",
 	"exports": {
 		"./components/*": "./src/components/*/index.ts",
-		"./icons": "./src/icons.ts",
-		"./hooks/*": "./src/hooks/*.ts"
+		"./icons": "./src/icons.tsx",
+		"./hooks/*": "./src/hooks/*.ts",
+		"./integrations/*": "./src/integrations/*/index.ts"
 	},
 	"scripts": {
 		"dev": "portless",
@@ -18,9 +19,15 @@
 	},
 	"peerDependencies": {
 		"@workspace/ui-theme": "workspace:*",
+		"@tanstack/react-form": "1",
 		"react": "19",
 		"react-dom": "19",
 		"tailwindcss": "4"
+	},
+	"peerDependenciesMeta": {
+		"@tanstack/react-form": {
+			"optional": true
+		}
 	},
 	"dependencies": {
 		"@base-ui/react": "1.9.0",

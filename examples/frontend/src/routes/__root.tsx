@@ -2,10 +2,18 @@ import "#/libs/sentry";
 
 import type { QueryClient } from "@tanstack/react-query";
 import { createRootRouteWithContext, HeadContent, Scripts } from "@tanstack/react-router";
+import { z } from "zod";
 
 import { Providers } from "#/providers";
 import "#/styles/globals.css";
 import "#/libs/i18n/config";
+
+const globalSearchSchema = z.object({
+	oauth_state: z
+		.enum(["success", "access_denied", "state_mismatch", "unexpected_error"])
+		.optional()
+		.catch(undefined),
+});
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
 	head: () => ({
@@ -22,6 +30,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 			{ rel: "manifest", href: "/site.webmanifest" },
 		],
 	}),
+	validateSearch: globalSearchSchema,
 	shellComponent: RootDocument,
 });
 

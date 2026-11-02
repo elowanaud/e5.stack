@@ -1,0 +1,51 @@
+{
+	"features.auth.hooks.use-login-form": {},
+
+	"features.auth.hooks.use-login-mutation": {
+		"success": {
+			"title": "Connexion réussie",
+			"description": "Vous êtes maintenant connecté."
+		},
+
+		"error": {
+			"E_NETWORK": {
+				"title": "Connexion impossible",
+				"description": "Impossible de joindre le serveur. Vérifiez votre connexion Internet et réessayez."
+			},
+			"E_UNEXPECTED": {
+				"title": "Erreur inattendue",
+				"description": "Une erreur inattendue est survenue. Veuillez réessayer."
+			},
+			"E_GUEST_ONLY": {
+				"title": "Vous êtes déjà connecté",
+				"description": "Déconnectez-vous avant de vous connecter à un autre compte."
+			},
+			"E_INVALID_CREDENTIALS": {
+				"title": "Identifiants incorrects",
+				"description": "L’adresse e-mail ou le mot de passe est incorrect."
+			}
+		}
+	},
+
+	"features.auth.hooks.use-logout-mutation": {
+		"success": {
+			"title": "Déconnexion réussie",
+			"description": "Vous êtes maintenant déconnecté."
+		},
+
+		"error": {
+			"E_NETWORK": {
+				"title": "Connexion impossible",
+				"description": "Impossible de joindre le serveur. Vérifiez votre connexion Internet et réessayez."
+			},
+			"E_UNEXPECTED": {
+				"title": "Erreur inattendue",
+				"description": "Une erreur inattendue est survenue. Veuillez réessayer."
+			},
+			"E_UNAUTHENTICATED": {
+				"title": "Vous n’êtes pas connecté",
+				"description": "Vous devez être connecté pour vous déconnecter."
+			}
+		}
+	}
+}

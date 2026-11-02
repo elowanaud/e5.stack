@@ -13,7 +13,7 @@ export const controllers = {
     },
     frontend: {
       auth: {
-        LoginWithCredentials: () => import('#src/features/frontend/auth/controllers/login_with_credentials.controller'),
+        Login: () => import('#src/features/frontend/auth/controllers/login.controller'),
         Logout: () => import('#src/features/frontend/auth/controllers/logout.controller'),
       },
       oauth: {

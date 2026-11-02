@@ -9,50 +9,161 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as PageRouteImport } from './routes/page'
+import { Route as guestLayoutRouteImport } from './routes/(guest)/layout'
+import { Route as privateLayoutRouteImport } from './routes/(private)/layout'
+import { Route as privatePageRouteImport } from './routes/(private)/page'
+import { Route as guestForgotPasswordPageRouteImport } from './routes/(guest)/forgot-password/page'
+import { Route as guestLoginPageRouteImport } from './routes/(guest)/login/page'
+import { Route as guestRegisterPageRouteImport } from './routes/(guest)/register/page'
 
-const PageRoute = PageRouteImport.update({
+const guestLayoutRoute = guestLayoutRouteImport.update({
+  id: '/(guest)',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const privateLayoutRoute = privateLayoutRouteImport.update({
+  id: '/(private)',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const privatePageRoute = privatePageRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => privateLayoutRoute,
+} as any)
+const guestForgotPasswordPageRoute = guestForgotPasswordPageRouteImport.update({
+  id: '/forgot-password/',
+  path: '/forgot-password/',
+  getParentRoute: () => guestLayoutRoute,
+} as any)
+const guestLoginPageRoute = guestLoginPageRouteImport.update({
+  id: '/login/',
+  path: '/login/',
+  getParentRoute: () => guestLayoutRoute,
+} as any)
+const guestRegisterPageRoute = guestRegisterPageRouteImport.update({
+  id: '/register/',
+  path: '/register/',
+  getParentRoute: () => guestLayoutRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof PageRoute
+  '/': typeof privatePageRoute
+  '/forgot-password/': typeof guestForgotPasswordPageRoute
+  '/login/': typeof guestLoginPageRoute
+  '/register/': typeof guestRegisterPageRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof PageRoute
+  '/': typeof privatePageRoute
+  '/forgot-password': typeof guestForgotPasswordPageRoute
+  '/login': typeof guestLoginPageRoute
+  '/register': typeof guestRegisterPageRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof PageRoute
+  '/(guest)': typeof guestLayoutRouteWithChildren
+  '/(private)': typeof privateLayoutRouteWithChildren
+  '/(private)/': typeof privatePageRoute
+  '/(guest)/forgot-password/': typeof guestForgotPasswordPageRoute
+  '/(guest)/login/': typeof guestLoginPageRoute
+  '/(guest)/register/': typeof guestRegisterPageRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/forgot-password/' | '/login/' | '/register/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/forgot-password' | '/login' | '/register'
+  id:
+    | '__root__'
+    | '/(guest)'
+    | '/(private)'
+    | '/(private)/'
+    | '/(guest)/forgot-password/'
+    | '/(guest)/login/'
+    | '/(guest)/register/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  PageRoute: typeof PageRoute
+  guestLayoutRoute: typeof guestLayoutRouteWithChildren
+  privateLayoutRoute: typeof privateLayoutRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/(guest)': {
+      id: '/(guest)'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof guestLayoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(private)': {
+      id: '/(private)'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof privateLayoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(private)/': {
+      id: '/(private)/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof PageRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof privatePageRouteImport
+      parentRoute: typeof privateLayoutRoute
+    }
+    '/(guest)/forgot-password/': {
+      id: '/(guest)/forgot-password/'
+      path: '/forgot-password'
+      fullPath: '/forgot-password/'
+      preLoaderRoute: typeof guestForgotPasswordPageRouteImport
+      parentRoute: typeof guestLayoutRoute
+    }
+    '/(guest)/login/': {
+      id: '/(guest)/login/'
+      path: '/login'
+      fullPath: '/login/'
+      preLoaderRoute: typeof guestLoginPageRouteImport
+      parentRoute: typeof guestLayoutRoute
+    }
+    '/(guest)/register/': {
+      id: '/(guest)/register/'
+      path: '/register'
+      fullPath: '/register/'
+      preLoaderRoute: typeof guestRegisterPageRouteImport
+      parentRoute: typeof guestLayoutRoute
     }
   }
 }
 
+interface guestLayoutRouteChildren {
+  guestForgotPasswordPageRoute: typeof guestForgotPasswordPageRoute
+  guestLoginPageRoute: typeof guestLoginPageRoute
+  guestRegisterPageRoute: typeof guestRegisterPageRoute
+}
+
+const guestLayoutRouteChildren: guestLayoutRouteChildren = {
+  guestForgotPasswordPageRoute: guestForgotPasswordPageRoute,
+  guestLoginPageRoute: guestLoginPageRoute,
+  guestRegisterPageRoute: guestRegisterPageRoute,
+}
+
+const guestLayoutRouteWithChildren = guestLayoutRoute._addFileChildren(
+  guestLayoutRouteChildren,
+)
+
+interface privateLayoutRouteChildren {
+  privatePageRoute: typeof privatePageRoute
+}
+
+const privateLayoutRouteChildren: privateLayoutRouteChildren = {
+  privatePageRoute: privatePageRoute,
+}
+
+const privateLayoutRouteWithChildren = privateLayoutRoute._addFileChildren(
+  privateLayoutRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
-  PageRoute: PageRoute,
+  guestLayoutRoute: guestLayoutRouteWithChildren,
+  privateLayoutRoute: privateLayoutRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

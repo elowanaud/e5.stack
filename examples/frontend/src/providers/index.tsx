@@ -4,6 +4,7 @@ import type { PropsWithChildren } from "react";
 import { ToastProvider } from "@workspace/ui-react/components/toast";
 import { Tooltip } from "@workspace/ui-react/components/tooltip";
 
+import { OauthNotificationProvider } from "#/features/oauth/providers/notification";
 import { TanstackDevtoolsProvider } from "#/providers/tanstack-devtools";
 
 export function Providers({ children }: PropsWithChildren) {
@@ -11,6 +12,7 @@ export function Providers({ children }: PropsWithChildren) {
 		<ThemeProvider disableTransitionOnChange>
 			<Tooltip.Provider>
 				{children}
+				<OauthNotificationProvider />
 				<TanstackDevtoolsProvider />
 				<ToastProvider />
 			</Tooltip.Provider>

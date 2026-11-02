@@ -26,11 +26,11 @@ const routes = {
     tokens: [[0,"core"],[0,"health"],[0,"ready"]],
     types: placeholder as Registry['core.health.ready']['types'],
   },
-  'frontend.auth.login_with_credentials': {
+  'frontend.auth.login': {
     methods: ["POST"],
     pattern: '/frontend/auth/login',
     tokens: [[0,"frontend"],[0,"auth"],[0,"login"]],
-    types: placeholder as Registry['frontend.auth.login_with_credentials']['types'],
+    types: placeholder as Registry['frontend.auth.login']['types'],
   },
   'frontend.auth.logout': {
     methods: ["DELETE"],

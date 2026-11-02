@@ -12,9 +12,9 @@ export function LinkRoot(props: LinkRootProps) {
 		props: mergeProps<"a">(
 			{
 				className: cn(
-					"text-primary-9 text-sm underline-offset-2 transition",
-					"hover:text-primary-11 hover:underline",
-					"visited:text-primary-11",
+					"text-primary-9 underline underline-offset-4 outline-none",
+					"hover:text-primary-11",
+					"focus-visible:bg-primary-4",
 					className,
 				),
 			},

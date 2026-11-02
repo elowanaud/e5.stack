@@ -4,6 +4,7 @@ import { createRouter as createTanStackRouter } from "@tanstack/react-router";
 import { setupRouterSsrQueryIntegration } from "@tanstack/react-router-ssr-query";
 
 import { NotFoundPage } from "#/components/pages/not-found";
+import { SplashScreen } from "#/components/pages/splash-screen";
 import { UnexpectedPage } from "#/components/pages/unexpected";
 import { routeTree } from "#/routeTree.gen";
 
@@ -18,6 +19,7 @@ export function getRouter() {
 		defaultPreload: "intent",
 		defaultErrorComponent: UnexpectedPage,
 		defaultNotFoundComponent: NotFoundPage,
+		defaultPendingComponent: SplashScreen,
 	});
 
 	if (!router.isServer) {
