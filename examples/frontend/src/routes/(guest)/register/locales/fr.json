@@ -1,0 +1,8 @@
+{
+	"routes.(guest).register": {
+		"title": "Créer un compte Lumio",
+		"separator": "ou",
+		"login": "Déjà un compte ? <action>Connectez-vous</action>",
+		"legal": "En vous inscrivant, vous acceptez nos <terms>conditions d'utilisation</terms> et notre <privacy>politique de confidentialité</privacy>."
+	}
+}

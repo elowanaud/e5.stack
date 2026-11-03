@@ -14,7 +14,7 @@ test.group("Frontend auth | login", () => {
 		assert.notEqual(user.password, password);
 		assert.isTrue(await hash.use("scrypt").verify(user.password, password));
 
-		const response = await client.visit("frontend.auth.login_with_credentials").json({
+		const response = await client.visit("frontend.auth.login").json({
 			uid: user.email,
 			password,
 		});
@@ -34,7 +34,7 @@ test.group("Frontend auth | login", () => {
 	test("rejects a wrong password", async ({ client, assert }) => {
 		const user = await UserFactory.merge({ password: "correct-password" }).create();
 
-		const response = await client.visit("frontend.auth.login_with_credentials").json({
+		const response = await client.visit("frontend.auth.login").json({
 			uid: user.email,
 			password: "wrong-password",
 		});
@@ -45,7 +45,7 @@ test.group("Frontend auth | login", () => {
 	});
 
 	test("rejects an unknown email", async ({ client, assert }) => {
-		const response = await client.visit("frontend.auth.login_with_credentials").json({
+		const response = await client.visit("frontend.auth.login").json({
 			uid: "unknown@example.com",
 			password: "any-password",
 		});
@@ -60,7 +60,7 @@ test.group("Frontend auth | login", () => {
 		const user = await UserFactory.merge({ password }).create();
 
 		const response = await client
-			.visit("frontend.auth.login_with_credentials")
+			.visit("frontend.auth.login")
 			.withGuard("frontend")
 			.loginAs(user)
 			.json({ uid: user.email, password });

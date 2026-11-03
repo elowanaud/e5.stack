@@ -1,7 +1,10 @@
 import vine from "@vinejs/vine";
 
-export const UserPasswordValidator = vine.string().minLength(8).maxLength(32);
+import { passwordValidator } from "#validators/password.validator";
 
-export const UpdateUserSchema = vine.object({
-	name: vine.string().minLength(2).maxLength(254).optional(),
+export const CreateUserValidator = vine.object({
+	name: vine.string().trim().minLength(2).maxLength(254),
+	email: vine.string().email().maxLength(254).unique({ table: "users", column: "email" }),
+	password: passwordValidator.confirmed({ as: "passwordConfirmation" }),
+	passwordConfirmation: vine.string(),
 });

@@ -16,6 +16,7 @@ export interface ApiDefinition {
   frontend: {
     auth: {
       login: typeof routes['frontend.auth.login']
+      register: typeof routes['frontend.auth.register']
       logout: typeof routes['frontend.auth.logout']
     }
     oauth: {

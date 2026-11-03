@@ -42,7 +42,7 @@ _AdonisJS API, TanStack Start web app, and shared UI packages connected by Tuyau
 - **TanStack Start Web App:** File routes use custom `layout.tsx` and `page.tsx` tokens, plus route groups for guest/private flows.
 - **Profile Settings Flow:** Authenticated profile UI is tabbed across `/profile`, `/profile/security`, and `/profile/privacy`.
 - **Shared UI Packages:** `@workspace/ui-react` provides Storybook-backed components; `@workspace/ui-theme` generates checked-in Tailwind CSS from tokens.
-- **French i18n Build:** Source `locales/fr.json` files compile into a generated web bundle during install and development. The example frontend includes French login labels and login/logout success and error messages in `examples/frontend/src/features/auth/**/locales/fr.json`, plus OAuth success and error notifications in `examples/frontend/src/features/oauth/providers/locales/fr.json`. Login-page headings, signup copy, and legal links are translated in `examples/frontend/src/routes/(guest)/login/locales/fr.json`.
+- **French i18n Build:** Source `locales/fr.json` files compile into a generated web bundle during install and development. The example frontend includes French login/register labels, registration validations, and login/register/logout success and error messages in `examples/frontend/src/features/auth/**/locales/fr.json`, plus OAuth success and error notifications in `examples/frontend/src/features/oauth/providers/locales/fr.json`. Login and registration headings, account links, and legal links are translated in `examples/frontend/src/routes/(guest)/{login,register}/locales/fr.json`.
 
 ## Project Structure
 
@@ -154,7 +154,7 @@ API tests live in `apps/backend/tests/` and run through Japa. Feature tests mirr
 
 Run all workspace suites with `pnpm test` (`turbo test`), individual suites with `pnpm test:unit` and `pnpm test:e2e`, or target the API with `pnpm --filter @workspace/backend test`. Turbo runs each package's `test` script; the backends use `node ace test` to run every configured suite. CI runs both unit and e2e jobs.
 
-The example API has HTTP coverage for credential login, logout, and the public profile in `examples/backend/tests/features/frontend/`. Requests use `client.visit` with the existing named routes instead of hard-coded URLs and HTTP methods. Run it with `pnpm --filter @examples/backend test:e2e`; PostgreSQL must be available with the `e5_test` database and connection settings from `examples/backend/.env`. The runner migrates and truncates the test database. Every example API test, grouped or ungrouped and in every suite, runs inside a global database transaction that is rolled back after the test. Rate limiting is disabled in the test environment. Protected endpoint tests authenticate real database records with `withGuard("frontend").loginAs(user)`, while session assertions check authentication effects without claiming browser cookie persistence.
+The example API has HTTP coverage for registration, credential login, logout, and the public profile in `examples/backend/tests/features/frontend/`. Registration tests cover persistence, password hashing, automatic login, public identity, an invalid payload, duplicate emails, and authenticated-session rejection without exhaustively testing each payload validation rule. Requests use `client.visit` with the existing named routes instead of hard-coded URLs and HTTP methods. Run it with `pnpm --filter @examples/backend test:e2e`; PostgreSQL must be available with the `e5_test` database and connection settings from `examples/backend/.env`. The runner migrates and truncates the test database. Every example API test, grouped or ungrouped and in every suite, runs inside a global database transaction that is rolled back after the test. Rate limiting is disabled in the test environment. Protected endpoint tests authenticate real database records with `withGuard("frontend").loginAs(user)`, while session assertions check authentication effects without claiming browser cookie persistence.
 
 Example test scenarios are separate, explicitly named cases without datasets.
 
@@ -215,10 +215,20 @@ The `BASE_URL` variable defaults to `http://localhost:3333`. When running
 `pnpm --filter @examples/backend dev` through Portless, set it locally to
 `https://api.examples.localhost` instead. All environment variables use UPPERCASE.
 
+- In **Authentication / Register**, install the FakerJS plugin first:
+  `yaak plugin install @yaak/faker`. Each send generates a full name and email.
+  Set `PASSWORD` locally to a fixed value (8–32 characters); both `password` and
+  `passwordConfirmation` reuse it. Do not use a random generator in `PASSWORD`:
+  each reference is evaluated separately. To log in again later, copy the email
+  from the actual sent body into `EMAIL` and keep the same `PASSWORD`.
+  `POST /frontend/auth/register` returns HTTP 200 with the user and opens a frontend
+  session automatically. Validation errors return HTTP 422; an already
+  authenticated session returns 403.
 - Set `EMAIL` and `PASSWORD` locally before sending **Log in with credentials**.
-  Authentication uses the shared cookie jar, not a bearer token. An existing
-  account is required; create one with
+  An existing account is required: use **Register** or
   `pnpm --filter @examples/backend exec node ace create:account`.
+  Authentication uses the shared cookie jar, not a bearer token. Log out before
+  registering another account.
 - After logging in, send **Profile / View profile** (`GET /profile`) with the same
   cookie jar. It returns the current user's `id`, `name`, `email`, `createdAt`, and
   `updatedAt` directly as JSON, without a wrapper or password. No body or parameters

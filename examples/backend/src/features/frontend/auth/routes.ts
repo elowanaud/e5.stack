@@ -9,6 +9,9 @@ router
 			.post("/login", [controllers.features.frontend.auth.Login])
 			.middleware(middleware.guest({ guards: ["frontend"] }));
 		router
+			.post("/register", [controllers.features.frontend.auth.Register])
+			.middleware(middleware.guest({ guards: ["frontend"] }));
+		router
 			.delete("/logout", [controllers.features.frontend.auth.Logout])
 			.middleware(middleware.auth({ guards: ["frontend"] }));
 	})

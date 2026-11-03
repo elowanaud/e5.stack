@@ -576,6 +576,58 @@
 					"enabled": false,
 					"value": "auto"
 				}
+			},
+			{
+				"model": "http_request",
+				"id": "rq_8czY2UPKFr",
+				"createdAt": "2026-11-02T11:31:06.675558",
+				"updatedAt": "2026-11-02T11:31:06.675559",
+				"workspaceId": "wk_EPvUoXDqMn",
+				"folderId": "fl_AJo477hNfy",
+				"authentication": {},
+				"authenticationType": null,
+				"body": {
+					"text": "{\n  \"name\": \"${[ faker.person.fullName() ]}\",\n  \"email\": \"${[ faker.internet.email() ]}\",\n  \"password\": \"${[ PASSWORD ]}\",\n  \"passwordConfirmation\": \"${[ PASSWORD ]}\"\n}"
+				},
+				"bodyType": "application/json",
+				"description": "# Inscription\nPOST /frontend/auth/register — invité uniquement, sans bearer token. Crée un utilisateur puis ouvre automatiquement une session frontend. Le plugin Yaak `@yaak/faker` génère un nom complet et un email à chaque envoi.\n\nInstaller le plugin avec `yaak plugin install @yaak/faker` après import sur une autre machine. Définir PASSWORD localement (8 à 32 caractères) : `password` et `passwordConfirmation` réutilisent cette même valeur fixe. Ne pas mettre de générateur aléatoire dans PASSWORD, car chaque référence serait évaluée séparément. Pour se reconnecter via Log in, reprendre l’email du corps réellement envoyé dans EMAIL et conserver PASSWORD.\n\n## Corps JSON\n| Champ | Contraintes |\n| --- | --- |\n| `name` | Chaîne requise, entre 2 et 254 caractères. |\n| `email` | Chaîne requise, email valide, maximum 254 caractères, unique dans `users.email`. |\n| `password` | Chaîne requise, entre 8 et 32 caractères. |\n| `passwordConfirmation` | Requis, identique à `password`. |\n\n## Succès\nHTTP 200 avec l’utilisateur directement en JSON, sans enveloppe ni mot de passe :\n```json\n{\n  \"id\": 1,\n  \"name\": \"Alice Exemple\",\n  \"email\": \"alice@example.com\",\n  \"createdAt\": \"2026-11-02T10:00:00.000Z\",\n  \"updatedAt\": \"2026-11-02T10:00:00.000Z\"\n}\n```\nLes valeurs ci-dessus sont illustratives. Conserver les cookies de session dans le même cookie jar pour Profile et Log out. Pour une nouvelle inscription, se déconnecter au préalable ; aucun token n’est retourné.\n\n## Erreurs de l’endpoint\n| HTTP | Code / règle | Condition / message |\n| --- | --- | --- |\n| 403 | E_GUEST_ONLY | Session frontend déjà authentifiée : `You must be unauthenticated to access this resource.` |\n| 422 | `required`, `string` | Champ requis absent ou vide, ou valeur non textuelle. |\n| 422 | `minLength`, `maxLength` | Longueur de `name`, `email` ou `password` hors limites. |\n| 422 | `email` | Adresse email invalide. |\n| 422 | `database.unique` | Adresse email déjà utilisée. |\n| 422 | `confirmed` | Confirmation du mot de passe absente ou différente. |\n| 429 | E_TOO_MANY_REQUESTS | Limiteur global par IP hors environnement test : 200 requêtes/minute, blocage d’une minute. `Too many requests. Please try again later.` |\n\nLes erreurs de validation sont renvoyées sous la forme `{ \"errors\": [{ \"message\": \"...\", \"rule\": \"...\", \"field\": \"...\" }] }`. La sérialisation des exceptions applicatives dépend du mode du serveur ; les codes ci-dessus identifient les exceptions, pas une enveloppe JSON garantie.\n",
+				"headers": [
+					{
+						"enabled": true,
+						"name": "Content-Type",
+						"value": "application/json",
+						"id": null
+					}
+				],
+				"method": "POST",
+				"name": "Register",
+				"sortPriority": -1.0,
+				"url": "${[ BASE_URL ]}/frontend/auth/register",
+				"urlParameters": [],
+				"settingSendCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingStoreCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingValidateCertificates": {
+					"enabled": false,
+					"value": true
+				},
+				"settingFollowRedirects": {
+					"enabled": false,
+					"value": true
+				},
+				"settingRequestTimeout": {
+					"enabled": false,
+					"value": 0
+				},
+				"settingHttpVersion": {
+					"enabled": false,
+					"value": "auto"
+				}
 			}
 		],
 		"grpcRequests": [],

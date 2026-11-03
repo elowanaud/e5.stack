@@ -60,6 +60,19 @@ export interface Registry {
       rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/login.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
+  'frontend.auth.register': {
+    methods: ["POST"]
+    pattern: '/frontend/auth/register'
+    types: {
+      body: ExtractBody<InferInput<(typeof import('#src/features/frontend/auth/controllers/register.controller').default)['payloadSchema']>>
+      paramsTuple: []
+      params: {}
+      query: ExtractQuery<InferInput<(typeof import('#src/features/frontend/auth/controllers/register.controller').default)['payloadSchema']>>
+      response: ExtractResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/register.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/register.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/register.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
+    }
+  }
   'frontend.auth.logout': {
     methods: ["DELETE"]
     pattern: '/frontend/auth/logout'

@@ -32,6 +32,12 @@ const routes = {
     tokens: [[0,"frontend"],[0,"auth"],[0,"login"]],
     types: placeholder as Registry['frontend.auth.login']['types'],
   },
+  'frontend.auth.register': {
+    methods: ["POST"],
+    pattern: '/frontend/auth/register',
+    tokens: [[0,"frontend"],[0,"auth"],[0,"register"]],
+    types: placeholder as Registry['frontend.auth.register']['types'],
+  },
   'frontend.auth.logout': {
     methods: ["DELETE"],
     pattern: '/frontend/auth/logout',

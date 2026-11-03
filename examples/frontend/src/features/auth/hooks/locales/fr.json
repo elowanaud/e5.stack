@@ -47,5 +47,62 @@
 				"description": "Vous devez être connecté pour vous déconnecter."
 			}
 		}
+	},
+
+	"features.auth.hooks.use-register-form": {
+		"validation": {
+			"name": {
+				"required": "Le nom est obligatoire.",
+				"string": "Le nom doit être une chaîne de caractères.",
+				"minLength": "Le nom doit contenir au moins 2 caractères.",
+				"maxLength": "Le nom ne doit pas dépasser 254 caractères."
+			},
+			"email": {
+				"required": "L’adresse e-mail est obligatoire.",
+				"string": "L’adresse e-mail doit être une chaîne de caractères.",
+				"email": "Saisissez une adresse e-mail valide.",
+				"maxLength": "L’adresse e-mail ne doit pas dépasser 254 caractères.",
+				"database": {
+					"unique": "Cette adresse e-mail est déjà utilisée."
+				}
+			},
+			"password": {
+				"required": "Le mot de passe est obligatoire.",
+				"string": "Le mot de passe doit être une chaîne de caractères.",
+				"minLength": "Le mot de passe doit contenir au moins 8 caractères.",
+				"maxLength": "Le mot de passe ne doit pas dépasser 32 caractères."
+			},
+			"passwordConfirmation": {
+				"required": "La confirmation du mot de passe est obligatoire.",
+				"string": "La confirmation du mot de passe doit être une chaîne de caractères.",
+				"confirmed": "Les mots de passe doivent être identiques."
+			}
+		}
+	},
+
+	"features.auth.hooks.use-register-mutation": {
+		"success": {
+			"title": "Inscription réussie",
+			"description": "Votre compte a été créé. Vous êtes maintenant connecté."
+		},
+
+		"error": {
+			"E_NETWORK": {
+				"title": "Connexion impossible",
+				"description": "Impossible de joindre le serveur. Vérifiez votre connexion Internet et réessayez."
+			},
+			"E_UNEXPECTED": {
+				"title": "Erreur inattendue",
+				"description": "Une erreur inattendue est survenue. Veuillez réessayer."
+			},
+			"E_VALIDATION": {
+				"title": "Inscription impossible",
+				"description": "Vérifiez les informations saisies et réessayez."
+			},
+			"E_GUEST_ONLY": {
+				"title": "Vous êtes déjà connecté",
+				"description": "Déconnectez-vous avant de créer un compte."
+			}
+		}
 	}
 }

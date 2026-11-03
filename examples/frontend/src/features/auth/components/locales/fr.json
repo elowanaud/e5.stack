@@ -12,5 +12,26 @@
 		"action": {
 			"login": "Se connecter"
 		}
+	},
+
+	"features.auth.components.register-form": {
+		"field": {
+			"name": {
+				"label": "Nom"
+			},
+			"email": {
+				"label": "Adresse e-mail"
+			},
+			"password": {
+				"label": "Mot de passe"
+			},
+			"passwordConfirmation": {
+				"label": "Confirmer le mot de passe"
+			}
+		},
+
+		"action": {
+			"register": "S’inscrire"
+		}
 	}
 }

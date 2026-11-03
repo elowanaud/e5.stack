@@ -9,10 +9,10 @@ import { LoginForm } from "#/features/auth/components/login-form";
 import { ContinueWithButton } from "#/features/oauth/components/button";
 
 export const Route = createFileRoute("/(guest)/login/")({
-	component: RouteComponent,
+	component: Page,
 });
 
-function RouteComponent() {
+function Page() {
 	const { t } = useTranslation("routes.(guest).login");
 
 	return (

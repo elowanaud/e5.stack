@@ -15,6 +15,7 @@ export const controllers = {
       auth: {
         Login: () => import('#src/features/frontend/auth/controllers/login.controller'),
         Logout: () => import('#src/features/frontend/auth/controllers/logout.controller'),
+        Register: () => import('#src/features/frontend/auth/controllers/register.controller'),
       },
       oauth: {
         Callback: () => import('#src/features/frontend/oauth/controllers/callback.controller'),
