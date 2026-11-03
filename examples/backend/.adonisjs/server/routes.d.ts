@@ -7,12 +7,14 @@ export type ScannedRoutes = {
     'drive.fs.serve': { paramsTuple: [...ParamValue[]]; params: {'*': ParamValue[]} }
     'core.health.live': { paramsTuple?: []; params?: {} }
     'core.health.ready': { paramsTuple?: []; params?: {} }
-    'frontend.auth.login': { paramsTuple?: []; params?: {} }
-    'frontend.auth.register': { paramsTuple?: []; params?: {} }
-    'frontend.auth.logout': { paramsTuple?: []; params?: {} }
     'frontend.oauth.redirect': { paramsTuple: [ParamValue]; params: {'provider': ParamValue} }
     'frontend.oauth.callback': { paramsTuple: [ParamValue]; params: {'provider': ParamValue} }
     'frontend.profile.view': { paramsTuple?: []; params?: {} }
+    'frontend.auth.login': { paramsTuple?: []; params?: {} }
+    'frontend.auth.register': { paramsTuple?: []; params?: {} }
+    'frontend.auth.forgot_password': { paramsTuple?: []; params?: {} }
+    'frontend.auth.reset_password': { paramsTuple?: []; params?: {} }
+    'frontend.auth.logout': { paramsTuple?: []; params?: {} }
   }
   GET: {
     'drive.fs.serve': { paramsTuple: [...ParamValue[]]; params: {'*': ParamValue[]} }
@@ -33,6 +35,8 @@ export type ScannedRoutes = {
   POST: {
     'frontend.auth.login': { paramsTuple?: []; params?: {} }
     'frontend.auth.register': { paramsTuple?: []; params?: {} }
+    'frontend.auth.forgot_password': { paramsTuple?: []; params?: {} }
+    'frontend.auth.reset_password': { paramsTuple?: []; params?: {} }
   }
   DELETE: {
     'frontend.auth.logout': { paramsTuple?: []; params?: {} }

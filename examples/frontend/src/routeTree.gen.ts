@@ -15,6 +15,7 @@ import { Route as privatePageRouteImport } from './routes/(private)/page'
 import { Route as guestForgotPasswordPageRouteImport } from './routes/(guest)/forgot-password/page'
 import { Route as guestLoginPageRouteImport } from './routes/(guest)/login/page'
 import { Route as guestRegisterPageRouteImport } from './routes/(guest)/register/page'
+import { Route as guestResetPasswordPageRouteImport } from './routes/(guest)/reset-password/page'
 
 const guestLayoutRoute = guestLayoutRouteImport.update({
   id: '/(guest)',
@@ -44,18 +45,25 @@ const guestRegisterPageRoute = guestRegisterPageRouteImport.update({
   path: '/register/',
   getParentRoute: () => guestLayoutRoute,
 } as any)
+const guestResetPasswordPageRoute = guestResetPasswordPageRouteImport.update({
+  id: '/reset-password/',
+  path: '/reset-password/',
+  getParentRoute: () => guestLayoutRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof privatePageRoute
   '/forgot-password/': typeof guestForgotPasswordPageRoute
   '/login/': typeof guestLoginPageRoute
   '/register/': typeof guestRegisterPageRoute
+  '/reset-password/': typeof guestResetPasswordPageRoute
 }
 export interface FileRoutesByTo {
   '/': typeof privatePageRoute
   '/forgot-password': typeof guestForgotPasswordPageRoute
   '/login': typeof guestLoginPageRoute
   '/register': typeof guestRegisterPageRoute
+  '/reset-password': typeof guestResetPasswordPageRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -65,12 +73,14 @@ export interface FileRoutesById {
   '/(guest)/forgot-password/': typeof guestForgotPasswordPageRoute
   '/(guest)/login/': typeof guestLoginPageRoute
   '/(guest)/register/': typeof guestRegisterPageRoute
+  '/(guest)/reset-password/': typeof guestResetPasswordPageRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/forgot-password/' | '/login/' | '/register/'
+  fullPaths:
+    '/' | '/forgot-password/' | '/login/' | '/register/' | '/reset-password/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/forgot-password' | '/login' | '/register'
+  to: '/' | '/forgot-password' | '/login' | '/register' | '/reset-password'
   id:
     | '__root__'
     | '/(guest)'
@@ -79,6 +89,7 @@ export interface FileRouteTypes {
     | '/(guest)/forgot-password/'
     | '/(guest)/login/'
     | '/(guest)/register/'
+    | '/(guest)/reset-password/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -130,6 +141,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof guestRegisterPageRouteImport
       parentRoute: typeof guestLayoutRoute
     }
+    '/(guest)/reset-password/': {
+      id: '/(guest)/reset-password/'
+      path: '/reset-password'
+      fullPath: '/reset-password/'
+      preLoaderRoute: typeof guestResetPasswordPageRouteImport
+      parentRoute: typeof guestLayoutRoute
+    }
   }
 }
 
@@ -137,12 +155,14 @@ interface guestLayoutRouteChildren {
   guestForgotPasswordPageRoute: typeof guestForgotPasswordPageRoute
   guestLoginPageRoute: typeof guestLoginPageRoute
   guestRegisterPageRoute: typeof guestRegisterPageRoute
+  guestResetPasswordPageRoute: typeof guestResetPasswordPageRoute
 }
 
 const guestLayoutRouteChildren: guestLayoutRouteChildren = {
   guestForgotPasswordPageRoute: guestForgotPasswordPageRoute,
   guestLoginPageRoute: guestLoginPageRoute,
   guestRegisterPageRoute: guestRegisterPageRoute,
+  guestResetPasswordPageRoute: guestResetPasswordPageRoute,
 }
 
 const guestLayoutRouteWithChildren = guestLayoutRoute._addFileChildren(

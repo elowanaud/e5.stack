@@ -16,8 +16,8 @@ function Page() {
 	const { t } = useTranslation("routes.(guest).login");
 
 	return (
-		<div className="m-auto grid min-h-svh max-w-sm content-center items-center justify-center gap-8">
-			<header className="flex flex-col items-center gap-3">
+		<div className="mx-auto flex min-h-svh w-full max-w-sm flex-col justify-center gap-8 p-4">
+			<header className="flex flex-col items-center gap-3 text-center">
 				<BoxIcon className="text-primary-9 size-9" />
 				<h1 className="text-neutral-12 text-2xl font-semibold">{t("title")}</h1>
 			</header>
@@ -30,8 +30,8 @@ function Page() {
 				<LoginForm />
 			</main>
 
-			<footer className="grid items-center gap-6">
-				<p className="text-neutral-11 text-center text-sm">
+			<footer className="grid items-center gap-6 text-center">
+				<p className="text-neutral-11 text-sm">
 					<Trans
 						t={t}
 						i18nKey="signup"
@@ -41,7 +41,7 @@ function Page() {
 					/>
 				</p>
 
-				<p className="text-neutral-11 text-center text-sm">
+				<p className="text-neutral-11 text-sm">
 					<Trans
 						t={t}
 						i18nKey="legal"

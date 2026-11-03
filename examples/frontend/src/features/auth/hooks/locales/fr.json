@@ -1,4 +1,43 @@
 {
+	"features.auth.hooks.use-forgot-password-form": {
+		"validation": {
+			"email": {
+				"required": "Saisissez votre adresse e-mail.",
+				"string": "Saisissez une adresse e-mail valide.",
+				"email": "Saisissez une adresse e-mail valide."
+			}
+		}
+	},
+
+	"features.auth.hooks.use-forgot-password-mutation": {
+		"success": {
+			"title": "Demande envoyée",
+			"description": "Si un compte est associé à cette adresse e-mail, vous recevrez un lien pour changer votre mot de passe."
+		},
+		"error": {
+			"E_NETWORK": {
+				"title": "Connexion impossible",
+				"description": "Vérifiez votre connexion Internet et réessayez."
+			},
+			"E_TOO_MANY_REQUESTS": {
+				"title": "Trop de tentatives",
+				"description": "Patientez un moment avant de réessayer."
+			},
+			"E_UNEXPECTED": {
+				"title": "Un problème est survenu",
+				"description": "Réessayez dans un moment."
+			},
+			"E_VALIDATION": {
+				"title": "Envoi impossible",
+				"description": "Vérifiez l’adresse e-mail saisie et réessayez."
+			},
+			"E_GUEST_ONLY": {
+				"title": "Vous êtes déjà connecté",
+				"description": "Déconnectez-vous avant de demander un lien pour changer votre mot de passe."
+			}
+		}
+	},
+
 	"features.auth.hooks.use-login-form": {},
 
 	"features.auth.hooks.use-login-mutation": {
@@ -10,19 +49,23 @@
 		"error": {
 			"E_NETWORK": {
 				"title": "Connexion impossible",
-				"description": "Impossible de joindre le serveur. Vérifiez votre connexion Internet et réessayez."
+				"description": "Vérifiez votre connexion Internet et réessayez."
+			},
+			"E_TOO_MANY_REQUESTS": {
+				"title": "Trop de tentatives",
+				"description": "Patientez un moment avant de réessayer."
 			},
 			"E_UNEXPECTED": {
-				"title": "Erreur inattendue",
-				"description": "Une erreur inattendue est survenue. Veuillez réessayer."
+				"title": "Un problème est survenu",
+				"description": "Réessayez dans un moment."
 			},
 			"E_GUEST_ONLY": {
 				"title": "Vous êtes déjà connecté",
 				"description": "Déconnectez-vous avant de vous connecter à un autre compte."
 			},
 			"E_INVALID_CREDENTIALS": {
-				"title": "Identifiants incorrects",
-				"description": "L’adresse e-mail ou le mot de passe est incorrect."
+				"title": "E-mail ou mot de passe incorrect",
+				"description": "Vérifiez votre adresse e-mail et votre mot de passe, puis réessayez."
 			}
 		}
 	},
@@ -36,15 +79,19 @@
 		"error": {
 			"E_NETWORK": {
 				"title": "Connexion impossible",
-				"description": "Impossible de joindre le serveur. Vérifiez votre connexion Internet et réessayez."
+				"description": "Vérifiez votre connexion Internet et réessayez."
+			},
+			"E_TOO_MANY_REQUESTS": {
+				"title": "Trop de tentatives",
+				"description": "Patientez un moment avant de réessayer."
 			},
 			"E_UNEXPECTED": {
-				"title": "Erreur inattendue",
-				"description": "Une erreur inattendue est survenue. Veuillez réessayer."
+				"title": "Un problème est survenu",
+				"description": "Réessayez dans un moment."
 			},
 			"E_UNAUTHENTICATED": {
-				"title": "Vous n’êtes pas connecté",
-				"description": "Vous devez être connecté pour vous déconnecter."
+				"title": "Vous êtes déjà déconnecté",
+				"description": "Connectez-vous pour accéder à votre compte."
 			}
 		}
 	},
@@ -52,14 +99,14 @@
 	"features.auth.hooks.use-register-form": {
 		"validation": {
 			"name": {
-				"required": "Le nom est obligatoire.",
-				"string": "Le nom doit être une chaîne de caractères.",
+				"required": "Saisissez votre nom.",
+				"string": "Saisissez votre nom.",
 				"minLength": "Le nom doit contenir au moins 2 caractères.",
 				"maxLength": "Le nom ne doit pas dépasser 254 caractères."
 			},
 			"email": {
-				"required": "L’adresse e-mail est obligatoire.",
-				"string": "L’adresse e-mail doit être une chaîne de caractères.",
+				"required": "Saisissez votre adresse e-mail.",
+				"string": "Saisissez une adresse e-mail valide.",
 				"email": "Saisissez une adresse e-mail valide.",
 				"maxLength": "L’adresse e-mail ne doit pas dépasser 254 caractères.",
 				"database": {
@@ -67,14 +114,14 @@
 				}
 			},
 			"password": {
-				"required": "Le mot de passe est obligatoire.",
-				"string": "Le mot de passe doit être une chaîne de caractères.",
+				"required": "Saisissez votre mot de passe.",
+				"string": "Saisissez votre mot de passe.",
 				"minLength": "Le mot de passe doit contenir au moins 8 caractères.",
 				"maxLength": "Le mot de passe ne doit pas dépasser 32 caractères."
 			},
 			"passwordConfirmation": {
-				"required": "La confirmation du mot de passe est obligatoire.",
-				"string": "La confirmation du mot de passe doit être une chaîne de caractères.",
+				"required": "Confirmez votre mot de passe.",
+				"string": "Confirmez votre mot de passe.",
 				"confirmed": "Les mots de passe doivent être identiques."
 			}
 		}
@@ -89,11 +136,15 @@
 		"error": {
 			"E_NETWORK": {
 				"title": "Connexion impossible",
-				"description": "Impossible de joindre le serveur. Vérifiez votre connexion Internet et réessayez."
+				"description": "Vérifiez votre connexion Internet et réessayez."
+			},
+			"E_TOO_MANY_REQUESTS": {
+				"title": "Trop de tentatives",
+				"description": "Patientez un moment avant de réessayer."
 			},
 			"E_UNEXPECTED": {
-				"title": "Erreur inattendue",
-				"description": "Une erreur inattendue est survenue. Veuillez réessayer."
+				"title": "Un problème est survenu",
+				"description": "Réessayez dans un moment."
 			},
 			"E_VALIDATION": {
 				"title": "Inscription impossible",
@@ -102,6 +153,59 @@
 			"E_GUEST_ONLY": {
 				"title": "Vous êtes déjà connecté",
 				"description": "Déconnectez-vous avant de créer un compte."
+			}
+		}
+	},
+
+	"features.auth.hooks.use-reset-password-form": {
+		"validation": {
+			"token": {
+				"required": "Ouvrez le lien reçu par e-mail.",
+				"string": "Ce lien ne fonctionne pas."
+			},
+			"password": {
+				"required": "Saisissez votre mot de passe.",
+				"string": "Saisissez votre mot de passe.",
+				"minLength": "Le mot de passe doit contenir au moins 8 caractères.",
+				"maxLength": "Le mot de passe ne doit pas dépasser 32 caractères."
+			},
+			"passwordConfirmation": {
+				"required": "Confirmez votre mot de passe.",
+				"string": "Confirmez votre mot de passe.",
+				"confirmed": "Les mots de passe doivent être identiques."
+			}
+		}
+	},
+
+	"features.auth.hooks.use-reset-password-mutation": {
+		"success": {
+			"title": "Mot de passe mis à jour",
+			"description": "Vous pouvez maintenant vous connecter avec votre nouveau mot de passe."
+		},
+		"error": {
+			"E_NETWORK": {
+				"title": "Connexion impossible",
+				"description": "Vérifiez votre connexion Internet et réessayez."
+			},
+			"E_TOO_MANY_REQUESTS": {
+				"title": "Trop de tentatives",
+				"description": "Patientez un moment avant de réessayer."
+			},
+			"E_UNEXPECTED": {
+				"title": "Un problème est survenu",
+				"description": "Réessayez dans un moment."
+			},
+			"E_VALIDATION": {
+				"title": "Mot de passe non modifié",
+				"description": "Vérifiez les informations saisies et réessayez."
+			},
+			"E_GUEST_ONLY": {
+				"title": "Vous êtes déjà connecté",
+				"description": "Déconnectez-vous avant de changer votre mot de passe."
+			},
+			"E_INVALID_TOKEN": {
+				"title": "Ce lien ne fonctionne pas",
+				"description": "Demandez un nouveau lien pour changer votre mot de passe."
 			}
 		}
 	}

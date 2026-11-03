@@ -13,9 +13,11 @@ export const controllers = {
     },
     frontend: {
       auth: {
+        ForgotPassword: () => import('#src/features/frontend/auth/controllers/forgot_password.controller'),
         Login: () => import('#src/features/frontend/auth/controllers/login.controller'),
         Logout: () => import('#src/features/frontend/auth/controllers/logout.controller'),
         Register: () => import('#src/features/frontend/auth/controllers/register.controller'),
+        ResetPassword: () => import('#src/features/frontend/auth/controllers/reset_password.controller'),
       },
       oauth: {
         Callback: () => import('#src/features/frontend/oauth/controllers/callback.controller'),

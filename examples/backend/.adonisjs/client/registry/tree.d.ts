@@ -14,17 +14,19 @@ export interface ApiDefinition {
     }
   }
   frontend: {
-    auth: {
-      login: typeof routes['frontend.auth.login']
-      register: typeof routes['frontend.auth.register']
-      logout: typeof routes['frontend.auth.logout']
-    }
     oauth: {
       redirect: typeof routes['frontend.oauth.redirect']
       callback: typeof routes['frontend.oauth.callback']
     }
     profile: {
       view: typeof routes['frontend.profile.view']
+    }
+    auth: {
+      login: typeof routes['frontend.auth.login']
+      register: typeof routes['frontend.auth.register']
+      forgotPassword: typeof routes['frontend.auth.forgot_password']
+      resetPassword: typeof routes['frontend.auth.reset_password']
+      logout: typeof routes['frontend.auth.logout']
     }
   }
 }

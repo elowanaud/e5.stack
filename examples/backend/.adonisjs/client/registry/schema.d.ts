@@ -47,45 +47,6 @@ export interface Registry {
       rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#src/features/core/health_checks/controllers/ready.controller').default['handle']>>>
     }
   }
-  'frontend.auth.login': {
-    methods: ["POST"]
-    pattern: '/frontend/auth/login'
-    types: {
-      body: ExtractBody<InferInput<(typeof import('#src/features/frontend/auth/controllers/login.controller').default)['payloadSchema']>>
-      paramsTuple: []
-      params: {}
-      query: ExtractQuery<InferInput<(typeof import('#src/features/frontend/auth/controllers/login.controller').default)['payloadSchema']>>
-      response: ExtractResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/login.controller').default['handle']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/login.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
-      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/login.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
-    }
-  }
-  'frontend.auth.register': {
-    methods: ["POST"]
-    pattern: '/frontend/auth/register'
-    types: {
-      body: ExtractBody<InferInput<(typeof import('#src/features/frontend/auth/controllers/register.controller').default)['payloadSchema']>>
-      paramsTuple: []
-      params: {}
-      query: ExtractQuery<InferInput<(typeof import('#src/features/frontend/auth/controllers/register.controller').default)['payloadSchema']>>
-      response: ExtractResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/register.controller').default['handle']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/register.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
-      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/register.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
-    }
-  }
-  'frontend.auth.logout': {
-    methods: ["DELETE"]
-    pattern: '/frontend/auth/logout'
-    types: {
-      body: {}
-      paramsTuple: []
-      params: {}
-      query: {}
-      response: ExtractResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/logout.controller').default['handle']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/logout.controller').default['handle']>>>
-      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/logout.controller').default['handle']>>>
-    }
-  }
   'frontend.oauth.redirect': {
     methods: ["GET","HEAD"]
     pattern: '/frontend/oauth/:provider/redirect'
@@ -123,6 +84,71 @@ export interface Registry {
       response: ExtractResponse<Awaited<ReturnType<import('#src/features/frontend/profile/controllers/view.controller').default['handle']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/frontend/profile/controllers/view.controller').default['handle']>>>
       rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#src/features/frontend/profile/controllers/view.controller').default['handle']>>>
+    }
+  }
+  'frontend.auth.login': {
+    methods: ["POST"]
+    pattern: '/frontend/auth/login'
+    types: {
+      body: ExtractBody<InferInput<(typeof import('#src/features/frontend/auth/controllers/login.controller').default)['payloadSchema']>>
+      paramsTuple: []
+      params: {}
+      query: ExtractQuery<InferInput<(typeof import('#src/features/frontend/auth/controllers/login.controller').default)['payloadSchema']>>
+      response: ExtractResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/login.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/login.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/login.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
+    }
+  }
+  'frontend.auth.register': {
+    methods: ["POST"]
+    pattern: '/frontend/auth/register'
+    types: {
+      body: ExtractBody<InferInput<(typeof import('#src/features/frontend/auth/controllers/register.controller').default)['payloadSchema']>>
+      paramsTuple: []
+      params: {}
+      query: ExtractQuery<InferInput<(typeof import('#src/features/frontend/auth/controllers/register.controller').default)['payloadSchema']>>
+      response: ExtractResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/register.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/register.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/register.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
+    }
+  }
+  'frontend.auth.forgot_password': {
+    methods: ["POST"]
+    pattern: '/frontend/auth/forgot-password'
+    types: {
+      body: ExtractBody<InferInput<(typeof import('#src/features/frontend/auth/controllers/forgot_password.controller').default)['payloadSchema']>>
+      paramsTuple: []
+      params: {}
+      query: ExtractQuery<InferInput<(typeof import('#src/features/frontend/auth/controllers/forgot_password.controller').default)['payloadSchema']>>
+      response: ExtractResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/forgot_password.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/forgot_password.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/forgot_password.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
+    }
+  }
+  'frontend.auth.reset_password': {
+    methods: ["POST"]
+    pattern: '/frontend/auth/reset-password'
+    types: {
+      body: ExtractBody<InferInput<(typeof import('#src/features/frontend/auth/controllers/reset_password.controller').default)['payloadSchema']>>
+      paramsTuple: []
+      params: {}
+      query: ExtractQuery<InferInput<(typeof import('#src/features/frontend/auth/controllers/reset_password.controller').default)['payloadSchema']>>
+      response: ExtractResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/reset_password.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/reset_password.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/reset_password.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
+    }
+  }
+  'frontend.auth.logout': {
+    methods: ["DELETE"]
+    pattern: '/frontend/auth/logout'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/logout.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/logout.controller').default['handle']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#src/features/frontend/auth/controllers/logout.controller').default['handle']>>>
     }
   }
 }

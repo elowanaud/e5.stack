@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useTranslation } from "react-i18next";
 
 import { Button } from "@workspace/ui-react/components/button";
 
@@ -9,7 +10,8 @@ export const Route = createFileRoute("/(private)/")({
 });
 
 function RouteComponent() {
+	const { t } = useTranslation("routes.(private).page");
 	const { mutate: logout } = useLogoutMutation();
 
-	return <Button onClick={() => logout({})}>Logout</Button>;
+	return <Button onClick={() => logout({})}>{t("logout")}</Button>;
 }

@@ -7,6 +7,7 @@ export function toastifyTuyauError(
 	errorMessages: {
 		E_NETWORK: [title: string, data?: ExternalToast];
 		E_UNEXPECTED: [title: string, data?: ExternalToast];
+		E_TOO_MANY_REQUESTS: [title: string, data?: ExternalToast];
 		E_VALIDATION?: [title: string, data?: ExternalToast];
 	} & Record<string, [title: string, data?: ExternalToast]>,
 ) {

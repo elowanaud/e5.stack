@@ -5,16 +5,16 @@
 			"description": "Vous êtes maintenant connecté."
 		},
 		"access_denied": {
-			"title": "Autorisation refusée",
-			"description": "Vous n’avez pas autorisé l’accès à votre compte. Autorisez cet accès pour vous connecter."
+			"title": "Connexion non autorisée",
+			"description": "Autorisez l’accès à votre compte pour vous connecter."
 		},
 		"state_mismatch": {
 			"title": "Connexion non validée",
-			"description": "La vérification de sécurité a échoué. Veuillez recommencer la connexion."
+			"description": "Recommencez la connexion pour continuer."
 		},
 		"unexpected_error": {
-			"title": "Erreur inattendue",
-			"description": "Une erreur inattendue est survenue. Veuillez réessayer."
+			"title": "Un problème est survenu",
+			"description": "Réessayez dans un moment."
 		}
 	}
 }

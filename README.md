@@ -201,6 +201,35 @@ pnpm --filter @workspace/ui-theme build
 The `dev` commands use Portless and the stable URLs above. Use `dev:app` to run an underlying
 development process directly on its configured port, without the Portless proxy.
 
+## Example Frontend: Password Recovery
+
+The example frontend (`examples/frontend`) provides `/forgot-password`, linked
+from `/login`, and `/reset-password?token=…`, opened from the recovery email.
+Both pages reuse the authentication form components, validation hooks, and French
+translations used by login and registration.
+The login password field uses `GenericField` for its custom label/recovery-link
+layout while delegating error rendering to the shared form integration.
+
+After a successful recovery request, a neutral success toast is displayed and the
+user returns to `/login`, whether an account exists or not. Reset links expire
+after 15 minutes and can only be used once.
+The new password must contain 8–32 characters and match its confirmation.
+After a successful reset, the user returns to `/login` without being signed in.
+Recovery error messages direct the user to request a new link.
+Authentication mutations translate `E_TOO_MANY_REQUESTS` into a French toast
+asking the user to wait before trying again.
+
+Example frontend copy uses short French sentences, welcoming and contextual page
+headings, concise action labels, and field-specific validation instructions without
+technical jargon. Authentication notifications, OAuth messages, and error pages
+follow the same tone. Edit the
+source `locales/fr.json` files and run `pnpm --filter @examples/frontend i18n:merge`
+to regenerate translations.
+
+Run the example backend and frontend together. With the Redis queue driver,
+also run `pnpm --filter @examples/backend worker` to send recovery emails.
+The backend's `FRONTEND_URL` must point to the example frontend.
+
 ## Example Backend: Yaak
 
 `examples/backend/yaak.json` contains the saved requests for `@examples/backend`,

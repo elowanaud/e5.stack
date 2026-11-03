@@ -11,7 +11,7 @@
 		"build": "node ace build",
 		"dev": "portless",
 		"dev:app": "node ace serve --hmr",
-		"worker": "node ace queue:work --queue=emails",
+		"worker": "node ace queue:work",
 		"test": "node ace test",
 		"test:unit": "node ace test unit",
 		"test:e2e": "node ace test e2e",

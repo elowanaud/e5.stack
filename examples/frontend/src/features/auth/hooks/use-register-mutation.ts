@@ -25,6 +25,10 @@ export function useRegisterMutation() {
 						t("error.E_NETWORK.title"),
 						{ description: t("error.E_NETWORK.description") },
 					],
+					E_TOO_MANY_REQUESTS: [
+						t("error.E_TOO_MANY_REQUESTS.title"),
+						{ description: t("error.E_TOO_MANY_REQUESTS.description") },
+					],
 					E_UNEXPECTED: [
 						t("error.E_UNEXPECTED.title"),
 						{ description: t("error.E_UNEXPECTED.description") },

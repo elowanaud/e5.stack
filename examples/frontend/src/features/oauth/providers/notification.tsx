@@ -11,18 +11,11 @@ export function OauthNotificationProvider() {
 	const { oauth_state } = useSearch({ from: "__root__" });
 
 	useEffect(() => {
-		const renderToast = () => {
-			if (oauth_state === undefined) return;
-
-			const type = oauth_state === "success" ? "success" : "error";
-
-			setTimeout(() => {
-				toast[type](t(`${oauth_state}.title`), { description: t(`${oauth_state}.description`) });
-			}, 0);
-		};
-
 		if (oauth_state) {
-			renderToast();
+			const type = oauth_state === "success" ? "success" : "error";
+			const timeout = setTimeout(() => {
+				toast[type](t(`${oauth_state}.title`), { description: t(`${oauth_state}.description`) });
+			});
 			navigate({
 				to: ".",
 				search: (old) => {
@@ -30,6 +23,8 @@ export function OauthNotificationProvider() {
 					return rest;
 				},
 			});
+
+			return () => clearTimeout(timeout);
 		}
 	}, [oauth_state, navigate, t]);
 

@@ -1,0 +1,12 @@
+{
+	"routes.(guest).reset-password": {
+		"title": "Choisissez votre nouveau mot de passe",
+		"description": "Saisissez et confirmez votre nouveau mot de passe.",
+		"error": {
+			"invalid-token": {
+				"title": "Ce lien ne fonctionne pas",
+				"description": "Demandez un nouveau lien pour changer votre mot de passe."
+			}
+		}
+	}
+}

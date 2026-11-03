@@ -26,24 +26,6 @@ const routes = {
     tokens: [[0,"core"],[0,"health"],[0,"ready"]],
     types: placeholder as Registry['core.health.ready']['types'],
   },
-  'frontend.auth.login': {
-    methods: ["POST"],
-    pattern: '/frontend/auth/login',
-    tokens: [[0,"frontend"],[0,"auth"],[0,"login"]],
-    types: placeholder as Registry['frontend.auth.login']['types'],
-  },
-  'frontend.auth.register': {
-    methods: ["POST"],
-    pattern: '/frontend/auth/register',
-    tokens: [[0,"frontend"],[0,"auth"],[0,"register"]],
-    types: placeholder as Registry['frontend.auth.register']['types'],
-  },
-  'frontend.auth.logout': {
-    methods: ["DELETE"],
-    pattern: '/frontend/auth/logout',
-    tokens: [[0,"frontend"],[0,"auth"],[0,"logout"]],
-    types: placeholder as Registry['frontend.auth.logout']['types'],
-  },
   'frontend.oauth.redirect': {
     methods: ["GET","HEAD"],
     pattern: '/frontend/oauth/:provider/redirect',
@@ -61,6 +43,36 @@ const routes = {
     pattern: '/frontend/profile',
     tokens: [[0,"frontend"],[0,"profile"]],
     types: placeholder as Registry['frontend.profile.view']['types'],
+  },
+  'frontend.auth.login': {
+    methods: ["POST"],
+    pattern: '/frontend/auth/login',
+    tokens: [[0,"frontend"],[0,"auth"],[0,"login"]],
+    types: placeholder as Registry['frontend.auth.login']['types'],
+  },
+  'frontend.auth.register': {
+    methods: ["POST"],
+    pattern: '/frontend/auth/register',
+    tokens: [[0,"frontend"],[0,"auth"],[0,"register"]],
+    types: placeholder as Registry['frontend.auth.register']['types'],
+  },
+  'frontend.auth.forgot_password': {
+    methods: ["POST"],
+    pattern: '/frontend/auth/forgot-password',
+    tokens: [[0,"frontend"],[0,"auth"],[0,"forgot-password"]],
+    types: placeholder as Registry['frontend.auth.forgot_password']['types'],
+  },
+  'frontend.auth.reset_password': {
+    methods: ["POST"],
+    pattern: '/frontend/auth/reset-password',
+    tokens: [[0,"frontend"],[0,"auth"],[0,"reset-password"]],
+    types: placeholder as Registry['frontend.auth.reset_password']['types'],
+  },
+  'frontend.auth.logout': {
+    methods: ["DELETE"],
+    pattern: '/frontend/auth/logout',
+    tokens: [[0,"frontend"],[0,"auth"],[0,"logout"]],
+    types: placeholder as Registry['frontend.auth.logout']['types'],
   },
 } as const satisfies Record<string, AdonisEndpoint>
 

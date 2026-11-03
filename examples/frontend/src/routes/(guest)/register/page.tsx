@@ -16,8 +16,8 @@ function Page() {
 	const { t } = useTranslation("routes.(guest).register");
 
 	return (
-		<div className="m-auto grid min-h-svh max-w-sm content-center items-center justify-center gap-8">
-			<header className="flex flex-col items-center gap-3">
+		<div className="mx-auto flex min-h-svh w-full max-w-sm flex-col justify-center gap-8 p-4">
+			<header className="flex flex-col items-center gap-3 text-center">
 				<BoxIcon className="text-primary-9 size-9" />
 				<h1 className="text-neutral-12 text-2xl font-semibold">{t("title")}</h1>
 			</header>

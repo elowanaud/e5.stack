@@ -1,4 +1,31 @@
 {
+	"features.auth.components.forgot-password-form": {
+		"field": {
+			"email": {
+				"label": "Adresse e-mail"
+			}
+		},
+		"action": {
+			"send": "Envoyer le lien"
+		}
+	},
+
+	"features.auth.components.reset-password-form": {
+		"field": {
+			"password": {
+				"label": "Nouveau mot de passe"
+			},
+			"passwordConfirmation": {
+				"label": "Confirmer le nouveau mot de passe"
+			}
+		},
+		"action": {
+			"reset": "Enregistrer le mot de passe",
+			"requestLink": "Demander un nouveau lien"
+		},
+		"invalidToken": "Ce lien ne fonctionne pas. Demandez un nouveau lien pour changer votre mot de passe."
+	},
+
 	"features.auth.components.login-form": {
 		"field": {
 			"uid": {
@@ -10,7 +37,8 @@
 		},
 
 		"action": {
-			"login": "Se connecter"
+			"login": "Se connecter",
+			"forgot-password": "Mot de passe oublié ?"
 		}
 	},
 
@@ -31,7 +59,7 @@
 		},
 
 		"action": {
-			"register": "S’inscrire"
+			"register": "Créer un compte"
 		}
 	}
 }
