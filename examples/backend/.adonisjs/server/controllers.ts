@@ -25,6 +25,11 @@ export const controllers = {
       },
       profile: {
         View: () => import('#src/features/frontend/profile/controllers/view.controller'),
+        sessions: {
+          DeleteOthers: () => import('#src/features/frontend/profile/sessions/controllers/delete_others.controller'),
+          Delete: () => import('#src/features/frontend/profile/sessions/controllers/delete.controller'),
+          List: () => import('#src/features/frontend/profile/sessions/controllers/list.controller'),
+        },
       },
     },
   },

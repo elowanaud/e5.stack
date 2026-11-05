@@ -19,6 +19,11 @@ export interface ApiDefinition {
       callback: typeof routes['frontend.oauth.callback']
     }
     profile: {
+      sessions: {
+        list: typeof routes['frontend.profile.sessions.list']
+        deleteOthers: typeof routes['frontend.profile.sessions.delete_others']
+        delete: typeof routes['frontend.profile.sessions.delete']
+      }
       view: typeof routes['frontend.profile.view']
     }
     auth: {

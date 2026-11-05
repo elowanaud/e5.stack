@@ -17,7 +17,7 @@ export default await Env.create(new URL("../", import.meta.url), {
 	COOKIE_DOMAIN: Env.schema.string.optionalWhen(process.env.NODE_ENV !== "production"),
 
 	// Session Config
-	SESSION_DRIVER: Env.schema.enum(["cookie", "memory"] as const),
+	SESSION_DRIVER: Env.schema.enum(["redis", "memory"] as const),
 
 	// CORS Config
 	CORS_AUTHORIZED_ORIGINS: Env.schema.string.optionalWhen(process.env.NODE_ENV !== "production"),

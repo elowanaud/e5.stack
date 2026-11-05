@@ -156,6 +156,8 @@ Run all workspace suites with `pnpm test` (`turbo test`), individual suites with
 
 The example API has HTTP coverage for registration, credential login, logout, and the public profile in `examples/backend/tests/features/frontend/`. Registration tests cover persistence, password hashing, automatic login, public identity, an invalid payload, duplicate emails, and authenticated-session rejection without exhaustively testing each payload validation rule. Requests use `client.visit` with the existing named routes instead of hard-coded URLs and HTTP methods. Run it with `pnpm --filter @examples/backend test:e2e`; PostgreSQL must be available with the `e5_test` database and connection settings from `examples/backend/.env`. The runner migrates and truncates the test database. Every example API test, grouped or ungrouped and in every suite, runs inside a global database transaction that is rolled back after the test. Rate limiting is disabled in the test environment. Protected endpoint tests authenticate real database records with `withGuard("frontend").loginAs(user)`, while session assertions check authentication effects without claiming browser cookie persistence.
 
+Session endpoint tests in `examples/backend/tests/features/frontend/profile/sessions/` cover authentication, user isolation, public device metadata, current-session protection, targeted revocation, and idempotent revocation of other sessions. They use the real in-memory session store and clean up their fixtures.
+
 Example test scenarios are separate, explicitly named cases without datasets.
 
 ### Peer Dependency Validation
@@ -262,6 +264,34 @@ The `BASE_URL` variable defaults to `http://localhost:3333`. When running
   cookie jar. It returns the current user's `id`, `name`, `email`, `createdAt`, and
   `updatedAt` directly as JSON, without a wrapper or password. No body or parameters
   are required. Without an authenticated session, it returns HTTP 401.
+- **Profile / Sessions / List** appelle `GET /frontend/profile/sessions` avec le
+  cookie jar authentifié partagé, sans corps ni paramètre. La réponse HTTP 200 est
+  directement un tableau `{ id, device, isCurrent }[]`, sans enveloppe, limité aux
+  sessions taguées de l’utilisateur connecté. `device` provient des métadonnées de
+  session enregistrées à la connexion : `userAgent`, `ip` et `loggedInAt` (ISO 8601) ;
+  ces métadonnées peuvent manquer sur une ancienne session. `isCurrent` identifie
+  la session qui effectue la requête.
+- **Profile / Sessions / Delete** appelle
+  `DELETE /frontend/profile/sessions/:sessionId`. Après **List**, recopier l’`id`
+  choisi directement dans la valeur du paramètre de chemin `:sessionId`,
+  initialement vide ; aucune variable supplémentaire n’est requise.
+  **Attention : suppression destructive, y compris si la session choisie est la
+  session courante ; le client concerné peut être déconnecté.** Réponse HTTP 204
+  sans corps ; HTTP 404 si la session n’est pas taguée pour l’utilisateur connecté,
+  et HTTP 422 si `params.sessionId` échoue à la validation de chaîne obligatoire.
+- **Profile / Sessions / Delete other sessions** appelle
+  `DELETE /frontend/profile/sessions/others`, sans paramètre.
+  Le segment réservé `others` est résolu avant l’identifiant dynamique de session.
+  **Attention : supprime toutes les autres sessions de l’utilisateur connecté et
+  déconnecte leurs clients.** La session courante est conservée et les sessions
+  des autres utilisateurs ne sont pas affectées. Réponse HTTP 204 sans corps,
+  même s’il n’y a aucune autre session à supprimer.
+  Les deux suppressions réutilisent le cookie jar authentifié partagé et n’envoient
+  aucun corps. Ne pas exécuter le dossier Sessions entier sans avoir choisi les
+  suppressions voulues.
+  Les trois requêtes peuvent renvoyer HTTP 401 `E_UNAUTHENTICATED`
+  (`You must be authenticated to access this resource.`) ou HTTP 429
+  `E_TOO_MANY_REQUESTS` (`Too many requests. Please try again later.`).
 - OAuth requests live in **OAuth / GitHub**. Redirect following is disabled so the
   authorization URL remains visible. Complete authorization in a browser with
   configured GitHub credentials; successful callbacks need fresh `OAUTH_CODE` and

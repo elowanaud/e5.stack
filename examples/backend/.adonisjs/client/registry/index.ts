@@ -38,6 +38,24 @@ const routes = {
     tokens: [[0,"frontend"],[0,"oauth"],[1,"provider"],[0,"callback"]],
     types: placeholder as Registry['frontend.oauth.callback']['types'],
   },
+  'frontend.profile.sessions.list': {
+    methods: ["GET","HEAD"],
+    pattern: '/frontend/profile/sessions',
+    tokens: [[0,"frontend"],[0,"profile"],[0,"sessions"]],
+    types: placeholder as Registry['frontend.profile.sessions.list']['types'],
+  },
+  'frontend.profile.sessions.delete_others': {
+    methods: ["DELETE"],
+    pattern: '/frontend/profile/sessions/others',
+    tokens: [[0,"frontend"],[0,"profile"],[0,"sessions"],[0,"others"]],
+    types: placeholder as Registry['frontend.profile.sessions.delete_others']['types'],
+  },
+  'frontend.profile.sessions.delete': {
+    methods: ["DELETE"],
+    pattern: '/frontend/profile/sessions/:sessionId',
+    tokens: [[0,"frontend"],[0,"profile"],[0,"sessions"],[1,"sessionId"]],
+    types: placeholder as Registry['frontend.profile.sessions.delete']['types'],
+  },
   'frontend.profile.view': {
     methods: ["GET","HEAD"],
     pattern: '/frontend/profile',

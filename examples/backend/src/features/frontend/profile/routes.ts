@@ -10,3 +10,5 @@ router
 	.middleware(middleware.auth({ guards: ["frontend"] }))
 	.prefix("/frontend/profile")
 	.as("frontend.profile");
+
+import "#features/frontend/profile/sessions/routes";

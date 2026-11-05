@@ -9,13 +9,22 @@ import UserPresenter from "#presenters/user.presenter";
 export default class LoginController {
 	constructor(protected userPresenter: UserPresenter) {}
 
-	async handle({ request, auth }: HttpContext) {
+	async handle({ request, auth, session }: HttpContext) {
 		const payload = await request.validateUsing(LoginController.payloadSchema);
 
-		const currentUser = await User.verifyCredentials(payload.uid, payload.password);
-		await auth.use("frontend").login(currentUser);
+		const user = await User.verifyCredentials(payload.uid, payload.password);
+		await auth.use("frontend").login(user);
 
-		return this.userPresenter.toJSON(currentUser);
+		if (session.supportsTagging()) {
+			await session.tag(String(user.id));
+			session.put("device", {
+				userAgent: request.header("user-agent"),
+				ip: request.ip(),
+				loggedInAt: new Date().toISOString(),
+			});
+		}
+
+		return this.userPresenter.toJSON(user);
 	}
 
 	static payloadSchema = vine.create({

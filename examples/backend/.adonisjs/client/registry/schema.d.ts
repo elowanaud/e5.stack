@@ -73,6 +73,45 @@ export interface Registry {
       rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#src/features/frontend/oauth/controllers/callback.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
+  'frontend.profile.sessions.list': {
+    methods: ["GET","HEAD"]
+    pattern: '/frontend/profile/sessions'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#src/features/frontend/profile/sessions/controllers/list.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/frontend/profile/sessions/controllers/list.controller').default['handle']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#src/features/frontend/profile/sessions/controllers/list.controller').default['handle']>>>
+    }
+  }
+  'frontend.profile.sessions.delete_others': {
+    methods: ["DELETE"]
+    pattern: '/frontend/profile/sessions/others'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#src/features/frontend/profile/sessions/controllers/delete_others.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/frontend/profile/sessions/controllers/delete_others.controller').default['handle']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#src/features/frontend/profile/sessions/controllers/delete_others.controller').default['handle']>>>
+    }
+  }
+  'frontend.profile.sessions.delete': {
+    methods: ["DELETE"]
+    pattern: '/frontend/profile/sessions/:sessionId'
+    types: {
+      body: ExtractBody<InferInput<(typeof import('#src/features/frontend/profile/sessions/controllers/delete.controller').default)['payloadSchema']>>
+      paramsTuple: [ParamValue]
+      params: { sessionId: ParamValue }
+      query: ExtractQuery<InferInput<(typeof import('#src/features/frontend/profile/sessions/controllers/delete.controller').default)['payloadSchema']>>
+      response: ExtractResponse<Awaited<ReturnType<import('#src/features/frontend/profile/sessions/controllers/delete.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#src/features/frontend/profile/sessions/controllers/delete.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#src/features/frontend/profile/sessions/controllers/delete.controller').default['handle']>>> | { status: 422; response: { errors: SimpleError[] } }
+    }
+  }
   'frontend.profile.view': {
     methods: ["GET","HEAD"]
     pattern: '/frontend/profile'

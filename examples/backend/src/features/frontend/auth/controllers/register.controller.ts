@@ -10,13 +10,22 @@ import { CreateUserValidator } from "#validators/user.validator";
 export default class RegisterController {
 	constructor(protected userPresenter: UserPresenter) {}
 
-	async handle({ request, auth }: HttpContext) {
+	async handle({ request, auth, session }: HttpContext) {
 		const { passwordConfirmation, ...payload } = await request.validateUsing(
 			RegisterController.payloadSchema,
 		);
 
 		const user = await User.create(payload);
 		await auth.use("frontend").login(user);
+
+		if (session.supportsTagging()) {
+			await session.tag(String(user.id));
+			session.put("device", {
+				userAgent: request.header("user-agent"),
+				ip: request.ip(),
+				loggedInAt: new Date().toISOString(),
+			});
+		}
 
 		return this.userPresenter.toJSON(user);
 	}

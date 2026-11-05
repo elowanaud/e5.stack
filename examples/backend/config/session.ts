@@ -18,7 +18,9 @@ const sessionConfig = defineConfig({
 
 	store: env.get("SESSION_DRIVER"),
 	stores: {
-		cookie: stores.cookie(),
+		redis: stores.redis({
+			connection: env.get("REDIS_CONNECTION"),
+		}),
 	},
 });
 

@@ -263,6 +263,48 @@
 					"enabled": false,
 					"value": "auto"
 				}
+			},
+			{
+				"model": "folder",
+				"id": "fl_p3rnauN9BJ",
+				"createdAt": "2026-11-05T11:16:50.651311",
+				"updatedAt": "2026-11-05T11:16:55.922876",
+				"workspaceId": "wk_EPvUoXDqMn",
+				"folderId": "fl_F7iTw2SNvA",
+				"authentication": {},
+				"authenticationType": null,
+				"description": "",
+				"headers": [],
+				"name": "Sessions",
+				"sortPriority": 1000.0,
+				"settingSendCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingStoreCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingValidateCertificates": {
+					"enabled": false,
+					"value": true
+				},
+				"settingFollowRedirects": {
+					"enabled": false,
+					"value": true
+				},
+				"settingRequestTimeout": {
+					"enabled": false,
+					"value": 0
+				},
+				"settingRequestMessageSize": {
+					"enabled": false,
+					"value": 67108864
+				},
+				"settingHttpVersion": {
+					"enabled": false,
+					"value": "auto"
+				}
 			}
 		],
 		"httpRequests": [
@@ -363,6 +405,79 @@
 				"method": "GET",
 				"url": "${[ BASE_URL ]}/profile",
 				"description": "# Profil de l’utilisateur connecté\nGET /profile — requiert le cookie de session frontend obtenu avec **Log in with credentials** ou une connexion OAuth réussie ; pas de bearer token. Réutiliser le même cookie jar. Aucun paramètre ni corps requis. Lecture seule.\n\n## Succès\n200 avec l’objet utilisateur directement, sans enveloppe :\n```json\n{\n  \"id\": 1,\n  \"name\": \"Alice\",\n  \"email\": \"alice@example.com\",\n  \"createdAt\": \"2026-10-27T10:00:00.000Z\",\n  \"updatedAt\": \"2026-10-27T10:00:00.000Z\"\n}\n```\n`id` est un nombre ; `name` et `email` sont des chaînes ; les dates sont sérialisées en chaînes ISO 8601. Aucun mot de passe exposé. Cet exemple correspond au JSON standard sans en-tête `x-superjson` ; `x-superjson: true` change l’enveloppe de transport.\n\n## Erreurs de l’endpoint\n| HTTP | Code | Condition / message |\n| --- | --- | --- |\n| 401 | E_UNAUTHENTICATED | Session absente, expirée ou ne permettant pas d’authentifier l’utilisateur : `You must be authenticated to access this resource.` |\n| 429 | E_TOO_MANY_REQUESTS | Limiteur global par IP : 100 requêtes/minute, blocage de 20 minutes. `Too many requests. Please try again later.` |\n\nLa représentation des erreurs dépend du mode du serveur ; les codes ci-dessus sont les codes applicatifs, pas un schéma JSON garanti.\n"
+			},
+			{
+				"model": "http_request",
+				"id": "rq_Hjkaoac84F",
+				"workspaceId": "wk_EPvUoXDqMn",
+				"folderId": "fl_p3rnauN9BJ",
+				"name": "List",
+				"method": "GET",
+				"url": "${[ BASE_URL ]}/frontend/profile/sessions",
+				"authentication": {},
+				"authenticationType": null,
+				"body": {},
+				"bodyType": null,
+				"headers": [],
+				"urlParameters": [],
+				"description": "# Sessions de l’utilisateur connecté\nGET /frontend/profile/sessions — requiert le cookie de session frontend obtenu après connexion ; pas de bearer token. Réutiliser le cookie jar partagé. Aucun paramètre ni corps requis. Lecture seule.\n\n## Succès\n200 avec un tableau directement, sans enveloppe : `{ id, device, isCurrent }[]`. Seules les sessions taguées avec l’identifiant de l’utilisateur connecté sont listées ; un tableau vide est possible.\n\n- `id` : identifiant de session (chaîne), à recopier dans le paramètre de chemin `:sessionId` de **Delete**.\n- `device` : métadonnées enregistrées en session à la connexion ou à l’inscription : `userAgent` (en-tête User-Agent, s’il est présent), `ip` (adresse IP) et `loggedInAt` (date ISO 8601). Il ne s’agit pas d’une détection d’appareil ; ces métadonnées peuvent manquer sur une ancienne session.\n- `isCurrent` : booléen indiquant si `id` correspond à la session qui effectue la requête.\n\n## Erreurs\n| HTTP | Code | Condition / message |\n| --- | --- | --- |\n| 401 | E_UNAUTHENTICATED | Session absente, expirée ou invalide : `You must be authenticated to access this resource.` |\n| 429 | E_TOO_MANY_REQUESTS | Limiteur global par IP, hors test : 200 requêtes/minute, blocage d’une minute. `Too many requests. Please try again later.` |\n\nLa représentation des erreurs dépend du mode du serveur ; les codes ci-dessus sont les codes applicatifs, pas une enveloppe JSON garantie.\n"
+			},
+			{
+				"model": "http_request",
+				"id": "rq_VaFKbvRxke",
+				"workspaceId": "wk_EPvUoXDqMn",
+				"folderId": "fl_p3rnauN9BJ",
+				"name": "Delete",
+				"method": "DELETE",
+				"url": "${[ BASE_URL ]}/frontend/profile/sessions/:sessionId",
+				"authentication": {},
+				"authenticationType": null,
+				"body": {},
+				"bodyType": null,
+				"headers": [],
+				"urlParameters": [
+					{
+						"enabled": true,
+						"name": ":sessionId",
+						"value": "",
+						"id": null
+					}
+				],
+				"sortPriority": 1.0,
+				"settingSendCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingStoreCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"description": "# Supprimer une session de l’utilisateur connecté\nDELETE /frontend/profile/sessions/:sessionId — requiert le cookie de session frontend obtenu après connexion ; pas de bearer token. Réutiliser le cookie jar partagé. Aucun corps ni paramètre de requête.\n\n> ATTENTION — Action destructive : invalide la session ciblée. Elle peut supprimer la session courante et déconnecter le client qui l’utilise. Ne pas exécuter tout le dossier Sessions sans avoir choisi les suppressions voulues.\n\n## Utilisation\nExécuter **List**, puis recopier l’`id` choisi directement dans la valeur du paramètre de chemin `:sessionId` (onglet des paramètres). Cette valeur est volontairement vide au départ ; aucune variable d’environnement supplémentaire n’est nécessaire. Vérifier `isCurrent` avant l’envoi.\n\nLa recherche est limitée aux sessions taguées avec l’identifiant de l’utilisateur connecté. Une session d’un autre utilisateur n’est jamais supprimée.\n\n## Succès\n204 No Content, sans corps, après suppression. La session courante peut être supprimée : aucune exclusion n’est appliquée par cet endpoint.\n\n## Erreurs\n| HTTP | Code / règle | Condition / message |\n| --- | --- | --- |\n| 401 | E_UNAUTHENTICATED | Session absente, expirée ou invalide : `You must be authenticated to access this resource.` |\n| 429 | E_TOO_MANY_REQUESTS | Limiteur global par IP, hors test : 200 requêtes/minute, blocage d’une minute. `Too many requests. Please try again later.` |\n| 404 | — | Aucune session taguée pour cet utilisateur ne correspond à `:sessionId` : identifiant inexistant, session déjà supprimée ou appartenant à un autre utilisateur. Aucun code applicatif dédié. |\n| 422 | `required` / `string` | Échec de validation de `params.sessionId`, chaîne obligatoire (VineJS). Les détails de validation indiquent le champ et la règle ; ce n’est pas une erreur d’authentification. |\n\nLa représentation des erreurs dépend du mode du serveur ; les codes ci-dessus sont les codes applicatifs, pas une enveloppe JSON garantie.\n"
+			},
+			{
+				"model": "http_request",
+				"id": "rq_mLCG6g83vN",
+				"workspaceId": "wk_EPvUoXDqMn",
+				"folderId": "fl_p3rnauN9BJ",
+				"name": "Delete other sessions",
+				"method": "DELETE",
+				"url": "${[ BASE_URL ]}/frontend/profile/sessions/others",
+				"authentication": {},
+				"authenticationType": null,
+				"body": {},
+				"bodyType": null,
+				"headers": [],
+				"urlParameters": [],
+				"sortPriority": 2.0,
+				"settingSendCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"settingStoreCookies": {
+					"enabled": false,
+					"value": true
+				},
+				"description": "# Supprimer les autres sessions de l’utilisateur connecté\nDELETE /frontend/profile/sessions/others — requiert le cookie de session frontend obtenu après connexion ; pas de bearer token. Réutiliser le cookie jar partagé. Aucun corps ni paramètre requis.\n\n> ATTENTION — Action destructive : invalide toutes les autres sessions de l’utilisateur connecté et déconnecte les clients qui les utilisent. La session courante est conservée. Ne pas exécuter tout le dossier Sessions sans avoir choisi les suppressions voulues.\n\n## Utilisation et portée\nExécuter **List** pour identifier la session courante (`isCurrent: true`) et les autres sessions avant l’envoi. Seules les sessions taguées avec l’identifiant de l’utilisateur connecté sont concernées, à l’exception de la session effectuant la requête. Les sessions des autres utilisateurs ne sont pas affectées.\n\n## Succès\n204 No Content, sans corps, même s’il n’existe aucune autre session à supprimer. La session courante reste utilisable.\n\n## Erreurs\n| HTTP | Code | Condition / message |\n| --- | --- | --- |\n| 401 | E_UNAUTHENTICATED | Session absente, expirée ou invalide : `You must be authenticated to access this resource.` |\n| 429 | E_TOO_MANY_REQUESTS | Limiteur global par IP, hors test : 200 requêtes/minute, blocage d’une minute. `Too many requests. Please try again later.` |\n\nLa représentation des erreurs dépend du mode du serveur ; les codes ci-dessus sont les codes applicatifs, pas une enveloppe JSON garantie.\n"
 			},
 			{
 				"model": "http_request",

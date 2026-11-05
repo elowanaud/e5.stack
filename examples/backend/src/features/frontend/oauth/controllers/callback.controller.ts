@@ -10,7 +10,7 @@ import env from "#start/env";
 export default class OAuthCallbackController {
 	constructor(protected userPresenter: UserPresenter) {}
 
-	async handle({ request, response, ally, auth }: HttpContext) {
+	async handle({ request, response, ally, auth, session }: HttpContext) {
 		const { params } = await request.validateUsing(
 			vine.create({ params: vine.object({ provider: vine.enum(ally.configuredProviderNames()) }) }),
 		);
@@ -31,6 +31,15 @@ export default class OAuthCallbackController {
 		);
 
 		await auth.use("frontend").login(user);
+
+		if (session.supportsTagging()) {
+			await session.tag(String(user.id));
+			session.put("device", {
+				userAgent: request.header("user-agent"),
+				ip: request.ip(),
+				loggedInAt: new Date().toISOString(),
+			});
+		}
 
 		return response.redirect(`${env.get("FRONTEND_URL")}/login?oauth_state=success`);
 	}
