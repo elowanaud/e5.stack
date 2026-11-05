@@ -9,7 +9,7 @@ export default class extends BaseSchema {
 
 			table.string("name", 254).notNullable();
 			table.string("email", 254).notNullable().unique();
-			table.string("password", 32).notNullable();
+			table.string("password", 254).notNullable();
 
 			table.timestamps(true, true);
 		});
