@@ -1,11 +1,11 @@
 {
 	"components.pages.not-found": {
 		"title": "404 - Page Introuvable",
-		"descritpion": "La page que vous recherchez n'existe pas.",
+		"description": "La page que vous recherchez n'existe pas.",
 		"back": "Retourner à l'accueil"
 	},
 
-	"componoent.pages.unexpected": {
+	"components.pages.unexpected": {
 		"title": "500 - Erreur Inattendue",
 		"description": "Une erreur inattendue est survenue.",
 		"retry": "Réessayer"

@@ -1,19 +1,19 @@
 import { ThemeProvider } from "next-themes";
 import type { PropsWithChildren } from "react";
 
-import { ToastProvider } from "@workspace/ui-react/components/toast";
-import { Tooltip } from "@workspace/ui-react/components/tooltip";
+import { Toaster } from "@workspace/ui/components/toast";
+import { TooltipProvider } from "@workspace/ui/components/tooltip";
 
 import { TanstackDevtoolsProvider } from "#/providers/tanstack-devtools";
 
 export function Providers({ children }: PropsWithChildren) {
 	return (
 		<ThemeProvider disableTransitionOnChange>
-			<Tooltip.Provider>
+			<TooltipProvider>
 				{children}
 				<TanstackDevtoolsProvider />
-				<ToastProvider />
-			</Tooltip.Provider>
+				<Toaster />
+			</TooltipProvider>
 		</ThemeProvider>
 	);
 }

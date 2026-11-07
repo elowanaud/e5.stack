@@ -13,6 +13,7 @@ export default defineConfig({
 		validators: "src/validators",
 		views: "src/views",
 		policies: "src/policies",
+		transformers: "src/transformers",
 	},
 
 	experimental: {},
@@ -45,25 +46,25 @@ export default defineConfig({
 		() => import("@adonisjs/queue/queue_provider"),
 		() => import("@adonisjs/bouncer/bouncer_provider"),
 		() => import("@adonisjs/drive/drive_provider"),
+		() => import("#providers/api_provider"),
 	],
 
 	preloads: [
 		() => import("#start/routes"),
 		() => import("#start/kernel"),
-		() => import("#start/view"),
 		() => import("#start/validator"),
 	],
 
 	tests: {
 		suites: [
 			{
-				files: ["./tests/**/*.unit.spec.{ts,js}"],
+				files: ["tests/unit/**/*.spec.{ts,js}"],
 				name: "unit",
 				timeout: 2000,
 			},
 			{
-				files: ["./tests/**/*.e2e.spec.{ts,js}"],
-				name: "e2e",
+				files: ["tests/functional/**/*.spec.{ts,js}"],
+				name: "functional",
 				timeout: 30000,
 			},
 		],
@@ -92,14 +93,16 @@ export default defineConfig({
 					glob: ["**/*.listener.{ts,js}"],
 				},
 				transformers: {
-					enabled: false,
+					enabled: true,
+					source: "src",
+					importAlias: "#src",
+					glob: ["**/*.transformer.{ts,js}"],
 				},
 				manifest: {
 					enabled: true,
 				},
 			}),
 			generateRegistry(),
-			() => import("#hooks/generate_data_type.hook"),
 		],
 	},
 });

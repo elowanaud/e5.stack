@@ -1,0 +1,16 @@
+{
+  "version": "1.0.1",
+  "organization": "Independent community contributors",
+  "date": "November 2026",
+  "abstract": "Independent community guidance for AdonisJS v7 applications, designed for AI agents and developers. Contains 72 self-contained rules across 8 prioritized categories: security and trust boundaries, data integrity and queries, HTTP boundaries and lifecycle, runtime validation, framework architecture, production reliability, testing and isolation, and rendering and client contracts. Rules include rationale, incorrect and correct examples, compatibility caveats, and direct official references. Ecosystem packages are independently versioned. This guide is not endorsed by the AdonisJS team.",
+  "references": [
+    "https://docs.adonisjs.com",
+    "https://lucid.adonisjs.com",
+    "https://vinejs.dev",
+    "https://edgejs.dev",
+    "https://japa.dev",
+    "https://bentocache.dev",
+    "https://flydrive.dev",
+    "https://verrou.dev"
+  ]
+}

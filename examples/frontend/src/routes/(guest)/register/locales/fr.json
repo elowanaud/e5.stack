@@ -1,8 +1,0 @@
-{
-	"routes.(guest).register": {
-		"title": "Créez votre compte pour commencer",
-		"separator": "ou",
-		"login": "Déjà un compte ? <action>Se connecter</action>",
-		"legal": "En vous inscrivant, vous acceptez nos <terms>conditions d’utilisation</terms> et notre <privacy>politique de confidentialité</privacy>."
-	}
-}

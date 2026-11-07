@@ -1,7 +1,0 @@
-{
-	"routes.(guest).forgot-password": {
-		"title": "Retrouvez l’accès à votre compte",
-		"description": "Recevez un lien par e-mail pour changer votre mot de passe.",
-		"login": "Se connecter"
-	}
-}

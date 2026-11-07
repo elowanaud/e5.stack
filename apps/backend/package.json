@@ -4,7 +4,8 @@
 	"type": "module",
 	"exports": {
 		"./registry": "./.adonisjs/client/registry/index.ts",
-		"./data": "./.adonisjs/client/data.d.ts"
+		"./data": "./.adonisjs/client/data.d.ts",
+		"./constants/*": "./src/constants/*.ts"
 	},
 	"scripts": {
 		"start": "node bin/server.js",
@@ -14,7 +15,7 @@
 		"worker": "node ace queue:work",
 		"test": "node ace test",
 		"test:unit": "node ace test unit",
-		"test:e2e": "node ace test e2e",
+		"test:e2e": "node ace test functional",
 		"typecheck": "tsc --noEmit"
 	},
 	"portless": {
@@ -23,21 +24,25 @@
 	},
 	"imports": {
 		"#config/*": "./config/*.js",
+		"#constants/*": "./src/constants/*.js",
 		"#controllers/*": "./src/controllers/*.js",
 		"#database/*": "./database/*.js",
 		"#exceptions/*": "./src/exceptions/*.js",
 		"#features/*": "./src/features/*.js",
 		"#generated/*": "./.adonisjs/server/*.js",
-		"#validators/*": "./src/validators/*.js",
-		"#middlewares/*": "./src/middlewares/*.js",
-		"#policies/*": "./src/policies/*.js",
-		"#models/*": "./src/models/*.js",
-		"#presenters/*": "./src/presenters/*.js",
+		"#helpers/*": "./src/helpers/*.js",
 		"#hooks/*": "./hooks/*.js",
+		"#middlewares/*": "./src/middlewares/*.js",
+		"#models/*": "./src/models/*.js",
+		"#policies/*": "./src/policies/*.js",
+		"#providers/*": "./providers/*.js",
 		"#services/*": "./src/services/*.js",
 		"#src/*": "./src/*.js",
 		"#start/*": "./start/*.js",
-		"#tests/*": "./tests/*.js"
+		"#tests/*": "./tests/*.js",
+		"#transformers/*": "./src/transformers/*.js",
+		"#utils/*": "./src/utils/*.js",
+		"#validators/*": "./src/validators/*.js"
 	},
 	"dependencies": {
 		"@adonisjs/auth": "10.1.0",
@@ -51,13 +56,12 @@
 		"@adonisjs/queue": "0.7.0",
 		"@adonisjs/redis": "11.0.0",
 		"@adonisjs/session": "8.3.0",
-		"@aws-sdk/client-s3": "3.1159.0",
-		"@aws-sdk/s3-request-presigner": "3.1159.0",
-		"@sentry/node": "11.10.0",
+		"@aws-sdk/client-s3": "3.1164.0",
+		"@aws-sdk/s3-request-presigner": "3.1164.0",
+		"@sentry/node": "11.11.0",
 		"@tuyau/core": "1.3.0",
 		"@tuyau/superjson": "1.0.0",
 		"@vinejs/vine": "4.4.0",
-		"@workspace/ui-theme": "workspace:*",
 		"edge.js": "6.5.1",
 		"luxon": "3.7.2",
 		"mjml": "5.4.1",
@@ -71,11 +75,11 @@
 		"@japa/assert": "4.2.0",
 		"@japa/plugin-adonisjs": "5.2.0",
 		"@japa/runner": "5.4.0",
-		"@poppinss/ts-exec": "1.5.1",
+		"@poppinss/ts-exec": "1.5.2",
 		"@types/luxon": "3.7.6",
 		"@types/node": "24",
 		"@workspace/adonis-mail-browser-transport": "workspace:*",
-		"hot-hook": "1.0.0",
+		"hot-hook": "1.1.0",
 		"pino-pretty": "13.2.0",
 		"typescript": "7.0.2"
 	}

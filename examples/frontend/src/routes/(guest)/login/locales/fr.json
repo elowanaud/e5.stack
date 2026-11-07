@@ -1,8 +1,0 @@
-{
-	"routes.(guest).login": {
-		"title": "Bienvenue, connectez-vous",
-		"separator": "ou",
-		"signup": "Pas encore de compte ? <action>Créer un compte</action>",
-		"legal": "En vous connectant, vous acceptez nos <terms>conditions d’utilisation</terms> et notre <privacy>politique de confidentialité</privacy>."
-	}
-}

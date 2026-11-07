@@ -3,8 +3,9 @@ import "#/libs/sentry";
 import type { QueryClient } from "@tanstack/react-query";
 import { createRootRouteWithContext, HeadContent, Scripts } from "@tanstack/react-router";
 
+import css from "@workspace/ui/globals.css?url";
+
 import { Providers } from "#/providers";
-import "#/styles/globals.css";
 import "#/libs/i18n/config";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
@@ -15,6 +16,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 			{ title: "E.5 Stack" },
 		],
 		links: [
+			{ rel: "stylesheet", href: css },
 			{ rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
 			{ rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
 			{ rel: "icon", href: "/favicon.ico" },
