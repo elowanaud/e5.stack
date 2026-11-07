@@ -82,11 +82,10 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
 	}
 
 	return (
-		<style
-			dangerouslySetInnerHTML={{
-				__html: Object.entries(THEMES)
-					.map(
-						([theme, prefix]) => `
+		<style>
+			{Object.entries(THEMES)
+				.map(
+					([theme, prefix]) => `
 ${prefix} [data-chart=${id}] {
 ${colorConfig
 	.map(([key, itemConfig]) => {
@@ -96,10 +95,9 @@ ${colorConfig
 	.join("\n")}
 }
 `,
-					)
-					.join("\n"),
-			}}
-		/>
+				)
+				.join("\n")}
+		</style>
 	);
 };
 
@@ -180,7 +178,7 @@ function ChartTooltipContent({
 
 						return (
 							<div
-								key={index}
+								key={item.graphicalItemId}
 								className={cn(
 									"[&>svg]:text-muted-foreground flex w-full flex-wrap items-stretch gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5",
 									indicator === "dot" && "items-center",
@@ -272,13 +270,13 @@ function ChartLegendContent({
 		>
 			{payload
 				.filter((item) => item.type !== "none")
-				.map((item, index) => {
+				.map((item) => {
 					const key = `${nameKey ?? item.dataKey ?? "value"}`;
 					const itemConfig = getPayloadConfigFromPayload(config, item, key);
 
 					return (
 						<div
-							key={index}
+							key={getLegendItemKey(item)}
 							className={cn(
 								"[&>svg]:text-muted-foreground flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3",
 							)}
@@ -299,6 +297,26 @@ function ChartLegendContent({
 				})}
 		</div>
 	);
+}
+
+// Recharts also accepts function data keys; their source text is not a unique identity.
+const legendDataKeyIds = new WeakMap<(data: unknown) => unknown, number>();
+let nextLegendDataKeyId = 0;
+
+function getLegendItemKey(item: RechartsPrimitive.LegendPayload) {
+	const { dataKey, value } = item;
+
+	if (typeof dataKey !== "function") {
+		return JSON.stringify([dataKey, value]);
+	}
+
+	let id = legendDataKeyIds.get(dataKey);
+	if (id === undefined) {
+		id = nextLegendDataKeyId++;
+		legendDataKeyIds.set(dataKey, id);
+	}
+
+	return JSON.stringify(["function", id, value]);
 }
 
 function getPayloadConfigFromPayload(config: ChartConfig, payload: unknown, key: string) {

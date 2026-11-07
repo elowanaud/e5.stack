@@ -28,6 +28,7 @@ function ButtonGroup({
 	...props
 }: React.ComponentProps<"div"> & VariantProps<typeof buttonGroupVariants>) {
 	return (
+		// biome-ignore lint/a11y/useSemanticElements: This groups actions (including links), not form fields; fieldset would change the public div/ref contract.
 		<div
 			role="group"
 			data-slot="button-group"

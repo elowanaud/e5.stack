@@ -145,6 +145,7 @@ function CodeBlockContent({
 			data-wrap={wrap || undefined}
 			data-numbered={lineNumbers || undefined}
 			dir="ltr"
+			// biome-ignore lint/a11y/noNoninteractiveTabindex: The scrollable code region must be keyboard-focusable for scrolling.
 			tabIndex={0}
 			style={{ counterReset: `line ${startLine - 1}`, ...style }}
 			className={cn(
@@ -161,7 +162,10 @@ function CodeBlockContent({
 					? children
 							.replace(/\n$/, "")
 							.split("\n")
-							.map((line, index) => <CodeBlockLine key={index}>{line}</CodeBlockLine>)
+							.map((line, index) => (
+								// biome-ignore lint/suspicious/noArrayIndexKey: Plain-text lines have positional identity, may repeat, and hold no state.
+								<CodeBlockLine key={index}>{line}</CodeBlockLine>
+							))
 					: children}
 			</code>
 		</pre>

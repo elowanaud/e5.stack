@@ -10,6 +10,7 @@ import { Textarea } from "@workspace/ui/components/textarea";
 
 function InputGroup({ className, ...props }: React.ComponentProps<"div">) {
 	return (
+		// biome-ignore lint/a11y/useSemanticElements: This div groups an input with adornments/actions; fieldset would alter layout and the public div/ref contract.
 		<div
 			data-slot="input-group"
 			role="group"
@@ -47,8 +48,9 @@ function InputGroupAddon({
 	...props
 }: React.ComponentProps<"div"> & VariantProps<typeof inputGroupAddonVariants>) {
 	return (
+		// biome-ignore lint/a11y/useKeyWithClickEvents: Pointer shortcut to the already keyboard-focusable control; the addon must not add a tab stop.
+		// biome-ignore lint/a11y/noStaticElementInteractions: This noninteractive adornment only redirects pointer focus to the control; nested buttons retain their own behavior.
 		<div
-			role="group"
 			data-slot="input-group-addon"
 			data-align={align}
 			className={cn(inputGroupAddonVariants({ align }), className)}
@@ -56,7 +58,9 @@ function InputGroupAddon({
 				if ((e.target as HTMLElement).closest("button")) {
 					return;
 				}
-				e.currentTarget.parentElement?.querySelector("input")?.focus();
+				e.currentTarget.parentElement
+					?.querySelector<HTMLInputElement | HTMLTextAreaElement>("input, textarea")
+					?.focus();
 			}}
 			{...props}
 		/>

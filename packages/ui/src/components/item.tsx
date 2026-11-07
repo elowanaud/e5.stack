@@ -7,9 +7,9 @@ import type * as React from "react";
 import { Separator } from "@workspace/ui/components/separator";
 
 function ItemGroup({ className, ...props }: React.ComponentProps<"div">) {
+	// Items can be standalone links and separators; this layout wrapper does not impose list semantics.
 	return (
 		<div
-			role="list"
 			data-slot="item-group"
 			className={cn(
 				"group/item-group flex w-full flex-col gap-4 has-data-[size=sm]:gap-2.5 has-data-[size=xs]:gap-2",

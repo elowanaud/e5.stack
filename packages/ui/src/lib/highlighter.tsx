@@ -93,6 +93,7 @@ export async function loadHighlighter(language: string) {
 				lines: tokens.map((line) =>
 					line.map((token, index) => (
 						<span
+							// biome-ignore lint/suspicious/noArrayIndexKey: Tokens are stateless positions in an immutable highlight result and can have identical content.
 							key={index}
 							style={token.htmlStyle as React.CSSProperties}
 							className="text-(--shiki-light) dark:text-(--shiki-dark)"
