@@ -12,6 +12,7 @@
 		"build": "node ace build",
 		"dev": "portless",
 		"dev:app": "node ace serve --hmr",
+		"codegen": "node ace codegen",
 		"worker": "node ace queue:work",
 		"test": "node ace test",
 		"test:unit": "node ace test unit",

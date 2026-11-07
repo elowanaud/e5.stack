@@ -1,7 +1,7 @@
 import * as Sentry from "@sentry/tanstackstart-react";
 
 Sentry.init({
-	enabled: import.meta.env.VITE_SENTRY_ENABLED,
+	enabled: import.meta.env.VITE_SENTRY_ENABLED === "true",
 	environment: import.meta.env.VITE_SENTRY_ENVIRONMENT,
 	dsn: import.meta.env.VITE_SENTRY_DSN,
 

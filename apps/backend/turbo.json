@@ -6,6 +6,14 @@
 			"dependsOn": ["^build"],
 			"outputs": ["build/**"]
 		},
+		"codegen": {
+			"cache": false,
+			"outputs": [".adonisjs/**"]
+		},
+		"typecheck": {
+			"dependsOn": ["codegen"],
+			"cache": false
+		},
 		"dev": {
 			"cache": false,
 			"persistent": true,
