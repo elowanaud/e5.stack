@@ -4,11 +4,22 @@
 	"tasks": {
 		"build": {
 			"outputs": ["dist/**"],
-			"inputs": ["$TURBO_DEFAULT$", ".env", ".env.*"]
+			"inputs": ["$TURBO_DEFAULT$", ".env", ".env.*"],
+			"env": ["VITE_*"]
 		},
 		"typecheck": {
 			"dependsOn": ["@workspace/backend#codegen"],
 			"cache": false
+		},
+		"test": {
+			"env": ["CI"]
+		},
+		"test:unit": {
+			"env": ["CI"]
+		},
+		"test:unit:watch": {
+			"cache": false,
+			"persistent": true
 		}
 	}
 }

@@ -7,7 +7,7 @@ concurrency:
 
 env:
   NODE_VERSION: 24
-  PNPM_VERSION: 10.34.5
+  PNPM_VERSION: 12.18.0
   TURBO_TELEMETRY_DISABLED: 1
   TURBO_SCM_BASE: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
 
