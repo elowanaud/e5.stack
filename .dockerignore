@@ -1,0 +1,22 @@
+# Local environment files must never enter the build context.
+**/.env
+**/.env.*
+!**/.env.example
+
+# Repository metadata and local dependency installations.
+**/.git
+**/node_modules
+
+# Generated output and local caches. Keep nested source assets such as i18n/build.
+apps/*/build
+apps/*/dist
+packages/*/build
+packages/*/dist
+**/.output
+**/.turbo
+**/.tanstack
+
+# Local runtime data and operating-system files.
+**/storage
+**/tmp
+**/.DS_Store
